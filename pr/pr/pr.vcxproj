@@ -18,6 +18,36 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\Audio.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DirectXDevice.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\Draw2DTex_Source.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawFont.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawTexture.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\GameL_Main.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\HitBoxManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\MultiThread.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneObjManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SetWindow.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\UserData.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\WinInputs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameHead.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\Audio.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DirectXDevice.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawFont.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawTexture.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\HitBoxManager.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\MultiThread.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneManager.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneObjManager.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SetWindow.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\UserData.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\WinInputs.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\main.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,9 +168,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="ソース.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

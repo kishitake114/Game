@@ -15,8 +15,85 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ソース.cpp">
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\Audio.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DirectXDevice.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\Draw2DTex_Source.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawFont.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawTexture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\GameL_Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\HitBoxManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\MultiThread.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneObjManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SetWindow.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\UserData.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\WinInputs.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\Audio.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DirectXDevice.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawFont.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\DrawTexture.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\HitBoxManager.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\MultiThread.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneManager.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SceneObjManager.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\SetWindow.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\UserData.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameL\WinInputs.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\main.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\ゲーム開発\STG\指南書1\２Ｄライブラリ\GameHead.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
