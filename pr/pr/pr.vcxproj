@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{83e871e3-3977-47b4-b85d-1fabdf03e258}</ProjectGuid>
-    <RootNamespace>pieceroad</RootNamespace>
+    <ProjectGuid>{890fe2fb-ee15-41bd-9c39-c714124a4fae}</ProjectGuid>
+    <RootNamespace>pr</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
