@@ -15,87 +15,84 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\Audio.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\Audio.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\DirectXDevice.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DirectXDevice.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\Draw2DTex_Source.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\Draw2DTex_Source.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\DrawFont.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawFont.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\DrawTexture.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawTexture.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\GameL_Main.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\GameL_Main.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\HitBoxManager.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\HitBoxManager.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\MultiThread.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\MultiThread.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\SceneManager.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneManager.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\SceneObjManager.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneObjManager.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\SetWindow.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SetWindow.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\UserData.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\UserData.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\WinInputs.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\WinInputs.cpp">
+      <Filter>リソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\Audio.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\Audio.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\DirectXDevice.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DirectXDevice.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\DrawFont.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawFont.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\DrawTexture.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawTexture.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\GameHead.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\HitBoxManager.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\HitBoxManager.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\MultiThread.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\MultiThread.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneManager.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\SceneManager.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneObjManager.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\SceneObjManager.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SetWindow.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\SetWindow.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\UserData.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\UserData.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\WinInputs.h">
+      <Filter>リソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\WinInputs.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameHead.h">
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameHead.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\main.h">
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\main.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

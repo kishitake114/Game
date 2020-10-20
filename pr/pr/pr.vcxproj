@@ -19,35 +19,34 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\Audio.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\DirectXDevice.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\Draw2DTex_Source.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\DrawFont.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\DrawTexture.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\GameL_Main.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\HitBoxManager.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\MultiThread.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\SceneManager.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\SceneObjManager.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\SetWindow.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\UserData.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Desktop\GameL\WinInputs.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\Audio.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DirectXDevice.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\Draw2DTex_Source.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawFont.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawTexture.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\GameL_Main.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\HitBoxManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\MultiThread.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneObjManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SetWindow.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\UserData.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\WinInputs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameHead.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\Audio.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\DirectXDevice.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\DrawFont.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\DrawTexture.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\GameHead.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\HitBoxManager.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\MultiThread.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\SceneManager.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\SceneObjManager.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\SetWindow.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\UserData.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\GameL\WinInputs.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Desktop\main.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameHead.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\Audio.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DirectXDevice.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawFont.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\DrawTexture.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\HitBoxManager.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\MultiThread.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneManager.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SceneObjManager.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\SetWindow.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\UserData.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\GameL\WinInputs.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Desktop\a\pr\pr\main.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
