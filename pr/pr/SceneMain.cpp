@@ -24,7 +24,7 @@ CSceneMain::~CSceneMain()
 //ƒQ[ƒ€ƒƒCƒ“‰Šú‰»
 void CSceneMain::InitScene()
 {
-	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
+	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);

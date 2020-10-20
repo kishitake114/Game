@@ -95,7 +95,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPTSTR szCmdLi
 
 	//‰ŠúƒV[ƒ““Ç‚İ‚İ
 	#ifdef SET_GAME_START
-		CSceneManager::SetScene(new SET_GAME_START() );
+		CSceneManager::SetScene(new SET_GAME_START ());
 	#else
 		CSceneManager::SetScene(nullptr);
 	#endif

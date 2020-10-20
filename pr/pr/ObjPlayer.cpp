@@ -24,13 +24,13 @@ void CObjPlayer::Draw()
 
 	src.m_top     = 0.0f;
 	src.m_left    = 0.0f;
-	src.m_right   = 32.0f;
-	src.m_bottom   = 32.0f;
+	src.m_right   = 45.0f;
+	src.m_bottom   = 45.0f;
 
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 32.0f;
-	src.m_bottom = 32.0f;
+	dst.m_top = 0.0f;
+	dst.m_left = 0.0f;
+	dst.m_right = 45.0f;
+	dst.m_bottom = 45.0f;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
