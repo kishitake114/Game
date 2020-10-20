@@ -5,20 +5,15 @@
 using namespace GameL;
 
 //オブジェクト：背景
-class GameClera:public 
+class CObGameClear:public CObj
 {
-public:
-	GameClera:pu();
-	~GameClera:pu();
+public :
+	CObGameClear () {};
+	~CObGameClear () {};
+	void Init();//イニシャライズ
+	void Action();//アクション
+	void Draw();//ドロー
 
 private:
 
 };
-
-GameClera:pu::GameClera:pu()
-{
-}
-
-GameClera:pu::~GameClera:pu()
-{
-}
