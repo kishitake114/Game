@@ -4,10 +4,12 @@
 
 //使用するヘッダー(GameL)
 #include "GameL\DrawTexture.h"
+#include "GameL\SceneObjManager.h"
 
 //使用するヘッダー
 #include "SceneMain.h"
 #include "GameHead.h"
+#include "Objplayer.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -23,6 +25,9 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
+
+	CObjPlayer* CObj = new CObjPlayer();
+	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 }
 
 //ゲームメイン実行中
