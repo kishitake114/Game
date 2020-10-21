@@ -13,4 +13,6 @@ class CObjPlayer :public CObj
 		void Init();
 		void Action();
 		void Draw();
+	private:
+
 };
