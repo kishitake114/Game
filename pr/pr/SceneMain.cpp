@@ -5,6 +5,7 @@
 //使用するヘッダー(GameL)
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
+#include "GameL/UserData.h"
 
 //使用するヘッダー
 #include "SceneMain.h"
@@ -28,6 +29,11 @@ void CSceneMain::InitScene()
 
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
+
+	//外部データの読み込み（ステージ情報）
+	unique_ptr<wchar_t> p; //ステージ情報ポインター
+	int size;			   //ステージ情報大きさ
+	p = Save::ExternalDataOpen(L"Book1.csv", &size);//外部データ読み込み
 }
 
 //ゲームメイン実行中
