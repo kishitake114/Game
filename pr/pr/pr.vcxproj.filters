@@ -15,10 +15,18 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
-    <ClCompile Include="ObjPlayer.cpp" />
-    <ClCompile Include="SceneMain.cpp" />
-    <ClCompile Include="SceneTitle.cpp" />
-    <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="ObjPlayer.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameClear.h" />
@@ -35,10 +43,18 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="ObjPlayer.h" />
-    <ClInclude Include="SceneMain.h" />
-    <ClInclude Include="SceneTitle.h" />
-    <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="ObjPlayer.h">
+      <Filter>自作</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>自作</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain.h">
+      <Filter>自作</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>自作</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
