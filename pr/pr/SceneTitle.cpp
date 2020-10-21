@@ -7,7 +7,7 @@
 #include "GameL\SceneObjManager.h"
 
 //使用するヘッダー
-#include "SceneMain.h"
+#include "SceneTitle.h"
 #include "GameHead.h"
 
 //コンストラクタ
@@ -30,6 +30,6 @@ void CSceneTitle::InitScene()
 }
 
 //ゲームメイン実行中
-void CSceneMain::Scene()
+void CSceneTitle::Scene()
 {
 }
