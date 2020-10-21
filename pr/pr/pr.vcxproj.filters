@@ -40,4 +40,9 @@
     <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="ObjTitle.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="自作">
+      <UniqueIdentifier>{6d4f75ce-456a-458f-9ead-3fc43b66f8d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>
