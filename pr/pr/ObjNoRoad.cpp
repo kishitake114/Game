@@ -19,9 +19,10 @@ void CObjNoRoad::Action()
 //ドロー
 void CObjNoRoad::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	//表示：プレイヤー
+	//表示：通行不可
+
+	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
 	RECT_F dst;
 
