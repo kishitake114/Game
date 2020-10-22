@@ -21,7 +21,7 @@ void CObjGameOver::Action()
 }
 
 //ÉhÉçÅ[
-void ObjGameOver::Draw()
+void CObjGameOver::Draw()
 {
 
 }
