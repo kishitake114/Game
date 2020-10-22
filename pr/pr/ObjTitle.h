@@ -15,4 +15,6 @@ public:
 	void Draw();//ƒhƒ[
 
 private:
+	float m_x;
+	float m_y;
 };
