@@ -33,6 +33,9 @@
     <ClCompile Include="ObjNoRoad.cpp">
       <Filter>自作</Filter>
     </ClCompile>
+    <ClCompile Include="ObjRoad.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -61,6 +64,13 @@
       <Filter>自作</Filter>
     </ClInclude>
     <ClInclude Include="GameClear.h">
+      <Filter>自作</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h" />
+    <ClInclude Include="ObjNoRoad.h">
+      <Filter>自作</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRoad.h">
       <Filter>自作</Filter>
     </ClInclude>
   </ItemGroup>
