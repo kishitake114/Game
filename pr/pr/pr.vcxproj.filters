@@ -29,6 +29,10 @@
     <ClCompile Include="GameClear.cpp">
       <Filter>自作</Filter>
     </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp" />
+    <ClCompile Include="ObjNoRoad.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
