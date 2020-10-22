@@ -33,3 +33,6 @@ void CSceneGameOver::InitScene()
 
 //実行中メソッド
 void CSceneGameOver::Scene()
+{
+
+}
