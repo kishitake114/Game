@@ -26,9 +26,6 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>自作</Filter>
     </ClCompile>
-    <ClCompile Include="GameClear.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -54,9 +51,6 @@
       <Filter>自作</Filter>
     </ClInclude>
     <ClInclude Include="SceneTitle.h">
-      <Filter>自作</Filter>
-    </ClInclude>
-    <ClInclude Include="GameClear.h">
       <Filter>自作</Filter>
     </ClInclude>
   </ItemGroup>
