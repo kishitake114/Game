@@ -23,7 +23,7 @@ CSceneTitle::~CSceneTitle()
 //ƒQ[ƒ€ƒƒCƒ“‰Šú‰»
 void CSceneTitle::InitScene()
 {
-	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_512);
+	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
 	CObjTitle* CObj = new CObjTitle();
 	Objs::InsertObj(CObj, OBJ_TITLE, 1);
