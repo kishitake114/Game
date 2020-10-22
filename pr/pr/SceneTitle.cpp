@@ -24,7 +24,7 @@ CSceneTitle::~CSceneTitle()
 //ゲームメイン初期化
 void CSceneTitle::InitScene()
 {
-	Font::SetStrTex(L"Enterキーで操作・ルール説明へ");
+	Font::SetStrTex(L"左クリックで操作・ルール説明へ");
 
 	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
