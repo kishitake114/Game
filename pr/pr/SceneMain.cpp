@@ -11,6 +11,7 @@
 #include "SceneMain.h"
 #include "GameHead.h"
 #include "Objplayer.h"
+#include "Objroad.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -29,6 +30,9 @@ void CSceneMain::InitScene()
 
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
+
+	CObjRoad* CObj2 = new CObjRoad();
+	Objs::InsertObj(CObj2, OBJ_ROAD, 1);
 
 	//外部データの読み込み（ステージ情報）
 	unique_ptr<wchar_t> p; //ステージ情報ポインター
