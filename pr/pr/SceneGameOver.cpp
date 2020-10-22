@@ -34,5 +34,11 @@ void CSceneGameOver::InitScene()
 //実行中メソッド
 void CSceneGameOver::Scene()
 {
+	//出力させる文字のグラフィックを作成
+	Font::SetStrTex(L"GAME OVER");
+	Font::SetStrTex(L"タイトル画面へ(Enter)");
+
+	//ゲームオーバーオブジェクト作成
+	//CObjGameOver* obj = new CObjGameOver();
 
 }
