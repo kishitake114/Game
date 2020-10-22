@@ -38,6 +38,9 @@ void CSceneMain::InitScene()
 	CObjRoad* CObjR = new CObjRoad();
 	Objs::InsertObj(CObjR, OBJ_ROAD, 1);
 
+	CObjEnemy* CObjE = new CObjEnemy();
+	Objs::InsertObj(CObjE, OBJ_ENEMY, 1);
+
 	//外部データの読み込み（ステージ情報）
 	unique_ptr<wchar_t> p; //ステージ情報ポインター
 	int size;			   //ステージ情報大きさ

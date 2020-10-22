@@ -11,6 +11,7 @@ enum OBJ_NAME
 	OBJ_NO_ROAD,
 	OBJ_ROAD,
 	OBJ_GAME_OVER,
+	OBJ_ENEMY,
 };
 //------------------------------------------------
 
@@ -59,6 +60,7 @@ struct UserData
 #include "ObjNoRoad.h"
 #include "ObjRoad.h"
 #include "ObjGameOver.h"
+#include "ObjEnemy.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

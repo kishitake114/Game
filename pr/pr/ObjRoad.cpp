@@ -31,7 +31,7 @@ void CObjRoad::Draw()
 	src.m_bottom = 125.0f;
 
 	dst.m_top = 0.0f;
-	dst.m_left = 0.0f;
+	dst.m_left = 90.0f;
 	dst.m_right = 135.0f;
 	dst.m_bottom = 45.0f;
 

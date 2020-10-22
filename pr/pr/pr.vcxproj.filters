@@ -64,6 +64,10 @@
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソースファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp" />
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjPlayer.h">
@@ -128,6 +132,10 @@
     </ClInclude>
     <ClInclude Include="GameL\WinInputs.h">
       <Filter>リソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h" />
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>自作</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
