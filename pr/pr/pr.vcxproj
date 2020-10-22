@@ -56,7 +56,7 @@
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjPlayer.h" />
-    <ClInclude Include="ObjRoad.h" />
+    <ClInclude Include="ObjNoRoad.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneMain.h" />

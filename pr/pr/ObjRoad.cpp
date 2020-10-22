@@ -1,22 +1,22 @@
 #include "GameL/DrawTexture.h"
 #include "GameHead.h" 
 
-#include "ObjRoad.h"
+#include "ObjNoRoad.h"
 
 //イニシャライズ
-void CObjRoad::Init()
+void CObjNoRoad::Init()
 {
 
 }
 
 //アクション
-void CObjRoad::Action()
+void CObjNoRoad::Action()
 {
 
 }
 
 //ドロー
-void CObjRoad::Draw()
+void CObjNoRoad::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
