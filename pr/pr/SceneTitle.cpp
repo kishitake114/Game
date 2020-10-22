@@ -5,6 +5,7 @@
 //使用するヘッダー(GameL)
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
+#include "GameL/DrawFont.h"
 
 //使用するヘッダー
 #include "SceneTitle.h"
@@ -23,7 +24,9 @@ CSceneTitle::~CSceneTitle()
 //ゲームメイン初期化
 void CSceneTitle::InitScene()
 {
-	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
+	Font::SetStrTex(L"Enterキーで操作・ルール説明へ");
+
+	Draw::LoadImage(L"Title.png", 1, TEX_SIZE_1024);
 
 	CObjTitle* CObj = new CObjTitle();
 	Objs::InsertObj(CObj, OBJ_TITLE, 1);
