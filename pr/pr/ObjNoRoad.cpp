@@ -1,7 +1,9 @@
-#include "GameL/DrawTexture.h"
-#include "GameHead.h" 
-
+//使用するヘッダー
 #include "ObjNoRoad.h"
+#include "GameL/DrawTexture.h"
+#include "GameL/DrawFont.h"
+#include "GameHead.h" 
+ 
 
 //イニシャライズ
 void CObjNoRoad::Init()
@@ -14,13 +16,12 @@ void CObjNoRoad::Action()
 {
 
 }
-
 //ドロー
 void CObjNoRoad::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	//表示：通行不可
+	//表示：プレイヤー
 	RECT_F src;
 	RECT_F dst;
 
