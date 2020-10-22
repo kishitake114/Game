@@ -26,7 +26,7 @@ void CSceneTitle::InitScene()
 {
 	Font::SetStrTex(L"Enterキーで操作・ルール説明へ");
 
-	Draw::LoadImage(L"Title.png", 1, TEX_SIZE_1024);
+	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
 	CObjTitle* CObj = new CObjTitle();
 	Objs::InsertObj(CObj, OBJ_TITLE, 1);
