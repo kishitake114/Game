@@ -131,6 +131,9 @@
     <ClInclude Include="ObjEnemy.h">
       <Filter>自作</Filter>
     </ClInclude>
+    <ClInclude Include="SceneClear.h">
+      <Filter>自作</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
