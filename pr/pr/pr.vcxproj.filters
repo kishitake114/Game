@@ -13,9 +13,6 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>自作</Filter>
     </ClCompile>
-    <ClCompile Include="GameClear.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
     <ClCompile Include="ObjRoad.cpp">
       <Filter>自作</Filter>
     </ClCompile>

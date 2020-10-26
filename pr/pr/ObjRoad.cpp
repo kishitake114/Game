@@ -80,6 +80,14 @@ void CObjRoad::Action()
 
 	//	}
 	//}
+
+	if (mou_x > 600 && mou_x < 660 && mou_y > 40 && mou_y < 55)
+	{
+		if (mou_r == true)
+		{
+			Scene::SetScene(new CSceneClear());
+		}
+	}
 }
 
 //ドロー
@@ -96,10 +104,7 @@ void CObjRoad::Draw()
 	Font::StrDraw(str, 600, 20, 15, c);
 
 	//右クリック
-	if (mou_r == true)
-		Font::StrDraw(L"右=押してる", 600, 40, 20, c);
-	else
-		Font::StrDraw(L"右=押してない", 600, 40, 20, c);
+	Font::StrDraw(L"右=決定", 600, 40, 20, c);
 
 	//左クリック
 	if (mou_l == true)
