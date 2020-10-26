@@ -6,6 +6,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
 #include "GameL/UserData.h"
+#include "GameL/DrawFont.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -29,7 +30,10 @@ CSceneClear::~CSceneClear()
 //初期化メソッド
 void CSceneClear::InitScene()
 {
-	
+	Font::SetStrTex(L"GAME CLEAR!");
+
+	CObjClear* CObj = new CObjClear();
+	Objs::InsertObj(CObj, OBJ_CLEAR, 1);
 }
 
 //実行中メソッド
