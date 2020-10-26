@@ -35,7 +35,6 @@
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
-    <ClCompile Include="ObjNoRoad.cpp" />
     <ClCompile Include="ObjPlayer.cpp" />
     <ClCompile Include="ObjRoad.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
@@ -61,7 +60,6 @@
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjPlayer.h" />
-    <ClInclude Include="ObjNoRoad.h" />
     <ClInclude Include="ObjRoad.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneGameOver.h" />

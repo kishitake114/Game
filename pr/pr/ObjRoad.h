@@ -14,7 +14,7 @@ public:
 	void Action();
 	void Draw();
 private:
-
+	int map[14][14];
 
 
 };

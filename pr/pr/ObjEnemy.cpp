@@ -1,4 +1,5 @@
 #include "ObjEnemy.h"
+#include "ObjRoad.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -7,7 +8,7 @@
 //イニシャライズ
 void CObjEnemy::Init()
 {
-
+	
 }
 
 //アクション
@@ -28,10 +29,11 @@ void CObjEnemy::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 80.0f;
 
-	dst.m_top = 0.0f;
-	dst.m_left = 135.0f;
-	dst.m_right = 180.0f;
-	dst.m_bottom = 45.0f;
+	dst.m_top	 =   0.0f;
+	dst.m_left   = 250.0f;
+	dst.m_right  = 300.0f;
+	dst.m_bottom =  50.0f;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+
 }
