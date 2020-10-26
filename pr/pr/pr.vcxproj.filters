@@ -65,6 +65,9 @@
     <ClCompile Include="ObjEnemy.cpp">
       <Filter>自作</Filter>
     </ClCompile>
+    <ClCompile Include="SceneClear.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjPlayer.h">
