@@ -28,7 +28,7 @@ void CObjClear::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	if (mou_x > 161 && mou_x < 629 && mou_y > 391 && mou_y < 423)
+	if (mou_x > 200 && mou_x < 629 && mou_y > 391 && mou_y < 423)
 	{
 		if (mou_l == true)
 		{
@@ -44,7 +44,7 @@ void CObjClear::Draw()
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	Font::StrDraw(L"GAME CLEAR!", 300, 200, 32, c);
-	Font::StrDraw(L"左クリックでタイトル画面へ", 160, 400, 32, c);
+	Font::StrDraw(L"左クリックでタイトル画面へ", 200, 400, 32, c);
 
 	//表示：タイトル画面
 	RECT_F src;
