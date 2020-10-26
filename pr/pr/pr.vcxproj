@@ -63,6 +63,7 @@
     <ClInclude Include="ObjPlayer.h" />
     <ClInclude Include="ObjRoad.h" />
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneTitle.h" />
