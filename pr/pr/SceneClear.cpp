@@ -29,7 +29,7 @@ CSceneClear::~CSceneClear()
 //初期化メソッド
 void CSceneClear::InitScene()
 {
-
+	
 }
 
 //実行中メソッド
