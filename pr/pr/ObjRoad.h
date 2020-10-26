@@ -15,6 +15,14 @@ public:
 	void Draw();
 private:
 	int map[14][14];
+	float mou_x;  //マウスカーソル：横
+	float mou_y;  //マウスカーソル：縦
+	bool  mou_r;  //マウスボタン：右
+	bool  mou_l;  //マウスボタン：左
+
+	int p_x;
+	int p_y;
+	int p;
 
 
 };
