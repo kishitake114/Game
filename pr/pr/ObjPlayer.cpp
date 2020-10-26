@@ -11,13 +11,14 @@ using namespace GameL;
 //イニシャライズ
 void CObjPlayer::Init()
 {
-
+	p_x = 0.0f;
+	p_y = 0.0f;
 }
 
 //アクション
 void CObjPlayer::Action()
 {
-
+	
 
 }
 

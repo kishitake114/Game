@@ -3,6 +3,7 @@
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
 #include "GameL/WinInputs.h"
+#include "GameL/HitBoxManager.h"
 
 
 //イニシャライズ
@@ -42,6 +43,13 @@ void CObjRoad::Init()
 
 	memcpy(map, mapdata, sizeof(int) * (14 * 14));
 
+		int mem[3][3] =
+		{
+			{0,0,0},
+			{0,0,0},
+			{0,0,0},
+		};
+
 }
 
 //アクション
@@ -64,13 +72,26 @@ void CObjRoad::Action()
 		{
 			if (pxc <= mou_x)
 			{
-				for (int i = 1; i < 4; i++)
+				if (map[10][4] == 0)
 				{
-					for (int j = 1; j < 4; j++)
-					{
-						map[9 + i][3 + j] = map[9 + i][0 + j];
-					}
 
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][1 + j] = map[0][0];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = mem[i][j];
+						}
+					}
 				}
 			}
 		}
@@ -101,6 +122,9 @@ void CObjRoad::Draw()
 
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
+
+
+
 	swprintf_s(str, L"x=%f,y=%f", pxc, pyc);
 	Font::StrDraw(str, 600, 20, 15, c);
 
