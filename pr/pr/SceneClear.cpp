@@ -33,7 +33,7 @@ void CSceneClear::InitScene()
 }
 
 //実行中メソッド
-void CSceneGameOver::Scene()
+void CSceneClear::Scene()
 {
 
 
