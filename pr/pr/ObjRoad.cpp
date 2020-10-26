@@ -21,7 +21,8 @@ void CObjRoad::Init()
 	pxc = 0.0f;
 	pyc = 0.0f;
 
-	time = 0;
+	f_p = false;
+
 //
 //		int mapdata[14][14] =
 //	{
@@ -76,68 +77,98 @@ void CObjRoad::Action()
 
 	if (mou_l == true)
 	{
-		pxc = mou_x;
-		pyc = mou_y;
+		if (f_p == true)
+		{
+			pxc = mou_x;
+			pyc = mou_y;
+
+			f_p = false;
+		}
+	}
+	else
+	{
+		f_p = true;
 	}
 
-		if (map[4][4] == 0)
+	//上、左
+	if (pxc > 40.0f || pxc < 155.0f && pyc>40.0f || pyc < 155.0f)
+	{
+		if (mou_l == true)
 		{
-			if (mou_x>pxc)
+			if (map[1][4] == 0)
 			{
-				if (mou_l == true)
+				for (int i = 0; i < 3; i++)
 				{
-
-					for (int i = 0; i < 3; i++)
+					for (int j = 0; j < 3; j++)
 					{
-						for (int j = 0; j < 3; j++)
-						{
-							mem[i][j] = map[4 + i][1 + j];
-						}
-
-						for (int j = 0; j < 3; j++)
-						{
-							map[4 + i][1 + j] = map[0][0];
-						}
-
-						for (int j = 0; j < 3; j++)
-						{
-							map[4 + i][4 + j] = mem[i][j];
-						}
+						mem[i][j] = map[1 + i][1 + j];
 					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[1 + i][1 + j] = 0;
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[1 + i][4 + j] = mem[i][j];
+					}
+				f_p = false;
 				}
+
 			}
 
-			if (mou_y < pyc)
-			{
-				if (mou_l == true)
-				{
-
-					for (int i = 0; i < 3; i++)
-					{
-						for (int j = 0; j < 3; j++)
-						{
-							mem[i][j] = map[1 + i][4 + i];
-						}
-
-						for (int j = 0; j < 3; j++)
-						{
-							map[1 + i][4 + i] = map[0][0];
-						}
-
-						for (int j = 0; j < 3; j++)
-						{
-							map[4 + i][4 + j] = mem[i][j];
-						}
-					}
-				}
-			}
-		
 		}
 
+	}
+
+	//上、右
+	if (pxc > 40.0f || pxc < 155.0f && pyc>156.0f || pyc < 273.0f)
+	{
+		if (mou_l == true)
+		{
+			if (map[4][4] == 0)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						mem[i][j] = map[1 + i][4 + j];
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[1 + i][4 + j] = 0;
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[4 + i][4 + j] = mem[i][j];
+					}
+				}
+					f_p = false;
+			}
+
+			
+
+		}
+	}
 
 
 
 
+		
+	//下、左
+	if (pxc > 156.0f || pxc < 273.0f && pyc>40.0f || pyc < 155.0f)
+	{
+
+	}
+
+	//下、右
+	if (pxc > 156.0f || pxc < 273.0f && pyc>156.0f || pyc < 273.0f)
+	{
+
+	}
 
 
 	

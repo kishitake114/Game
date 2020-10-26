@@ -27,5 +27,7 @@ private:
 
 	float pxc;
 	float pyc;
-	int time;
+
+	bool f_p;
+
 };
