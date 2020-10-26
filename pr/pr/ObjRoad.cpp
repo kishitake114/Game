@@ -17,6 +17,11 @@ void CObjRoad::Init()
 	p_y = 40;
 	p = 1;
 
+	pxc = 0.0f;
+	pyc = 0.0f;
+
+	time = 0;
+
 		int mapdata[14][14] =
 	{
 {0,0,2,0,0,2,0,0,2,0,0,2,0,0},
@@ -47,39 +52,33 @@ void CObjRoad::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	//while (p)
-	//{
+	if (mou_l == true)
+	{
+		pxc = mou_x;
+		pyc = mou_y;
+	}
+
+	if (mou_x > 80 || mou_x < 120 && mou_x>440 || mou_y < 480)
+	{
+		if (mou_l == true)
+		{
+			if (pxc <= mou_x)
+			{
+				for (int i = 1; i < 4; i++)
+				{
+					for (int j = 1; j < 4; j++)
+					{
+						map[9 + i][3 + j] = map[9 + i][0 + j];
+					}
+
+				}
+			}
+		}
+		
+	}
 
 
-	//	if (mou_x > 37 || mou_x < 510 && mou_y > 41 || mou_y < 509)
-	//	{
-	//		if (mou_l == true)
-	//		{
 
-	//			for (int i = 1; i < 12; i++)
-	//			{
-	//				for (int j = 1; j < 12; j++)
-	//				{
-	//					for (int a = 0; a < 3; a++)
-	//					{
-	//						if (map[i + a][j] == 0)
-	//						{
-	//							for (int b = 0; b < 3; b++)
-	//							{
-	//								map[i + a][j] = map[i][j];
-	//								map[i][j] = 0;
-
-	//							}
-	//						}
-	//					}
-
-	//				}
-	//			}
-
-	//		}
-
-	//	}
-	//}
 }
 
 //ドロー
@@ -92,8 +91,14 @@ void CObjRoad::Draw()
 
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
-	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
+	swprintf_s(str, L"x=%f,y=%f", pxc, pyc);
 	Font::StrDraw(str, 600, 20, 15, c);
+
+	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
+	Font::StrDraw(str, 600, 10, 15, c);
+
+	swprintf_s(str, L"%d", p);
+	Font::StrDraw(str, 600, 160, 20, c);
 
 	//右クリック
 	if (mou_r == true)

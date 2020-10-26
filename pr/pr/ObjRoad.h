@@ -24,5 +24,7 @@ private:
 	int p_y;
 	int p;
 
-
+	float pxc;
+	float pyc;
+	int time;
 };
