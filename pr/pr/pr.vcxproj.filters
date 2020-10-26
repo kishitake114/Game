@@ -137,9 +137,7 @@
     <ClInclude Include="SceneClear.h">
       <Filter>自作</Filter>
     </ClInclude>
-    <ClInclude Include="objClear.h">
-      <Filter>自作</Filter>
-    </ClInclude>
+    <ClInclude Include="ObjClear.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
