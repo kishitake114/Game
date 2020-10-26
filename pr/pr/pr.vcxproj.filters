@@ -68,6 +68,9 @@
     <ClCompile Include="SceneClear.cpp">
       <Filter>自作</Filter>
     </ClCompile>
+    <ClCompile Include="ObjClear.cpp">
+      <Filter>自作</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjPlayer.h">
@@ -135,6 +138,9 @@
       <Filter>自作</Filter>
     </ClInclude>
     <ClInclude Include="SceneClear.h">
+      <Filter>自作</Filter>
+    </ClInclude>
+    <ClInclude Include="objClear.h">
       <Filter>自作</Filter>
     </ClInclude>
   </ItemGroup>

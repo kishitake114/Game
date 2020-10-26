@@ -33,6 +33,7 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
+    <ClCompile Include="ObjClear.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjPlayer.cpp" />
@@ -58,6 +59,7 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="objClear.h" />
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjPlayer.h" />

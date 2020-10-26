@@ -8,6 +8,11 @@ using namespace GameL;
 //シーン：クリア
 class CSceneClear :public CScene
 {
-
+  public :
+	  CSceneClear();
+      ~CSceneClear();
+      void InitScene();//初期化メソッド
+      void Scene();    //実行中メソッド
+private:
 };
 
