@@ -4,16 +4,30 @@
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
 #include "GameL/WinInputs.h" 
+#include "GameL\HitBoxManager.h"
 
 //イニシャライズ
 void CObjEnemy::Init()
 {
 	HP = 2;
+
+	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_PLAYER, OBJ_ENEMY, 1);
+	
 }
 
 //アクション
 void CObjEnemy::Action()
 {
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(p_x, p_y);
+
+
+	//プレイヤーと接触しているかどうかを調べる
+	if ( hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
 
 }
 

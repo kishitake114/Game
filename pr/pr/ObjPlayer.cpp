@@ -4,7 +4,8 @@
 #include "ObjPlayer.h"
 #include "ObjRoad.h"
 #include "GameHead.h" 
-#include "GameL/WinInputs.h" 
+#include "GameL/WinInputs.h"
+#include "GameL\HitBoxManager.h"
 
 
 using namespace GameL;
@@ -15,6 +16,8 @@ void CObjPlayer::Init()
 	p_x = 0.0f;
 	p_y = 0.0f;
 	s_p = false;
+
+	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_PLAYER, OBJ_ENEMY, 1);
 }
 
 //アクション
@@ -55,6 +58,12 @@ void CObjPlayer::Action()
 		
 
 	}
+
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(p_x, p_y);
+
+	
+
 }
 
 //ドロー

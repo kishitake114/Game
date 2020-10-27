@@ -15,5 +15,7 @@ public:
 	void Draw();
 private:
 	int HP;
+	float p_x;
+	float p_y;
 
 };
