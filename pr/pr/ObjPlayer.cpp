@@ -6,6 +6,7 @@
 #include "GameHead.h" 
 #include "GameL/WinInputs.h" 
 
+
 using namespace GameL;
 
 //イニシャライズ

@@ -21,11 +21,9 @@ private:
 	bool  mou_r;  //マウスボタン：右
 	bool  mou_l;  //マウスボタン：左
 
-	int p_x;
-	int p_y;
-	int p;
-
 	float pxc;
 	float pyc;
-	int time;
+
+	bool f_p;
+
 };
