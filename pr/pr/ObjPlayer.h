@@ -15,7 +15,12 @@ class CObjPlayer :public CObj
 		void Action();
 		void Draw();
 	private:
-		float p_x;
-		float p_y;
+		float mou_x;  //マウスカーソル：横
+		float mou_y;  //マウスカーソル：縦
+		bool  mou_r;  //マウスボタン：右
+		bool  mou_l;  //マウスボタン：左
+		float p_x;	  //操作　横（試し）
+		float p_y;	  //操作　縦（試し）
+		bool s_p;
 
 };

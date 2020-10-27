@@ -8,7 +8,7 @@
 //イニシャライズ
 void CObjEnemy::Init()
 {
-	
+	HP = 2;
 }
 
 //アクション
@@ -23,6 +23,12 @@ void CObjEnemy::Draw()
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
 	RECT_F dst;
+
+	//表示：マウスカーソルとボタン
+	wchar_t str[256];
+
+	swprintf_s(str, L"HP %d/2",HP);
+	Font::StrDraw(str, 600, 400, 30, c);
 
 	src.m_top = 50.0f;
 	src.m_left = 0.0f;

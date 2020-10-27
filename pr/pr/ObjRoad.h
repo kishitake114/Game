@@ -21,9 +21,10 @@ private:
 	bool  mou_r;  //マウスボタン：右
 	bool  mou_l;  //マウスボタン：左
 
-	float pxc;
-	float pyc;
+	float pxc;	  //左クリックでその座標xの追加
+	float pyc;	  //左クリックでその座標yの追加
 
-	bool f_p;
+	bool f_p;	  //クリック操作制御
+	bool s_r;	  //ロードのプログラム中止->プレイヤーへ
 
 };

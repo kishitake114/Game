@@ -19,6 +19,8 @@ void CObjRoad::Init()
 
 	f_p = false;
 
+	s_r = true;
+
 //
 //		int mapdata[14][14] =
 //	{
@@ -71,6 +73,7 @@ void CObjRoad::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
+	//左クリックで座標を記録
 	if (mou_l == true)
 	{
 		if (f_p == true)
@@ -84,17 +87,50 @@ void CObjRoad::Action()
 	else
 	{
 		f_p = true;
+
 	}
 
-	//上、左
-	if (mou_x > 40.0f && mou_x < 155.0f && mou_y>40.0f && mou_y < 155.0f)
+	//ロード内のプログラム
+	if(s_r==true)
 	{
-	
-		if (mou_l == true)
+		//右クリックで操作中止
+		if (mou_r == true)
+		{
+			s_r = false;
+		}
+
+		//上、左
+		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>40.0f && mou_y < 155.0f)
 		{
 
-			if (map[1][4] == 0)
+			if (mou_l == true)
 			{
+				//上、左->上、右
+				if (map[1][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[1 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+						map[1 + i][1 + j] = 0;
+						}
+
+					for (int j = 0; j < 3; j++)
+						{
+						map[1 + i][4 + j] = mem[i][j];
+						}
+					}	
+
+				}
+
+				//上、左->下、左
+				if (map[4][1] == 0)
+				{
 					for (int i = 0; i < 3; i++)
 					{
 						for (int j = 0; j < 3; j++)
@@ -109,68 +145,48 @@ void CObjRoad::Action()
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][4 + j] = mem[i][j];
+							map[4 + i][1 + j] = mem[i][j];
 						}
 					}
 
-			}
-
-			if (map[4][1] == 0)
-			{
-				for (int i = 0; i < 3; i++)
-				{
-					for (int j = 0; j < 3; j++)
-					{
-						mem[i][j] = map[1 + i][1 + j];
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[1 + i][1 + j] = 0;
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][1 + j] = mem[i][j];
-					}
 				}
-
 			}
+
+
 		}
 
 
-	}
 
-
-	
 
 	//上、右
-	if (mou_x > 156.0f && mou_x < 273.0f && mou_y>40.0f && mou_y < 155.0f)
-	{
-		if (mou_l == true)
+		if (mou_x > 156.0f && mou_x < 273.0f && mou_y>40.0f && mou_y < 155.0f)
 		{
-			if (map[4][4] == 0)
+			if (mou_l == true)
 			{
-				for (int i = 0; i < 3; i++)
+				//上、右->下、右
+				if (map[4][4] == 0)
 				{
-					for (int j = 0; j < 3; j++)
+					for (int i = 0; i < 3; i++)
 					{
-						mem[i][j] = map[1 + i][4 + j];
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[1 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][4 + j] = mem[i][j];
+						}
 					}
 
-					for (int j = 0; j < 3; j++)
-					{
-						map[1 + i][4 + j] = 0;
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][4 + j] = mem[i][j];
-					}
 				}
-				
-			}
 
+				//上、右->上、左
 			if (map[1][1] == 0)
 			{
 				for (int i = 0; i < 3; i++)
@@ -199,12 +215,13 @@ void CObjRoad::Action()
 
 
 
-		
+
 	//下、左
 	if (mou_x > 40.0f && mou_x < 155.0f && mou_y>156.0f && mou_y < 273.0f)
 	{
 		if (mou_l == true)
 		{
+			//下、左->上、左
 			if (map[1][1] == 0)
 			{
 				for (int i = 0; i < 3; i++)
@@ -226,6 +243,7 @@ void CObjRoad::Action()
 				}
 			}
 
+			//下、左->下、右
 			if (map[4][4] == 0)
 			{
 				for (int i = 0; i < 3; i++)
@@ -254,6 +272,7 @@ void CObjRoad::Action()
 	{
 		if (mou_l == true)
 		{
+			//下、右>下、左
 			if (map[4][1] == 0)
 			{
 				for (int i = 0; i < 3; i++)
@@ -275,7 +294,7 @@ void CObjRoad::Action()
 				}
 
 			}
-
+			//下、右->上、右
 			if (map[1][4] == 0)
 			{
 				for (int i = 0; i < 3; i++)
@@ -297,7 +316,10 @@ void CObjRoad::Action()
 				}
 			}
 		}
+
+
 	}
+}
 
 
 	
