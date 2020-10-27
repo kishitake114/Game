@@ -17,5 +17,6 @@ class CObjPlayer :public CObj
 	private:
 		float p_x;
 		float p_y;
+		bool s_p;
 
 };

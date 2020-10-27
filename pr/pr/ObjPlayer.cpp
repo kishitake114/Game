@@ -13,13 +13,13 @@ void CObjPlayer::Init()
 {
 	p_x = 0.0f;
 	p_y = 0.0f;
+	s_p = false;
 }
 
 //アクション
 void CObjPlayer::Action()
 {
 	
-
 }
 
 //ドロー
