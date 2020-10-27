@@ -40,10 +40,10 @@ void CObjPlayer::Draw()
 	src.m_right   = 45.0f;
 	src.m_bottom  = 45.0f;
 
-	dst.m_top	 = 320.0f;
+	dst.m_top	 = 200.0f;
 	dst.m_left   =   0.0f;
 	dst.m_right  =  40.0f;
-	dst.m_bottom = 360.0f;
+	dst.m_bottom = 240.0f;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
