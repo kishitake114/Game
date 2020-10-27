@@ -34,23 +34,26 @@ void CObjPlayer::Action()
 	{
 		if (Input::GetVKey('W') == true)
 		{
-			p_y -= 1.0f;
+			p_y -= 10.0f;
 		}
 
 		if (Input::GetVKey('A') == true)
 		{
-			p_x -= 1.0f;
+			p_x -= 10.0f;
 		}
 
 		if (Input::GetVKey('D') == true)
 		{
-			p_x += 1.0f;
+			p_x += 10.0f;
 		}
 
 		if (Input::GetVKey('S') == true)
 		{
-			p_y += 1.0f;
+			p_y += 10.0f;
 		}
+
+		
+
 	}
 }
 
@@ -59,7 +62,14 @@ void CObjPlayer::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	
+	//表示：プレイヤー
+	wchar_t str[256];
+
+	if (s_p == true)
+	{
+		Font::StrDraw(L"Player", 600, 40, 20, c);
+		Font::StrDraw(L"操作\n W,A,S,D", 550, 300, 20, c);
+	}
 
 
 	//表示：プレイヤー

@@ -19,6 +19,7 @@ class CObjPlayer :public CObj
 		float mou_y;  //マウスカーソル：縦
 		bool  mou_r;  //マウスボタン：右
 		bool  mou_l;  //マウスボタン：左
+
 		float p_x;	  //操作　横（試し）
 		float p_y;	  //操作　縦（試し）
 		bool s_p;
