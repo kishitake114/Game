@@ -14,5 +14,6 @@ public:
 	void Action();
 	void Draw();
 private:
+	int HP;
 
 };
