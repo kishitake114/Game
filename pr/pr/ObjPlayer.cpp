@@ -20,7 +20,6 @@ void CObjPlayer::Init()
 void CObjPlayer::Action()
 {
 	
-	
 
 }
 
