@@ -352,8 +352,14 @@ void CObjRoad::Draw()
 	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
 	Font::StrDraw(str, 600, 10, 15, c);
 
+
+
 	//右クリック
-	Font::StrDraw(L"右=決定", 600, 40, 20, c);
+	if (s_r == true)
+	{
+		Font::StrDraw(L"Road", 600, 40, 20, c);
+		Font::StrDraw(L"操作\n マウス", 550, 300, 20, c);
+	}
 
 	//左クリック
 	if (mou_l == true)
