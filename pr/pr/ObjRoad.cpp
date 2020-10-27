@@ -14,10 +14,6 @@ void CObjRoad::Init()
 	mou_r = false;
 	mou_l = false;
 
-	p_x = 40;
-	p_y = 40;
-	p = 1;
-
 	pxc = 0.0f;
 	pyc = 0.0f;
 
@@ -91,11 +87,35 @@ void CObjRoad::Action()
 	}
 
 	//上、左
-	if (pxc > 40.0f || pxc < 155.0f && pyc>40.0f || pyc < 155.0f)
+	if (mou_x > 40.0f && mou_x < 155.0f && mou_y>40.0f && mou_y < 155.0f)
 	{
+	
 		if (mou_l == true)
 		{
+
 			if (map[1][4] == 0)
+			{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[1 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][1 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][4 + j] = mem[i][j];
+						}
+					}
+
+			}
+
+			if (map[4][1] == 0)
 			{
 				for (int i = 0; i < 3; i++)
 				{
@@ -111,19 +131,21 @@ void CObjRoad::Action()
 
 					for (int j = 0; j < 3; j++)
 					{
-						map[1 + i][4 + j] = mem[i][j];
+						map[4 + i][1 + j] = mem[i][j];
 					}
-				f_p = false;
 				}
 
 			}
-
 		}
+
 
 	}
 
+
+	
+
 	//上、右
-	if (pxc > 40.0f || pxc < 155.0f && pyc>156.0f || pyc < 273.0f)
+	if (mou_x > 156.0f && mou_x < 273.0f && mou_y>40.0f && mou_y < 155.0f)
 	{
 		if (mou_l == true)
 		{
@@ -146,10 +168,30 @@ void CObjRoad::Action()
 						map[4 + i][4 + j] = mem[i][j];
 					}
 				}
-					f_p = false;
+				
 			}
 
-			
+			if (map[1][1] == 0)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						mem[i][j] = map[1 + i][4 + j];
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[1 + i][4 + j] = 0;
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[1 + i][1 + j] = mem[i][j];
+					}
+				}
+
+			}
 
 		}
 	}
@@ -159,15 +201,102 @@ void CObjRoad::Action()
 
 		
 	//下、左
-	if (pxc > 156.0f || pxc < 273.0f && pyc>40.0f || pyc < 155.0f)
+	if (mou_x > 40.0f && mou_x < 155.0f && mou_y>156.0f && mou_y < 273.0f)
 	{
+		if (mou_l == true)
+		{
+			if (map[1][1] == 0)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						mem[i][j] = map[4 + i][1 + j];
+					}
 
+					for (int j = 0; j < 3; j++)
+					{
+						map[4 + i][1 + j] = 0;
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[1 + i][1 + j] = mem[i][j];
+					}
+				}
+			}
+
+			if (map[4][4] == 0)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						mem[i][j] = map[4 + i][1 + j];
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[4 + i][1 + j] = 0;
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[4 + i][4 + j] = mem[i][j];
+					}
+				}
+			}
+		}
 	}
 
 	//下、右
-	if (pxc > 156.0f || pxc < 273.0f && pyc>156.0f || pyc < 273.0f)
+	if (mou_x > 156.0f && mou_x < 273.0f && mou_y>156.0f && mou_y < 273.0f)
 	{
+		if (mou_l == true)
+		{
+			if (map[4][1] == 0)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						mem[i][j] = map[4 + i][4 + j];
+					}
 
+					for (int j = 0; j < 3; j++)
+					{
+						map[4 + i][4 + j] = 0;
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[4 + i][1 + j] = mem[i][j];
+					}
+				}
+
+			}
+
+			if (map[1][4] == 0)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						mem[i][j] = map[4 + i][4 + j];
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[4 + i][4 + j] = 0;
+					}
+
+					for (int j = 0; j < 3; j++)
+					{
+						map[1 + i][4 + j] = mem[i][j];
+					}
+				}
+			}
+		}
 	}
 
 
@@ -195,16 +324,11 @@ void CObjRoad::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-
-
 	swprintf_s(str, L"x=%f,y=%f", pxc, pyc);
 	Font::StrDraw(str, 600, 20, 15, c);
 
 	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
 	Font::StrDraw(str, 600, 10, 15, c);
-
-	swprintf_s(str, L"%d", p);
-	Font::StrDraw(str, 600, 160, 20, c);
 
 	//右クリック
 	Font::StrDraw(L"右=決定", 600, 40, 20, c);
