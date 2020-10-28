@@ -17,6 +17,9 @@ void CObjPlayer::Init()
 	p_y = 0.0f;
 	s_p = false;
 
+	cs_x = 0.0f;
+	cs_y = 0.0f;
+
 	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_PLAYER, OBJ_ENEMY, 1);
 }
 
@@ -37,24 +40,28 @@ void CObjPlayer::Action()
 	{
 		if (Input::GetVKey('W') == true)
 		{
-			p_y -= 10.0f;
+			p_y -= 10.0f;	
+			cs_x = 95.0f;
 		}
 
 		if (Input::GetVKey('A') == true)
 		{
 			p_x -= 10.0f;
+			cs_x = 140.0f;
 		}
 
 		if (Input::GetVKey('D') == true)
 		{
 			p_x += 10.0f;
+			cs_x = 45.0f;
+	
 		}
 
 		if (Input::GetVKey('S') == true)
 		{
 			p_y += 10.0f;
+			cs_x = 0.0f;
 		}
-
 		
 
 	}
@@ -85,9 +92,9 @@ void CObjPlayer::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top     = 0.0f;
-	src.m_left    = 0.0f;
-	src.m_right   = 45.0f;
+	src.m_top     = 0.0f ;
+	src.m_left    = 0.0f  + cs_x;
+	src.m_right   = 45.0f + cs_x;
 	src.m_bottom  = 45.0f;
 
 	dst.m_top	 = 200.0f + p_y;

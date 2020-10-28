@@ -22,6 +22,10 @@ class CObjPlayer :public CObj
 
 		float p_x;	  //操作　横（試し）
 		float p_y;	  //操作　縦（試し）
+
+		float cs_x;   //画像切り取り用変数
+		float cs_y;
+
 		bool s_p;
 
 };
