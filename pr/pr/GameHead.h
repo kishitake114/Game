@@ -62,6 +62,7 @@ struct UserData
 #include "ObjGameOver.h"
 #include "ObjEnemy.h"
 #include "ObjClear.h"
+#include "ObjRule.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -69,6 +70,7 @@ struct UserData
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
 #include "SceneClear.h"
+#include "SceneRule.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

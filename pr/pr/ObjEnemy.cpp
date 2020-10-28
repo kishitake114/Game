@@ -9,7 +9,7 @@
 //イニシャライズ
 void CObjEnemy::Init()
 {
-	HP = 1;
+	HP = 2;
 	p_x = 79;
 	p_y = 0;
 
@@ -27,8 +27,16 @@ void CObjEnemy::Action()
 	//プレイヤーと接触しているかどうかを調べる
 	if ( hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 	{
+		HP -= 1;
+	}
+
+	//HPが０になったら破棄
+	if (HP <= 0)
+	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+
+		Scene::SetScene(new CSceneClear());
 	}
 
 }
