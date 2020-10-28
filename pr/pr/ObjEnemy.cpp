@@ -9,9 +9,11 @@
 //イニシャライズ
 void CObjEnemy::Init()
 {
-	HP = 2;
+	HP = 1;
+	p_x = 79;
+	p_y = 0;
 
-	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_PLAYER, OBJ_ENEMY, 1);
+	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_ENEMY, OBJ_ENEMY, 1);
 	
 }
 

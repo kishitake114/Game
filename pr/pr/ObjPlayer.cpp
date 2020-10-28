@@ -20,7 +20,7 @@ void CObjPlayer::Init()
 	cs_x = 0.0f;
 	cs_y = 0.0f;
 
-	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_PLAYER, OBJ_ENEMY, 1);
+	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -97,8 +97,8 @@ void CObjPlayer::Draw()
 	src.m_right   = 45.0f + cs_x;
 	src.m_bottom  = 45.0f;
 
-	dst.m_top	 = 200.0f + p_y;
-	dst.m_left   =   0.0f + p_x;
+	dst.m_top    = 200.0f + p_y;
+	dst.m_left   = 0.0f   + p_x;
 	dst.m_right  =  40.0f + p_x;
 	dst.m_bottom = 240.0f + p_y;
 
