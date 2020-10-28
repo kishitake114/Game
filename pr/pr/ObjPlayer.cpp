@@ -15,12 +15,14 @@ void CObjPlayer::Init()
 {
 	p_x = 0.0f;
 	p_y = 0.0f;
+	p_vx = 0.0f;
+	p_vy = 200.0f;
 	s_p = false;
 
 	cs_x = 0.0f;
 	cs_y = 0.0f;
 
-	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
+	Hits::SetHitBox(this, p_vx, p_vy, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -40,19 +42,22 @@ void CObjPlayer::Action()
 	{
 		if (Input::GetVKey('W') == true)
 		{
-			p_y -= 10.0f;	
+			p_y -= 10.0f;
+			p_vy -= 10.0f;
 			cs_x = 95.0f;
 		}
 
 		if (Input::GetVKey('A') == true)
 		{
 			p_x -= 10.0f;
+			p_vx -= 10.0f;
 			cs_x = 140.0f;
 		}
 
 		if (Input::GetVKey('D') == true)
 		{
 			p_x += 10.0f;
+			p_vx += 10.0f;
 			cs_x = 45.0f;
 	
 		}
@@ -60,6 +65,7 @@ void CObjPlayer::Action()
 		if (Input::GetVKey('S') == true)
 		{
 			p_y += 10.0f;
+			p_vy += 10.0f;
 			cs_x = 0.0f;
 		}
 		
@@ -67,7 +73,7 @@ void CObjPlayer::Action()
 	}
 
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(p_x, p_y);
+	hit->SetPos(p_vx, p_vy);
 
 	
 
