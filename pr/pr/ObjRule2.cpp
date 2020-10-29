@@ -4,13 +4,13 @@
 #include "GameL/WinInputs.h"
 #include "GameL/SceneManager.h"
 #include "GameHead.h"
-#include "ObjRule.h"
+#include "ObjRule2.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 //イニシャライズ
-void CObjRule::Init()
+void CObjRule2::Init()
 {
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -18,7 +18,7 @@ void CObjRule::Init()
 	mou_l = false;
 }
 //アクション
-void CObjRule::Action()
+void CObjRule2::Action()
 {
 
 	mou_x = (float)Input::GetPosX();
@@ -26,11 +26,11 @@ void CObjRule::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	if (mou_x > 550 && mou_x < 700 && mou_y > 480 && mou_y < 510)
+	if (mou_x > 165 && mou_x < 585 && mou_y > 520 && mou_y < 580)
 	{
-		if (mou_l == true)
+		if (mou_r == true)
 		{
-			Scene::SetScene(new CSceneRule2());
+			Scene::SetScene(new CSceneMain());
 		}
 	}
 
@@ -38,7 +38,7 @@ void CObjRule::Action()
 
 }
 //ドロー
-void CObjRule::Draw()
+void CObjRule2::Draw()
 {
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
@@ -47,10 +47,10 @@ void CObjRule::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 300.0f;
-	src.m_left = 160.0f;
-	src.m_right = 835.0f;
-	src.m_bottom = 810.0f;
+	src.m_top = 260.0f;
+	src.m_left = 170.0f;
+	src.m_right = 845.0f;
+	src.m_bottom = 765.0f;
 
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0f;
