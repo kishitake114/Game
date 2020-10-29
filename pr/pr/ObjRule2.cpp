@@ -28,7 +28,7 @@ void CObjRule2::Action()
 
 	if (mou_x > 165 && mou_x < 585 && mou_y > 520 && mou_y < 580)
 	{
-		if (mou_r == true)
+		if (mou_l == true)
 		{
 			Scene::SetScene(new CSceneMain());
 		}
