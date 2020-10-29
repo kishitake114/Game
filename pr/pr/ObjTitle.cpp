@@ -33,7 +33,7 @@ void CObjTitle::Action()
 	{
 		if (mou_l == true)
 		{
-			Scene::SetScene(new CSceneMain());
+			Scene::SetScene(new CSceneRule());
 		}
 	}
 

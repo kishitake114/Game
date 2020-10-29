@@ -13,6 +13,7 @@ enum OBJ_NAME
 	OBJ_GAME_OVER,
 	OBJ_ENEMY,
 	OBJ_CLEAR,
+	OBJ_RULE,
 };
 //------------------------------------------------
 
