@@ -14,6 +14,14 @@ class CObjPlayer :public CObj
 		void Init();
 		void Action();
 		void Draw();
+
+		float GetX() { return p_x; }
+		float GetY() { return p_y; }
+		void SetX(float x) { p_x=x; }
+		void SetY(float y) { p_y=y; }
+		void SetVY(float vy) { p_y = vy; }
+
+
 	private:
 		float mou_x;  //マウスカーソル：横
 		float mou_y;  //マウスカーソル：縦
@@ -28,6 +36,9 @@ class CObjPlayer :public CObj
 		float cs_x;   //画像切り取り用変数
 		float cs_y;
 
+
+		bool atr;
 		bool s_p;
+		bool st_p;
 
 };

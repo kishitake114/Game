@@ -6,12 +6,22 @@
 #include "GameL/WinInputs.h" 
 #include "GameL\HitBoxManager.h"
 
+#include <stdlib.h>
+#include <time.h>
+
+
 //ƒCƒjƒVƒƒƒ‰ƒCƒY
 void CObjEnemy::Init()
 {
-	HP = 2;
+	srand(time(NULL));
+
+	HP = 100;
 	p_x = 79;
 	p_y = 0;
+
+	plx = 1;
+	ply = 1;
+	
 
 	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_ENEMY, OBJ_ENEMY, 1);
 	
@@ -27,17 +37,42 @@ void CObjEnemy::Action()
 	//ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð’²‚×‚é
 	if ( hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 	{
-		HP -= 1;
-	}
 
-	//HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
-	if (HP <= 0)
-	{
+	/*	plx = rand() % 4;
+		ply = rand() % 4;
+		ran = rand() % 4;
+
+		
+
+		switch (ran)
+		{
+			case 0:
+				break;
+			case 1:
+				plx = plx * -1;
+				break;
+			case 2:
+				ply = ply * -1;
+				break;
+			case 3:
+				plx = plx * -1;
+				ply = ply * -1;
+				break;
+		};
+*/
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 
-		Scene::SetScene(new CSceneClear());
+		
 	}
+
+	////HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
+	//if (HP <= 0)
+	//{
+
+	//	Scene::SetScene(new CSceneClear());
+	//}
 
 }
 
@@ -54,15 +89,18 @@ void CObjEnemy::Draw()
 	swprintf_s(str, L"HP %d/2",HP);
 	Font::StrDraw(str, 600, 400, 30, c);
 
+	swprintf_s(str, L"%d", plx);
+	Font::StrDraw(str, 500, 400, 30, c);
+
 	src.m_top = 50.0f;
 	src.m_left = 0.0f;
 	src.m_right = 45.0f;
 	src.m_bottom = 80.0f;
 
-	dst.m_top	 =   0.0f;
-	dst.m_left   =  80.0f;
+	dst.m_top	 =  0.0f;
+	dst.m_left   = 80.0f;
 	dst.m_right  = 120.0f;
-	dst.m_bottom =  40.0f;
+	dst.m_bottom = 40.0f;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 

@@ -13,6 +13,9 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+
+	bool s_r;	//ロードのプログラム中止->プレイヤーへ
+
 private:
 	int map[8][8];
 	int mem[3][3];//操作ピースの保存
@@ -25,7 +28,9 @@ private:
 	float pxc;	  //左クリックでその座標xの追加
 	float pyc;	  //左クリックでその座標yの追加
 
+	float pv_x;
+	float pv_y;
+
 	bool f_p;	  //クリック操作制御
-	bool s_r;	  //ロードのプログラム中止->プレイヤーへ
 
 };

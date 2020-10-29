@@ -1,9 +1,11 @@
 #include "ObjRoad.h"
+#include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
 #include "GameL/WinInputs.h"
 #include "GameL/HitBoxManager.h"
+#include "GameL/SceneObjManager.h"
 
 
 //イニシャライズ
@@ -16,6 +18,9 @@ void CObjRoad::Init()
 
 	pxc = 0.0f;
 	pyc = 0.0f;
+
+	pv_x = 0.0f;
+	pv_y = 0.0f;
 
 	f_p = false;
 
@@ -63,11 +68,21 @@ void CObjRoad::Init()
 			{0,0,0},
 		};
 
+		for (int i = 0; i < 8; i++)
+		{
+			for (int j = 0; j < 8; j++)
+			{
+				if(map[i][j]==1)
+				Hits::SetHitBox(this, i * 40, j * 40, 40, 40, ELEMENT_GREEN, OBJ_NO_ROAD, 1);
+			}
+		}
+
 }
 
 //アクション
 void CObjRoad::Action()
 {
+
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -91,7 +106,7 @@ void CObjRoad::Action()
 	}
 
 	//ロード内のプログラム
-	if(s_r==true)
+	if (s_r == true)
 	{
 		//右クリックで操作中止
 		if (mou_r == true)
@@ -117,14 +132,15 @@ void CObjRoad::Action()
 
 						for (int j = 0; j < 3; j++)
 						{
-						map[1 + i][1 + j] = 0;
+							map[1 + i][1 + j] = 0;
 						}
 
-					for (int j = 0; j < 3; j++)
+						for (int j = 0; j < 3; j++)
 						{
-						map[1 + i][4 + j] = mem[i][j];
+							map[1 + i][4 + j] = mem[i][j];
+							pv_x = 120.0f;
 						}
-					}	
+					}
 
 				}
 
@@ -146,6 +162,7 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
+							pv_y = -120.0f;
 						}
 					}
 
@@ -158,7 +175,7 @@ void CObjRoad::Action()
 
 
 
-	//上、右
+		//上、右
 		if (mou_x > 156.0f && mou_x < 273.0f && mou_y>40.0f && mou_y < 155.0f)
 		{
 			if (mou_l == true)
@@ -181,156 +198,159 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
+							pv_y = -120.0f;
 						}
 					}
 
 				}
 
 				//上、右->上、左
-			if (map[1][1] == 0)
-			{
-				for (int i = 0; i < 3; i++)
+				if (map[1][1] == 0)
 				{
-					for (int j = 0; j < 3; j++)
+					for (int i = 0; i < 3; i++)
 					{
-						mem[i][j] = map[1 + i][4 + j];
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[1 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][1 + j] = mem[i][j];
+							pv_x = -120.0f;
+						}
 					}
 
-					for (int j = 0; j < 3; j++)
-					{
-						map[1 + i][4 + j] = 0;
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[1 + i][1 + j] = mem[i][j];
-					}
 				}
 
 			}
-
 		}
-	}
 
 
 
 
 
-	//下、左
-	if (mou_x > 40.0f && mou_x < 155.0f && mou_y>156.0f && mou_y < 273.0f)
-	{
-		if (mou_l == true)
+		//下、左
+		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>156.0f && mou_y < 273.0f)
 		{
-			//下、左->上、左
-			if (map[1][1] == 0)
+			if (mou_l == true)
 			{
-				for (int i = 0; i < 3; i++)
+				//下、左->上、左
+				if (map[1][1] == 0)
 				{
-					for (int j = 0; j < 3; j++)
+					for (int i = 0; i < 3; i++)
 					{
-						mem[i][j] = map[4 + i][1 + j];
-					}
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[4 + i][1 + j];
+						}
 
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][1 + j] = 0;
-					}
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][1 + j] = 0;
+						}
 
-					for (int j = 0; j < 3; j++)
-					{
-						map[1 + i][1 + j] = mem[i][j];
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][1 + j] = mem[i][j];
+							pv_y = 120.0f;
+						}
 					}
 				}
-			}
 
-			//下、左->下、右
-			if (map[4][4] == 0)
-			{
-				for (int i = 0; i < 3; i++)
+				//下、左->下、右
+				if (map[4][4] == 0)
 				{
-					for (int j = 0; j < 3; j++)
+					for (int i = 0; i < 3; i++)
 					{
-						mem[i][j] = map[4 + i][1 + j];
-					}
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[4 + i][1 + j];
+						}
 
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][1 + j] = 0;
-					}
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][1 + j] = 0;
+						}
 
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][4 + j] = mem[i][j];
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][4 + j] = mem[i][j];
+							pv_x = 120.0f;
+						}
 					}
 				}
 			}
 		}
-	}
 
-	//下、右
-	if (mou_x > 156.0f && mou_x < 273.0f && mou_y>156.0f && mou_y < 273.0f)
-	{
-		if (mou_l == true)
+		//下、右
+		if (mou_x > 156.0f && mou_x < 273.0f && mou_y>156.0f && mou_y < 273.0f)
 		{
-			//下、右>下、左
-			if (map[4][1] == 0)
+			if (mou_l == true)
 			{
-				for (int i = 0; i < 3; i++)
+				//下、右>下、左
+				if (map[4][1] == 0)
 				{
-					for (int j = 0; j < 3; j++)
+					for (int i = 0; i < 3; i++)
 					{
-						mem[i][j] = map[4 + i][4 + j];
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[4 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][1 + j] = mem[i][j];
+							pv_x = -120.0f;
+						}
 					}
 
-					for (int j = 0; j < 3; j++)
+				}
+				//下、右->上、右
+				if (map[1][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
 					{
-						map[4 + i][4 + j] = 0;
-					}
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[4 + i][4 + j];
+						}
 
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][1 + j] = mem[i][j];
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][4 + j] = mem[i][j];
+							pv_y = 120.0f;
+						}
 					}
 				}
-
 			}
-			//下、右->上、右
-			if (map[1][4] == 0)
+			for (int i = 0; i < 8; i++)
 			{
-				for (int i = 0; i < 3; i++)
+				for (int j = 0; j < 8; j++)
 				{
-					for (int j = 0; j < 3; j++)
-					{
-						mem[i][j] = map[4 + i][4 + j];
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][4 + j] = 0;
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[1 + i][4 + j] = mem[i][j];
-					}
+					CHitBox* hit = Hits::GetHitBox(this);
+					hit->SetPos(pv_x,pv_y);
 				}
 			}
+
 		}
 
-
 	}
-}
-
-
-	
-	if (mou_x > 600 && mou_x < 660 && mou_y > 40 && mou_y < 55)
-	{
-		if (mou_r == true)
-		{
-			Scene::SetScene(new CSceneClear());
-		}
-	}
-
 }
 
 
