@@ -42,107 +42,52 @@ void CObjPlayer::Action()
 
 	if (s_p == true)
 	{
-	
+
+
+			//CHitBox* hit = Hits::GetHitBox(this);
+			//hit->SetPos(p_vx, p_vy);
+
+			if (Input::GetVKey('W') == true)
+			{
+					p_y -= 40.0f;
+					p_vy -= 40.0f;
+					cs_x = 95.0f;
+					atr = false;
+			}
+
+			if (Input::GetVKey('A') == true)
+			{
+					p_x -= 40.0f;
+					p_vx -= 40.0f;
+					cs_x = 140.0f;
+
+			}
+
+			if (Input::GetVKey('D') == true)
+			{
+					p_x -= 0.0f;
+					p_x += 40.0f;
+					p_vx += 40.0f;
+					cs_x = 50.0f;
+			}
+
+			if (Input::GetVKey('S') == true)
+			{
+
+					p_y += 40.0f;
+					p_vy += 40.0f;
+					cs_x = 0.0;
+			}
+
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(p_vx, p_vy);
-
-		if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
-		{
-			atr = true;
-		}
-		else
-		{
-			atr = false;
-		}
-
-
-
-		if (Input::GetVKey('W') == true)
-		{
-			if (atr==true)
-			{
-				p_y += 0.0f;
-				p_y += 10.0f;
-				p_vy +=10.0f;
-				atr = false;
-			}
-			else
-			{
-				p_y -= 10.0f;
-				p_vy -= 10.0f;
-				cs_x = 95.0f;
-			}
-
-		}
-
-		if (Input::GetVKey('A') == true)
-		{
-			if (atr == true)
-			{
-				p_x -= 0.0f;
-				p_x += 10.0f;
-				p_vx += 10.0f;
-				atr = false;
-			}
-			else
-			{
-				p_x -= 10.0f;
-				p_vx -= 10.0f;	
-				cs_x = 140.0f;
-			
-			}
-		}
-
-		if (Input::GetVKey('D') == true)
-		{
-
-			if (atr == true)
-			{
-				p_x += 0.0f;
-				p_x -= 10.0f;
-				p_vx -= 10.0f;
-				atr = false;
-			}
-			else
-			{
-				p_x += 10.0f;
-				p_vx += 10.0f;
-				cs_x = 45.0f;
-			}
-	
-		}
-
-		if (Input::GetVKey('S') == true)
-		{
-
-			if (atr == true)
-			{
-				p_y -= 0.0f;	
-				p_y -= 10.0f;
-				p_vy -= 10.0f;
-				atr = false;
-			}
-			else
-			{
-				p_y += 10.0f;
-				p_vy += 10.0f;
-				cs_x = 0.0f;
-			}
-		}
-		
-
-
-	}
-
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(p_vx, p_vy);
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 		{
 			if (cs_x == 95.0f)
 			{
 				p_y = -200.0f;
-				p_vy = p_y/200;
+				p_vy = p_y / 200;
 
 				cs_x = 0.0f;
 			}
@@ -157,6 +102,8 @@ void CObjPlayer::Action()
 
 			s_p = false;
 		}
+
+	}
 
 
 
