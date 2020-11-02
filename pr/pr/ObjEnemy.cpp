@@ -25,6 +25,8 @@ void CObjEnemy::Init()
 	plx = 0;
 	ply = 0;
 
+	se = false;
+
 	
 
 	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_ENEMY, OBJ_ENEMY, 1);
@@ -38,18 +40,20 @@ void CObjEnemy::Action()
 	hit->SetPos(p_x, p_y);
 
 
-	//ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð’²‚×‚é
-	if ( hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
+	if (se == true)
 	{
-		ran = 1;
-		plx = rand() % 4;
-		ply = rand() % 4;
 
-		plx = 1;
-		ply = 1;
 
-		switch (plx)
+		//ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð’²‚×‚é
+		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
+			ran = 1;
+			plx = rand() % 4;
+			ply = rand() % 4;
+
+
+			switch (plx)
+			{
 			case 0:
 
 				if (ply > 2)
@@ -76,7 +80,7 @@ void CObjEnemy::Action()
 				}
 
 				break;
-					
+
 			case 1:
 
 				if (ply > 2)
@@ -104,7 +108,7 @@ void CObjEnemy::Action()
 				break;
 
 			case 2:
-	
+
 
 				if (ply < 2)
 				{
@@ -114,7 +118,7 @@ void CObjEnemy::Action()
 				if (ply == 2)
 				{
 					atr_x = -80.0f;
-					p_x =0.0f;
+					p_x = 0.0f;
 
 					p_y = 80.0f;
 					atr_y = 80.0f;
@@ -158,21 +162,23 @@ void CObjEnemy::Action()
 			default:
 				break;
 
-		}
+			}
 
-		HP -= 1;
+			HP -= 1;
+			se = false;
 
-		//HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
-		if (HP == 0)
-		{
+			//HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
+			if (HP == 0)
+			{
 
-			Scene::SetScene(new CSceneClear());
+				Scene::SetScene(new CSceneClear());
+			}
 		}
 	}
 	else
 	{
-		ran = 0;
-	 }
+	se = true;
+	}
 
 
 }

@@ -26,4 +26,6 @@ private:
 
 	int ran;
 
+	bool se;
+
 };

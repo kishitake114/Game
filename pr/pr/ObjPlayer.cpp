@@ -22,6 +22,7 @@ void CObjPlayer::Init()
 	atr = true;
 
 	sw = false;
+	sei = false;
 
 	cs_x = 0.0f;
 	cs_y = 0.0f;
@@ -51,16 +52,16 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('W') == true)
 			{
-					p_y -= 40.0f;
-					p_vy -= 40.0f;
+					p_y -= 10.0f;
+					p_vy -= 10.0f;
 					cs_x = 95.0f;
 					atr = false;
 			}
 
 			if (Input::GetVKey('A') == true)
 			{
-					p_x -= 40.0f;
-					p_vx -= 40.0f;
+					p_x -= 10.0f;
+					p_vx -= 10.0f;
 					cs_x = 140.0f;
 
 			}
@@ -68,60 +69,71 @@ void CObjPlayer::Action()
 			if (Input::GetVKey('D') == true)
 			{
 					p_x -= 0.0f;
-					p_x += 40.0f;
-					p_vx += 40.0f;
+					p_x += 10.0f;
+					p_vx += 10.0f;
 					cs_x = 50.0f;
 			}
 
 			if (Input::GetVKey('S') == true)
 			{
 
-					p_y += 40.0f;
-					p_vy += 40.0f;
+					p_y += 10.0f;
+					p_vy += 10.0f;
 					cs_x = 0.0;
 			}
 
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(p_vx, p_vy);
-
-		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+		if (sei == true)
 		{
-	
 
-			/*if (cs_x == 95.0f)
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
-				p_y = -200.0f;
-				p_vy = p_y / 200;
 
-				cs_x = 0.0f;
+
+				/*if (cs_x == 95.0f)
+				{
+					p_y = -200.0f;
+					p_vy = p_y / 200;
+
+					cs_x = 0.0f;
+				}
+
+				if (cs_x == 140.0f)
+				{
+					p_x = 0.0f;
+					p_vx = p_x / 40;
+
+					cs_x = 45.0f;
+				}
+
+				if (cs_x == 50.0f)
+				{
+					p_y = 200.0f;
+					p_vy = p_y / 200;
+
+					cs_x = 0.0f;
+				}
+
+				if (cs_x == 0.0f)
+				{
+					p_x = 0.0f;
+					p_vx = p_x / 40;
+
+					cs_x = 95.0f;
+				}*/
+
+				sw = true;
+
+				sei = false;
+
 			}
+		}
 
-			if (cs_x == 140.0f)
-			{
-				p_x = 0.0f;
-				p_vx = p_x / 40;
-
-				cs_x = 45.0f;
-			}
-
-			if (cs_x == 50.0f)
-			{
-				p_y = 200.0f;
-				p_vy = p_y / 200;
-
-				cs_x = 0.0f;
-			}
-
-			if (cs_x == 0.0f)
-			{
-				p_x = 0.0f;
-				p_vx = p_x / 40;
-
-				cs_x = 95.0f;
-			}*/
-
-			sw = true;
-			
+		else
+		{
+			sei = true;
 		}
 
 	}
