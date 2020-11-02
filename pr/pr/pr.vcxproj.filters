@@ -76,6 +76,8 @@
     <ClCompile Include="ObjStage5.cpp" />
     <ClCompile Include="SceneStage4.cpp" />
     <ClCompile Include="ObjStage4.cpp" />
+    <ClCompile Include="SceneStage3.cpp" />
+    <ClCompile Include="ObjStage3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjPlayer.h">
@@ -154,6 +156,8 @@
     <ClInclude Include="ObjStage5.h" />
     <ClInclude Include="SceneStage4.h" />
     <ClInclude Include="ObjStage4.h" />
+    <ClInclude Include="SceneStage3.h" />
+    <ClInclude Include="ObjStage3.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
