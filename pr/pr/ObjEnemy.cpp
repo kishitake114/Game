@@ -15,12 +15,16 @@ void CObjEnemy::Init()
 {
 	srand(time(NULL));
 
-	HP = 100;
-	p_x = 79;
-	p_y = 0;
+	HP = 2;
+	p_x = 80.0f;
+	p_y = 0.0f;
 
-	plx = 1;
-	ply = 1;
+	atr_x = 0.0f;
+	atr_y = 0.0f;
+
+	plx = 0;
+	ply = 0;
+
 	
 
 	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_ENEMY, OBJ_ENEMY, 1);
@@ -37,42 +41,139 @@ void CObjEnemy::Action()
 	//ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð’²‚×‚é
 	if ( hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 	{
-
-	/*	plx = rand() % 4;
+		ran = 1;
+		plx = rand() % 4;
 		ply = rand() % 4;
-		ran = rand() % 4;
 
-		
+		plx = 1;
+		ply = 1;
 
-		switch (ran)
+		switch (plx)
 		{
 			case 0:
+
+				if (ply > 2)
+				{
+					ply -= 2;
+				}
+
+				if (ply == 0)
+				{
+					p_x = 80.0f;
+					atr_x = 0.0f;
+
+					p_y = 0.0f;
+					atr_y = 0.0f;
+				}
+
+				if (ply == 1)
+				{
+					p_x = 80.0f;
+					atr_x = 0.0f;
+
+					p_y = 280.0f;
+					atr_y = 280.0f;
+				}
+
 				break;
+					
 			case 1:
-				plx = plx * -1;
+
+				if (ply > 2)
+				{
+					ply -= 2;
+				}
+
+				if (ply == 0)
+				{
+					p_x = 200.0f;
+					atr_x = 120.0f;
+
+					p_y = 0.0f;
+					atr_y = 0.0f;
+				}
+
+				if (ply == 1)
+				{
+					p_x = 200.0f;
+					atr_x = 120.0f;
+
+					p_y = 280.0f;
+					atr_y = 280.0f;
+				}
 				break;
+
 			case 2:
-				ply = ply * -1;
+	
+
+				if (ply < 2)
+				{
+					ply += 2;
+				}
+
+				if (ply == 2)
+				{
+					atr_x = -80.0f;
+					p_x =0.0f;
+
+					p_y = 80.0f;
+					atr_y = 80.0f;
+				}
+
+				if (ply == 3)
+				{
+					atr_x = -80.0f;
+					p_x = 0.0f;
+
+					p_y = 200.0f;
+					atr_y = 200.0f;
+				}
 				break;
+
 			case 3:
-				plx = plx * -1;
-				ply = ply * -1;
+
+				if (ply < 2)
+				{
+					ply += 2;
+				}
+
+				if (ply == 2)
+				{
+					atr_x = 200.0f;
+					p_x = 280.0f;
+
+					p_y = 80.0f;
+					atr_y = 80.0f;
+				}
+
+				if (ply == 3)
+				{
+					atr_x = 200.0f;
+					p_x = 280.0f;
+
+					p_y = 200.0f;
+					atr_y = 200.0f;
+				}
+
+			default:
 				break;
-		};
-*/
 
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
+		}
 
-		
+		HP -= 1;
+
+		//HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
+		if (HP == 0)
+		{
+
+			Scene::SetScene(new CSceneClear());
+		}
 	}
+	else
+	{
+		ran = 0;
+	 }
 
-	////HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
-	//if (HP <= 0)
-	//{
-
-	//	Scene::SetScene(new CSceneClear());
-	//}
 
 }
 
@@ -89,18 +190,23 @@ void CObjEnemy::Draw()
 	swprintf_s(str, L"HP %d/2",HP);
 	Font::StrDraw(str, 600, 400, 30, c);
 
-	swprintf_s(str, L"%d", plx);
-	Font::StrDraw(str, 500, 400, 30, c);
+	swprintf_s(str, L"%d", ran);
+	Font::StrDraw(str, 600, 250, 30, c);
+
+	swprintf_s(str, L"plx %d", plx);
+	Font::StrDraw(str, 450, 300, 30, c);	
+	swprintf_s(str, L"ply %d", ply);
+	Font::StrDraw(str, 450, 400, 30, c);
 
 	src.m_top = 50.0f;
 	src.m_left = 0.0f;
 	src.m_right = 45.0f;
 	src.m_bottom = 80.0f;
 
-	dst.m_top	 =  0.0f;
-	dst.m_left   = 80.0f;
-	dst.m_right  = 120.0f;
-	dst.m_bottom = 40.0f;
+	dst.m_top	 =  0.0f + atr_y;
+	dst.m_left   = 80.0f +atr_x;
+	dst.m_right  = 120.0f+atr_x;
+	dst.m_bottom = 40.0f + atr_y;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 

@@ -351,6 +351,12 @@ void CObjRoad::Action()
 		}
 
 	}
+
+	if (mou_l == true)
+	{
+		s_r = true;
+	}
+
 }
 
 

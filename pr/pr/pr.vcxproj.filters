@@ -7,13 +7,7 @@
     <ClCompile Include="ObjTitle.cpp">
       <Filter>自作</Filter>
     </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjRoad.cpp">
       <Filter>自作</Filter>
     </ClCompile>
     <ClCompile Include="SceneGameOver.cpp">
@@ -59,9 +53,6 @@
       <Filter>リソースファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjGameOver.cpp" />
-    <ClCompile Include="ObjEnemy.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
     <ClCompile Include="SceneClear.cpp">
       <Filter>自作</Filter>
     </ClCompile>
@@ -72,6 +63,15 @@
     <ClCompile Include="ObjRule.cpp" />
     <ClCompile Include="ObjRule2.cpp" />
     <ClCompile Include="SceneRule2.cpp" />
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>自作\Stage 1 and Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRoad.cpp">
+      <Filter>自作\Stage 1 and Main</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>自作\Stage 1 and Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjPlayer.h">
@@ -80,16 +80,10 @@
     <ClInclude Include="ObjTitle.h">
       <Filter>自作</Filter>
     </ClInclude>
-    <ClInclude Include="SceneMain.h">
-      <Filter>自作</Filter>
-    </ClInclude>
     <ClInclude Include="SceneTitle.h">
       <Filter>自作</Filter>
     </ClInclude>
     <ClInclude Include="GameClear.h">
-      <Filter>自作</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjRoad.h">
       <Filter>自作</Filter>
     </ClInclude>
     <ClInclude Include="GameHead.h">
@@ -135,9 +129,6 @@
       <Filter>リソースファイル</Filter>
     </ClInclude>
     <ClInclude Include="ObjGameOver.h" />
-    <ClInclude Include="ObjEnemy.h">
-      <Filter>自作</Filter>
-    </ClInclude>
     <ClInclude Include="SceneClear.h">
       <Filter>自作</Filter>
     </ClInclude>
@@ -146,6 +137,15 @@
     <ClInclude Include="ObjRule.h" />
     <ClInclude Include="ObjRule2.h" />
     <ClInclude Include="SceneRule2.h" />
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>自作\Stage 1 and Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRoad.h">
+      <Filter>自作\Stage 1 and Main</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain.h">
+      <Filter>自作\Stage 1 and Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
@@ -156,6 +156,9 @@
     </Filter>
     <Filter Include="リソースファイル">
       <UniqueIdentifier>{01ac1e39-a6ee-4b87-bd7b-afdf641e46da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\Stage 1 and Main">
+      <UniqueIdentifier>{670706e9-c6d4-4e34-b7ef-0b75ca484d96}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

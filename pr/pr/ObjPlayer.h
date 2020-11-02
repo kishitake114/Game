@@ -40,5 +40,6 @@ class CObjPlayer :public CObj
 		bool atr;
 		bool s_p;
 		bool st_p;
+		bool sw;
 
 };

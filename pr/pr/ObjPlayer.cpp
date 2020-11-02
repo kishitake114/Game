@@ -21,6 +21,8 @@ void CObjPlayer::Init()
 	st_p = true;
 	atr = true;
 
+	sw = false;
+
 	cs_x = 0.0f;
 	cs_y = 0.0f;
 
@@ -84,7 +86,9 @@ void CObjPlayer::Action()
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 		{
-			if (cs_x == 95.0f)
+	
+
+			/*if (cs_x == 95.0f)
 			{
 				p_y = -200.0f;
 				p_vy = p_y / 200;
@@ -100,12 +104,33 @@ void CObjPlayer::Action()
 				cs_x = 45.0f;
 			}
 
-			s_p = false;
+			if (cs_x == 50.0f)
+			{
+				p_y = 200.0f;
+				p_vy = p_y / 200;
+
+				cs_x = 0.0f;
+			}
+
+			if (cs_x == 0.0f)
+			{
+				p_x = 0.0f;
+				p_vx = p_x / 40;
+
+				cs_x = 95.0f;
+			}*/
+
+			sw = true;
+			
 		}
 
 	}
 
-
+	if (sw==true&&mou_l == true)
+	{
+		s_p = false;
+		sw = false;
+	}
 
 }
 
@@ -116,6 +141,11 @@ void CObjPlayer::Draw()
 
 	//表示：プレイヤー
 	wchar_t str[256];
+
+	if (sw == true)
+	Font::StrDraw(L"左クリックでマウス操作", 500, 70, 30, c);
+	else
+	Font::StrDraw(L"OFF", 500, 80, 30, c);
 
 	if (s_p == true)
 	{

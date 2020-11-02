@@ -18,6 +18,9 @@ private:
 	float p_x;
 	float p_y;
 
+	float atr_x;
+	float atr_y;
+
 	int plx;
 	int ply;
 
