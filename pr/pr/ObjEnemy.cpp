@@ -48,6 +48,9 @@ void CObjEnemy::Action()
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
 			ran = 1;
+
+			se = false;
+
 			plx = rand() % 4;
 			ply = rand() % 4;
 
@@ -165,7 +168,7 @@ void CObjEnemy::Action()
 			}
 
 			HP -= 1;
-			se = false;
+
 
 			//HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
 			if (HP == 0)
