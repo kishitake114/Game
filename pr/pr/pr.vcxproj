@@ -40,12 +40,14 @@
     <ClCompile Include="ObjRule.cpp" />
     <ClCompile Include="ObjRule2.cpp" />
     <ClCompile Include="ObjStage5.cpp" />
+    <ClCompile Include="ObjStage4.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneClear.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneRule.cpp" />
     <ClCompile Include="SceneRule2.cpp" />
+    <ClCompile Include="SceneStage4.cpp" />
     <ClCompile Include="SceneStage5.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
@@ -72,12 +74,14 @@
     <ClInclude Include="ObjRule.h" />
     <ClInclude Include="ObjRule2.h" />
     <ClInclude Include="ObjStage5.h" />
+    <ClInclude Include="ObjStage4.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneRule.h" />
     <ClInclude Include="SceneRule2.h" />
+    <ClInclude Include="SceneStage4.h" />
     <ClInclude Include="SceneStage5.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
