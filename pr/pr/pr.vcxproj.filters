@@ -72,6 +72,8 @@
     <ClCompile Include="ObjRule.cpp" />
     <ClCompile Include="ObjRule2.cpp" />
     <ClCompile Include="SceneRule2.cpp" />
+    <ClCompile Include="SceneStage5.cpp" />
+    <ClCompile Include="ObjStage5.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjPlayer.h">
@@ -146,6 +148,8 @@
     <ClInclude Include="ObjRule.h" />
     <ClInclude Include="ObjRule2.h" />
     <ClInclude Include="SceneRule2.h" />
+    <ClInclude Include="SceneStage5.h" />
+    <ClInclude Include="ObjStage5.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
