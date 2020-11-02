@@ -26,6 +26,9 @@ private:
 
 	int ran;
 
+	int memx;
+	int memy;
+
 	bool se;
 
 };

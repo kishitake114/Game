@@ -366,6 +366,10 @@ void CObjRoad::Draw()
 {
 
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
+	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
+	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
+
 	RECT_F src;
 	RECT_F dst;
 
@@ -383,15 +387,9 @@ void CObjRoad::Draw()
 	//右クリック
 	if (s_r == true)
 	{
-		Font::StrDraw(L"Road", 600, 40, 20, c);
-		Font::StrDraw(L"操作\n マウス", 550, 300, 20, c);
+		Font::StrDraw(L"Road", 600, 40, 20, r);
+		Font::StrDraw(L"操作\n マウス", 550, 300, 20, r);
 	}
-
-	//左クリック
-	if (mou_l == true)
-		Font::StrDraw(L"左=押してる", 600, 60, 20, c);
-	else
-		Font::StrDraw(L"左=押してない", 600, 60, 20, c);
 
 	//表示：通行可
 

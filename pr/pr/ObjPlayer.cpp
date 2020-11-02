@@ -52,33 +52,31 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('W') == true)
 			{
-					p_y -= 10.0f;
-					p_vy -= 10.0f;
+					p_y -= 20.0f;
+					p_vy -= 20.0f;
 					cs_x = 95.0f;
 					atr = false;
 			}
 
 			if (Input::GetVKey('A') == true)
 			{
-					p_x -= 10.0f;
-					p_vx -= 10.0f;
+					p_x -= 20.0f;
+					p_vx -= 20.0f;
 					cs_x = 140.0f;
 
 			}
 
 			if (Input::GetVKey('D') == true)
 			{
-					p_x -= 0.0f;
-					p_x += 10.0f;
-					p_vx += 10.0f;
+					p_x += 20.0f;
+					p_vx += 20.0f;
 					cs_x = 50.0f;
 			}
 
 			if (Input::GetVKey('S') == true)
 			{
-
-					p_y += 10.0f;
-					p_vy += 10.0f;
+					p_y += 20.0f;
+					p_vy += 20.0f;
 					cs_x = 0.0;
 			}
 
@@ -91,11 +89,10 @@ void CObjPlayer::Action()
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
 
-
-				/*if (cs_x == 95.0f)
+				if (cs_x == 95.0f)
 				{
 					p_y = -200.0f;
-					p_vy = p_y / 200;
+					p_vy = p_y / 40;
 
 					cs_x = 0.0f;
 				}
@@ -110,13 +107,13 @@ void CObjPlayer::Action()
 
 				if (cs_x == 50.0f)
 				{
-					p_y = 200.0f;
-					p_vy = p_y / 200;
+					p_x = 280.0f;
+					p_vx = p_x / 40;
 
-					cs_x = 0.0f;
+					cs_x = 140.0f;
 				}
 
-				if (cs_x == 0.0f)
+				/*if (cs_x == 0.0f)
 				{
 					p_x = 0.0f;
 					p_vx = p_x / 40;
@@ -127,6 +124,7 @@ void CObjPlayer::Action()
 				sw = true;
 
 				sei = false;
+				s_p = false;
 
 			}
 		}
@@ -150,19 +148,22 @@ void CObjPlayer::Action()
 void CObjPlayer::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
+	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
+	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
 
 	//表示：プレイヤー
 	wchar_t str[256];
 
 	if (sw == true)
-	Font::StrDraw(L"左クリックでマウス操作", 500, 70, 30, c);
+	Font::StrDraw(L"左クリックでマウス操作", 500, 70, 20, c);
 	else
 	Font::StrDraw(L"OFF", 500, 80, 30, c);
 
 	if (s_p == true)
 	{
-		Font::StrDraw(L"Player", 660, 40, 20, c);
-		Font::StrDraw(L"操作\n W,A,S,D", 550, 300, 20, c);
+		Font::StrDraw(L"Player", 660, 40, 20, b);
+		Font::StrDraw(L"操作\n W,A,S,D", 550, 300, 20, b);
 	}
 
 

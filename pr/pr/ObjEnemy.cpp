@@ -15,7 +15,7 @@ void CObjEnemy::Init()
 {
 	srand(time(NULL));
 
-	HP = 2;
+	HP = 999;
 	p_x = 80.0f;
 	p_y = 0.0f;
 
@@ -24,6 +24,11 @@ void CObjEnemy::Init()
 
 	plx = 0;
 	ply = 0;
+
+	memx = 0;
+	memy = 0;
+
+	ran = 0;
 
 	se = false;
 
@@ -51,8 +56,23 @@ void CObjEnemy::Action()
 
 			se = false;
 
-			plx = rand() % 4;
-			ply = rand() % 4;
+			plx = 3;
+			plx = 2;
+
+			//plx = rand() % 4;
+			//ply = rand() % 4;
+
+			if (memx == plx && memy == ply)
+			{
+				plx = rand() % 4;
+				ply = rand() % 4;
+			}
+
+			else
+			{
+				memx = plx;
+				memy = ply;
+			}
 
 
 			switch (plx)
@@ -71,6 +91,7 @@ void CObjEnemy::Action()
 
 					p_y = 0.0f;
 					atr_y = 0.0f;
+
 				}
 
 				if (ply == 1)
@@ -173,6 +194,8 @@ void CObjEnemy::Action()
 			//HPが０になったら破棄
 			if (HP == 0)
 			{
+				this->SetStatus(false);			
+				Hits::DeleteHitBox(this);
 
 				Scene::SetScene(new CSceneClear());
 			}
@@ -180,7 +203,7 @@ void CObjEnemy::Action()
 	}
 	else
 	{
-	se = true;
+		se = true;
 	}
 
 
@@ -196,7 +219,7 @@ void CObjEnemy::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-	swprintf_s(str, L"HP %d/2",HP);
+	swprintf_s(str, L"HP %d/999",HP);
 	Font::StrDraw(str, 600, 400, 30, c);
 
 	swprintf_s(str, L"%d", ran);
