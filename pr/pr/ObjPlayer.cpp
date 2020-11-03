@@ -156,9 +156,9 @@ void CObjPlayer::Draw()
 	wchar_t str[256];
 
 	if (sw == true)
-	Font::StrDraw(L"左クリックでマウス操作", 500, 70, 20, c);
+	Font::StrDraw(L"左クリックでマウス操作", 500, 80, 20, b);
 	else
-	Font::StrDraw(L"OFF", 500, 80, 30, c);
+	Font::StrDraw(L"OFF", 500, 80, 20, c);
 
 	if (s_p == true)
 	{

@@ -25,6 +25,7 @@ void CObjRoad::Init()
 	f_p = false;
 
 	s_r = true;
+	sei = false;
 
 //
 //		int mapdata[14][14] =
@@ -104,6 +105,7 @@ void CObjRoad::Action()
 		f_p = true;
 
 	}
+
 
 	//ロード内のプログラム
 	if (s_r == true)
@@ -352,10 +354,12 @@ void CObjRoad::Action()
 
 	}
 
-	if (mou_l == true)
-	{
-		s_r = true;
-	}
+			if (mou_l == true)
+			{
+				s_r = true;
+				sei = false;
+			}
+	
 
 }
 
@@ -382,6 +386,14 @@ void CObjRoad::Draw()
 	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
 	Font::StrDraw(str, 600, 10, 15, c);
 
+	if (s_r == true)
+	{
+		Font::StrDraw(L"右クリックでキーボード操作", 500, 60, 20, r);
+	}
+	else
+	{
+		Font::StrDraw(L"OFF", 500, 60, 20, c);
+	}
 
 
 	//右クリック

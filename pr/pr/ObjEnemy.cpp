@@ -56,11 +56,8 @@ void CObjEnemy::Action()
 
 			se = false;
 
-			plx = 3;
-			plx = 2;
-
-			//plx = rand() % 4;
-			//ply = rand() % 4;
+			plx = rand() % 4;
+			ply = rand() % 4;
 
 			if (memx == plx && memy == ply)
 			{
