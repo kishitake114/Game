@@ -20,6 +20,7 @@ private:
 
 	float atr_x;
 	float atr_y;
+	float cs_xe;
 
 	int plx;
 	int ply;

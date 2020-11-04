@@ -22,6 +22,8 @@ void CObjEnemy::Init()
 	atr_x = 0.0f;
 	atr_y = 0.0f;
 
+	cs_xe = 0.0f;
+
 	plx = 0;
 	ply = 0;
 
@@ -85,6 +87,7 @@ void CObjEnemy::Action()
 				{
 					p_x = 80.0f;
 					atr_x = 0.0f;
+					cs_xe = 0.0f;
 
 					p_y = 0.0f;
 					atr_y = 0.0f;
@@ -94,7 +97,8 @@ void CObjEnemy::Action()
 				if (ply == 1)
 				{
 					p_x = 80.0f;
-					atr_x = 0.0f;
+					atr_x = 0.0f;			
+					cs_xe = 93.0f;
 
 					p_y = 280.0f;
 					atr_y = 280.0f;
@@ -113,6 +117,7 @@ void CObjEnemy::Action()
 				{
 					p_x = 200.0f;
 					atr_x = 120.0f;
+					cs_xe = 0.0f;
 
 					p_y = 0.0f;
 					atr_y = 0.0f;
@@ -122,6 +127,7 @@ void CObjEnemy::Action()
 				{
 					p_x = 200.0f;
 					atr_x = 120.0f;
+					cs_xe = 93.0f;
 
 					p_y = 280.0f;
 					atr_y = 280.0f;
@@ -140,6 +146,7 @@ void CObjEnemy::Action()
 				{
 					atr_x = -80.0f;
 					p_x = 0.0f;
+					cs_xe = 45.0f;
 
 					p_y = 80.0f;
 					atr_y = 80.0f;
@@ -149,6 +156,7 @@ void CObjEnemy::Action()
 				{
 					atr_x = -80.0f;
 					p_x = 0.0f;
+					cs_xe = 45.0f;
 
 					p_y = 200.0f;
 					atr_y = 200.0f;
@@ -166,6 +174,7 @@ void CObjEnemy::Action()
 				{
 					atr_x = 200.0f;
 					p_x = 280.0f;
+					cs_xe = 140.0f;
 
 					p_y = 80.0f;
 					atr_y = 80.0f;
@@ -175,6 +184,7 @@ void CObjEnemy::Action()
 				{
 					atr_x = 200.0f;
 					p_x = 280.0f;
+					cs_xe = 140.0f;
 
 					p_y = 200.0f;
 					atr_y = 200.0f;
@@ -228,8 +238,8 @@ void CObjEnemy::Draw()
 	Font::StrDraw(str, 450, 400, 30, c);
 
 	src.m_top = 50.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
+	src.m_left = 0.0f + cs_xe;
+	src.m_right = 45.0f + cs_xe;
 	src.m_bottom = 80.0f;
 
 	dst.m_top	 =  0.0f + atr_y;

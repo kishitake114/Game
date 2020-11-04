@@ -83,6 +83,7 @@ void CObjRoad::Init()
 //ƒAƒNƒVƒ‡ƒ“
 void CObjRoad::Action()
 {
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -140,7 +141,7 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
-							pv_x = 120.0f;
+							pv_x = 120;
 						}
 					}
 
@@ -164,7 +165,7 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
-							pv_y = -120.0f;
+							pv_y = -120;
 						}
 					}
 
@@ -260,7 +261,7 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][1 + j] = mem[i][j];
-							pv_y = 120.0f;
+							pv_y += 120;
 						}
 					}
 				}
@@ -283,7 +284,7 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
-							pv_x = 120.0f;
+							pv_x = 120;
 						}
 					}
 				}
@@ -313,7 +314,7 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
-							pv_x = -120.0f;
+							pv_x = -120;
 						}
 					}
 
@@ -336,19 +337,14 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
-							pv_y = 120.0f;
+							pv_y = 120;
 						}
 					}
 				}
 			}
-			for (int i = 0; i < 8; i++)
-			{
-				for (int j = 0; j < 8; j++)
-				{
+
 					CHitBox* hit = Hits::GetHitBox(this);
 					hit->SetPos(pv_x,pv_y);
-				}
-			}
 
 		}
 
