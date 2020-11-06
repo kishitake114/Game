@@ -78,6 +78,8 @@
     <ClCompile Include="ObjStage4.cpp" />
     <ClCompile Include="SceneStage3.cpp" />
     <ClCompile Include="ObjStage3.cpp" />
+    <ClCompile Include="ObjStage2.cpp" />
+    <ClCompile Include="SceneStage2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjPlayer.h">
@@ -158,6 +160,8 @@
     <ClInclude Include="SceneMain.h">
       <Filter>自作\Stage 1 and Main</Filter>
     </ClInclude>
+    <ClInclude Include="ObjStage2.h" />
+    <ClInclude Include="SceneStage2.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">

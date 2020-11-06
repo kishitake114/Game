@@ -15,6 +15,7 @@ enum OBJ_NAME
 	OBJ_CLEAR,
 	OBJ_RULE,
 	OBJ_RULE2,
+	OBJ_STAGE2,
 	OBJ_STAGE3,
 	OBJ_STAGE4,
 	OBJ_STAGE5,
@@ -69,6 +70,7 @@ struct UserData
 #include "ObjClear.h"
 #include "ObjRule.h"
 #include "ObjRule2.h"
+#include "ObjStage2.h"
 #include "ObjStage3.h"
 #include "ObjStage4.h"
 #include "ObjStage5.h"
@@ -82,6 +84,7 @@ struct UserData
 #include "SceneClear.h"
 #include "SceneRule.h"
 #include "SceneRule2.h"
+#include "SceneStage2.h"
 #include "SceneStage3.h"
 #include "SceneStage4.h"
 #include "SceneStage5.h"
@@ -90,5 +93,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneMain
+#define SET_GAME_START  CSceneTitle
 //-----------------------------------------------
