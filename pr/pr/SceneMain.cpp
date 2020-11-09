@@ -14,6 +14,7 @@ using namespace GameL;
 #include "GameHead.h"
 #include "Objplayer.h"
 #include "ObjRoad.h"
+#include "ObjItem.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -45,6 +46,9 @@ void CSceneMain::InitScene()
 	CObjRoad* CObjR = new CObjRoad();
 	Objs::InsertObj(CObjR, OBJ_ROAD, 1);
 
+	CObjItem* CObjI = new CObjItem();
+	Objs::InsertObj(CObjI, OBJ_ITEM, 1);
+
 
 
 }
@@ -52,4 +56,5 @@ void CSceneMain::InitScene()
 //ゲームメイン実行中
 void CSceneMain::Scene()
 {
+
 }

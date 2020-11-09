@@ -19,6 +19,7 @@ enum OBJ_NAME
 	OBJ_STAGE3,
 	OBJ_STAGE4,
 	OBJ_STAGE5,
+	OBJ_ITEM,
 };
 //------------------------------------------------
 
@@ -74,6 +75,7 @@ struct UserData
 #include "ObjStage3.h"
 #include "ObjStage4.h"
 #include "ObjStage5.h"
+#include "ObjItem.h"
 
 //------------------------------------------------
 
