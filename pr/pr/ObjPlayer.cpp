@@ -92,7 +92,7 @@ void CObjPlayer::Action()
 				if (cs_x == 95.0f)
 				{
 					p_y = -200.0f;
-					p_vy = p_y / 150;
+					p_vy = p_y+200.0f;
 
 					cs_x = 0.0f;
 				}
@@ -108,18 +108,11 @@ void CObjPlayer::Action()
 				if (cs_x == 50.0f)
 				{
 					p_x = 280.0f;
-					p_vx = -p_x / 150;
+					p_vx = p_x;
 
 					cs_x = 140.0f;
 				}
 
-				/*if (cs_x == 0.0f)
-				{
-					p_x = 0.0f;
-					p_vx = p_x / 40;
-
-					cs_x = 95.0f;
-				}*/
 
 				sw = true;
 
