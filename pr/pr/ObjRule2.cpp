@@ -4,6 +4,7 @@
 #include "GameL/WinInputs.h"
 #include "GameL/SceneManager.h"
 #include "GameHead.h"
+#include "GameL\Audio.h"
 #include "ObjRule2.h"
 
 //使用するネームスペース
