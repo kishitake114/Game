@@ -34,7 +34,8 @@ void CSceneTitle::InitScene()
 	
 	Audio::LoadAudio(0, L"Ç≈Ç´ÇÈÇ©Ç»ÅH (online-audio-converter.com).wav ", SOUND_TYPE::BACK_MUSIC);
 
-	float  Voiume = Audio::VolumeMaster(-0.8f);
+	float  Voiume = Audio::VolumeMaster(-0.8f); 
+
 	Audio::Start(0);
 }
 

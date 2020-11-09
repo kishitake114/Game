@@ -6,6 +6,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
 #include "GameL/DrawFont.h"
+#include "GameL/Audio.h"
 
 //使用するヘッダー
 #include "SceneRule.h"
@@ -24,6 +25,13 @@ CSceneRule::~CSceneRule()
 //ゲームメイン初期化
 void CSceneRule::InitScene()
 {
+	Audio::LoadAudio(0, L"bgm_maoudamashii_8bit28 (2) (online-audio-converter.com).wav", BACK_MUSIC);
+
+	float v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster(1.0 - v);
+
+	Audio::Start(0);
+
 	Draw::LoadImage(L"Rule.png", 0, TEX_SIZE_1024);
 
 	CObjRule* CObj = new CObjRule();
