@@ -4,6 +4,7 @@
 #include "GameL/WinInputs.h" 
 #include "GameL\HitBoxManager.h"
 #include "ObjItem.h"
+#include "ObjRoad.h"
 
 //イニシャライズ
 void CObjItem::Init()
@@ -12,7 +13,7 @@ void CObjItem::Init()
 	m_y = 0.0f;
 
 	////当たり判定用HitBoxを作成
-	//Hits::SetHitBox(this, m_x, m_y, 40, 40, ELEMENT_ENEMY, OBJ_ITEM, 1);
+	//Hits::SetHitBox(this, m_x, m_y, 40,40, ELEMENT_ENEMY, OBJ_ITEM, 1);
 }
 
 //アクション
@@ -35,10 +36,10 @@ void CObjItem::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top    = 0.0f;
-	src.m_left   = 0.0f;
-	src.m_right  = 0.0f;
-	src.m_bottom = 0.0f;
+	src.m_top    = 130.0f;
+	src.m_left   = 5.0f;
+	src.m_right  = 50.0f;
+	src.m_bottom = 180.0f;
 
 	dst.m_top    = 0.0f ;
 	dst.m_left   = 0.0f ;
