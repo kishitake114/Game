@@ -43,6 +43,7 @@
     <ClCompile Include="ObjStage3.cpp" />
     <ClCompile Include="ObjStage5.cpp" />
     <ClCompile Include="ObjStage4.cpp" />
+    <ClCompile Include="ObjTime.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneClear.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="ObjStage3.h" />
     <ClInclude Include="ObjStage5.h" />
     <ClInclude Include="ObjStage4.h" />
+    <ClInclude Include="ObjTime.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneGameOver.h" />
