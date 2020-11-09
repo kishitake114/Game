@@ -26,10 +26,10 @@ CSceneRule2::~CSceneRule2()
 void CSceneRule2::InitScene()
 {
 
-	//Audio::LoadAudio(0, L"bgm_maoudamashii_8bit28 (2) (online-audio-converter.com).wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"bgm_maoudamashii_8bit28 (2) (online-audio-converter.com).wav", BACK_MUSIC);
 
-	//float v = Audio::VolumeMaster(0);
-	//v = Audio::VolumeMaster(-0.8f);
+	float v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster(-0.8f);
 
 	Audio::Start(0);
 
