@@ -6,6 +6,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
 #include "GameL/UserData.h"
+#include "GameL/DrawFont.h"
 
 using namespace GameL;
 
@@ -28,6 +29,8 @@ CSceneMain::~CSceneMain()
 //ゲームメイン初期化
 void CSceneMain::InitScene()
 {	
+	//Font作成
+	Font::SetStrTex(L"0123456789分秒");
 	
 	//外部データの読み込み（ステージ情報）
 	unique_ptr<wchar_t> p; //ステージ情報ポインター
@@ -45,7 +48,8 @@ void CSceneMain::InitScene()
 	CObjRoad* CObjR = new CObjRoad();
 	Objs::InsertObj(CObjR, OBJ_ROAD, 1);
 
-
+	CObjTime* CObjT = new CObjTime();
+	Objs::InsertObj(CObjT, OBJ_TIME, 1);
 
 }
 
