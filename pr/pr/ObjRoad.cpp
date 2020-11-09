@@ -356,7 +356,6 @@ void CObjRoad::Action()
 				sei = false;
 			}
 	
-
 }
 
 
