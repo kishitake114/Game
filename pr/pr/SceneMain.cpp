@@ -7,6 +7,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL/UserData.h"
 #include "GameL/DrawFont.h"
+#include "GameL/Audio.h"
 
 using namespace GameL;
 
@@ -30,6 +31,11 @@ CSceneMain::~CSceneMain()
 //ゲームメイン初期化
 void CSceneMain::InitScene()
 {	
+	Audio::LoadAudio(0, L"bgm_maoudamashii_8bit18 (online-audio-converter.com).wav", SOUND_TYPE::BACK_MUSIC);
+
+	float Volume = Audio::VolumeMaster(-0.8f);
+	Audio::Start(0);
+
 	//Font作成
 	Font::SetStrTex(L"0123456789分秒");
 	
@@ -51,9 +57,9 @@ void CSceneMain::InitScene()
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 1);
-	CObjItem* CObjI = new CObjItem();
-	Objs::InsertObj(CObjI, OBJ_ITEM, 1);
 
+	CObjItem* CObjI = new CObjItem();
+	Objs::InsertObj(CObjI, OBJ_ITEM, 2);
 
 
 }
@@ -61,5 +67,6 @@ void CSceneMain::InitScene()
 //ゲームメイン実行中
 void CSceneMain::Scene()
 {
+	
 
 }

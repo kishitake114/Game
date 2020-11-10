@@ -14,4 +14,5 @@ class CSceneMain :public CScene
 		void InitScene();	//‰Šú‰»
 		void Scene();		//Às’†
 	private:
+		
 };

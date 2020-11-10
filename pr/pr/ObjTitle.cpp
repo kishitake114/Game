@@ -36,7 +36,10 @@ void CObjTitle::Action()
 			Scene::SetScene(new CSceneRule());
 		}
 	}
-
+	else
+	{
+		mou_l = true;
+	}
 	
 
 }
