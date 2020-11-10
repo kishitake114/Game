@@ -37,10 +37,11 @@ void CSceneGameOver::InitScene()
 	v = Audio::VolumeMaster(-0.8f);
 
 	Audio::Start(0);
-	Draw::LoadImage(L"GameOver.png", 0, TEX_SIZE_512);
 
 	CObjGameOver* CObjGO = new CObjGameOver();
 	Objs::InsertObj(CObjGO, OBJ_GAME_OVER, 1);
+
+	Draw::LoadImage(L"GameOver.png", 0, TEX_SIZE_512);
 }
 
 //実行中メソッド

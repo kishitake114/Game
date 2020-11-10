@@ -13,6 +13,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	void player(bool r);
 
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
 	bool sei;

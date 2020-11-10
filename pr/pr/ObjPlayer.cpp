@@ -7,7 +7,6 @@
 #include "GameL/WinInputs.h"
 #include "GameL\HitBoxManager.h"
 
-
 using namespace GameL;
 
 //イニシャライズ
@@ -27,12 +26,16 @@ void CObjPlayer::Init()
 	cs_x = 0.0f;
 	cs_y = 0.0f;
 
+	
+
 	Hits::SetHitBox(this, p_vx+40, p_vy+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
 }
 
 //アクション
 void CObjPlayer::Action()
 {
+	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj;
+
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -45,7 +48,6 @@ void CObjPlayer::Action()
 
 	if (s_p == true)
 	{
-
 
 			//CHitBox* hit = Hits::GetHitBox(this);
 			//hit->SetPos(p_vx, p_vy);
@@ -85,7 +87,6 @@ void CObjPlayer::Action()
 		if (sei == true)
 		{
 
-
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
 
@@ -118,6 +119,8 @@ void CObjPlayer::Action()
 
 				sei = false;
 				s_p = false;
+
+				CObjPlayer* s_r;
 
 			}
 		}

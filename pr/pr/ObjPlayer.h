@@ -21,6 +21,8 @@ class CObjPlayer :public CObj
 		void SetY(float y) { p_y=y; }
 		void SetVY(float vy) { p_y = vy; }
 
+		bool s_p;
+
 
 	private:
 		float mou_x;  //マウスカーソル：横
@@ -38,7 +40,7 @@ class CObjPlayer :public CObj
 
 
 		bool atr;
-		bool s_p;
+
 		bool st_p;
 		bool sw;
 		bool sei;

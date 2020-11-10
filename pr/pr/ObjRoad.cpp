@@ -28,6 +28,7 @@ void CObjRoad::Init()
 	sei = false;
 
 
+
 //
 //		int mapdata[14][14] =
 //	{
@@ -84,8 +85,6 @@ void CObjRoad::Init()
 //アクション
 void CObjRoad::Action()
 {
-	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -110,7 +109,7 @@ void CObjRoad::Action()
 
 
 	//ロード内のプログラム
-	if (s_r == true)
+	if (s_r==true)
 	{
 		//右クリックで操作中止
 		if (mou_r == true)
@@ -350,12 +349,6 @@ void CObjRoad::Action()
 		}
 
 	}
-
-			if (mou_l == true)
-			{
-				s_r = true;
-				sei = false;
-			}
 	
 }
 
@@ -450,3 +443,15 @@ void CObjRoad::Draw()
 	}
 
 }
+
+void CObjRoad::player(bool r)
+{
+	if (s_r == false)
+	{
+		s_r = true;
+		r = false;
+	}
+
+}
+
+
