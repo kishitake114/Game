@@ -15,7 +15,7 @@ public:
 	void Draw();//ドロー
 
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
-
+	bool sei;
 private:
 	int map[26][26];
 	int mem[3][3];//操作ピースの保存
