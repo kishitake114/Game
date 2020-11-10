@@ -19,8 +19,8 @@ enum OBJ_NAME
 	OBJ_STAGE3,
 	OBJ_STAGE4,
 	OBJ_STAGE5,
-	OBJ_ITEM,
 	OBJ_TIME,
+	OBJ_ITEM,
 };
 //------------------------------------------------
 

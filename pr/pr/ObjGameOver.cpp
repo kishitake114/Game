@@ -11,9 +11,10 @@
 //使用するネームスペース
 using namespace GameL;
 
+//イニシャライズ
 void CObjGameOver::Init()
 {
-
+	mou_l = false; //マウス左クリック
 }
 
 //アクション
@@ -21,7 +22,15 @@ void CObjGameOver::Action()
 {
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
-		Scene::SetScene(new CSceneTitle());
+		if (mou_l == true)
+		{
+			Scene::SetScene(new CSceneTitle());
+			mou_l == false;
+		}
+	}
+	else
+	{
+		mou_l = true;
 	}
 }
 
