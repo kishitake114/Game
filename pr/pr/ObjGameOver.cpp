@@ -11,6 +11,7 @@
 //使用するネームスペース
 using namespace GameL;
 
+//イニシャライズ
 void CObjGameOver::Init()
 {
 	mou_x = 0.0f;
