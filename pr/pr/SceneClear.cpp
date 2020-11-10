@@ -7,6 +7,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL/UserData.h"
 #include "GameL/DrawFont.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -30,6 +31,14 @@ CSceneClear::~CSceneClear()
 //初期化メソッド
 void CSceneClear::InitScene()
 {
+	Audio::LoadAudio(0, L"歩いていくんだ (online-audio-converter.com).wav", BACK_MUSIC);
+
+	float v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster(-0.8f);
+
+	Audio::Start(0);
+
+
 	Font::SetStrTex(L"GAME CLEAR!");
 
 	CObjClear* CObj = new CObjClear();

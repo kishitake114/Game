@@ -13,6 +13,7 @@ using namespace GameL;
 //使用ヘッダー
 #include "SceneGameOver.h"
 #include "GameHead.h"
+#include "SceneGameOver.h"
 
 //コントラクタ
 CSceneGameOver::CSceneGameOver()

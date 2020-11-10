@@ -80,6 +80,7 @@
     <ClCompile Include="ObjStage3.cpp" />
     <ClCompile Include="ObjStage2.cpp" />
     <ClCompile Include="SceneStage2.cpp" />
+    <ClCompile Include="ObjTime.cpp" />
     <ClCompile Include="ObjItem.cpp">
       <Filter>自作</Filter>
     </ClCompile>
@@ -168,6 +169,7 @@
     <ClInclude Include="ObjItem.h">
       <Filter>自作</Filter>
     </ClInclude>
+    <ClInclude Include="ObjTime.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">

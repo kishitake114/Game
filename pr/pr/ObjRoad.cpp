@@ -27,6 +27,7 @@ void CObjRoad::Init()
 	s_r = true;
 	sei = false;
 
+
 //
 //		int mapdata[14][14] =
 //	{
@@ -356,7 +357,6 @@ void CObjRoad::Action()
 				sei = false;
 			}
 	
-
 }
 
 
