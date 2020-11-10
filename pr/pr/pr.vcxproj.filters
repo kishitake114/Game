@@ -166,10 +166,10 @@
     </ClInclude>
     <ClInclude Include="ObjStage2.h" />
     <ClInclude Include="SceneStage2.h" />
+    <ClInclude Include="ObjTime.h" />
     <ClInclude Include="ObjItem.h">
       <Filter>自作</Filter>
     </ClInclude>
-    <ClInclude Include="ObjTime.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
