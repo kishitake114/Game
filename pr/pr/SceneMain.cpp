@@ -51,9 +51,9 @@ void CSceneMain::InitScene()
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 1);
-	CObjItem* CObjI = new CObjItem();
-	Objs::InsertObj(CObjI, OBJ_ITEM, 1);
 
+	CObjItem* CObjI = new CObjItem();
+	Objs::InsertObj(CObjI, OBJ_ITEM, 2);
 
 
 }
@@ -61,5 +61,6 @@ void CSceneMain::InitScene()
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
 void CSceneMain::Scene()
 {
+	
 
 }
