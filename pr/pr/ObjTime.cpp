@@ -36,10 +36,21 @@ void CObjTime::Action()
 		m_flag_time = false;
 	}
 
-	//フラグがオンの時時間を進める
+	//フラグがオンの時、時間を減らす
 	if (m_flag_time == true)
 	{
 		m_time--;
+	}
+
+	//０秒になったら、１分に戻す
+	if (m_time == 0)
+	{
+		m_time = 3600;
+	}
+	//フラグがオフになったら、１分に戻す
+	else if (m_flag_time == false)
+	{
+		m_time = 3600;
 	}
 }
 //ドロー
