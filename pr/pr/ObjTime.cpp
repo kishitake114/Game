@@ -25,13 +25,14 @@ void CObjTime::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-
+	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 	if (mou_l == true)
 	{
 		m_flag_time = true;
 	}
-    else if (mou_r == true)
+	
+	if (mou_r == true)
 	{
 		m_flag_time = false;
 	}
@@ -45,6 +46,7 @@ void CObjTime::Action()
 	//０秒になったら、１分に戻す
 	if (m_time == 0)
 	{
+		obj->HP--;		//m_Timeが0->PlayerHPを-1する。
 		m_time = 3600;
 	}
 	//フラグがオフになったら、１分に戻す
