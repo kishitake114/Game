@@ -35,6 +35,7 @@ void CSceneStage2::InitScene()
 
 	CObjStage2* CObj = new CObjStage2();
 	Objs::InsertObj(CObj, OBJ_STAGE2, 1);
+
 }
 
 //ƒQ[ƒ€ƒƒCƒ“Às’†

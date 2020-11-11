@@ -15,6 +15,7 @@ public:
 	void Draw();//ドロー
 
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
+	bool sei;
 
 private:
 	int map[17][17];
