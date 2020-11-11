@@ -44,7 +44,10 @@ void CObjStage3::Init()
 //アクション
 void CObjStage3::Action()
 {
-
+	mou_x = (float)Input::GetPosX();
+	mou_y = (float)Input::GetPosY();
+	mou_r = Input::GetMouButtonR();
+	mou_l = Input::GetMouButtonL();
 }
 //ドロー
 void CObjStage3::Draw()

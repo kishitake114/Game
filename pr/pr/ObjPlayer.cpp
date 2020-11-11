@@ -26,6 +26,8 @@ void CObjPlayer::Init()
 	cs_x = 0.0f;
 	cs_y = 0.0f;
 
+	HP = 10;
+
 	
 
 	Hits::SetHitBox(this, p_vx+40, p_vy+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
@@ -85,8 +87,6 @@ void CObjPlayer::Action()
 
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(p_vx, p_vy);
-		if (sei == true)
-		{
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
@@ -123,14 +123,14 @@ void CObjPlayer::Action()
 				obj->s_r=true;
 				s_p = false;
 
+				HP--;
+
 			}
-		}
+	}
 
-		else
-		{
-			sei = true;
-		}
-
+	if (HP == 0)
+	{
+		Scene::SetScene(new CSceneGameOver());
 	}
 
 }
@@ -158,6 +158,8 @@ void CObjPlayer::Draw()
 		Font::StrDraw(L"操作\n W,A,S,D", 550, 300, 20, b);
 	}
 
+	swprintf_s(str, L"playerHP=%d", HP);
+	Font::StrDraw(str, 600, 450, 30, c);
 
 	//表示：プレイヤー
 	RECT_F src;

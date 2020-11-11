@@ -22,6 +22,7 @@ class CObjPlayer :public CObj
 		void SetVY(float vy) { p_y = vy; }
 
 		bool s_p;
+		int HP;
 
 
 	private:

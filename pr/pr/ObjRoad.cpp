@@ -445,13 +445,4 @@ void CObjRoad::Draw()
 
 }
 
-void CObjRoad::player(bool r)
-{
-
-		r = false;
-		s_r=true;
-	
-
-}
-
 
