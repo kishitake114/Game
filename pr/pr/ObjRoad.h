@@ -17,6 +17,7 @@ public:
 
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
 	bool sei;
+	bool swi;
 
 private:
 	int map[8][8];
@@ -34,5 +35,7 @@ private:
 	float pv_y;
 
 	bool f_p;	  //クリック操作制御
+
+	void player();
 
 };

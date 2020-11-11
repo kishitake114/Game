@@ -34,7 +34,8 @@ void CObjPlayer::Init()
 //アクション
 void CObjPlayer::Action()
 {
-	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj;
+
+	CObjRoad* obj = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -118,9 +119,9 @@ void CObjPlayer::Action()
 				sw = true;
 
 				sei = false;
+				
+				obj->s_r=true;
 				s_p = false;
-
-				CObjPlayer* s_r;
 
 			}
 		}
@@ -132,13 +133,8 @@ void CObjPlayer::Action()
 
 	}
 
-	if (sw==true&&mou_l == true)
-	{
-		s_p = false;
-		sw = false;
-	}
-
 }
+
 
 //ドロー
 void CObjPlayer::Draw()

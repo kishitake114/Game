@@ -26,6 +26,7 @@ void CObjRoad::Init()
 
 	s_r = true;
 	sei = false;
+	swi = false;
 
 
 
@@ -446,11 +447,10 @@ void CObjRoad::Draw()
 
 void CObjRoad::player(bool r)
 {
-	if (s_r == false)
-	{
-		s_r = true;
+
 		r = false;
-	}
+		s_r=true;
+	
 
 }
 
