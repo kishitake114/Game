@@ -20,7 +20,7 @@ public:
 	bool swi;
 
 private:
-	int map[8][8];
+	int map[14][14];
 	int mem[3][3];//操作ピースの保存
 
 	float mou_x;  //マウスカーソル：横
