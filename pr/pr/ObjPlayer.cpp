@@ -90,6 +90,7 @@ void CObjPlayer::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
+				s_p = false;
 
 				if (cs_x == 95.0f)
 				{
@@ -120,8 +121,8 @@ void CObjPlayer::Action()
 
 				sei = false;
 				
+		
 				obj->s_r=true;
-				s_p = false;
 
 				HP--;
 

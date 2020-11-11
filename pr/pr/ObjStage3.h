@@ -32,5 +32,9 @@ private:
 	float pv_y;
 
 	bool f_p;	  //ƒNƒŠƒbƒN‘€ì§Œä
+	bool test;
+
+	int testx;
+	int testy;
 };
 
