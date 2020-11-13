@@ -31,10 +31,10 @@ CSceneMain::~CSceneMain()
 //ƒQ[ƒ€ƒƒCƒ“‰Šú‰»
 void CSceneMain::InitScene()
 {	
-	Audio::LoadAudio(0, L"bgm_maoudamashii_8bit18 (online-audio-converter.com).wav", SOUND_TYPE::BACK_MUSIC);
+	//Audio::LoadAudio(0, L"bgm_maoudamashii_8bit18 (online-audio-converter.com).wav", SOUND_TYPE::BACK_MUSIC);
 
-	float Volume = Audio::VolumeMaster(-0.8f);
-	Audio::Start(0);
+	//float Volume = Audio::VolumeMaster(-0.8f);
+	//Audio::Start(0);
 
 	//Fontì¬
 	Font::SetStrTex(L"0123456789•ª•b");

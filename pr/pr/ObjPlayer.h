@@ -46,4 +46,6 @@ class CObjPlayer :public CObj
 		bool sw;
 		bool sei;
 
+		char count;
+
 };

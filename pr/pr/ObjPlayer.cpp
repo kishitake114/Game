@@ -28,6 +28,8 @@ void CObjPlayer::Init()
 
 	HP = 10;
 
+	count = '-';
+
 	
 
 	Hits::SetHitBox(this, p_vx+40, p_vy+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
@@ -51,39 +53,123 @@ void CObjPlayer::Action()
 
 	if (s_p == true)
 	{
+		if (atr == true)
+		{
 
-			//CHitBox* hit = Hits::GetHitBox(this);
-			//hit->SetPos(p_vx, p_vy);
 
-			if (Input::GetVKey('W') == true)
+			CHitBox* hit = Hits::GetHitBox(this);
+			hit->SetPos(p_vx, p_vy);
+
+			if (Input::GetVKey('W') == true && count == '-')
 			{
+				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
+				{
+					count='W';
+				}
+				else
+				{
 					p_y -= 20.0f;
 					p_vy -= 20.0f;
 					cs_x = 95.0f;
+					count = '-';
+				}
 					atr = false;
+
 			}
 
-			if (Input::GetVKey('A') == true)
+			if (Input::GetVKey('A') == true && count == '-')
 			{
+				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
+				{
+					count = 'A';
+				}
+				else
+				{
 					p_x -= 20.0f;
 					p_vx -= 20.0f;
 					cs_x = 140.0f;
+					count = '-';
+				}
+					atr = false;
 
 			}
 
-			if (Input::GetVKey('D') == true)
+			if (Input::GetVKey('D') == true && count == '-')
 			{
+				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
+				{
+					count = 'D';
+				}
+				else
+				{
 					p_x += 20.0f;
 					p_vx += 20.0f;
 					cs_x = 50.0f;
+					count = '-';
+				}
+				atr = false;
 			}
 
-			if (Input::GetVKey('S') == true)
+			if (Input::GetVKey('S') == true && count=='-')
 			{
+				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
+				{
+					count = 'S';
+				}
+				else
+				{
 					p_y += 20.0f;
 					p_vy += 20.0f;
 					cs_x = 0.0;
+					count = '-';
+				}
+				atr = false;
 			}
+		}
+
+		else
+		{
+			atr = true;
+		}
+		
+		if (count == 'W')
+		{
+			p_y += 20.0f;
+			p_vy += 20.0f;
+			cs_x = 0.0f;
+			atr = false;
+
+			count = '-';
+
+		}
+
+		if (count == 'A')
+		{
+			p_x += 20.0f;
+			p_vx += 20.0f;
+			cs_x = 50.0f;
+			atr = false;
+			count = '-';
+
+		}
+
+		if (count == 'D')
+		{
+			p_x -= 20.0f;
+			p_vx -= 20.0f;
+			cs_x = 140.0f;
+			atr = false;
+			count = '-';
+		}
+
+		if (count == 'S')
+		{
+			p_y -= 20.0f;
+			p_vy -= 20.0f;
+			cs_x = 95.0f;
+			atr = false;
+			count = '-';
+		}
 
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(p_vx, p_vy);
@@ -91,6 +177,7 @@ void CObjPlayer::Action()
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
 				s_p = false;
+		
 
 				if (cs_x == 95.0f)
 				{
@@ -129,10 +216,9 @@ void CObjPlayer::Action()
 			}
 	}
 
-	if (HP == 0)
-	{
+	if (HP <= 0)
 		Scene::SetScene(new CSceneGameOver());
-	}
+	
 
 }
 
@@ -161,6 +247,9 @@ void CObjPlayer::Draw()
 
 	swprintf_s(str, L"playerHP=%d", HP);
 	Font::StrDraw(str, 600, 450, 30, c);
+
+	swprintf_s(str, L"count=%c", count);
+	Font::StrDraw(str, 600, 350, 30, c);
 
 	//表示：プレイヤー
 	RECT_F src;
