@@ -370,7 +370,27 @@ void CObjStage3::Action()
 
 				if (mou_l == true)
 				{
+					//3段目6行目->4段目6行目
+					if (map[10][16] == 0)
+					{
+						for (int i = 0; i < 3; i++)
+						{
+							for (int j = 0; j < 3; j++)
+							{
+								mem[i][j] = map[7 + i][16 + j];
+							}
 
+							for (int j = 0; j < 3; j++)
+							{
+								map[7 + i][16 + j] = 0;
+							}
+
+							for (int j = 0; j < 3; j++)
+							{
+								map[10 + i][16 + j] = mem[i][j];
+							}
+						}
+					}
 
 
 				}
@@ -640,7 +660,7 @@ void CObjStage3::Action()
 
 				if (mou_l == true)
 				{
-					//4段目6行目->5段目5行目
+					//4段目6行目->5段目6行目
 					if (map[13][16] == 0)
 					{
 						for (int i = 0; i < 3; i++)
@@ -660,6 +680,28 @@ void CObjStage3::Action()
 								map[13 + i][16 + j] = mem[i][j];
 							}
 						}
+
+						////4段目6行目->3段目6行目
+						//if (map[7][16] == 0)
+						//{
+						//	for (int i = 0; i < 3; i++)
+						//	{
+						//		for (int j = 0; j < 3; j++)
+						//		{
+						//			mem[i][j] = map[10 + i][16 + j];
+						//		}
+
+						//		for (int j = 0; j < 3; j++)
+						//		{
+						//			map[10 + i][16 + j] = 0;
+						//		}
+
+						//		for (int j = 0; j < 3; j++)
+						//		{
+						//			map[7 + i][16 + j] = mem[i][j];
+						//		}
+						//	}
+						//}
 					}
 
 					//4段目6行目->4段目5行目
