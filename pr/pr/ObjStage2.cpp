@@ -64,14 +64,14 @@ void CObjStage2::Init()
 		{0,0,0},
 	};
 
-	for (int i = 0; i < 17; i++)
-	{
-		for (int j = 0; j < 17; j++)
-		{
-			if (map[i][j] == 1)
-				Hits::SetHitBox(this, i * 40, j * 40, 40, 40, ELEMENT_GREEN, OBJ_NO_ROAD, 1);
-		}
-	}
+	//for (int i = 0; i < 17; i++)
+	//{
+	//	for (int j = 0; j < 17; j++)
+	//	{
+	//		if (map[i][j] == 1)
+	//			Hits::SetHitBox(this, i * 40, j * 40, 40, 40, ELEMENT_GREEN, OBJ_NO_ROAD, 1);
+	//	}
+	//}
 }
 //アクション
 void CObjStage2::Action()
@@ -108,174 +108,1246 @@ void CObjStage2::Action()
 			s_r = false;
 		}
 
-
-		//上、左
-		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>40.0f && mou_y < 155.0f)
+		//3段目の1個目(左から)
+		if (mou_x > 28.0f && mou_x < 119.0f && mou_y>205.0f && mou_y < 296.0f)
 		{
 			if (mou_l == true)
 			{
-				//上、左->上、右
-				if (map[1][4] == 0)
+				//右へ移動
+				if (map[7][4] == 0)
 				{
 					for (int i = 0; i < 3; i++)
 					{
 						for (int j = 0; j < 3; j++)
 						{
-							mem[i][j] = map[1 + i][1 + j];
+							mem[i][j] = map[7 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][1 + j] = 0;
+							map[7 + i][1 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][4 + j] = mem[i][j];
-							pv_x = 120;
+							map[7 + i][4 + j] = mem[i][j];
 						}
+
 					}
+				}
+				//下へ移動
+				if (map[10][1] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][1 + j];
+						}
 
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][1 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][1 + j] = mem[i][j];
+						}
+
+					}
 				}
 
-				//上、左->下、左
+				//上へ移動
 				if (map[4][1] == 0)
 				{
 					for (int i = 0; i < 3; i++)
 					{
 						for (int j = 0; j < 3; j++)
 						{
-							mem[i][j] = map[1 + i][1 + j];
+							mem[i][j] = map[7 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][1 + j] = 0;
+							map[7 + i][1 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
-							pv_y = -120;
-						}
-					}
-
-				}
-			}
-
-			//上、右
-			if (mou_x > 156.0f && mou_x < 273.0f && mou_y>40.0f && mou_y < 155.0f)
-			{
-				if (mou_l == true)
-				{
-					//上、右->下、右
-					if (map[4][4] == 0)
-					{
-						for (int i = 0; i < 3; i++)
-						{
-							for (int j = 0; j < 3; j++)
-							{
-								mem[i][j] = map[1 + i][4 + j];
-							}
-
-							for (int j = 0; j < 3; j++)
-							{
-								map[1 + i][4 + j] = 0;
-							}
-
-							for (int j = 0; j < 3; j++)
-							{
-								map[4 + i][4 + j] = mem[i][j];
-								pv_y = -120.0f;
-							}
 						}
 
-					}
-
-					//上、右->上、左
-					if (map[1][1] == 0)
-					{
-						for (int i = 0; i < 3; i++)
-						{
-							for (int j = 0; j < 3; j++)
-							{
-								mem[i][j] = map[1 + i][4 + j];
-							}
-
-							for (int j = 0; j < 3; j++)
-							{
-								map[1 + i][4 + j] = 0;
-							}
-
-							for (int j = 0; j < 3; j++)
-							{
-								map[1 + i][1 + j] = mem[i][j];
-								pv_x = -120.0f;
-							}
-						}
-
-					}
-
-
-
-				}
-			}
-			//左上から下に二個目
-			if (mou_x > 40.0f && mou_x < 155.0f && mou_y>80.0f && mou_y < 195.0f)
-			{
-				for (int i = 0; i < 3; i++)
-				{
-					for (int j = 0; j < 3; j++)
-					{
-						mem[i][j] = map[1 + i][1 + j];
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[1 + i][1 + j] = 0;
-					}
-
-					for (int j = 0; j < 3; j++)
-					{
-						map[4 + i][1 + j] = mem[i][j];
-						pv_y = -240;
 					}
 				}
 			}
 
 
+		}
 
-			//右下上2
-			if (mou_x > 480.0f && mou_x < 600.0f && mou_y>480.0f && mou_y < 600.0f)
+		//3段目の2個目(左から)
+		if (mou_x > 116.0f && mou_x < 207.0f && mou_y>206.0f && mou_y < 296.0f)
+		{
+			if (mou_l == true)
 			{
-				if (mou_l == true)
+				//右へ移動
+				if (map[7][7] == 0)
 				{
-					//右下上2→右下
-					if (map[13][13] == 0)
+					for (int i = 0; i < 3; i++)
 					{
-						for (int i = 0; i < 3; i++)
+						for (int j = 0; j < 3; j++)
 						{
-							for (int j = 0; j < 3; j++)
-							{
-								mem[i][j] = map[10 + i][13 + j];
-							}
-
-							for (int j = 0; j < 3; j++)
-							{
-								map[10 + i][13 + j] = 0;
-							}
-
-							for (int j = 0; j < 3; j++)
-							{
-								map[13 + i][13 + j] = mem[i][j];
-								pv_y = -480;
-							}
+							mem[i][j] = map[7 + i][4 + j];
 						}
-					}
 
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][7 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//下へ移動
+				if (map[10][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//左へ移動
+				if (map[7][1] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][1 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[4][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][4 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+
+
+		}
+
+		//3段目の3個目(左から)
+		if (mou_x > 206.0f && mou_x < 296.0f && mou_y>206.0f && mou_y < 296.0f)
+		{
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[7][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//下へ移動
+				if (map[10][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][7 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//左へ移動
+				if (map[7][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][4 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[4][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][7 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+
+
+		}
+
+		//3段目の4個目(左から)
+		if (mou_x > 295.0f && mou_x < 387.0f && mou_y>206.0f && mou_y < 296.0f)
+		{
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[7][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][13 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//下へ移動
+				if (map[10][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//左へ移動
+				if (map[7][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][7 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[4][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+
+
+		}
+
+		//3段目の5個目(左から)
+		if (mou_x > 382.0f && mou_x < 473.0f && mou_y>205.0f && mou_y < 295.0f)
+		{
+			if (mou_l == true)
+			{
+				
+				//下へ移動
+				if (map[10][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][13 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//左へ移動
+				if (map[7][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[4][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[7 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][13 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+
+
+		}
+
+		//4段目の1個目(左から)
+		if (mou_x > 29.0f && mou_x < 120.0f && mou_y>293.0f && mou_y < 384.0f)
+		{
+
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[10][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][1 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//下へ移動
+				if (map[13][1] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][1 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][1 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[7][1] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][1 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][1 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+
+		}
+
+		//4段目の2個目(左から)
+		if (mou_x > 117.0f && mou_x < 209.0f && mou_y>292.0f && mou_y < 383.0f)
+		{
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[10][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][7 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//下へ移動
+				if (map[13][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][4 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//左へ移動
+				if (map[10][1] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][1 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[7][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][4 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+			
+
+		}
+
+		//4段目の3個目(左から)
+		if (mou_x > 206.0f && mou_x < 297.0f && mou_y>293.0f && mou_y < 385.0f)
+		{
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[10][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//下へ移動
+				if (map[13][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][7 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//左へ移動
+				if (map[10][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[7][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][7 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+			
+
+		}
+
+
+		//4段目の4個目(左から)
+		if (mou_x > 293.0f && mou_x < 386.0f && mou_y>293.0f && mou_y < 386.0f)
+		{
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[10][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][13 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//下へ移動
+				if (map[13][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//左へ移動
+				if (map[10][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][17 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[7][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+
+		}
+
+		//4段目の5個目(左から)
+		if (mou_x > 384.0f && mou_x < 473.0f && mou_y>291.0f && mou_y < 382.0f)
+		{
+			if (mou_l == true)
+			{
+				//下へ移動
+				if (map[13][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][13 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//左へ移動
+				if (map[10][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+
+				//上へ移動
+				if (map[7][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[10 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[7 + i][13 + j] = mem[i][j];
+						}
+
+					}
 				}
 			}
 		}
+
+		
+
+		//5段目の1個目(左から)
+		if (mou_x > 28.0f && mou_x < 120.0f && mou_y>382.0f && mou_y < 471.0f)
+		{
+
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[13][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][1 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][4 + j] = mem[i][j];
+						}
+					}
+				}
+
+				//上へ移動
+				if (map[10][1] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][1 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][1 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][1 + j] = mem[i][j];
+						}
+					}
+				}
+
+
+			}
+		}
+		//5段目の2個目(左から)
+		if (mou_x > 119.0f && mou_x < 207.0f && mou_y>382.0f && mou_y < 473.0f)
+		{
+
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[13][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][7 + j] = mem[i][j];
+						}
+					}
+				}
+
+				//左へ移動
+				if (map[13][1] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][1 + j] = mem[i][j];
+						}
+					}
+				}
+
+				//上へ移動
+				if (map[10][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][4 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][4 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][4 + j] = mem[i][j];
+						}
+					}
+				}
+
+			}
+		}
+		//5段目の3個目(左から)
+		if (mou_x > 206.0f && mou_x < 296.0f && mou_y>381.0f && mou_y < 472.0f)
+		{
+
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[13][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][10 + j] = mem[i][j];
+						}
+					}
+				}
+
+				//左へ移動
+				if (map[13][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][4 + j] = mem[i][j];
+						}
+					}
+				}
+
+				//上へ移動
+				if (map[10][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][7 + j] = mem[i][j];
+						}
+					}
+				}
+
+			}
+		}
+		//5段目の4個目(左から)
+		if (mou_x > 295.0f && mou_x < 384.0f && mou_y>381.0f && mou_y < 472.0f)
+		{
+
+			if (mou_l == true)
+			{
+				//右へ移動
+				if (map[13][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][13 + j] = mem[i][j];
+						}
+					}
+				}
+
+				//左へ移動
+				if (map[13][7] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][7 + j] = mem[i][j];
+						}
+					}
+				}
+
+				//上へ移動
+				if (map[10][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][10 + j] = mem[i][j];
+						}
+					}
+				}
+
+
+			}
+		}
+
+		//5段目の5個目(左から)
+		if (mou_x > 383.0f && mou_x < 473.0f && mou_y>383.0f && mou_y < 473.0f)
+		{
+			if (mou_l == true)
+			{
+				//左へ移動
+				if (map[13][10] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][10 + j] = mem[i][j];
+						}
+
+					}
+				}
+				//上へ移動
+				if (map[10][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[13 + i][13 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[13 + i][13 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[10 + i][13 + j] = mem[i][j];
+						}
+
+					}
+				}
+			}
+			
+		}
+
 	}
 }
 //ドロー
