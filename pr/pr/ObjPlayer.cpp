@@ -55,8 +55,6 @@ void CObjPlayer::Action()
 	{
 		if (atr == true)
 		{
-
-
 			CHitBox* hit = Hits::GetHitBox(this);
 			hit->SetPos(p_vx, p_vy);
 
@@ -73,7 +71,7 @@ void CObjPlayer::Action()
 					cs_x = 95.0f;
 					count = '-';
 				}
-					atr = false;
+					//atr = false;
 
 			}
 
@@ -90,10 +88,10 @@ void CObjPlayer::Action()
 					cs_x = 140.0f;
 					count = '-';
 				}
-					atr = false;
+					//atr = false;
 
 			}
-
+			
 			if (Input::GetVKey('D') == true && count == '-')
 			{
 				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
@@ -107,7 +105,7 @@ void CObjPlayer::Action()
 					cs_x = 50.0f;
 					count = '-';
 				}
-				atr = false;
+				//atr = false;
 			}
 
 			if (Input::GetVKey('S') == true && count=='-')
@@ -123,7 +121,7 @@ void CObjPlayer::Action()
 					cs_x = 0.0;
 					count = '-';
 				}
-				atr = false;
+				//atr = false;
 			}
 		}
 
@@ -132,7 +130,7 @@ void CObjPlayer::Action()
 			atr = true;
 		}
 		
-		if (count == 'W')
+	/*	if (count == 'W')
 		{
 			p_y += 20.0f;
 			p_vy += 20.0f;
@@ -169,7 +167,7 @@ void CObjPlayer::Action()
 			cs_x = 95.0f;
 			atr = false;
 			count = '-';
-		}
+		}*/
 
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(p_vx, p_vy);
