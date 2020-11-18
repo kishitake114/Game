@@ -83,6 +83,7 @@ void CObjRoad::Init()
 
 }
 
+
 //ƒAƒNƒVƒ‡ƒ“
 void CObjRoad::Action()
 {
