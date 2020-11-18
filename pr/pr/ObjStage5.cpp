@@ -90,7 +90,6 @@ void CObjStage5::Draw()
 
 	//ï\é¶ÅFí çsâ¬
 
-
 	src.m_top = 90.0f;
 	src.m_left = 45.0f;
 	src.m_right = 85.0f;
