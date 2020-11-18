@@ -99,7 +99,7 @@ void CObjStage4::Action()
 	//‚P’i–Ú
 	if (mou_x > 22 && mou_x < 550 && mou_y>22 && mou_y < 88)
 	{
-		//‚Ps–Ú
+		//‚Ps–Ú[1][1]
 		if (mou_x > 22 && mou_x < 88 && mou_y>22 && mou_y < 88)
 		{
 			if (mou_l == true)
@@ -146,7 +146,7 @@ void CObjStage4::Action()
 				}
 			}
 			
-		//‚Qs–Ú
+		//‚Qs–Ú[1][4]
 		if (mou_x > 88.0f && mou_x < 154.0f && mou_y>22.0f && mou_y < 88.0f)
 		{
 			if (mou_l == true)
@@ -162,7 +162,7 @@ void CObjStage4::Action()
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][1 + j] = 0;
+							map[1 + i][4 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -191,31 +191,51 @@ void CObjStage4::Action()
 						}
 					}
 				}
-			}
-		}
-
-		//‚Rs–Ú
-		if (mou_x > 154.0f && mou_x < 220.0f && mou_y>22.0f && mou_y < 88.0f)
-		{
-			if (mou_l == true)
-			{
-				if (map[4][7] == 0)
+				if (map[4][4] == 0)
 				{
 					for (int i = 0; i < 3; i++)
 					{
 						for (int j = 0; j < 3; j++)
 						{
-							mem[i][j] = map[7 + i][10 + j];
+							mem[i][j] = map[1 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[7 + i][10 + j] = 0;
+							map[1 + i][4 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[4 + i][7 + j] = mem[i][j];
+							map[4 + i][4 + j] = mem[i][j];
+						}
+					}
+				}
+			}
+		}
+
+		//‚Rs–Ú[1][7]
+		if (mou_x > 154.0f && mou_x < 220.0f && mou_y>22.0f && mou_y < 88.0f)
+		{
+			if (mou_l == true)
+			{
+				if (map[1][4] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[1 + i][7 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][7 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][4 + j] = mem[i][j];
 						}
 					}
 				}
