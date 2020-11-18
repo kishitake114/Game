@@ -89,7 +89,7 @@ void CObjStage5::Action()
 		}
 
 		//1列目1マス目
-		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>40.0f && mou_y < 155.0f)
+		if (mou_x > 20.0f && mou_x < 80.0f && mou_y>20.0f && mou_y < 80.0f)
 		{
 
 			if (mou_l == true)
@@ -112,7 +112,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
-							pv_x = 120;
+							pv_x = 60.0f;
 						}
 					}
 
@@ -136,7 +136,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
-							pv_y = -120;
+							pv_y = -60.f;
 						}
 					}
 				}
@@ -147,7 +147,7 @@ void CObjStage5::Action()
 
 
 		//1列目２マス目 
-		if (mou_x > 155.0f && mou_x < 273.0f && mou_y>40.0f && mou_y < 155.0f)
+		if (mou_x > 80.0f && mou_x < 140.0f && mou_y>.0f && mou_y < 80.0f)
 		{
 			if (mou_l == true)
 			{
@@ -169,7 +169,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
-							pv_y = -120.0f;
+							pv_y = -60.0f;
 						}
 					}
 
@@ -193,7 +193,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][1 + j] = mem[i][j];
-							pv_x = -120.0f;
+							pv_x = -60.0f;
 						}
 					}
 
@@ -217,7 +217,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][7 + j] = mem[i][j];
-							pv_x = -120.0f;
+							pv_x = -60.0f;
 						}
 					}
 
@@ -227,7 +227,7 @@ void CObjStage5::Action()
 
 
 		//1列目（3マス目）
-		if (mou_x > 274.0f && mou_x < 394.0f && mou_y>40.0f && mou_y < 155.0f)
+		if (mou_x > 140.0f && mou_x < 200.0f && mou_y>20.0f && mou_y < 80.0f)
 		{
 			if (mou_l == true)
 			{
@@ -250,7 +250,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][7 + j] = mem[i][j];
-							pv_y = -120.0f;
+							pv_y = -60.0f;
 						}
 					}
 				}
@@ -272,7 +272,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
-							pv_x = 120.0f;
+							pv_x = 60.0f;
 						}
 					}
 				}
@@ -294,7 +294,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][10 + j] = mem[i][j];
-							pv_x = -120.0f;
+							pv_x = -60.0f;
 						}
 					}
 
@@ -303,7 +303,7 @@ void CObjStage5::Action()
 		}
 
 		//1列目４マス目
-		if (mou_x > 395.0f && mou_x < 520.0f && mou_y>40.0f && mou_y < 155.0f)
+		if (mou_x > 200.0f && mou_x < 260.0f && mou_y>20.0f && mou_y < 80.0f)
 		{
 			if (mou_l == true)
 			{
@@ -326,7 +326,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][10 + j] = mem[i][j];
-							pv_x = 120.0f;
+							pv_x = 60.0f;
 						}
 					}
 				}
@@ -348,7 +348,29 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][7 + j] = mem[i][j];
-							pv_x = 120.0f;
+							pv_x = 60.0f;
+						}
+					}
+				}
+				//１列目(4マス目）→（右）1マス移動
+				if (map[1][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[1 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[1 + i][13 + j] = mem[i][j];
+							pv_x = -60.0f;
 						}
 					}
 				}
@@ -356,7 +378,7 @@ void CObjStage5::Action()
 		}
 
 		//2列目
-		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>156.0f && mou_y < 273.0f)
+		if (mou_x > 20.0f && mou_x < 80.0f && mou_y>80.0f && mou_y < 140.0f)
 		{
 			if (mou_l == true)
 			{
@@ -378,7 +400,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][1 + j] = mem[i][j];
-							pv_y += 120;
+							pv_y += 60;
 						}
 					}
 				}
@@ -401,7 +423,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
-							pv_x = 120;
+							pv_x = 60;
 						}
 					}
 				}
@@ -424,7 +446,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][1 + j] = mem[i][j];
-							pv_x = 120;
+							pv_x = 60;
 						}
 					}
 				}
@@ -432,7 +454,7 @@ void CObjStage5::Action()
 		}
 
 		//2列目（2マス目）
-		if (mou_x > 156.0f && mou_x < 273.0f && mou_y>156.0f && mou_y < 273.0f)
+		if (mou_x > 80.0f && mou_x < 140.0f && mou_y>140.0f && mou_y < 200.0f)
 		{
 			if (mou_l == true)
 			{
@@ -454,7 +476,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
-							pv_x = -120;
+							pv_x = -60;
 						}
 					}
 
@@ -478,7 +500,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
 						}
 					}
 				}
@@ -501,7 +523,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][4 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
 						}
 					}
 				}
@@ -524,7 +546,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][7 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
 						}
 					}
 				}
@@ -533,7 +555,7 @@ void CObjStage5::Action()
 
 
 		//2列目（3マス目）
-		if (mou_x > 274.0f && mou_x < 394.0f && mou_y>155.0f && mou_y < 274.0f)
+		if (mou_x > 140.0f && mou_x < 200.0f && mou_y>80.0f && mou_y < 140.0f)
 		{
 			if (mou_l == true)
 			{
@@ -555,7 +577,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
-							pv_x = -120;
+							pv_x = -60;
 						}
 					}
 
@@ -579,7 +601,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][7 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
 						}
 					}
 				}
@@ -602,7 +624,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][10 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
 						}
 					}
 				}
@@ -625,7 +647,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][7 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
 						}
 					}
 				}
@@ -633,7 +655,7 @@ void CObjStage5::Action()
 		}
 
 		//2列目（4マス目）
-		if (mou_x > 394.0f && mou_x < 520.0f && mou_y>156.0f && mou_y < 273.0f)
+		if (mou_x > 200.0f && mou_x < 260.0f && mou_y>80.0f && mou_y < 140.0f)
 		{
 			if (mou_l == true)
 			{
@@ -655,7 +677,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][7 + j] = mem[i][j];
-							pv_x = -120;
+							pv_x = -60;
 						}
 					}
 
@@ -679,7 +701,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][10 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
 						}
 					}
 				}
@@ -702,7 +724,29 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][10 + j] = mem[i][j];
-							pv_y = 120;
+							pv_y = 60;
+						}
+					}
+				}
+				//2列目（4マス目）→（右）1マス移動
+				if (map[4][13] == 0)
+				{
+					for (int i = 0; i < 3; i++)
+					{
+						for (int j = 0; j < 3; j++)
+						{
+							mem[i][j] = map[4 + i][10 + j];
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][10 + j] = 0;
+						}
+
+						for (int j = 0; j < 3; j++)
+						{
+							map[4 + i][13 + j] = mem[i][j];
+							pv_y = 60;
 						}
 					}
 				}
@@ -710,7 +754,7 @@ void CObjStage5::Action()
 		}
 
 		//3列目
-		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>274.0f && mou_y < 394.0f)
+		if (mou_x > 20.0f && mou_x < 80.0f && mou_y>140.0f && mou_y < 200.0f)
 		{
 			if (mou_l == true)
 			{
@@ -732,7 +776,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
-							pv_y += 120;
+							pv_y += 60;
 						}
 					}
 				}
@@ -755,7 +799,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][4 + j] = mem[i][j];
-							pv_x = 120;
+							pv_x = 60;
 						}
 					}
 				}
@@ -778,7 +822,7 @@ void CObjStage5::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][1 + j] = mem[i][j];
-							pv_x = 120;
+							pv_x = 60;
 						}
 					}
 				}
@@ -786,7 +830,7 @@ void CObjStage5::Action()
 		}
 
 		//3列目（2マス目）
-		if (mou_x > 156.0f && mou_x < 273.0f && mou_y>274.0f && mou_y < 394.0f)
+		if (mou_x > 80.0f && mou_x < 140.0f && mou_y>274.0f && mou_y < 394.0f)
 		{
 			if (mou_l == true)
 			{
