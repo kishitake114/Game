@@ -333,12 +333,12 @@ void CObjStage2::Action()
 					{
 						for (int j = 0; j < 3; j++)
 						{
-							mem[i][j] = map[1 + i][13 + j];
+							mem[i][j] = map[1 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][13 + j] = 0;
+							map[1 + i][10 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -355,12 +355,12 @@ void CObjStage2::Action()
 					{
 						for (int j = 0; j < 3; j++)
 						{
-							mem[i][j] = map[1 + i][13 + j];
+							mem[i][j] = map[1 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][13 + j] = 0;
+							map[1 + i][10 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -378,12 +378,12 @@ void CObjStage2::Action()
 					{
 						for (int j = 0; j < 3; j++)
 						{
-							mem[i][j] = map[1 + i][13 + j];
+							mem[i][j] = map[1 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[1 + i][13 + j] = 0;
+							map[1 + i][10 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -399,7 +399,7 @@ void CObjStage2::Action()
 		}
 
 		//1’i–Ú‚Ì5ŒÂ–Ú(¶‚©‚ç)
-		if (mou_x > 383.0f && mou_x < 28.0f && mou_y>475.0f && mou_y < 118.0f)
+		if (mou_x > 383.0f && mou_x < 474.0f && mou_y>27.0f && mou_y < 118.0f)
 		{
 			if (mou_l == true)
 			{
