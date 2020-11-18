@@ -97,10 +97,10 @@ void CObjStage4::Action()
 	}
 
 	//‚P’i–Ú
-	if (mou_x > 22 && mou_x < 550 && mou_y>22 && mou_y < 88)
+	if (mou_x > 22.0f && mou_x < 550.0f && mou_y>22.0f && mou_y < 88.0f)
 	{
 		//‚Ps–Ú[1][1]
-		if (mou_x > 22 && mou_x < 88 && mou_y>22 && mou_y < 88)
+		if (mou_x > 22.0f && mou_x < 88.0f && mou_y>22.0f && mou_y < 88.0f)
 		{
 			if (mou_l == true)
 			{
