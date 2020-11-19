@@ -2143,9 +2143,7 @@ void CObjStage2::Action()
 					}
 				}
 			}
-			
 		}
-
 	}
 }
 //ÉhÉçÅ[
