@@ -14,6 +14,9 @@ using namespace GameL;
 //イニシャライズ
 void CObjStage2::Init()
 {
+	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	obj->num = 2;
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;

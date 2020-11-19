@@ -23,7 +23,7 @@ class CObjPlayer :public CObj
 
 		bool s_p;
 		int HP;
-
+		int num;
 
 	private:
 		float mou_x;  //マウスカーソル：横

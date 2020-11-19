@@ -31,8 +31,6 @@ void CObjPlayer::Init()
 
 	count = '-';
 
-	
-
 	Hits::SetHitBox(this, p_vx+40, p_vy+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
 }
 
@@ -194,10 +192,47 @@ void CObjPlayer::Draw()
 	src.m_right   = 45.0f + cs_x;
 	src.m_bottom  = 45.0f;
 
-	dst.m_top    = 200.0f + p_y;
-	dst.m_left   =   0.0f + p_x;
-	dst.m_right  =  40.0f + p_x;
-	dst.m_bottom = 240.0f + p_y;
+	if (num == 1)
+	{
+		dst.m_top = 200.0f + p_y;
+		dst.m_left = 0.0f + p_x;
+		dst.m_right = 40.0f + p_x;
+		dst.m_bottom = 240.0f + p_y;
+	}
+
+	if (num == 2)
+	{
+		dst.m_top = 240.0f + p_y;
+		dst.m_left = 0.0f + p_x;
+		dst.m_right = 30.0f + p_x;
+		dst.m_bottom = 270.0f + p_y;
+	}
+
+	if (num == 3)
+	{
+		dst.m_top = 200.0f + p_y;
+		dst.m_left = 0.0f + p_x;
+		dst.m_right = 25.0f + p_x;
+		dst.m_bottom = 225.0f + p_y;
+	}
+
+
+	if (num == 4)
+	{
+		dst.m_top = 242.0f + p_y;
+		dst.m_left = 0.0f + p_x;
+		dst.m_right = 22.0f + p_x;
+		dst.m_bottom = 264.0f + p_y;
+	}
+
+
+	if (num == 5)
+	{
+		dst.m_top = 198.0f + p_y;
+		dst.m_left = 0.0f + p_x;
+		dst.m_right = 18.0f + p_x;
+		dst.m_bottom = 216.0f + p_y;
+	}
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
