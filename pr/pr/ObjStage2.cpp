@@ -64,14 +64,6 @@ void CObjStage2::Init()
 		{0,0,0},
 	};
 
-	//for (int i = 0; i < 17; i++)
-	//{
-	//	for (int j = 0; j < 17; j++)
-	//	{
-	//		if (map[i][j] == 1)
-	//			Hits::SetHitBox(this, i * 40, j * 40, 40, 40, ELEMENT_GREEN, OBJ_NO_ROAD, 1);
-	//	}
-	//}
 }
 //ƒAƒNƒVƒ‡ƒ“
 void CObjStage2::Action()
