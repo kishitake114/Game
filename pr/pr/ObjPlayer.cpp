@@ -6,6 +6,7 @@
 #include "GameHead.h" 
 #include "GameL/WinInputs.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL/Audio.h"
 
 using namespace GameL;
 
@@ -60,7 +61,8 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('W') == true )
 			{
-
+					//Audio::Start(2);
+				   
 					p_y -= 20.0f;
 					p_vy -= 20.0f;
 					cs_x = 95.0f;
@@ -70,6 +72,7 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('A') == true)
 			{
+				    //Audio::Start(2);
 
 					p_x -= 20.0f;
 					p_vx -= 20.0f;
@@ -81,6 +84,7 @@ void CObjPlayer::Action()
 			
 			if (Input::GetVKey('D') == true)
 			{
+				    //Audio::Start(2);
 	
 					p_x += 20.0f;
 					p_vx += 20.0f;
@@ -91,6 +95,7 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('S') == true )
 			{
+				    //Audio::Start(2);
 			
 					p_y += 20.0f;
 					p_vy += 20.0f;
