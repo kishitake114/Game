@@ -112,6 +112,9 @@
     <ClCompile Include="ObjTime.cpp">
       <Filter>自作\タイム</Filter>
     </ClCompile>
+    <ClCompile Include="ObjEnemy2.cpp">
+      <Filter>自作\ステージ\Stage2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -227,6 +230,9 @@
     </ClInclude>
     <ClInclude Include="ObjTime.h">
       <Filter>自作\タイム</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy2.h">
+      <Filter>自作\ステージ\Stage2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
