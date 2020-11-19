@@ -59,7 +59,7 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('W') == true )
 			{
-					//Audio::Start(2);
+				/*	Audio::Start(2);*/
 				   
 					p_y -= 20.0f;
 					p_vy -= 20.0f;
@@ -70,7 +70,7 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('A') == true)
 			{
-				    //Audio::Start(2);
+			/*	    Audio::Start(2);*/
 
 					p_x -= 20.0f;
 					p_vx -= 20.0f;
@@ -82,7 +82,7 @@ void CObjPlayer::Action()
 			
 			if (Input::GetVKey('D') == true)
 			{
-				    //Audio::Start(2);
+				    /*Audio::Start(2);*/
 	
 					p_x += 20.0f;
 					p_vx += 20.0f;
@@ -93,7 +93,7 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('S') == true )
 			{
-				    //Audio::Start(2);
+			/*	    Audio::Start(2);*/
 			
 					p_y += 20.0f;
 					p_vy += 20.0f;
@@ -198,6 +198,7 @@ void CObjPlayer::Draw()
 		dst.m_left = 0.0f + p_x;
 		dst.m_right = 40.0f + p_x;
 		dst.m_bottom = 240.0f + p_y;
+
 	}
 
 	if (num == 2)

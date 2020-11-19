@@ -15,7 +15,7 @@ void CObjEnemy::Init()
 {
 	srand(time(NULL));
 
-	HP = 999;
+	HP = 10;
 	p_x = 80.0f;
 	p_y = 0.0f;
 
@@ -54,19 +54,26 @@ void CObjEnemy::Action()
 		//プレイヤーと接触しているかどうかを調べる
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
-			ran = 1;
 
 			se = false;
 
-			plx = rand() % 4;
-			ply = rand() % 4;
+			//---------敵のアクション----------------
 
+			//ランダム変数
+	/*		plx = rand() % 4;
+			ply = rand() % 4;*/
+
+			plx = 2;
+			ply = 0;
+
+			//今いる場所と同じ場合、ランダム処理をやり直す
 			if (memx == plx && memy == ply)
 			{
 				plx = rand() % 4;
 				ply = rand() % 4;
 			}
 
+			//それ以外は、memx,memyにランダム内容を入れる
 			else
 			{
 				memx = plx;
@@ -76,13 +83,11 @@ void CObjEnemy::Action()
 
 			switch (plx)
 			{
+			
+			//plxが０の場合＝map[0][](上)に移動
 			case 0:
 
-				if (ply > 2)
-				{
-					ply -= 2;
-				}
-
+				//ply=0　map[0][2]
 				if (ply == 0)
 				{
 					p_x = 80.0f;
@@ -94,100 +99,187 @@ void CObjEnemy::Action()
 
 				}
 
+				//ply=1　map[0][5]
 				if (ply == 1)
 				{
-					p_x = 80.0f;
-					atr_x = 0.0f;			
-					cs_xe = 93.0f;
-
-					p_y = 280.0f;
-					atr_y = 280.0f;
-				}
-
-				break;
-
-			case 1:
-
-				if (ply > 2)
-				{
-					ply -= 2;
-				}
-
-				if (ply == 0)
-				{
 					p_x = 200.0f;
-					atr_x = 120.0f;
+					atr_x = 120.0f;			
+					cs_xe = 0.0f;
+
+					p_y = 0.0f;
+					atr_y =0.0f;
+				}
+
+				//ply=2　map[0][8]
+				if (ply == 2)
+				{
+					p_x = 320.0f;
+					atr_x = 240.0f;
 					cs_xe = 0.0f;
 
 					p_y = 0.0f;
 					atr_y = 0.0f;
 				}
 
+				//ply=3　map[0][11]
+				if (ply == 3)
+				{
+					p_x = 440.0f;
+					atr_x = 360.0f;
+					cs_xe = 0.0f;
+
+					p_y = 0.0f;
+					atr_y = 0.0f;
+				}
+
+				break;
+
+			//plxが１の場合＝map[][0](左)に移動
+			case 1:
+
+				//ply=0　map[2][2]
+				if (ply == 0)
+				{
+					p_x = 0.0f;
+					atr_x = -80.0f;
+					cs_xe = 45.0f;
+
+					p_y = 80.0f;
+					atr_y = 80.0f;
+				}
+
+				//ply=1　map[2][5]
+				if (ply == 1)
+				{
+					p_x = 0.0f;
+					atr_x = -80.0f;
+					cs_xe = 45.0f;
+
+					p_y = 200.0f;
+					atr_y = 200.0f;
+				}
+
+				//ply=2　map[2][8]
+				if (ply == 2)
+				{
+					p_x = 0.0f;
+					atr_x = -80.0f;
+					cs_xe = 45.0f;
+
+					p_y = 320.0f;
+					atr_y = 320.0f;
+				}
+
+				//ply=3　map[2][11]
+				if (ply == 3)
+				{
+					p_x = 0.0f;
+					atr_x = -80.0f;
+					cs_xe = 45.0f;
+
+					p_y = 440.0f;
+					atr_y = 440.0f;
+				}
+				break;
+
+			//plxが２の場合＝map[][13](右)に移動
+			case 2:
+
+				//ply=0　map[2][13]
+				if (ply == 0)
+				{
+					atr_x = 440.0f;
+					p_x = 520.0f;
+					cs_xe = 140.0f;
+
+					p_y = 80.0f;
+					atr_y = 80.0f;
+				}
+
+				//ply=0　map[5][13]
+				if (ply == 1)
+				{
+					atr_x = 440.0f;
+					p_x = 520.0f;
+					cs_xe = 140.0f;
+
+					p_y = 200.0f;
+					atr_y = 200.0f;
+				}
+
+				//ply=0　map[8][13]
+				if (ply == 2)
+				{
+					atr_x = 440.0f;
+					p_x = 520.0f;
+					cs_xe = 140.0f;
+
+					p_y = 320.0f;
+					atr_y = 320.0f;
+				}
+
+				//ply=0　map[11][13]
+				if (ply == 3)
+				{
+					atr_x = 440.0f;
+					p_x = 520.0f;
+					cs_xe = 140.0f;
+
+					p_y = 440.0f;
+					atr_y = 440.0f;
+				}
+
+				break;
+
+			//plxが１の場合＝map[13][](下)に移動
+			case 3:
+
+				//ply=0　map[13][2]
+				if (ply == 0)
+				{
+					p_x = 80.0f;
+					atr_x = 0.0f;
+					cs_xe = 0.0f;
+
+					p_y = 520.0f;
+					atr_y = 520.0f;
+
+				}
+
+				//ply=0　map[13][5]
 				if (ply == 1)
 				{
 					p_x = 200.0f;
 					atr_x = 120.0f;
-					cs_xe = 93.0f;
+					cs_xe = 0.0f;
 
-					p_y = 280.0f;
-					atr_y = 280.0f;
-				}
-				break;
+					p_y = 520.0f;
+					atr_y = 520.0f;
 
-			case 2:
-
-
-				if (ply < 2)
-				{
-					ply += 2;
 				}
 
+				//ply=0　map[13][8]
 				if (ply == 2)
 				{
-					atr_x = -80.0f;
-					p_x = 0.0f;
-					cs_xe = 45.0f;
+					p_x = 320.0f;
+					atr_x = 240.0f;
+					cs_xe = 0.0f;
 
-					p_y = 80.0f;
-					atr_y = 80.0f;
+					p_y = 520.0f;
+					atr_y = 520.0f;
+
 				}
 
+				//ply=0　map[13][11]
 				if (ply == 3)
 				{
-					atr_x = -80.0f;
-					p_x = 0.0f;
-					cs_xe = 45.0f;
+					p_x = 440.0f;
+					atr_x = 360.0f;
+					cs_xe = 0.0f;
 
-					p_y = 200.0f;
-					atr_y = 200.0f;
-				}
-				break;
+					p_y = 520.0f;
+					atr_y = 520.0f;
 
-			case 3:
-
-				if (ply < 2)
-				{
-					ply += 2;
-				}
-
-				if (ply == 2)
-				{
-					atr_x = 200.0f;
-					p_x = 280.0f;
-					cs_xe = 140.0f;
-
-					p_y = 80.0f;
-					atr_y = 80.0f;
-				}
-
-				if (ply == 3)
-				{
-					atr_x = 200.0f;
-					p_x = 280.0f;
-					cs_xe = 140.0f;
-
-					p_y = 200.0f;
-					atr_y = 200.0f;
 				}
 
 			default:
@@ -195,7 +287,7 @@ void CObjEnemy::Action()
 
 			}
 
-			HP -= 1;
+			HP -= 2;
 
 
 			//HPが０になったら破棄
@@ -204,7 +296,7 @@ void CObjEnemy::Action()
 				this->SetStatus(false);			
 				Hits::DeleteHitBox(this);
 
-				Scene::SetScene(new CSceneClear());
+				Scene::SetScene(new CSceneStage2());
 			}
 		}
 	}
@@ -226,7 +318,7 @@ void CObjEnemy::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-	swprintf_s(str, L"HP %d/999",HP);
+	swprintf_s(str, L"HP %d/10",HP);
 	Font::StrDraw(str, 600, 400, 30, c);
 
 	swprintf_s(str, L"%d", ran);
