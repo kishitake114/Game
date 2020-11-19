@@ -125,7 +125,7 @@ void CObjStage2::Action()
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[ + i][1 + j] = 0;
+							map[1 + i][1 + j] = 0;
 						}
 
 						for (int j = 0; j < 3; j++)
