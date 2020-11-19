@@ -58,116 +58,47 @@ void CObjPlayer::Action()
 			CHitBox* hit = Hits::GetHitBox(this);
 			hit->SetPos(p_vx, p_vy);
 
-			if (Input::GetVKey('W') == true && count == '-')
+			if (Input::GetVKey('W') == true )
 			{
-				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
-				{
-					count='W';
-				}
-				else
-				{
+
 					p_y -= 20.0f;
 					p_vy -= 20.0f;
 					cs_x = 95.0f;
 					count = '-';
-				}
-					//atr = false;
 
 			}
 
-			if (Input::GetVKey('A') == true && count == '-')
+			if (Input::GetVKey('A') == true)
 			{
-				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
-				{
-					count = 'A';
-				}
-				else
-				{
+
 					p_x -= 20.0f;
 					p_vx -= 20.0f;
 					cs_x = 140.0f;
 					count = '-';
-				}
-					//atr = false;
+
 
 			}
 			
-			if (Input::GetVKey('D') == true && count == '-')
+			if (Input::GetVKey('D') == true)
 			{
-				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
-				{
-					count = 'D';
-				}
-				else
-				{
+	
 					p_x += 20.0f;
 					p_vx += 20.0f;
 					cs_x = 50.0f;
 					count = '-';
-				}
-				//atr = false;
+	
 			}
 
-			if (Input::GetVKey('S') == true && count=='-')
+			if (Input::GetVKey('S') == true )
 			{
-				if (hit->CheckObjNameHit(OBJ_NO_ROAD) != nullptr)
-				{
-					count = 'S';
-				}
-				else
-				{
+			
 					p_y += 20.0f;
 					p_vy += 20.0f;
 					cs_x = 0.0;
 					count = '-';
-				}
-				//atr = false;
+
 			}
 		}
-
-		else
-		{
-			atr = true;
-		}
-		
-	/*	if (count == 'W')
-		{
-			p_y += 20.0f;
-			p_vy += 20.0f;
-			cs_x = 0.0f;
-			atr = false;
-
-			count = '-';
-
-		}
-
-		if (count == 'A')
-		{
-			p_x += 20.0f;
-			p_vx += 20.0f;
-			cs_x = 50.0f;
-			atr = false;
-			count = '-';
-
-		}
-
-		if (count == 'D')
-		{
-			p_x -= 20.0f;
-			p_vx -= 20.0f;
-			cs_x = 140.0f;
-			atr = false;
-			count = '-';
-		}
-
-		if (count == 'S')
-		{
-			p_y -= 20.0f;
-			p_vy -= 20.0f;
-			cs_x = 95.0f;
-			atr = false;
-			count = '-';
-		}*/
 
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(p_vx, p_vy);
