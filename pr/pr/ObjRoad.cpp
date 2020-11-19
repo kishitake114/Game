@@ -11,6 +11,9 @@
 //イニシャライズ
 void CObjRoad::Init()
 {
+	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	obj->num = 1;
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;
@@ -71,16 +74,6 @@ void CObjRoad::Init()
 			{0,0,0},
 			{0,0,0},
 		};
-
-		for (int i = 0; i < 14; i++)
-		{
-			for (int j = 0; j < 14; j++)
-			{
-				if(map[i][j]==1)
-				Hits::SetHitBox(this, i * 40, j * 40, 40, 40, ELEMENT_GREEN, OBJ_NO_ROAD, 1);
-			}
-		}
-
 }
 
 
@@ -1355,8 +1348,6 @@ void CObjRoad::Action()
 				}
 			}
 		}
-		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(pv_x, pv_y);
 
 	}
 
