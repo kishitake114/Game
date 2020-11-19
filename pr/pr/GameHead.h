@@ -21,6 +21,7 @@ enum OBJ_NAME
 	OBJ_STAGE5,
 	OBJ_TIME,
 	OBJ_ITEM,
+	OBJ_ENEMY2,
 };
 //------------------------------------------------
 
@@ -78,6 +79,7 @@ struct UserData
 #include "ObjStage5.h"
 #include "ObjTime.h"
 #include "ObjItem.h"
+#include "ObjEnemy2.h"
 
 //------------------------------------------------
 
@@ -97,5 +99,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneStage2
+#define SET_GAME_START  CSceneStage5
 //-----------------------------------------------

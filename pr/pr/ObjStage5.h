@@ -17,7 +17,7 @@ public:
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
 
 private:
-	int map[32][32];
+	int map[8][8];
 	int mem[3][3];//操作ピースの保存
 
 	float mou_x;  //マウスカーソル：横
@@ -30,6 +30,9 @@ private:
 
 	float pv_x;
 	float pv_y;
+
+	int testx;
+	int testy;
 
 	bool f_p;	  //クリック操作制御
 };

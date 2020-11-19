@@ -39,6 +39,11 @@ void CSceneStage2::InitScene()
 	CObjStage2* CObj2 = new CObjStage2();
 	Objs::InsertObj(CObj2, OBJ_STAGE2, 1);
 
+	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
+
+	CObjEnemy2* CObjE2 = new CObjEnemy2();
+	Objs::InsertObj(CObjE2, OBJ_ENEMY2, 1);
+
 }
 
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
