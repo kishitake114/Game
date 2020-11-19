@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="ObjPlayer.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjTitle.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneGameOver.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
     <ClCompile Include="GameL\Audio.cpp">
       <Filter>リソースファイル</Filter>
     </ClCompile>
@@ -52,60 +40,85 @@
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソースファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjGameOver.cpp" />
-    <ClCompile Include="SceneClear.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjClear.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneRule.cpp" />
-    <ClCompile Include="ObjRule.cpp" />
-    <ClCompile Include="ObjRule2.cpp" />
-    <ClCompile Include="SceneRule2.cpp" />
     <ClCompile Include="ObjEnemy.cpp">
-      <Filter>自作\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClCompile>
     <ClCompile Include="ObjRoad.cpp">
-      <Filter>自作\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClCompile>
     <ClCompile Include="SceneMain.cpp">
-      <Filter>自作\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClCompile>
-    <ClCompile Include="SceneStage5.cpp" />
-    <ClCompile Include="ObjStage5.cpp" />
-    <ClCompile Include="SceneStage4.cpp" />
-    <ClCompile Include="ObjStage4.cpp" />
-    <ClCompile Include="SceneStage3.cpp" />
-    <ClCompile Include="ObjStage3.cpp" />
-    <ClCompile Include="ObjStage2.cpp" />
-    <ClCompile Include="SceneStage2.cpp" />
-    <ClCompile Include="ObjTime.cpp" />
+    <ClCompile Include="SceneStage2.cpp">
+      <Filter>自作\ステージ\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage2.cpp">
+      <Filter>自作\ステージ\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage3.cpp">
+      <Filter>自作\ステージ\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStage3.cpp">
+      <Filter>自作\ステージ\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStage4.cpp">
+      <Filter>自作\ステージ\Stage4</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage4.cpp">
+      <Filter>自作\ステージ\Stage4</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage5.cpp">
+      <Filter>自作\ステージ\Stage5</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStage5.cpp">
+      <Filter>自作\ステージ\Stage5</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPlayer.cpp">
+      <Filter>自作\プレイヤー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRule.cpp">
+      <Filter>自作\ルール説明</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRule2.cpp">
+      <Filter>自作\ルール説明</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRule.cpp">
+      <Filter>自作\ルール説明</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRule2.cpp">
+      <Filter>自作\ルール説明</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>自作\ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>自作\ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjClear.cpp">
+      <Filter>自作\ゲームクリア</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneClear.cpp">
+      <Filter>自作\ゲームクリア</Filter>
+    </ClCompile>
     <ClCompile Include="ObjItem.cpp">
-      <Filter>自作</Filter>
+      <Filter>自作\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>自作\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>自作\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTime.cpp">
+      <Filter>自作\タイム</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ObjPlayer.h">
-      <Filter>自作</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjTitle.h">
-      <Filter>自作</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>自作</Filter>
-    </ClInclude>
-    <ClInclude Include="GameClear.h">
-      <Filter>自作</Filter>
-    </ClInclude>
     <ClInclude Include="GameHead.h">
       <Filter>自作\GameMain</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
       <Filter>自作\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneGameOver.h">
-      <Filter>自作</Filter>
     </ClInclude>
     <ClInclude Include="GameL\Audio.h">
       <Filter>リソースファイル</Filter>
@@ -140,35 +153,80 @@
     <ClInclude Include="GameL\WinInputs.h">
       <Filter>リソースファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjGameOver.h" />
-    <ClInclude Include="SceneClear.h">
-      <Filter>自作</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjClear.h" />
-    <ClInclude Include="SceneRule.h" />
-    <ClInclude Include="ObjRule.h" />
-    <ClInclude Include="ObjRule2.h" />
-    <ClInclude Include="SceneRule2.h" />
-    <ClInclude Include="SceneStage5.h" />
-    <ClInclude Include="ObjStage5.h" />
-    <ClInclude Include="SceneStage4.h" />
-    <ClInclude Include="ObjStage4.h" />
-    <ClInclude Include="SceneStage3.h" />
-    <ClInclude Include="ObjStage3.h" />
     <ClInclude Include="ObjEnemy.h">
-      <Filter>自作\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="ObjRoad.h">
-      <Filter>自作\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="SceneMain.h">
-      <Filter>自作\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClInclude>
-    <ClInclude Include="ObjStage2.h" />
-    <ClInclude Include="SceneStage2.h" />
-    <ClInclude Include="ObjTime.h" />
+    <ClInclude Include="SceneStage2.h">
+      <Filter>自作\ステージ\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage2.h">
+      <Filter>自作\ステージ\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage3.h">
+      <Filter>自作\ステージ\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage3.h">
+      <Filter>自作\ステージ\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage4.h">
+      <Filter>自作\ステージ\Stage4</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage4.h">
+      <Filter>自作\ステージ\Stage4</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage5.h">
+      <Filter>自作\ステージ\Stage5</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage5.h">
+      <Filter>自作\ステージ\Stage5</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPlayer.h">
+      <Filter>自作\プレイヤー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRule.h">
+      <Filter>自作\ルール説明</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRule2.h">
+      <Filter>自作\ルール説明</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRule.h">
+      <Filter>自作\ルール説明</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRule2.h">
+      <Filter>自作\ルール説明</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>自作\ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>自作\ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjClear.h">
+      <Filter>自作\ゲームクリア</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneClear.h">
+      <Filter>自作\ゲームクリア</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClear.h">
+      <Filter>自作\ゲームクリア</Filter>
+    </ClInclude>
     <ClInclude Include="ObjItem.h">
-      <Filter>自作</Filter>
+      <Filter>自作\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>自作\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>自作\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTime.h">
+      <Filter>自作\タイム</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -181,8 +239,44 @@
     <Filter Include="リソースファイル">
       <UniqueIdentifier>{01ac1e39-a6ee-4b87-bd7b-afdf641e46da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\Stage 1 and Main">
+    <Filter Include="自作\ステージ">
+      <UniqueIdentifier>{ed332d99-a6c6-45c3-bd2b-44b9bf4d8c81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage5">
+      <UniqueIdentifier>{89e72df9-3aae-491a-b449-231746046ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage4">
+      <UniqueIdentifier>{6b65cc78-82b7-431a-a573-386ff578a94e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage3">
+      <UniqueIdentifier>{681680ab-818a-4511-bbf1-ef375981f93f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage2">
+      <UniqueIdentifier>{ed494f3a-4958-4696-8b3c-41918258ff15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage 1 and Main">
       <UniqueIdentifier>{670706e9-c6d4-4e34-b7ef-0b75ca484d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\プレイヤー">
+      <UniqueIdentifier>{db74152d-ca7d-469e-8c07-acddc03292b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ルール説明">
+      <UniqueIdentifier>{3fffcad7-3c32-4fd5-83af-9e2cd52ca517}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\タイトル">
+      <UniqueIdentifier>{4e140391-de22-4406-ad97-7b8741d51b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ゲームオーバー">
+      <UniqueIdentifier>{675f23c0-9e4e-4ee6-b49f-3ce276e15be5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ゲームクリア">
+      <UniqueIdentifier>{7af1eacb-2ec9-487c-9889-d558007c15f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\アイテム">
+      <UniqueIdentifier>{69a92082-134d-42c0-b523-8e8609d6bf02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\タイム">
+      <UniqueIdentifier>{afa02b7e-9c19-4d92-abe6-e4b308f1dd10}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

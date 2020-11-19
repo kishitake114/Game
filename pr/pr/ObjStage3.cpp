@@ -14,6 +14,9 @@ using namespace GameL;
 //イニシャライズ
 void CObjStage3::Init()
 {
+	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	obj->num = 3;
+
 	int mapdata[20][20] =
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},

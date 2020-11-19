@@ -30,11 +30,15 @@ CSceneMain::~CSceneMain()
 
 //ƒQ[ƒ€ƒƒCƒ“‰Šú‰»
 void CSceneMain::InitScene()
-{	
-	//Audio::LoadAudio(0, L"bgm_maoudamashii_8bit18 (online-audio-converter.com).wav", SOUND_TYPE::BACK_MUSIC);
+{		
+	Audio::LoadAudio(0, L"bgm_maoudamashii_8bit27 (1) (online-audio-converter.com).wav", SOUND_TYPE::BACK_MUSIC);
 
-	//float Volume = Audio::VolumeMaster(-0.8f);
-	//Audio::Start(0);
+        float Volume = Audio::VolumeMaster(-0.8f);
+        Audio::Start(0);
+
+		Audio::LoadAudio(1, L"se_maoudamashii_retro23 (online-audio-converter.com).wav", BACK_MUSIC);
+
+
 
 	//Fontì¬
 	Font::SetStrTex(L"0123456789•ª•b");
