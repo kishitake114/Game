@@ -628,6 +628,7 @@ void CObjStage2::Action()
 
 
 		}
+
 		//2段目の3個目(左から)
 		if (mou_x > 205.0f && mou_x < 297.0f && mou_y>115.0f && mou_y < 205.0f)
 		{
@@ -1639,7 +1640,6 @@ void CObjStage2::Action()
 
 		}
 
-
 		//4段目の4個目(左から)
 		if (mou_x > 293.0f && mou_x < 386.0f && mou_y>293.0f && mou_y < 386.0f)
 		{
@@ -1814,8 +1814,6 @@ void CObjStage2::Action()
 			}
 		}
 
-		
-
 		//5段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 120.0f && mou_y>382.0f && mou_y < 471.0f)
 		{
@@ -1869,6 +1867,7 @@ void CObjStage2::Action()
 
 			}
 		}
+
 		//5段目の2個目(左から)
 		if (mou_x > 119.0f && mou_x < 207.0f && mou_y>382.0f && mou_y < 473.0f)
 		{
@@ -1943,6 +1942,7 @@ void CObjStage2::Action()
 
 			}
 		}
+
 		//5段目の3個目(左から)
 		if (mou_x > 206.0f && mou_x < 296.0f && mou_y>381.0f && mou_y < 472.0f)
 		{
@@ -2017,6 +2017,7 @@ void CObjStage2::Action()
 
 			}
 		}
+
 		//5段目の4個目(左から)
 		if (mou_x > 295.0f && mou_x < 384.0f && mou_y>381.0f && mou_y < 472.0f)
 		{
