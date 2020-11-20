@@ -60,11 +60,9 @@ void CObjEnemy::Action()
 			//---------敵のアクション----------------
 
 			//ランダム変数
-	/*		plx = rand() % 4;
-			ply = rand() % 4;*/
+			plx = rand() % 4;
+			ply = rand() % 4;
 
-			plx = 2;
-			ply = 0;
 
 			//今いる場所と同じ場合、ランダム処理をやり直す
 			if (memx == plx && memy == ply)
@@ -137,7 +135,7 @@ void CObjEnemy::Action()
 			//plxが１の場合＝map[][0](左)に移動
 			case 1:
 
-				//ply=0　map[2][2]
+				//ply=0　map[0][2]
 				if (ply == 0)
 				{
 					p_x = 0.0f;
@@ -148,7 +146,7 @@ void CObjEnemy::Action()
 					atr_y = 80.0f;
 				}
 
-				//ply=1　map[2][5]
+				//ply=1　map[0][5]
 				if (ply == 1)
 				{
 					p_x = 0.0f;
@@ -159,7 +157,7 @@ void CObjEnemy::Action()
 					atr_y = 200.0f;
 				}
 
-				//ply=2　map[2][8]
+				//ply=2　map[0][8]
 				if (ply == 2)
 				{
 					p_x = 0.0f;
@@ -170,7 +168,7 @@ void CObjEnemy::Action()
 					atr_y = 320.0f;
 				}
 
-				//ply=3　map[2][11]
+				//ply=3　map[0][11]
 				if (ply == 3)
 				{
 					p_x = 0.0f;

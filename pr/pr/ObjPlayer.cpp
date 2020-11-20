@@ -14,7 +14,7 @@ using namespace GameL;
 void CObjPlayer::Init()
 {
 	p_x = 0.0f;
-	p_y = 0.0f;
+	p_y = 200.0f;
 	p_vx = 0.0f;
 	p_vy = 200.0f;
 	s_p = false;
@@ -31,7 +31,7 @@ void CObjPlayer::Init()
 
 	count = '-';
 
-	Hits::SetHitBox(this, p_vx+40, p_vy+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
+	Hits::SetHitBox(this, p_x+40, p_y+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
 }
 
 //アクション
@@ -55,14 +55,14 @@ void CObjPlayer::Action()
 		if (atr == true)
 		{
 			CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(p_vx, p_vy);
+			hit->SetPos(p_x, p_y);
 
 			if (Input::GetVKey('W') == true )
 			{
 				/*	Audio::Start(2);*/
 				   
-					p_y -= 20.0f;
-					p_vy -= 20.0f;
+					p_y -= 40.0f;
+					p_vy -= 40.0f;
 					cs_x = 95.0f;
 					count = '-';
 
@@ -72,8 +72,8 @@ void CObjPlayer::Action()
 			{
 			/*	    Audio::Start(2);*/
 
-					p_x -= 20.0f;
-					p_vx -= 20.0f;
+					p_x -= 40.0f;
+					p_vx -= 40.0f;
 					cs_x = 140.0f;
 					count = '-';
 
@@ -84,8 +84,8 @@ void CObjPlayer::Action()
 			{
 				    /*Audio::Start(2);*/
 	
-					p_x += 20.0f;
-					p_vx += 20.0f;
+					p_x += 40.0f;
+					p_vx += 40.0f;
 					cs_x = 50.0f;
 					count = '-';
 	
@@ -95,16 +95,93 @@ void CObjPlayer::Action()
 			{
 			/*	    Audio::Start(2);*/
 			
-					p_y += 20.0f;
-					p_vy += 20.0f;
+					p_y += 40.0f;
+					p_vy += 40.0f;
 					cs_x = 0.0;
 					count = '-';
 
 			}
+			//チュートリアルステージの移動制御
+			if (num == 0)
+			{
+				//ステージ左端から出ないようにする
+				if (p_x < 0.0f)
+				{
+					p_x = 0.0f;
+				}
+
+				//-----------------map[][0]の制御-----------------
+
+				//map[0～1][0]に入ったときのプログラム
+				if (p_x<=0.0f && p_y >= 0.0f&& p_y < 80.0f)
+				{
+					p_y = 80.0f;
+				}
+				
+				if (p_y == 200.0f)
+				{
+					if (p_x <= 0.0f && p_y > 120.0f && p_y < 200.0f)
+					{
+
+						p_y = 200.0f;
+					}
+				}//map[3～4][0]に入ったときのプログラム
+
+					else if (p_y == 80.0f)
+					{
+						p_y = 80.0f;
+					}
+					
+						
+				
+				//map[6～7][0]に入ったときのプログラム
+				if (p_x <= 0.0f && p_y >= 240.0f && p_y < 320.0f)
+				{
+					p_y = 200.0f;
+				}
+
+				//ステージ右端から出ないようにする
+				if (p_x > 280.0f)
+				{
+					p_x = 280.0f;
+				}
+
+				//-----------------map[][13]の制御-----------------
+
+				//map[0～1][13]に入ったときのプログラム
+				if (p_x >= 280.0f && p_y >= 0.0f && p_y <= 80.0f)
+				{
+					p_y = 80.0f;
+				}
+				//map[3～4][13]に入ったときのプログラム
+				if (p_x >= 280.0f && p_y >= 120.0f && p_y <= 200.0f)
+				{
+					p_y = 200.0f;
+				}
+				//map[6～7][13]に入ったときのプログラム
+				if (p_x >= 280.0f && p_y >= 240.0f && p_y <= 320.0f)
+				{
+					p_y = 200.0f;
+				}
+
+				//ステージ上端から出ないようにする
+				if (p_y < 0.0f)
+				{
+					p_y = 0.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_y > 280.0f)
+				{
+					p_y = 280.0f;
+				}
+
+			}
+	
 		}
 
 		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(p_vx, p_vy);
+		hit->SetPos(p_x, p_y);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
@@ -183,6 +260,11 @@ void CObjPlayer::Draw()
 	swprintf_s(str, L"count=%c", count);
 	Font::StrDraw(str, 600, 350, 30, c);
 
+	swprintf_s(str, L"playerX=%f", p_x);
+	Font::StrDraw(str, 600, 251, 25, c);
+	swprintf_s(str, L"playerY=%fw", p_y);
+	Font::StrDraw(str, 600, 276, 25, c);
+
 	//表示：プレイヤー
 	RECT_F src;
 	RECT_F dst;
@@ -192,12 +274,12 @@ void CObjPlayer::Draw()
 	src.m_right   = 45.0f + cs_x;
 	src.m_bottom  = 45.0f;
 
-	if (num == 1)
+	if (num <= 1)
 	{
-		dst.m_top = 200.0f + p_y;
+		dst.m_top = 0.0f + p_y;
 		dst.m_left = 0.0f + p_x;
 		dst.m_right = 40.0f + p_x;
-		dst.m_bottom = 240.0f + p_y;
+		dst.m_bottom = 40.0f + p_y;
 
 	}
 
@@ -226,14 +308,6 @@ void CObjPlayer::Draw()
 		dst.m_bottom = 264.0f + p_y;
 	}
 
-
-	if (num == 5)
-	{
-		dst.m_top = 198.0f + p_y;
-		dst.m_left = 0.0f + p_x;
-		dst.m_right = 18.0f + p_x;
-		dst.m_bottom = 216.0f + p_y;
-	}
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }

@@ -24,6 +24,8 @@ class CObjPlayer :public CObj
 		bool s_p;
 		int HP;
 		int num;
+		float p_x;	  
+		float p_y;	  
 
 	private:
 		float mou_x;  //マウスカーソル：横
@@ -31,8 +33,6 @@ class CObjPlayer :public CObj
 		bool  mou_r;  //マウスボタン：右
 		bool  mou_l;  //マウスボタン：左
 
-		float p_x;	  //操作　横（試し）
-		float p_y;	  //操作　縦（試し）
 		float p_vx;
 		float p_vy;
 

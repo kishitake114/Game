@@ -14,8 +14,10 @@ using namespace GameL;
 //イニシャライズ
 void CObjStage5::Init()
 {
-	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	obj->num = 5;
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	player->num = 0;
+	float x=player->p_x;
+	float y=player->p_y;
 
 	int alfhamap[8][8] =
 	{
@@ -71,10 +73,11 @@ void CObjStage5::Action()
 	}
 
 
+
 	//ロード内のプログラム
+		//右クリックで操作中止
 	if (s_r == true)
 	{
-		//右クリックで操作中止
 		if (mou_r == true)
 		{
 			s_r = false;
@@ -342,6 +345,8 @@ void CObjStage5::Draw()
 	Font::StrDraw(str, 600, 200, 25, c);
 	swprintf_s(str, L"縦=%d", testy);
 	Font::StrDraw(str, 600, 226, 25, c);
+
+
 
 	//表示：通行可
 

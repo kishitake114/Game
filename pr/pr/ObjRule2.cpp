@@ -31,7 +31,7 @@ void CObjRule2::Action()
 	{
 		if (mou_l == true)
 		{
-			Scene::SetScene(new CSceneMain());
+			Scene::SetScene(new CSceneStage5());
 		}
 	}
 

@@ -11,8 +11,11 @@
 //イニシャライズ
 void CObjRoad::Init()
 {
-	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	obj->num = 1;
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	player->num = 1;
+
+	float playX = player->p_x;
+	float playY = player->p_y;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -30,6 +33,8 @@ void CObjRoad::Init()
 	s_r = true;
 	sei = false;
 	swi = false;
+
+	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 
 
