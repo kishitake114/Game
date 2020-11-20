@@ -11,13 +11,13 @@
 //使用するネームスペース
 using namespace GameL;
 
+
+
 //イニシャライズ
 void CObjStage5::Init()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	player->num = 0;
-	float x=player->p_x;
-	float y=player->p_y;
 
 	int alfhamap[8][8] =
 	{
@@ -49,6 +49,72 @@ void CObjStage5::Init()
 //アクション
 void CObjStage5::Action()
 {
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	float px = player->GetX();
+	float py = player->GetY();
+
+	//mapにアクセス
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if (map[i][j] < 2)
+			{
+				float x = j * 40.0f;
+				float y = i * 40.0f;
+
+				if ((px + 40.0f > x)&&(px < x + 40.0f)&& (py + 40.0f > y) && (py < y + 40.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					//右
+					if ((r < 45 && r>0) || r > 315)
+					{
+						player->SetVX(x+40.0f);
+					}
+
+					//上
+					if (r > 45 && r < 135)
+					{
+						player->SetVY(y - 40.0f);
+					}
+
+					//左
+					if (r > 135 && r < 225 )
+					{
+						player->SetVX(x - 40.0f);
+					}
+
+					//下
+					if (r > 225 && r < 315)
+					{
+						player->SetVY(y + 40.0f);
+					}
+
+				}
+			}
+
+	
+
+		}
+	}
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();

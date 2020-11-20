@@ -17,9 +17,15 @@ class CObjPlayer :public CObj
 
 		float GetX() { return p_x; }
 		float GetY() { return p_y; }
+		float GetVY() { return p_vy; }
+		float GetVX() { return p_vx; }
+
 		void SetX(float x) { p_x=x; }
 		void SetY(float y) { p_y=y; }
 		void SetVY(float vy) { p_y = vy; }
+		void SetVX(float vx) { p_x = vx; }
+
+
 
 		bool s_p;
 		int HP;

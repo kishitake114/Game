@@ -61,46 +61,44 @@ void CObjPlayer::Action()
 			{
 				/*	Audio::Start(2);*/
 				   
-					p_y -= 40.0f;
-					p_vy -= 40.0f;
+					p_y -= 10.0f;
 					cs_x = 95.0f;
 					count = '-';
 
 			}
 
-			if (Input::GetVKey('A') == true)
+			else if (Input::GetVKey('A') == true)
 			{
 			/*	    Audio::Start(2);*/
 
-					p_x -= 40.0f;
-					p_vx -= 40.0f;
+					p_x -= 10.0f;
 					cs_x = 140.0f;
 					count = '-';
 
 
 			}
 			
-			if (Input::GetVKey('D') == true)
+			else if (Input::GetVKey('D') == true)
 			{
 				    /*Audio::Start(2);*/
 	
-					p_x += 40.0f;
-					p_vx += 40.0f;
+					p_x += 10.0f;
 					cs_x = 50.0f;
 					count = '-';
 	
 			}
 
-			if (Input::GetVKey('S') == true )
+			else if (Input::GetVKey('S') == true )
 			{
 			/*	    Audio::Start(2);*/
 			
-					p_y += 40.0f;
-					p_vy += 40.0f;
+					p_y += 10.0f;
 					cs_x = 0.0;
 					count = '-';
 
 			}
+
+			
 			//チュートリアルステージの移動制御
 			if (num == 0)
 			{
@@ -118,21 +116,12 @@ void CObjPlayer::Action()
 					p_y = 80.0f;
 				}
 				
-				if (p_y == 200.0f)
+				//map[3～4][0]に入ったときのプログラム
+				if (p_x <= 0.0f && p_y > 120.0f && p_y < 200.0f)
 				{
-					if (p_x <= 0.0f && p_y > 120.0f && p_y < 200.0f)
-					{
 
-						p_y = 200.0f;
-					}
-				}//map[3～4][0]に入ったときのプログラム
-
-					else if (p_y == 80.0f)
-					{
-						p_y = 80.0f;
-					}
-					
-						
+					p_y = 200.0f;
+				}
 				
 				//map[6～7][0]に入ったときのプログラム
 				if (p_x <= 0.0f && p_y >= 240.0f && p_y < 320.0f)

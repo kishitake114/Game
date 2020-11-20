@@ -85,6 +85,33 @@ void CObjRoad::Init()
 //アクション
 void CObjRoad::Action()
 {
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	float px = player->GetX();
+	float py = player->GetY();
+
+	//mapにアクセス
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] != 2)
+			{
+				float x = j * 40.0f;
+				float y = i * 40.0f;
+
+				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				{
+					player->SetX(px);
+					player->SetY(i * 40.0f);
+					player->SetVY(0.0f);
+				}
+			}
+
+
+
+		}
+	}
+
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
