@@ -43,6 +43,8 @@ void CObjEnemy::Init()
 //アクション
 void CObjEnemy::Action()
 {
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
 
@@ -55,7 +57,6 @@ void CObjEnemy::Action()
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
 
-			se = false;
 
 			//---------敵のアクション----------------
 
@@ -285,17 +286,9 @@ void CObjEnemy::Action()
 
 			}
 
-			HP -= 2;
-
-
 			//HPが０になったら破棄
-			if (HP == 0)
-			{
-				this->SetStatus(false);			
-				Hits::DeleteHitBox(this);
 
-				Scene::SetScene(new CSceneStage2());
-			}
+			se = false;
 		}
 	}
 	else
@@ -303,7 +296,13 @@ void CObjEnemy::Action()
 		se = true;
 	}
 
+	if (HP <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 
+		Scene::SetScene(new CSceneStage2());
+	}
 }
 
 //ドロー

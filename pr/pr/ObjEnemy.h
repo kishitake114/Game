@@ -13,8 +13,10 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-private:
 	int HP;
+
+private:
+
 	float p_x;
 	float p_y;
 

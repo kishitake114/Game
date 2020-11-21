@@ -247,6 +247,6 @@ void CObjEnemy2::Draw()
 	dst.m_right = 120.0f + atr_x;
 	dst.m_bottom = 40.0f + atr_y;
 
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(1, &src, &dst, c, 0.0f);
 
 }

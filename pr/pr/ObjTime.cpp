@@ -14,7 +14,7 @@ using namespace GameL;
 void CObjTime::Init()
 {
 	m_time = 3600;
-	m_flag_time = false;
+	m_flag_time = true;
 
 	mou_r = false;
 	mou_l = false;
@@ -25,9 +25,10 @@ void CObjTime::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
 
-	if (mou_l == true)
+	if (road->s_r==true && mou_l == true)
 	{
 		m_flag_time = true;
 	}
@@ -46,7 +47,7 @@ void CObjTime::Action()
 	//０秒になったら、１分に戻す
 	if (m_time == 0)
 	{
-		obj->HP--;		//m_Timeが0->PlayerHPを-1する。
+		player->HP--;		//m_Timeが0->PlayerHPを-1する。
 		m_time = 3600;
 	}
 	//フラグがオフになったら、１分に戻す

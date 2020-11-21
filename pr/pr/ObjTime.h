@@ -14,10 +14,11 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
+	bool m_flag_time;//時間計測スタートフラグ
+
 	void SetTimeFlag(bool b) { m_flag_time = b; }
 private:
 	int m_time;      //時間
-	bool m_flag_time;//時間計測スタートフラグ
 
 	float mou_r;
 	float mou_l;

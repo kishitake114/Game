@@ -13,10 +13,11 @@ using namespace GameL;
 //イニシャライズ
 void CObjPlayer::Init()
 {
+	atk = 0;
+
 	p_x = 0.0f;
 	p_y = 200.0f;
-	p_vx = 0.0f;
-	p_vy = 200.0f;
+
 	s_p = false;
 	st_p = true;
 	atr = true;
@@ -24,21 +25,22 @@ void CObjPlayer::Init()
 	sw = false;
 	sei = false;
 
-	cs_x = 0.0f;
-	cs_y = 0.0f;
+	cs_x = 50.0f;
 
-	HP = 10;
+	HP = 999;
 
-	count = '-';
+		Hits::SetHitBox(this, p_x+40, p_y+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
+	
 
-	Hits::SetHitBox(this, p_x+40, p_y+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
 }
 
 //アクション
 void CObjPlayer::Action()
 {
-
-	CObjRoad* obj = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
+	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
+	CObjRoad* Road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
+	CObjTime* Time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -47,15 +49,37 @@ void CObjPlayer::Action()
 
 	if (mou_r == true)
 	{
-		s_p = true;
+
+		if (s_p==false)
+		{
+			if (cs_x == 0.0f)
+			{
+				p_y += 40.0f;
+			}
+
+			if (cs_x == 50.0f)
+			{
+				p_x += 40.0f;
+
+			}
+
+			if (cs_x == 95.0f)
+			{
+				p_y -= 40.0f;
+			}
+
+			if (cs_x == 140.0f)
+			{
+				p_x -= 40.0f;
+			}
+			s_p = true;
+		}
+
 	}
 
 	if (s_p == true)
 	{
-		if (atr == true)
-		{
-			CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(p_x, p_y);
+	
 
 			if (Input::GetVKey('W') == true )
 			{
@@ -166,52 +190,76 @@ void CObjPlayer::Action()
 				}
 
 			}
-	
-		}
 
-		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(p_x, p_y);
-
-			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+			if (num == 1)
 			{
-				s_p = false;
-		
-
-				if (cs_x == 95.0f)
-				{
-					p_y = -200.0f;
-					p_vy = p_y+200.0f;
-
-					cs_x = 0.0f;
-				}
-
-				if (cs_x == 140.0f)
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
+				if (p_x < 0.0f)
 				{
 					p_x = 0.0f;
-					p_vx = p_x / 40;
-
-					cs_x = 45.0f;
 				}
 
-				if (cs_x == 50.0f)
+				//ステージ上端から出ないようにする
+				if (p_y < 0.0f)
 				{
-					p_x = 280.0f;
-					p_vx = p_x;
-
-					cs_x = 140.0f;
+					p_y = 0.0f;
 				}
 
+				//ステージ下端から出ないようにする
+				if (p_y > 520.0f)
+				{
+					p_y = 520.0f;
+				}
 
-				sw = true;
-
-				sei = false;
-				
-		
-				obj->s_r=true;
-
-				HP--;
-
+				//ステージ下端から出ないようにする
+				if (p_x > 520.0f)
+				{
+					p_x = 520.0f;
+				}
+				//------------------------------------------------------------------------------
 			}
+
+	}
+
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(p_x, p_y);
+
+	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+	{
+		s_p = true;
+
+		Enemy->HP = Enemy->HP - atk;
+		atk = 0;
+		HP--;
+
+		s_p = false;
+		Road->s_r = true;
+		Time->m_flag_time = true;
+
+		if (cs_x == 0.0f)
+		{
+			p_y = 520.0f;
+			cs_x = 95.0f;
+		}
+
+		if (cs_x == 50.0f)
+		{
+			p_x = 0.0f;
+			cs_x = 140.0f;
+		}
+
+		if (cs_x == 95.0f)
+		{
+			p_y = 0.0f;
+			cs_x = 0.0f;
+		}
+
+		if (cs_x == 140)
+		{
+			p_x = 520.0f;
+			cs_x = 50.0f;
+		}
 	}
 
 	if (HP <= 0)
@@ -243,10 +291,10 @@ void CObjPlayer::Draw()
 		Font::StrDraw(L"操作\n W,A,S,D", 550, 300, 20, b);
 	}
 
-	swprintf_s(str, L"playerHP=%d", HP);
+	swprintf_s(str, L"アタック=%d", atk);
 	Font::StrDraw(str, 600, 450, 30, c);
 
-	swprintf_s(str, L"count=%c", count);
+	swprintf_s(str, L"切り取り=%f", cs_x);
 	Font::StrDraw(str, 600, 350, 30, c);
 
 	swprintf_s(str, L"playerX=%f", p_x);

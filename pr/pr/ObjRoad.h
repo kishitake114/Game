@@ -19,8 +19,9 @@ public:
 	bool sei;
 	bool swi;
 
-private:
 	int map[14][14];
+
+private:
 	int mem[3][3];//操作ピースの保存
 
 	float mou_x;  //マウスカーソル：横
@@ -36,6 +37,6 @@ private:
 
 	bool f_p;	  //クリック操作制御
 
-	void player();
+	float itemc;
 
 };

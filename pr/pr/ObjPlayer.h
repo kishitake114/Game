@@ -25,13 +25,12 @@ class CObjPlayer :public CObj
 		void SetVY(float vy) { p_y = vy; }
 		void SetVX(float vx) { p_x = vx; }
 
-
-
 		bool s_p;
 		int HP;
 		int num;
 		float p_x;	  
-		float p_y;	  
+		float p_y;	 
+		int atk;
 
 	private:
 		float mou_x;  //マウスカーソル：横

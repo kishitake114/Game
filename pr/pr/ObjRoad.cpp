@@ -1,4 +1,5 @@
 #include "ObjRoad.h"
+#include "ObjItem.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -12,6 +13,7 @@
 void CObjRoad::Init()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	player->num = 1;
 
 	float playX = player->p_x;
@@ -34,8 +36,10 @@ void CObjRoad::Init()
 	sei = false;
 	swi = false;
 
-	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	itemc = 0.0f;
 
+	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	
 
 
 
@@ -43,21 +47,36 @@ void CObjRoad::Init()
 	{
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	{0,1,2,1,1,2,1,1,1,1,1,1,1,0},
-	{2,2,2,2,1,2,1,2,2,1,2,2,2,2},
+	{2,2,2,2,1,4,1,2,5,1,2,2,2,2},
 	{0,1,2,1,1,2,1,1,2,1,1,1,1,0},
 	{0,1,2,1,1,2,1,1,1,1,1,1,1,0},
-	{2,1,2,1,2,2,2,2,2,1,1,2,2,2},
+	{2,1,4,1,2,2,2,2,2,1,1,2,2,2},
 	{0,1,2,1,1,2,1,1,2,1,1,2,1,0},
 	{0,1,1,1,1,2,1,1,2,1,1,2,1,0},
-	{2,2,2,2,1,2,2,2,2,2,2,2,1,2},
+	{2,2,3,2,1,3,2,2,4,2,2,4,1,2},
 	{0,1,1,1,1,1,1,1,2,1,1,1,1,0},
 	{0,1,1,1,0,0,0,1,2,1,1,1,1,0},
-	{2,2,2,2,0,0,0,1,2,1,2,2,2,2},
+	{2,2,2,2,0,0,0,1,5,1,2,4,2,2},
 	{0,1,1,1,0,0,0,1,2,1,1,1,1,0},
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	};
 
 	memcpy(map, mapdata, sizeof(int) * (14 * 14));
+
+	//mapにアクセス
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+
+			if (map[i][j] >= 3)
+			{
+				CObjItem* obj = new CObjItem(i*40, j*40);
+				Objs::InsertObj(obj, OBJ_ITEM, 50);
+			}
+
+		}
+	}
 
 	/*int alfhamap[8][8] =
 	{
@@ -85,32 +104,214 @@ void CObjRoad::Init()
 //アクション
 void CObjRoad::Action()
 {
+	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
+
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	float px = player->GetX();
 	float py = player->GetY();
 
 	//mapにアクセス
+
+	//通行不可
 	for (int i = 0; i < 14; i++)
 	{
 		for (int j = 0; j < 14; j++)
 		{
-			if (map[i][j] != 2)
+			if (map[i][j]  <= 1)
 			{
 				float x = j * 40.0f;
 				float y = i * 40.0f;
 
 				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
 				{
-					player->SetX(px);
-					player->SetY(i * 40.0f);
-					player->SetVY(0.0f);
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					//右
+					if ((r < 45 && r>0) || r > 315)
+					{
+						player->SetVX(x + 40.0f);
+					}
+
+					//上
+					if (r > 45 && r < 135)
+					{
+						player->SetVY(y - 40.0f);
+					}
+
+					//左
+					if (r > 135 && r < 225)
+					{
+						player->SetVX(x - 40.0f);
+					}
+
+					//下
+					if (r > 225 && r < 315)
+					{
+						player->SetVY(y + 40.0f);
+					}
+
 				}
+	
 			}
 
+			
+		}
 
+	}
+	//アイテム（１）
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] == 3)
+			{
+				float x = j * 40.0f;
+				float y = i * 40.0f;
 
+				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (r > 45 && r < 315)
+					{
+						if (map[i][j] == 3)
+						{
+							map[i][j] = 2;
+						}
+
+						player->atk++;
+					}
+
+				}
+			}
 		}
 	}
+	//アイテム（２）
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] == 4)
+			{
+				float x = j * 40.0f;
+				float y = i * 40.0f;
+
+				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (r > 45 && r < 315)
+					{
+						if (map[i][j] == 4)
+						{
+							map[i][j] = 2;
+						}
+
+						player->atk+=2;
+					}
+
+				}
+			}
+		}
+	}
+	//アイテム（３）
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] == 5)
+			{
+				float x = j * 40.0f;
+				float y = i * 40.0f;
+
+				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (r > 45 && r < 315)
+					{
+						if (map[i][j] == 5)
+						{
+							map[i][j] = 2;
+						}
+
+						player->atk+=3;
+					}
+
+				}
+			}
+		}
+	}
+
+
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -158,18 +359,26 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
+							
 
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][1 + j] = 0;
+
 						}
 
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
-							pv_x = 120;
+				
 						}
+					
 					}
 
 				}
@@ -182,6 +391,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -199,9 +413,6 @@ void CObjRoad::Action()
 			}
 		}
 
-
-
-
 		//1列目２マス目 
 		if (mou_x > 155.0f && mou_x < 273.0f && mou_y>40.0f && mou_y < 155.0f)
 		{
@@ -215,6 +426,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -239,6 +455,12 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
+
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -263,6 +485,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -281,7 +508,6 @@ void CObjRoad::Action()
 			}
 		}
 
-
 		//1列目（3マス目）
 		if (mou_x > 274.0f && mou_x < 394.0f && mou_y>40.0f && mou_y < 155.0f)
 		{
@@ -296,6 +522,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -318,6 +549,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -340,6 +576,10 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -372,6 +612,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -394,6 +639,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -424,6 +674,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -447,6 +702,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -470,6 +730,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -500,6 +765,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -524,6 +794,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -547,6 +822,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -570,6 +850,12 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -587,7 +873,6 @@ void CObjRoad::Action()
 			}
 		}
 
-
 		//2列目（3マス目）
 		if (mou_x > 274.0f && mou_x < 394.0f && mou_y>155.0f && mou_y < 274.0f)
 		{
@@ -601,6 +886,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -625,6 +915,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -648,6 +943,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -671,6 +971,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -701,6 +1006,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -725,6 +1035,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -748,6 +1063,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -778,6 +1098,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -801,6 +1126,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -824,6 +1154,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -854,6 +1189,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -878,6 +1218,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -901,6 +1246,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -924,6 +1274,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -954,6 +1309,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -978,6 +1338,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1001,6 +1366,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1024,6 +1394,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1054,6 +1429,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1078,6 +1458,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1101,6 +1486,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1131,6 +1521,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1154,6 +1549,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][1 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1184,6 +1584,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1208,6 +1613,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1231,6 +1641,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1248,7 +1663,6 @@ void CObjRoad::Action()
 			}
 		}
 
-
 		//4列目（3マス目）
 		if (mou_x > 274.0f && mou_x < 393.0f && mou_y> 394.0f && mou_y < 520.0f)
 		{
@@ -1262,6 +1676,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1278,7 +1697,6 @@ void CObjRoad::Action()
 
 				}
 
-
 				//4列目（3マス目）↑（上）1マス移動
 				if (map[7][7] == 0)
 				{
@@ -1287,6 +1705,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1310,6 +1733,12 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x += 120.0f;
+							}
+
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1340,6 +1769,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_x -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1364,6 +1798,11 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
+
+							if (mem[i][j] == 3)
+							{
+								item->m_y -= 120.0f;
+							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1382,8 +1821,9 @@ void CObjRoad::Action()
 		}
 
 	}
-
 }
+
+
 
 
 
@@ -1475,6 +1915,75 @@ void CObjRoad::Draw()
 		}
 	}
 
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 1.0f;
+	src.m_right = 51.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] == 3)
+			{
+				dst.m_top = i * 40.0f;
+				dst.m_left = j * 40.0f;
+				dst.m_right = dst.m_left + 40.0f;
+				dst.m_bottom = dst.m_top + 40.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 52.0f;
+	src.m_right = 101.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] == 4)
+			{
+				dst.m_top = i * 40.0f;
+				dst.m_left = j * 40.0f;
+				dst.m_right = dst.m_left + 40.0f;
+				dst.m_bottom = dst.m_top + 40.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 102.0f;
+	src.m_right = 151.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 14; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] == 5)
+			{
+				dst.m_top = i * 40.0f;
+				dst.m_left = j * 40.0f;
+				dst.m_right = dst.m_left + 40.0f;
+				dst.m_bottom = dst.m_top + 40.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
 }
 
 
