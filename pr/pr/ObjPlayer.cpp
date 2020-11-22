@@ -33,7 +33,7 @@ void CObjPlayer::Init()
 
 	cs_x = 50.0f;
 
-	HP = 999;
+	HP = 10;
 
 	p_x = 0.0f;
 	p_y = 0.0f;
@@ -446,6 +446,9 @@ void CObjPlayer::Draw()
 
 	swprintf_s(str, L"アタック=%d", atk);
 	Font::StrDraw(str, 600, 450, 30, c);
+
+	swprintf_s(str, L"HP=%d", HP);
+	Font::StrDraw(str, 600, 80, 30, c);
 
 	swprintf_s(str, L"num=%d", num);
 	Font::StrDraw(str, 600, 200, 30, c);

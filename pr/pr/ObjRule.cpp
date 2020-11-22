@@ -27,7 +27,7 @@ void CObjRule::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	if (mou_x > 550 && mou_x < 700 && mou_y > 480 && mou_y < 510)
+	if (mou_x > 0 && mou_x < 800 && mou_y > 0 && mou_y < 600)
 	{
 		if (mou_l == true)
 		{

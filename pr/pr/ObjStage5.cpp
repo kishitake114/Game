@@ -35,6 +35,14 @@ void CObjStage5::Init()
 
 	memcpy(map, alfhamap, sizeof(int) * (8 * 8));
 
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			memmap[i][j] = map[i][j];
+		}
+	}
+
 	int mem[3][3] =
 	{
 		{0,0,0},
@@ -385,9 +393,9 @@ void CObjStage5::Action()
 		{
 			if (mou_l == true)
 			{
-				for (int i = 0; i < 20; i++)
+				for (int i = 0; i < 8; i++)
 				{
-					for (int j = 0; j < 20; j++)
+					for (int j = 0; j < 8; j++)
 					{
 						map[i][j] = memmap[i][j];
 					}
