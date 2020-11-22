@@ -16,6 +16,8 @@ void CObjStage4::Init()
 {
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	obj->num = 4;
+	obj->p_x = 0.0f;
+	obj->p_y = 242.0f;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -37,7 +39,7 @@ void CObjStage4::Init()
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	    {0,1,2,1,0,0,0,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,0},
-	    {2,1,2,2,0,0,0,1,2,1,1,2,2,2,2,1,2,2,1,1,2,2,2,2,2,2},
+	    {2,1,3,2,0,0,0,1,4,1,1,5,2,2,2,1,2,2,1,1,2,2,2,2,2,2},
 	    {0,1,1,1,0,0,0,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,1,2,1,0},
 	    {0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,0},
 	    {2,2,2,2,2,2,1,1,2,2,1,2,1,1,2,2,2,2,2,2,2,1,2,2,2,2},
@@ -66,6 +68,16 @@ void CObjStage4::Init()
 
 	memcpy(map, mapdata, sizeof(int) * (26 * 26));
 
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+
+			memmap[i][j] = map[i][j];
+
+		}
+	}
+
 	int mem[3][3] =
 	{
 		{0,0,0},
@@ -76,6 +88,219 @@ void CObjStage4::Init()
 //アクション
 void CObjStage4::Action()
 {
+	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
+	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	float px = player->GetX();
+	float py = player->GetY();
+
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (map[i][j] <= 1)
+			{
+				float x = j * 22.0f;
+				float y = i * 22.0f;
+
+				map[i][j] == 2;
+
+				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					//右
+					if ((r < 45 && r>0) || r > 315)
+					{
+						player->SetVX(x + 22.0f);
+					}
+
+					//上
+					if (r > 45 && r < 135)
+					{
+						player->SetVY(y - 22.0f);
+					}
+
+					//左
+					if (r > 135 && r < 225)
+					{
+						player->SetVX(x - 22.0f);
+					}
+
+					//下
+					if (r > 225 && r < 315)
+					{
+						player->SetVY(y + 22.0f);
+					}
+
+				}
+
+			}
+
+
+		}
+
+	}
+
+	//アイテム
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (map[i][j] == 3)
+			{
+				float x = j * 22.0f;
+				float y = i * 22.0f;
+
+				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (map[i][j] == 3)
+					{
+						map[i][j] = 2;
+					}
+
+					player->atk += 1;
+
+				}
+
+			}
+
+
+		}
+
+	}
+
+	//アイテム
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (map[i][j] == 4)
+			{
+				float x = j * 22.0f;
+				float y = i * 22.0f;
+
+				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (map[i][j] == 4)
+					{
+						map[i][j] = 2;
+					}
+
+					player->atk += 2;
+
+				}
+
+			}
+
+
+		}
+
+	}
+
+	//アイテム
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (map[i][j] == 5)
+			{
+				float x = j * 22.0f;
+				float y = i * 22.0f;
+
+				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (map[i][j] == 5)
+					{
+						map[i][j] = 2;
+					}
+
+					player->atk += 3;
+
+				}
+
+			}
+
+
+		}
+
+	}
+
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -98,6 +323,12 @@ void CObjStage4::Action()
 
 	}
 
+	if(s_r==true)
+	{
+		if (mou_r == true)
+		{
+			s_r = false;
+		}
 	
 		//1段目
 		
@@ -2425,7 +2656,7 @@ void CObjStage4::Action()
 
 						for (int j = 0; j < 3; j++)
 						{
-							map[10 + i][17 + j] = mem[i][j];
+							map[10 + i][7 + j] = mem[i][j];
 						}
 					}
 				}
@@ -5592,6 +5823,39 @@ void CObjStage4::Action()
 				}
 			}
 		}
+		}
+
+	//リセットボタンのプログラム
+	if (s_r == false)
+		{
+			if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+			{
+				if (mou_l == true)
+				{
+					for (int i = 0; i < 26; i++)
+					{
+						for (int j = 0; j < 26; j++)
+						{
+							map[i][j] = memmap[i][j];
+						}
+					}
+
+					time->m_time = 5400;
+					time->m_flag_time = false;
+
+					s_r = true;
+
+					player->s_p = false;
+
+					player->p_x = player->memp_x;
+					player->p_y = player->memp_y;
+
+					player->atk = 0;
+
+				}
+			}
+		}
+
 }
 
 
@@ -5599,11 +5863,29 @@ void CObjStage4::Action()
 void CObjStage4::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
+	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
+	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
+	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
+
+	wchar_t str[256];
+
+	if (s_r == true)
+	{
+		swprintf_s(str, L"RESET");
+		Font::StrDraw(str, 650, 500, 50, gl);
+	}
+
+	else
+	{
+		swprintf_s(str, L"RESET");
+		Font::StrDraw(str, 650, 500, 50, b);
+	}
+
 	RECT_F src;
 	RECT_F dst;
 
 	//表示：マウスカーソルとボタン
-	wchar_t str[256];
 
 	swprintf_s(str, L"x=%f,y=%f", pxc, pyc);
 	Font::StrDraw(str, 600, 20, 15, c);
@@ -5664,6 +5946,76 @@ void CObjStage4::Draw()
 		for (int j = 0; j < 26; j++)
 		{
 			if (map[i][j] == 1)
+			{
+				dst.m_top = i * 22.0f;
+				dst.m_left = j * 22.0f;
+				dst.m_right = dst.m_left + 22.0f;
+				dst.m_bottom = dst.m_top + 22.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 1.0f;
+	src.m_right = 51.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (map[i][j] == 3)
+			{
+				dst.m_top = i * 22.0f;
+				dst.m_left = j * 22.0f;
+				dst.m_right = dst.m_left + 22.0f;
+				dst.m_bottom = dst.m_top + 22.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 52.0f;
+	src.m_right = 101.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (map[i][j] == 4)
+			{
+				dst.m_top = i * 22.0f;
+				dst.m_left = j * 22.0f;
+				dst.m_right = dst.m_left + 22.0f;
+				dst.m_bottom = dst.m_top + 22.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 102.0f;
+	src.m_right = 151.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (map[i][j] == 5)
 			{
 				dst.m_top = i * 22.0f;
 				dst.m_left = j * 22.0f;

@@ -10,13 +10,16 @@
 
 using namespace GameL;
 
+CObjPlayer::CObjPlayer(float x, float y)
+{
+	p_x = x;
+	p_y = y;
+}
+
 //イニシャライズ
 void CObjPlayer::Init()
 {
 	atk = 0;
-
-	p_x = 0.0f;
-	p_y = 200.0f;
 
 	memp_x = p_x;
 	memp_y = p_y;
@@ -32,8 +35,15 @@ void CObjPlayer::Init()
 
 	HP = 999;
 
-		Hits::SetHitBox(this, p_x+40, p_y+40, 40, 40, ELEMENT_PLAYER, OBJ_PLAYER, 1);
+	p_x = 0.0f;
+	p_y = 0.0f;
+
+	kt = 0;
+
+	Hits::SetHitBox(this, p_x, p_y, 20, 20, ELEMENT_PLAYER, OBJ_PLAYER, 1);
 	
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(p_x, p_y);
 
 }
 
@@ -41,7 +51,10 @@ void CObjPlayer::Init()
 void CObjPlayer::Action()
 {
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
-	CObjRoad* Road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
+	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
+	CObjStage2* road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
+	CObjStage3* road3 = (CObjStage3*)Objs::GetObj(OBJ_STAGE3);
+	CObjStage4* road4 = (CObjStage4*)Objs::GetObj(OBJ_STAGE4);
 	CObjTime* Time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 
@@ -108,67 +121,27 @@ void CObjPlayer::Action()
 			//チュートリアルステージの移動制御
 			if (num == 0)
 			{
-				//ステージ左端から出ないようにする
 				if (p_x < 0.0f)
 				{
 					p_x = 0.0f;
 				}
 
-				//-----------------map[][0]の制御-----------------
-
-				//map[0～1][0]に入ったときのプログラム
-				if (p_x<=0.0f && p_y >= 0.0f&& p_y < 80.0f)
-				{
-					p_y = 80.0f;
-				}
-				
-				//map[3～4][0]に入ったときのプログラム
-				if (p_x <= 0.0f && p_y > 120.0f && p_y < 200.0f)
-				{
-
-					p_y = 200.0f;
-				}
-				
-				//map[6～7][0]に入ったときのプログラム
-				if (p_x <= 0.0f && p_y >= 240.0f && p_y < 320.0f)
-				{
-					p_y = 200.0f;
-				}
-
-				//ステージ右端から出ないようにする
-				if (p_x > 280.0f)
-				{
-					p_x = 280.0f;
-				}
-
-				//-----------------map[][13]の制御-----------------
-
-				//map[0～1][13]に入ったときのプログラム
-				if (p_x >= 280.0f && p_y >= 0.0f && p_y <= 80.0f)
-				{
-					p_y = 80.0f;
-				}
-				//map[3～4][13]に入ったときのプログラム
-				if (p_x >= 280.0f && p_y >= 120.0f && p_y <= 200.0f)
-				{
-					p_y = 200.0f;
-				}
-				//map[6～7][13]に入ったときのプログラム
-				if (p_x >= 280.0f && p_y >= 240.0f && p_y <= 320.0f)
-				{
-					p_y = 200.0f;
-				}
-
 				//ステージ上端から出ないようにする
 				if (p_y < 0.0f)
 				{
-					p_y = 0.0f;
+					Scene::SetScene(new CSceneMain);
 				}
 
 				//ステージ下端から出ないようにする
 				if (p_y > 280.0f)
 				{
 					p_y = 280.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_x > 280.0f)
+				{
+					p_x = 280.0f;
 				}
 
 			}
@@ -202,6 +175,93 @@ void CObjPlayer::Action()
 				//------------------------------------------------------------------------------
 			}
 
+			if (num == 2)
+			{
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
+				if (p_x < 0.0f)
+				{
+					p_x = 0.0f;
+				}
+
+				//ステージ上端から出ないようにする
+				if (p_y < 0.0f)
+				{
+					p_y = 0.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_y > 480.0f)
+				{
+					p_y = 480.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_x > 480.0f)
+				{
+					p_x = 480.0f;
+				}
+				//------------------------------------------------------------------------------
+			}
+
+			if (num == 3)
+			{
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
+				if (p_x < 0.0f)
+				{
+					p_x = 0.0f;
+				}
+
+				//ステージ上端から出ないようにする
+				if (p_y < 0.0f)
+				{
+					p_y = 0.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_y > 475.0f)
+				{
+					p_y = 475.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_x > 475.0f)
+				{
+					p_x = 475.0f;
+				}
+				//------------------------------------------------------------------------------
+			}
+
+			if (num == 4)
+			{
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
+				if (p_x < 0.0f)
+				{
+					p_x = 0.0f;
+				}
+
+				//ステージ上端から出ないようにする
+				if (p_y < 0.0f)
+				{
+					p_y = 0.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_y > 550.0f)
+				{
+					p_y = 550.0f;
+				}
+
+				//ステージ下端から出ないようにする
+				if (p_x > 550.0f)
+				{
+					p_x = 550.0f;
+				}
+				//------------------------------------------------------------------------------
+			}
+
 	}
 
 	CHitBox* hit = Hits::GetHitBox(this);
@@ -211,15 +271,12 @@ void CObjPlayer::Action()
 	{
 		s_p = true;
 
-		Enemy->HP = Enemy->HP - atk;
-		atk = 0;
-		HP--;
 
 		memp_x = p_x;
 		memp_y = p_y;
 
 		s_p = false;
-		Road->s_r = true;
+		road->s_r = true;
 		Time->m_flag_time = true;
 
 		if (cs_x == 0.0f)
@@ -243,6 +300,117 @@ void CObjPlayer::Action()
 		if (cs_x == 140)
 		{
 			p_x = 520.0f;
+			cs_x = 50.0f;
+		}
+	}
+
+	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
+	{
+		s_p = true;
+
+
+		memp_x = p_x;
+		memp_y = p_y;
+
+		s_p = false;
+		road2->s_r = true;
+		Time->m_flag_time = true;
+
+		if (cs_x == 0.0f)
+		{
+			p_y = 480.0f;
+			cs_x = 95.0f;
+		}
+
+		if (cs_x == 50.0f)
+		{
+			p_x = 0.0f;
+			cs_x = 140.0f;
+		}
+
+		if (cs_x == 95.0f)
+		{
+			p_y = 0.0f;
+			cs_x = 0.0f;
+		}
+
+		if (cs_x == 140)
+		{
+			p_x = 480.0f;
+			cs_x = 50.0f;
+		}
+	}
+
+	if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
+	{
+		s_p = true;
+
+
+		memp_x = p_x;
+		memp_y = p_y;
+
+		s_p = false;
+		road3->s_r = true;
+		Time->m_flag_time = true;
+
+		if (cs_x == 0.0f)
+		{
+			p_y = 475.0f;
+			cs_x = 95.0f;
+		}
+
+		if (cs_x == 50.0f)
+		{
+			p_x = 0.0f;
+			cs_x = 140.0f;
+		}
+
+		if (cs_x == 95.0f)
+		{
+			p_y = 0.0f;
+			cs_x = 0.0f;
+		}
+
+		if (cs_x == 140)
+		{
+			p_x = 0.0f;
+			cs_x = 50.0f;
+		}
+	}
+
+	if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
+	{
+		s_p = true;
+
+
+		memp_x = p_x;
+		memp_y = p_y;
+
+		s_p = false;
+		road4->s_r = true;
+		Time->m_flag_time = true;
+
+		if (cs_x == 0.0f)
+		{
+			p_y = 550.0f;
+			cs_x = 95.0f;
+		}
+
+		if (cs_x == 50.0f)
+		{
+			p_x = 550.0f;
+			cs_x = 140.0f;
+		}
+
+		if (cs_x == 95.0f)
+		{
+			p_y = 0.0f;
+			cs_x = 0.0f;
+		}
+
+		if (cs_x == 140)
+		{
+			p_x = 0.0f;
 			cs_x = 50.0f;
 		}
 	}
@@ -279,6 +447,9 @@ void CObjPlayer::Draw()
 	swprintf_s(str, L"アタック=%d", atk);
 	Font::StrDraw(str, 600, 450, 30, c);
 
+	swprintf_s(str, L"num=%d", num);
+	Font::StrDraw(str, 600, 200, 30, c);
+
 	swprintf_s(str, L"切り取り=%f", cs_x);
 	Font::StrDraw(str, 600, 350, 30, c);
 
@@ -307,27 +478,27 @@ void CObjPlayer::Draw()
 
 	if (num == 2)
 	{
-		dst.m_top = 240.0f + p_y;
+		dst.m_top = 0.0f + p_y;
 		dst.m_left = 0.0f + p_x;
 		dst.m_right = 30.0f + p_x;
-		dst.m_bottom = 270.0f + p_y;
+		dst.m_bottom = 30.0f + p_y;
 	}
 
 	if (num == 3)
 	{
-		dst.m_top = 200.0f + p_y;
+		dst.m_top = 0.0f + p_y;
 		dst.m_left = 0.0f + p_x;
 		dst.m_right = 25.0f + p_x;
-		dst.m_bottom = 225.0f + p_y;
+		dst.m_bottom = 25.0f + p_y;
 	}
 
 
 	if (num == 4)
 	{
-		dst.m_top = 242.0f + p_y;
+		dst.m_top = 0.0f + p_y;
 		dst.m_left = 0.0f + p_x;
 		dst.m_right = 22.0f + p_x;
-		dst.m_bottom = 264.0f + p_y;
+		dst.m_bottom = 22.0f + p_y;
 	}
 
 

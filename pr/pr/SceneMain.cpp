@@ -50,7 +50,7 @@ void CSceneMain::InitScene()
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 
-	CObjPlayer* CObj = new CObjPlayer();
+	CObjPlayer* CObj = new CObjPlayer(0,200.0f);
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
 	CObjEnemy* CObjE = new CObjEnemy();

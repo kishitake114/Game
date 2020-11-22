@@ -15,13 +15,15 @@ using namespace GameL;
 void CObjStage3::Init()
 {
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	obj->num = 3;
+	obj->num = 3;;
+	obj->p_x = 0.0f;
+	obj->p_y = 200.0f;
 
 	int mapdata[20][20] =
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 		{0,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,1,1,1,0},
-		{2,1,2,2,2,2,2,1,2,1,1,2,2,2,2,1,2,2,1,2},
+		{2,1,3,2,2,4,2,1,5,1,1,2,2,2,2,1,2,2,1,2},
 		{0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,0},
 		{0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,0},
 		{2,2,2,2,2,2,1,1,2,2,1,2,1,1,2,2,2,2,2,2},
@@ -44,6 +46,16 @@ void CObjStage3::Init()
 
 	memcpy(map, mapdata, sizeof(int) * (20 * 20));
 
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+
+			memmap[i][j] = map[i][j];
+
+		}
+	}
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_l = false;
@@ -61,6 +73,223 @@ void CObjStage3::Init()
 //アクション
 void CObjStage3::Action()
 {
+	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
+	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	float px = player->GetX();
+	float py = player->GetY();
+
+	//mapにアクセス
+
+		//通行不可
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] <= 1)
+			{
+				float x = j * 25.0f;
+				float y = i * 25.0f;
+
+				map[i][j] == 2;
+
+				if ((px + 25.0f > x) && (px < x + 25.0f) && (py + 25.0f > y) && (py < y + 25.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					//右
+					if ((r < 45 && r>0) || r > 315)
+					{
+						player->SetVX(x + 25.0f);
+					}
+
+					//上
+					if (r > 45 && r < 135)
+					{
+						player->SetVY(y - 25.0f);
+					}
+
+					//左
+					if (r > 135 && r < 225)
+					{
+						player->SetVX(x - 25.0f);
+					}
+
+					//下
+					if (r > 225 && r < 315)
+					{
+						player->SetVY(y + 25.0f);
+					}
+
+				}
+
+			}
+
+
+		}
+
+	}
+	
+
+	//アイテム
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] == 3)
+			{
+				float x = j * 25.0f;
+				float y = i * 25.0f;
+
+				if ((px + 25.0f > x) && (px < x + 25.0f) && (py + 25.0f > y) && (py < y + 25.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (map[i][j] == 3)
+					{
+						map[i][j] = 2;
+					}
+
+					player->atk += 1;
+
+				}
+
+			}
+
+
+		}
+
+	}
+
+	//アイテム
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] == 4)
+			{
+				float x = j * 25.0f;
+				float y = i * 25.0f;
+
+				if ((px + 25.0f > x) && (px < x + 25.0f) && (py + 25.0f > y) && (py < y + 25.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (map[i][j] == 4)
+					{
+						map[i][j] = 2;
+					}
+
+					player->atk += 2;
+
+				}
+
+			}
+
+
+		}
+
+	}
+
+	//アイテム
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] == 5)
+			{
+				float x = j * 25.0f;
+				float y = i * 25.0f;
+
+				if ((px + 25.0f > x) && (px < x + 25.0f) && (py + 25.0f > y) && (py < y + 25.0f))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (map[i][j] == 5)
+					{
+						map[i][j] = 2;
+					}
+
+					player->atk += 3;
+
+				}
+
+			}
+
+
+		}
+
+	}
+
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -87,32 +316,12 @@ void CObjStage3::Action()
 	//ロード内のプログラム
 	if (s_r == true)
 	{
-		////右クリックで操作中止
-		//if (mou_r == true)
-		//{
-		//	s_r = false;
-		//}
+		//右クリックで操作中止
+		if (mou_r == true)
+		{
+			s_r = false;
+		}
 
-		//if (map[][] == 0)
-	//{
-	//	for (int i = 0; i < 3; i++)
-	//	{
-	//		for (int j = 0; j < 3; j++)
-	//		{
-	//			mem[i][j] = map[ + i][ + j];
-	//		}
-
-	//		for (int j = 0; j < 3; j++)
-	//		{
-	//			map[ + i][ + j] = 0;
-	//		}
-
-	//		for (int j = 0; j < 3; j++)
-	//		{
-	//			map[ + i][ + j] = mem[i][j];
-	//		}
-	//	}
-	//}
 
 		if (mou_x > 25.0f && mou_x < 467.0f && mou_y>25.0f && mou_y < 467.0f)
 		{
@@ -3148,27 +3357,7 @@ void CObjStage3::Action()
 			}
 		}
 
-	//if (map[][] == 0)
-	//{
-	//	for (int i = 0; i < 3; i++)
-	//	{
-	//		for (int j = 0; j < 3; j++)
-	//		{
-	//			mem[i][j] = map[ + i][ + j];
-	//		}
-
-	//		for (int j = 0; j < 3; j++)
-	//		{
-	//			map[ + i][ + j] = 0;
-	//		}
-
-	//		for (int j = 0; j < 3; j++)
-	//		{
-	//			map[ + i][ + j] = mem[i][j];
-	//		}
-	//	}
-	//}
-
+	
 		else
 		{
 			test = false;
@@ -3176,13 +3365,47 @@ void CObjStage3::Action()
 
 
 	}
-}
 
-	
+	//リセットボタンのプログラム
+	if (s_r == false)
+	{
+		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+		{
+			if (mou_l == true)
+			{
+				for (int i = 0; i < 20; i++)
+				{
+					for (int j = 0; j < 20; j++)
+					{
+						map[i][j] = memmap[i][j];
+					}
+				}
+
+				time->m_time = 7200;
+				time->m_flag_time = true;
+
+				s_r = true;
+
+				player->s_p = false;
+
+				player->p_x = player->memp_x;
+				player->p_y = player->memp_y;
+
+				player->atk = 0;
+
+			}
+		}
+	}
+}
 //ドロー
 void CObjStage3::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
+	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
+	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
+	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
+
 	RECT_F src;
 	RECT_F dst;
 
@@ -3214,10 +3437,17 @@ void CObjStage3::Draw()
 		Font::StrDraw(L"左=押してない", 600, 60, 20, c);
 
 	//左クリック
-	if (test == true)
-		Font::StrDraw(L"OK!!", 600, 300, 20, c);
+	if (s_r == true)
+	{
+		swprintf_s(str, L"RESET");
+		Font::StrDraw(str, 650, 500, 50, gl);
+	}
+
 	else
-		Font::StrDraw(L"NOK", 600, 300, 20, c);
+	{
+		swprintf_s(str, L"RESET");
+		Font::StrDraw(str, 650, 500, 50, b);
+	}
 
 	//表示：通行可
 
@@ -3268,4 +3498,98 @@ void CObjStage3::Draw()
 			}
 		}
 	}
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 1.0f;
+	src.m_right = 51.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] == 3)
+			{
+				dst.m_top = i * 25.0f;
+				dst.m_left = j * 25.0f;
+				dst.m_right = dst.m_left + 25.0f;
+				dst.m_bottom = dst.m_top + 25.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 1.0f;
+	src.m_right = 51.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] == 3)
+			{
+				dst.m_top = i * 25.0f;
+				dst.m_left = j * 25.0f;
+				dst.m_right = dst.m_left + 25.0f;
+				dst.m_bottom = dst.m_top + 25.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 52.0f;
+	src.m_right = 101.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] == 4)
+			{
+				dst.m_top = i * 25.0f;
+				dst.m_left = j * 25.0f;
+				dst.m_right = dst.m_left + 25.0f;
+				dst.m_bottom = dst.m_top + 25.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+	//表示：アイテム
+	src.m_top = 130.0f;
+	src.m_left = 102.0f;
+	src.m_right = 151.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			if (map[i][j] == 5)
+			{
+				dst.m_top = i * 25.0f;
+				dst.m_left = j * 25.0f;
+				dst.m_right = dst.m_left + 25.0f;
+				dst.m_bottom = dst.m_top + 25.0f;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
 }

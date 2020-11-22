@@ -9,7 +9,7 @@ using namespace GameL;
 class CObjPlayer :public CObj
 {
 	public:
-		CObjPlayer() {};
+		CObjPlayer(float x,float y) ;
 		~CObjPlayer() {};
 		void Init();
 		void Action();
@@ -33,12 +33,15 @@ class CObjPlayer :public CObj
 		float memp_x;
 		float memp_y;
 		int atk;
+		int kt;
 
 	private:
 		float mou_x;  //マウスカーソル：横
 		float mou_y;  //マウスカーソル：縦
 		bool  mou_r;  //マウスボタン：右
 		bool  mou_l;  //マウスボタン：左
+
+	
 
 		float p_vx;
 		float p_vy;

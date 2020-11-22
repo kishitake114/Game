@@ -23,4 +23,6 @@ private:
 
 	float mou_r;
 	float mou_l;
+
+	int plas;
 };

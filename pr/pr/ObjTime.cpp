@@ -13,11 +13,31 @@ using namespace GameL;
 //イニシャライズ
 void CObjTime::Init()
 {
-	m_time = 3600;
 	m_flag_time = true;
 
 	mou_r = false;
 	mou_l = false;
+
+	plas = 0;
+
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+
+	if (player->num == 1)
+	{
+		;
+	}
+
+	if (player->num == 2)
+	{
+		plas = 1800;
+	}
+
+	if (player->num >= 3)
+	{
+		plas = 3600;
+	}
+
+	m_time = 3600 + plas;
 }
 //アクション
 void CObjTime::Action()
@@ -26,12 +46,22 @@ void CObjTime::Action()
 	mou_l = Input::GetMouButtonL();
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
 
-	if (road->s_r==true && mou_l == true)
-	{
-		m_flag_time = true;
-	}
+
+	//if (road2->s_r == true && mou_l == true)
+	//{
+	//	m_flag_time = true;
+	//}
+
+	//if (road3->s_r == true && mou_l == true)
+	//{
+	//	m_flag_time = true;
+	//}
+
+	//if (road4->s_r == true && mou_l == true)
+	//{
+	//	m_flag_time = true;
+	//}
 	
 	if (mou_r == true)
 	{
@@ -49,7 +79,7 @@ void CObjTime::Action()
 	if (m_time == 0)
 	{
 		player->HP--;		//m_Timeが0->PlayerHPを-1する。
-		m_time = 3600;
+		m_time = 3600+plas;
 	}
 	//フラグがオフになったら、１分に戻す
 	else if (m_flag_time == false)
@@ -79,5 +109,5 @@ void CObjTime::Draw()
 		swprintf_s(str, L"%d分%d秒", minute, second);
 	}
 
-	Font::StrDraw(str, 10, 10, 20, c);
+	Font::StrDraw(str, 650, 550, 30, c);
 }

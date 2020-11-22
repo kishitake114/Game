@@ -18,6 +18,8 @@ void CObjStage5::Init()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	player->num = 0;
+	player->p_x = 0.0f;
+	player->p_y = 200.0f;
 
 	int alfhamap[8][8] =
 	{
@@ -375,11 +377,44 @@ void CObjStage5::Action()
 		}
 
 	}
+
+	//リセットボタンのプログラム
+	if (s_r == false)
+	{
+		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+		{
+			if (mou_l == true)
+			{
+				for (int i = 0; i < 20; i++)
+				{
+					for (int j = 0; j < 20; j++)
+					{
+						map[i][j] = memmap[i][j];
+					}
+				}
+
+				s_r = true;
+
+				player->s_p = false;
+
+				player->p_x = player->memp_x;
+				player->p_y = player->memp_y;
+
+				player->atk = 0;
+
+			}
+		}
+	}
 }
 //ドロー
 void CObjStage5::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
+	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
+	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
+	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
+
 	RECT_F src;
 	RECT_F dst;
 
@@ -391,6 +426,18 @@ void CObjStage5::Draw()
 
 	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
 	Font::StrDraw(str, 600, 10, 15, c);
+
+	if (s_r == true)
+	{
+		swprintf_s(str, L"RESET");
+		Font::StrDraw(str, 650, 500, 50, gl);
+	}
+
+	else
+	{
+		swprintf_s(str, L"RESET");
+		Font::StrDraw(str, 650, 500, 50, b);
+	}
 
 
 

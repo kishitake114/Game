@@ -115,6 +115,12 @@
     <ClCompile Include="ObjEnemy2.cpp">
       <Filter>自作\ステージ\Stage2</Filter>
     </ClCompile>
+    <ClCompile Include="ObjEnemy3.cpp">
+      <Filter>自作\ステージ\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy4.cpp">
+      <Filter>自作\ステージ\Stage4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -234,6 +240,12 @@
     <ClInclude Include="ObjEnemy2.h">
       <Filter>自作\ステージ\Stage2</Filter>
     </ClInclude>
+    <ClInclude Include="ObjEnemy3.h">
+      <Filter>自作\ステージ\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy4.h">
+      <Filter>自作\ステージ\Stage4</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
@@ -248,29 +260,8 @@
     <Filter Include="自作\ステージ">
       <UniqueIdentifier>{ed332d99-a6c6-45c3-bd2b-44b9bf4d8c81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ\Stage5">
-      <UniqueIdentifier>{89e72df9-3aae-491a-b449-231746046ea4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ステージ\Stage4">
-      <UniqueIdentifier>{6b65cc78-82b7-431a-a573-386ff578a94e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ステージ\Stage3">
-      <UniqueIdentifier>{681680ab-818a-4511-bbf1-ef375981f93f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ステージ\Stage2">
-      <UniqueIdentifier>{ed494f3a-4958-4696-8b3c-41918258ff15}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ステージ\Stage 1 and Main">
-      <UniqueIdentifier>{670706e9-c6d4-4e34-b7ef-0b75ca484d96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\プレイヤー">
-      <UniqueIdentifier>{db74152d-ca7d-469e-8c07-acddc03292b8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="自作\ルール説明">
       <UniqueIdentifier>{3fffcad7-3c32-4fd5-83af-9e2cd52ca517}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\タイトル">
-      <UniqueIdentifier>{4e140391-de22-4406-ad97-7b8741d51b5f}</UniqueIdentifier>
     </Filter>
     <Filter Include="自作\ゲームオーバー">
       <UniqueIdentifier>{675f23c0-9e4e-4ee6-b49f-3ce276e15be5}</UniqueIdentifier>
@@ -283,6 +274,27 @@
     </Filter>
     <Filter Include="自作\タイム">
       <UniqueIdentifier>{afa02b7e-9c19-4d92-abe6-e4b308f1dd10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\プレイヤー">
+      <UniqueIdentifier>{db74152d-ca7d-469e-8c07-acddc03292b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage3">
+      <UniqueIdentifier>{681680ab-818a-4511-bbf1-ef375981f93f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\タイトル">
+      <UniqueIdentifier>{4e140391-de22-4406-ad97-7b8741d51b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage4">
+      <UniqueIdentifier>{6b65cc78-82b7-431a-a573-386ff578a94e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage 1 and Main">
+      <UniqueIdentifier>{670706e9-c6d4-4e34-b7ef-0b75ca484d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage2">
+      <UniqueIdentifier>{ed494f3a-4958-4696-8b3c-41918258ff15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\Stage5">
+      <UniqueIdentifier>{89e72df9-3aae-491a-b449-231746046ea4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

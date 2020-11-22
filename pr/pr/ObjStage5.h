@@ -23,9 +23,11 @@ public:
 
 	
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
+	int map[8][8];
+	int memmap[8][8];
 
 private:
-	int map[8][8];
+	
 	int mem[3][3];//操作ピースの保存
 
 	float mou_x;  //マウスカーソル：横

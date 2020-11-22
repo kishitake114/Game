@@ -35,6 +35,8 @@
     <ClCompile Include="ObjClear.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjEnemy2.cpp" />
+    <ClCompile Include="ObjEnemy3.cpp" />
+    <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjItem.cpp" />
     <ClCompile Include="ObjPlayer.cpp" />
@@ -76,6 +78,8 @@
     <ClInclude Include="ObjClear.h" />
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjEnemy2.h" />
+    <ClInclude Include="ObjEnemy3.h" />
+    <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjItem.h" />
     <ClInclude Include="ObjPlayer.h" />

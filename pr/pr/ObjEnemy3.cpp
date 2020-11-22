@@ -1,5 +1,5 @@
-#include "ObjEnemy2.h"
-#include "ObjRoad.h"
+#include "ObjEnemy3.h"
+#include "ObjStage3.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -11,21 +11,21 @@
 
 
 //イニシャライズ
-void CObjEnemy2::Init()
+void CObjEnemy3::Init()
 {
 	srand(time(NULL));
 
 	HP = 3;
-	p_x = 60.0f;
+	p_x = 200.0f;
 	p_y = 0.0f;
 
-	atr_x = 0.0f;
+	atr_x = 200.0f;
 	atr_y = 0.0f;
 
 	cs_xe = 0.0f;
 
 	plx = 0;
-	ply = 0;
+	ply = 3;
 
 	memx = 0;
 	memy = 0;
@@ -36,12 +36,12 @@ void CObjEnemy2::Init()
 
 
 
-	Hits::SetHitBox(this, p_x, p_y, 30, 30, ELEMENT_ENEMY, OBJ_ENEMY2, 1);
+	Hits::SetHitBox(this, p_x, p_y, 25, 25, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
 
 }
 
 //アクション
-void CObjEnemy2::Action()
+void CObjEnemy3::Action()
 {
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
@@ -58,8 +58,8 @@ void CObjEnemy2::Action()
 
 			CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 			CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-			CObjStage2* Road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
-			
+			CObjStage3* Road3 = (CObjStage3*)Objs::GetObj(OBJ_STAGE3);
+
 
 			HP = HP - player->atk;
 			player->atk = 0;
@@ -69,23 +69,23 @@ void CObjEnemy2::Action()
 			{
 				for (int j = 0; j < 17; j++)
 				{
-					Road2->memmap[i][j] = Road2->map[i][j];
+					Road3->memmap[i][j] = Road3->map[i][j];
 				}
 			}
 
-			time->m_time = 5400;
+			time->m_time = 7200;
 
 
 			se = false;
 
 			plx = rand() % 4;
-			ply = rand() % 5;
+			ply = rand() % 6;
 
 
 			if (memx == plx && memy == ply)
 			{
 				plx = rand() % 4;
-				ply = rand() % 5;
+				ply = rand() % 6;
 			}
 
 			else
@@ -103,8 +103,8 @@ void CObjEnemy2::Action()
 				//ply=0　map[0][2]
 				if (ply == 0)
 				{
-					p_x = 60.0f;
-					atr_x = 0.0f;
+					p_x = 50.0f;
+					atr_x = 50.0f;
 					cs_xe = 0.0f;
 
 					p_y = 0.0f;
@@ -115,8 +115,8 @@ void CObjEnemy2::Action()
 				//ply=1　map[0][5]
 				if (ply == 1)
 				{
-					p_x =150.0f;
-					atr_x = 90.0f;
+					p_x = 125.0f;
+					atr_x = 125.0f;
 					cs_xe = 0.0f;
 
 					p_y = 0.0f;
@@ -126,8 +126,8 @@ void CObjEnemy2::Action()
 				//ply=2　map[0][8]
 				if (ply == 2)
 				{
-					p_x = 240.0f;
-					atr_x = 180.0f;
+					p_x = 200.0f;
+					atr_x = 200.0f;
 					cs_xe = 0.0f;
 
 					p_y = 0.0f;
@@ -137,8 +137,8 @@ void CObjEnemy2::Action()
 				//ply=3　map[0][11]
 				if (ply == 3)
 				{
-					p_x = 330.0f;
-					atr_x = 270.0f;
+					p_x = 275.0f;
+					atr_x = 275.0f;
 					cs_xe = 0.0f;
 
 					p_y = 0.0f;
@@ -147,8 +147,18 @@ void CObjEnemy2::Action()
 
 				if (ply == 4)
 				{
-					p_x = 420.0f;
-					atr_x = 360.0f;
+					p_x = 350.0f;
+					atr_x = 350.0f;
+					cs_xe = 0.0f;
+
+					p_y = 0.0f;
+					atr_y = 0.0f;
+				}
+
+				if (ply == 5)
+				{
+					p_x = 425.0f;
+					atr_x = 425.0f;
 					cs_xe = 0.0f;
 
 					p_y = 0.0f;
@@ -164,21 +174,89 @@ void CObjEnemy2::Action()
 				if (ply == 0)
 				{
 					p_x = 0.0f;
-					atr_x = -60.0f;
-					cs_xe = 152.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
 
-					p_y = 60.0f;
-					atr_y = 60.0f;
+					p_y = 50.0f;
+					atr_y = 50.0f;
 				}
 
 				//ply=1　map[0][5]
 				if (ply == 1)
 				{
 					p_x = 0.0f;
-					atr_x = -60.0f;
-					cs_xe = 152.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
 
-					p_y = 150.0f;
+					p_y = 125.0f;
+					atr_y = 125.0f;
+				}
+
+				//ply=2　map[0][8]
+				if (ply == 2)
+				{
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
+
+					p_y = 200.0f;
+					atr_y = 200.0f;
+				}
+
+				//ply=3　map[0][11]
+				if (ply == 3)
+				{
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
+
+					p_y = 275.0f;
+					atr_y = 275.0f;
+				}
+
+				//ply=3　map[0][11]
+				if (ply == 4)
+				{
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
+
+					p_y = 350.0f;
+					atr_y = 350.0f;
+				}
+
+				if (ply == 5)
+				{
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
+
+					p_y = 425.0f;
+					atr_y = 425.0f;
+				}
+				break;
+
+				//plxが２の場合＝map[][13](右)に移動
+			case 2:
+
+				if (ply == 0)
+				{
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
+
+					p_y = 50.0f;
+					atr_y = 50.0f;
+				}
+
+				//ply=1　map[0][5]
+				if (ply == 1)
+				{
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
+
+					p_y = 125.0f;
 					atr_y = 150.0f;
 				}
 
@@ -186,93 +264,45 @@ void CObjEnemy2::Action()
 				if (ply == 2)
 				{
 					p_x = 0.0f;
-					atr_x = -60.0f;
-					cs_xe = 152.0f;
-
-					p_y = 240.0f;
-					atr_y = 240.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 3)
-				{
-					p_x = 0.0f;
-					atr_x = -60.0f;
-					cs_xe = 152.0f;
-
-					p_y = 330.0f;
-					atr_y =330.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 4)
-				{
-					p_x = 0.0f;
-					atr_x = -60.0f;
-					cs_xe = 152.0f;
-
-					p_y = 420.0f;
-					atr_y = 420.0f;
-				}
-				break;
-
-				//plxが２の場合＝map[][13](右)に移動
-			case 2:
-
-				//ply=0　map[0][2]
-				if (ply == 0)
-				{
-					p_x = 60.0f;
 					atr_x = 0.0f;
-					cs_xe = 52.0f;
+					cs_xe = 100.0f;
 
-					p_y = 480.0f;
-					atr_y = 480.0f;
-
-				}
-
-				//ply=1　map[0][5]
-				if (ply == 1)
-				{
-					p_x = 150.0f;
-					atr_x = 90.0f;
-					cs_xe = 52.0f;
-
-					p_y = 480.0f;
-					atr_y = 480.0f;
-				}
-
-				//ply=2　map[0][8]
-				if (ply == 2)
-				{
-					p_x = 240.0f;
-					atr_x = 180.0f;
-					cs_xe = 52.0f;
-
-					p_y = 480.0f;
-					atr_y = 480.0f;
+					p_y = 200.0f;
+					atr_y = 200.0f;
 				}
 
 				//ply=3　map[0][11]
 				if (ply == 3)
 				{
-					p_x = 330.0f;
-					atr_x = 270.0f;
-					cs_xe = 52.0f;
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
 
-					p_y = 480.0f;
-					atr_y = 480.0f;
+					p_y = 275.0f;
+					atr_y = 275.0f;
 				}
 
+				//ply=3　map[0][11]
 				if (ply == 4)
 				{
-					p_x = 420.0f;
-					atr_x = 360.0f;
-					cs_xe = 52.0f;
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
 
-					p_y = 480.0f;
-					atr_y = 480.0f;
+					p_y = 350.0f;
+					atr_y = 350.0f;
 				}
+
+				if (ply == 5)
+				{
+					p_x = 0.0f;
+					atr_x = 0.0f;
+					cs_xe = 100.0f;
+
+					p_y = 425.0f;
+					atr_y = 425.0f;
+				}
+				
 
 				break;
 
@@ -282,56 +312,66 @@ void CObjEnemy2::Action()
 				//ply=0　map[0][2]
 				if (ply == 0)
 				{
-					p_x = 480.0f;
-					atr_x = 420.0f;
-					cs_xe = 102.0f;
+					p_x = 475.0f;
+					atr_x = 475.0f;
+					cs_xe = 55.0f;
 
-					p_y = 60.0f;
-					atr_y = 60.0f;
+					p_y = 50.0f;
+					atr_y = 50.0f;
 				}
 
 				//ply=1　map[0][5]
 				if (ply == 1)
 				{
-					p_x = 480.0f;
-					atr_x = 420.0f;
-					cs_xe = 102.0f;
+					p_x = 475.0f;
+					atr_x = 475.0f;
+					cs_xe = 55.0f;
 
-					p_y = 150.0f;
-					atr_y = 150.0f;
+					p_y = 125.0f;
+					atr_y = 125.0f;
 				}
 
 				//ply=2　map[0][8]
 				if (ply == 2)
 				{
-					p_x = 480.0f;
-					atr_x = 420.0f;
-					cs_xe = 102.0f;
+					p_x = 475.0f;
+					atr_x = 475.0f;
+					cs_xe = 55.0f;
 
-					p_y = 240.0f;
-					atr_y = 240.0f;
+					p_y = 200.0f;
+					atr_y = 200.0f;
 				}
 
 				//ply=3　map[0][11]
 				if (ply == 3)
 				{
-					p_x = 480.0f;
-					atr_x = 420.0f;
-					cs_xe = 102.0f;
+					p_x = 475.0f;
+					atr_x = 475.0f;
+					cs_xe = 55.0f;
 
-					p_y = 330.0f;
-					atr_y = 330.0f;
+					p_y = 275.0f;
+					atr_y = 275.0f;
 				}
 
 				//ply=3　map[0][11]
 				if (ply == 4)
 				{
-					p_x = 480.0f;
-					atr_x = 420.0f;
-					cs_xe = 102.0f;
+					p_x = 475.0f;
+					atr_x = 475.0f;
+					cs_xe = 55.0f;
 
-					p_y = 420.0f;
-					atr_y = 420.0f;
+					p_y = 350.0f;
+					atr_y = 350.0f;
+				}
+
+				if (ply == 5)
+				{
+					p_x = 475.0f;
+					atr_x = 475.0f;
+					cs_xe = 55.0f;
+
+					p_y = 425.0f;
+					atr_y = 425.0f;
 				}
 
 			default:
@@ -345,7 +385,7 @@ void CObjEnemy2::Action()
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
 
-				Scene::SetScene(new CSceneStage3());
+				Scene::SetScene(new CSceneStage4());
 			}
 		}
 	}
@@ -358,7 +398,7 @@ void CObjEnemy2::Action()
 }
 
 //ドロー
-void CObjEnemy2::Draw()
+void CObjEnemy3::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
@@ -378,15 +418,15 @@ void CObjEnemy2::Draw()
 	swprintf_s(str, L"ply %d", ply);
 	Font::StrDraw(str, 450, 400, 30, c);
 
-	src.m_top = 0.0f;
-	src.m_left = 0.0f + cs_xe;
-	src.m_right = 45.0f + cs_xe;
-	src.m_bottom = 50.0f;
+	src.m_top = 64.0f;
+	src.m_left =10.0f + cs_xe;
+	src.m_right = 40.0f + cs_xe;
+	src.m_bottom = 84.0f;
 
 	dst.m_top = 0.0f + atr_y;
-	dst.m_left = 60.0f + atr_x;
-	dst.m_right = 90.0f + atr_x;
-	dst.m_bottom = 30.0f + atr_y;
+	dst.m_left = 0.0f + atr_x;
+	dst.m_right = 25.0f + atr_x;
+	dst.m_bottom = 25.0f + atr_y;
 
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 

@@ -13,11 +13,9 @@
 void CObjRoad::Init()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
+	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	
 	player->num = 1;
-
-	float playX = player->p_x;
-	float playY = player->p_y;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -40,7 +38,8 @@ void CObjRoad::Init()
 
 
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	
+	obj->p_x = 0.0f;
+	obj->p_y = 200.0f;
 
 
 
@@ -63,21 +62,6 @@ void CObjRoad::Init()
 	};
 
 	memcpy(map, mapdata, sizeof(int) * (14 * 14));
-
-	//mapにアクセス
-	for (int i = 0; i < 14; i++)
-	{
-		for (int j = 0; j < 14; j++)
-		{
-
-			if (map[i][j] >= 3)
-			{
-				CObjItem* obj = new CObjItem(i*40, j*40);
-				Objs::InsertObj(obj, OBJ_ITEM, 50);
-			}
-
-		}
-	}
 
 	for (int i = 0; i < 14; i++)
 	{
@@ -117,6 +101,12 @@ void CObjRoad::Action()
 {
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+
+
+	if (s_r == true && mou_l == true)
+	{
+		time->m_flag_time = true;
+	}
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	float px = player->GetX();
@@ -323,8 +313,6 @@ void CObjRoad::Action()
 		}
 	}
 
-
-
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -371,11 +359,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][1 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 							
 
@@ -403,11 +386,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][1 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -438,11 +416,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -468,11 +441,6 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[1 + i][4 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
-
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -497,11 +465,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -534,11 +497,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -561,11 +519,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -588,10 +541,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -624,11 +573,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -686,11 +630,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -714,11 +653,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -742,11 +676,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -777,11 +706,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -807,10 +731,6 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[4 + i][4 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -834,11 +754,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -862,12 +777,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
-
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -898,11 +807,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -927,11 +831,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -955,11 +854,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -983,11 +877,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1018,11 +907,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1047,11 +931,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1075,11 +954,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1111,10 +985,6 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[7 + i][1 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1138,11 +1008,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][1 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1167,10 +1032,6 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[7 + i][1 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1201,11 +1062,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1230,11 +1086,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1258,11 +1109,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1286,11 +1132,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1321,11 +1162,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1350,11 +1186,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1379,10 +1210,6 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[7 + i][7 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1406,11 +1233,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1441,11 +1263,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1470,11 +1287,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1498,11 +1310,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1533,11 +1340,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][1 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1562,10 +1364,7 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[10 + i][1 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
+							
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1597,10 +1396,7 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[10 + i][4 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
+					
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1625,11 +1421,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1654,10 +1445,6 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[10 + i][4 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1689,10 +1476,6 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[10 + i][7 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1718,10 +1501,7 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[10 + i][7 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
+		
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1745,11 +1525,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x += 120.0f;
-							}
 
 						}
 
@@ -1781,11 +1556,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1810,11 +1580,6 @@ void CObjRoad::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
-
-							if (mem[i][j] == 3)
-							{
-								item->m_y -= 120.0f;
-							}
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1849,6 +1614,7 @@ void CObjRoad::Action()
 					}
 				}
 
+				time->m_time = 3600;
 				time->m_flag_time = false;
 
 				s_r = true;
@@ -1860,15 +1626,10 @@ void CObjRoad::Action()
 
 				player->atk = 0;
 
-				time->m_time = 3600;
 			}
 		}
 	}
 }
-
-
-
-
 
 //ドロー
 void CObjRoad::Draw()

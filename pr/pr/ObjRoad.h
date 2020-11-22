@@ -25,8 +25,6 @@ public:
 private:
 	int mem[3][3];//操作ピースの保存
 
-
-
 	float mou_x;  //マウスカーソル：横
 	float mou_y;  //マウスカーソル：縦
 	bool  mou_r;  //マウスボタン：右

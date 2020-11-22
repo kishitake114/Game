@@ -15,9 +15,10 @@ public:
 	void Draw();//ドロー
 
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
+	int map[20][20];
+	int memmap[20][20];
 
 private:
-	int map[20][20];
 	int mem[3][3];//操作ピースの保存
 
 	float mou_x;  //マウスカーソル：横

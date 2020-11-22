@@ -22,6 +22,8 @@ enum OBJ_NAME
 	OBJ_TIME,
 	OBJ_ITEM,
 	OBJ_ENEMY2,
+	OBJ_ENEMY3,
+	OBJ_ENEMY4,
 };
 //------------------------------------------------
 
@@ -80,6 +82,8 @@ struct UserData
 #include "ObjTime.h"
 #include "ObjItem.h"
 #include "ObjEnemy2.h"
+#include "ObjEnemy3.h"
+#include "ObjEnemy4.h"
 
 //------------------------------------------------
 
@@ -99,5 +103,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneMain
+#define SET_GAME_START  CSceneTitle
 //-----------------------------------------------

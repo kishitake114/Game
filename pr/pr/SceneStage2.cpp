@@ -33,7 +33,7 @@ void CSceneStage2::InitScene()
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 
-	CObjPlayer* CObj = new CObjPlayer();
+	CObjPlayer* CObj = new CObjPlayer(0.0f, 30.0f);
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
 	CObjStage2* CObj2 = new CObjStage2();
@@ -44,6 +44,9 @@ void CSceneStage2::InitScene()
 
 	CObjEnemy2* CObjE2 = new CObjEnemy2();
 	Objs::InsertObj(CObjE2, OBJ_ENEMY2, 2);
+
+	CObjTime* CObjT = new CObjTime();
+	Objs::InsertObj(CObjT, OBJ_TIME, 3);
 
 }
 

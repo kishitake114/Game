@@ -15,7 +15,7 @@ void CObjEnemy::Init()
 {
 	srand(time(NULL));
 
-	HP = 10;
+	HP = 3;
 	p_x = 80.0f;
 	p_y = 0.0f;
 
@@ -58,6 +58,9 @@ void CObjEnemy::Action()
 		//プレイヤーと接触しているかどうかを調べる
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
+			HP = HP - player->atk;
+			player->atk = 0;
+			player->HP--;
 
 				for (int i = 0; i < 14; i++)
 				{
@@ -328,7 +331,7 @@ void CObjEnemy::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-	swprintf_s(str, L"HP %d/10",HP);
+	swprintf_s(str, L"HP %d",HP);
 	Font::StrDraw(str, 600, 400, 30, c);
 
 	swprintf_s(str, L"%d", ran);
