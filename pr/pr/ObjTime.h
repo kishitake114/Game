@@ -15,10 +15,11 @@ public:
 	void Draw();//ドロー
 
 	bool m_flag_time;//時間計測スタートフラグ
+	
+	int m_time;      //時間
 
 	void SetTimeFlag(bool b) { m_flag_time = b; }
 private:
-	int m_time;      //時間
 
 	float mou_r;
 	float mou_l;

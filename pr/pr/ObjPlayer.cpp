@@ -18,6 +18,9 @@ void CObjPlayer::Init()
 	p_x = 0.0f;
 	p_y = 200.0f;
 
+	memp_x = p_x;
+	memp_y = p_y;
+
 	s_p = false;
 	st_p = true;
 	atr = true;
@@ -49,31 +52,10 @@ void CObjPlayer::Action()
 
 	if (mou_r == true)
 	{
-
-		if (s_p==false)
-		{
-			if (cs_x == 0.0f)
-			{
-				p_y += 40.0f;
-			}
-
-			if (cs_x == 50.0f)
-			{
-				p_x += 40.0f;
-
-			}
-
-			if (cs_x == 95.0f)
-			{
-				p_y -= 40.0f;
-			}
-
-			if (cs_x == 140.0f)
-			{
-				p_x -= 40.0f;
-			}
 			s_p = true;
-		}
+
+			memp_x = p_x;
+			memp_y = p_y;
 
 	}
 
@@ -232,6 +214,9 @@ void CObjPlayer::Action()
 		Enemy->HP = Enemy->HP - atk;
 		atk = 0;
 		HP--;
+
+		memp_x = p_x;
+		memp_y = p_y;
 
 		s_p = false;
 		Road->s_r = true;

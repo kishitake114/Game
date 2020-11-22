@@ -30,6 +30,8 @@ class CObjPlayer :public CObj
 		int num;
 		float p_x;	  
 		float p_y;	 
+		float memp_x;
+		float memp_y;
 		int atk;
 
 	private:

@@ -44,6 +44,8 @@ void CObjEnemy::Init()
 void CObjEnemy::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	CObjRoad  * Road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
 
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
@@ -57,6 +59,17 @@ void CObjEnemy::Action()
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
 
+				for (int i = 0; i < 14; i++)
+				{
+					for (int j = 0; j < 14; j++)
+					{
+						Road->memmap[i][j] = Road->map[i][j];
+					}
+				}
+
+			time->m_time = 3600;
+
+			
 
 			//---------“G‚ÌƒAƒNƒVƒ‡ƒ“----------------
 

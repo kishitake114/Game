@@ -36,6 +36,7 @@ void CObjTime::Action()
 	if (mou_r == true)
 	{
 		m_flag_time = false;
+		
 	}
 
 	//フラグがオンの時、時間を減らす
@@ -53,7 +54,7 @@ void CObjTime::Action()
 	//フラグがオフになったら、１分に戻す
 	else if (m_flag_time == false)
 	{
-		m_time = 3600;
+		;
 	}
 }
 //ドロー
