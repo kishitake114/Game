@@ -5856,6 +5856,17 @@ void CObjStage4::Action()
 			}
 		}
 
+	if (player->battle == true)
+	{
+		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
+		{
+			player->battle = false;
+			Scene::SetScene(new CSceneClear);
+		}
+
+		s_r = false;
+	}
+
 }
 
 

@@ -473,15 +473,6 @@ void CObjEnemy4::Action()
 				break;
 
 			}
-
-			//HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
-			if (HP <= 0)
-			{
-				this->SetStatus(false);
-				Hits::DeleteHitBox(this);
-
-				Scene::SetScene(new CSceneClear());
-			}
 		}
 	}
 	else
