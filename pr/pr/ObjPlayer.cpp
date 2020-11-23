@@ -21,6 +21,8 @@ void CObjPlayer::Init()
 {
 	atk = 0;
 
+	battle = false;
+
 	memp_x = p_x;
 	memp_y = p_y;
 
@@ -129,7 +131,9 @@ void CObjPlayer::Action()
 				//ステージ上端から出ないようにする
 				if (p_y < 0.0f)
 				{
-					Scene::SetScene(new CSceneMain);
+					battle = true;
+					p_y = 0.0f;
+					
 				}
 
 				//ステージ下端から出ないようにする
@@ -418,6 +422,15 @@ void CObjPlayer::Action()
 	if (HP <= 0)
 		Scene::SetScene(new CSceneGameOver());
 	
+	if (battle == true)
+	{
+		if (num >= 1)
+		{
+			Time->m_flag_time = false;
+		}	
+
+		s_p = false;
+	}
 
 }
 
@@ -433,33 +446,31 @@ void CObjPlayer::Draw()
 	//表示：プレイヤー
 	wchar_t str[256];
 
-	if (sw == true)
-	Font::StrDraw(L"左クリックでマウス操作", 500, 80, 20, b);
-	else
-	Font::StrDraw(L"OFF", 500, 80, 20, c);
-
-	if (s_p == true)
+	if (battle == false)
 	{
-		Font::StrDraw(L"Player", 660, 40, 20, b);
-		Font::StrDraw(L"操作\n W,A,S,D", 550, 300, 20, b);
+
+		if (s_p == true)
+		{
+			Font::StrDraw(L"Player", 600, 80, 40, b);
+		}
+
+		swprintf_s(str, L"ATK");
+		Font::StrDraw(str, 642, 150, 20, c);
+
+		swprintf_s(str, L"%2d", atk);
+		Font::StrDraw(str, 730, 155, 30, c);
+
+		swprintf_s(str, L"Player HP");
+		Font::StrDraw(str, 642,200, 20, c);
+
+		swprintf_s(str, L"%2d", HP);
+		Font::StrDraw(str, 730, 205, 30, c);
+
+
+
+
 	}
 
-	swprintf_s(str, L"アタック=%d", atk);
-	Font::StrDraw(str, 600, 450, 30, c);
-
-	swprintf_s(str, L"HP=%d", HP);
-	Font::StrDraw(str, 600, 80, 30, c);
-
-	swprintf_s(str, L"num=%d", num);
-	Font::StrDraw(str, 600, 200, 30, c);
-
-	swprintf_s(str, L"切り取り=%f", cs_x);
-	Font::StrDraw(str, 600, 350, 30, c);
-
-	swprintf_s(str, L"playerX=%f", p_x);
-	Font::StrDraw(str, 600, 251, 25, c);
-	swprintf_s(str, L"playerY=%fw", p_y);
-	Font::StrDraw(str, 600, 276, 25, c);
 
 	//表示：プレイヤー
 	RECT_F src;
@@ -504,6 +515,30 @@ void CObjPlayer::Draw()
 		dst.m_bottom = 22.0f + p_y;
 	}
 
+
+	Draw::Draw(0, &src, &dst, c, 0.0f);
+
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 45.0f;
+	src.m_bottom = 45.0f;
+
+	dst.m_top = 200.0f;
+	dst.m_left = 600.0f;
+	dst.m_right = 640.0f;
+	dst.m_bottom = 240.0f;
+
+	Draw::Draw(0, &src, &dst, c, 0.0f);
+
+	src.m_top = 130.0f;
+	src.m_left = 1.0f;
+	src.m_right = 51.0f;
+	src.m_bottom = 180.0f;
+
+	dst.m_top = 150.0f;
+	dst.m_left = 598.0f;
+	dst.m_right = 642.0f;
+	dst.m_bottom = 190.0f;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }

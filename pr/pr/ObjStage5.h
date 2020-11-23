@@ -35,6 +35,8 @@ private:
 	bool  mou_r;  //マウスボタン：右
 	bool  mou_l;  //マウスボタン：左
 
+	bool  ht;  //マウスボタン：左
+
 	float pxc;	  //左クリックでその座標xの追加
 	float pyc;	  //左クリックでその座標yの追加
 

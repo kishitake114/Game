@@ -15,6 +15,8 @@ void CObjTitle::Init()
 	m_x = 170;
 	m_y = 100;
 
+	count = 0;
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;
@@ -67,6 +69,11 @@ void CObjTitle::Draw()
 		Font::StrDraw(L"左=押してる", 50, 60, 20, c);
 	else
 		Font::StrDraw(L"左=押してない", 50, 60, 20, c);
+
+	for (int i = 0; i < count; i++)
+	{
+		Font::StrDraw(L"★", 200+(i*32), 300, 32, c);
+	}
 
 	//表示：タイトル画面
 	RECT_F src;

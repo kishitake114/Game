@@ -46,24 +46,38 @@ void CObjEnemy2::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
 
-
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	if (se == true)
 	{
-
+		
 
 		//プレイヤーと接触しているかどうかを調べる
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
 			ran = 1;
 
-			CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+			
 			CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 			CObjStage2* Road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
 			
 
 			HP = HP - player->atk;
 			player->atk = 0;
-			player->HP--;
+			if (HP <= 0)
+			{
+				this->SetStatus(false);
+				Hits::DeleteHitBox(this);
+
+				player->battle = true;
+			}
+			else
+			{
+				player->HP--;
+			}
+
+
+	
+
 
 			for (int i = 0; i < 17; i++)
 			{
@@ -339,14 +353,6 @@ void CObjEnemy2::Action()
 
 			}
 
-			//HPが０になったら破棄
-			if (HP <= 0)
-			{
-				this->SetStatus(false);
-				Hits::DeleteHitBox(this);
-
-				Scene::SetScene(new CSceneStage3());
-			}
 		}
 	}
 	else
@@ -367,16 +373,11 @@ void CObjEnemy2::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-	swprintf_s(str, L"HP %d", HP);
-	Font::StrDraw(str, 600, 400, 30, c);
+	swprintf_s(str, L"Enemy HP");
+	Font::StrDraw(str, 642, 250, 20, c);
 
-	swprintf_s(str, L"%d", ran);
-	Font::StrDraw(str, 600, 250, 30, c);
-
-	swprintf_s(str, L"plx %d", plx);
-	Font::StrDraw(str, 450, 300, 30, c);
-	swprintf_s(str, L"ply %d", ply);
-	Font::StrDraw(str, 450, 400, 30, c);
+	swprintf_s(str, L"%2d", HP);
+	Font::StrDraw(str, 730, 255, 30, c);
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f + cs_xe;
@@ -387,6 +388,19 @@ void CObjEnemy2::Draw()
 	dst.m_left = 60.0f + atr_x;
 	dst.m_right = 90.0f + atr_x;
 	dst.m_bottom = 30.0f + atr_y;
+
+	Draw::Draw(1, &src, &dst, c, 0.0f);
+
+
+	src.m_top = 0.0f;
+	src.m_left = 0.0f ;
+	src.m_right = 45.0f;
+	src.m_bottom = 50.0f;
+
+	dst.m_top = 250.0f;
+	dst.m_left = 600.0f;
+	dst.m_right = 640.0f;
+	dst.m_bottom = 290.0f;
 
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 

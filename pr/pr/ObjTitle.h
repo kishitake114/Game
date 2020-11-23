@@ -14,6 +14,8 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
+	int count;
+
 private:
 	float m_x;
 	float m_y;

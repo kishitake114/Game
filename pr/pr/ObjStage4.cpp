@@ -5867,46 +5867,62 @@ void CObjStage4::Draw()
 	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
 	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
-
-	wchar_t str[256];
-
-	if (s_r == true)
-	{
-		swprintf_s(str, L"RESET");
-		Font::StrDraw(str, 650, 500, 50, gl);
-	}
-
-	else
-	{
-		swprintf_s(str, L"RESET");
-		Font::StrDraw(str, 650, 500, 50, b);
-	}
+	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
 
 	//表示：マウスカーソルとボタン
+	wchar_t str[256];
 
-	swprintf_s(str, L"x=%f,y=%f", pxc, pyc);
-	Font::StrDraw(str, 600, 20, 15, c);
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
-	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
-	Font::StrDraw(str, 600, 10, 15, c);
-
-
-
-	//右クリック
 	if (s_r == true)
 	{
-		Font::StrDraw(L"Road", 600, 40, 20, c);
-		Font::StrDraw(L"操作\n マウス", 550, 300, 20, c);
+		Font::StrDraw(L"Road", 600, 30, 40, r);
 	}
 
-	//左クリック
-	if (mou_l == true)
-		Font::StrDraw(L"左=押してる", 600, 60, 20, c);
+	if (player->battle == false)
+	{
+
+		if (s_r == true)
+		{
+			swprintf_s(str, L"RESET");
+			Font::StrDraw(str, 650, 500, 50, gl);
+		}
+
+		else
+		{
+			swprintf_s(str, L"RESET");
+			Font::StrDraw(str, 650, 500, 50, b);
+		}
+	}
 	else
-		Font::StrDraw(L"左=押してない", 600, 60, 20, c);
+	{
+		if (player->HP == 10)
+		{
+			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
+		}
+
+		else
+		{
+			Font::StrDraw(L"YOU WIN", 600, 250, 30, c);
+		}
+
+
+		Font::StrDraw(L"Next", 650, 300, 25, c);
+
+		if (player->battle == true)
+		{
+			if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
+			{
+				player->battle = false;
+				Scene::SetScene(new CSceneClear);
+			}
+
+			s_r = false;
+		}
+	}
 
 	//表示：通行可
 

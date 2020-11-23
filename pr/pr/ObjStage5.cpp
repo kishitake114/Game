@@ -55,6 +55,8 @@ void CObjStage5::Init()
 
 	s_r = true;
 
+	ht = false;
+
 }
 //アクション
 void CObjStage5::Action()
@@ -95,15 +97,17 @@ void CObjStage5::Action()
 					}
 
 					//右
-					if ((r < 45 && r>0) || r > 315)
+					if (r < 45 && r>0 || r > 315)
 					{
 						player->SetVX(x+40.0f);
+						ht = true;
 					}
 
 					//上
 					if (r > 45 && r < 135)
 					{
 						player->SetVY(y - 40.0f);
+						ht = true;
 					}
 
 					//左
@@ -118,9 +122,11 @@ void CObjStage5::Action()
 						player->SetVY(y + 40.0f);
 					}
 
+					
+
 				}
 			}
-
+			ht=false;
 	
 
 		}
@@ -413,6 +419,16 @@ void CObjStage5::Action()
 			}
 		}
 	}
+
+	if (player->battle == true)
+	{
+		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
+		{
+			player->battle = false;
+			Scene::SetScene(new CSceneMain);
+		}
+	}
+
 }
 //ドロー
 void CObjStage5::Draw()
@@ -429,43 +445,38 @@ void CObjStage5::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-	swprintf_s(str, L"x=%f,y=%f", pxc, pyc);
-	Font::StrDraw(str, 600, 20, 15, c);
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
-	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
-	Font::StrDraw(str, 600, 10, 15, c);
-
-	if (s_r == true)
+	if (player->battle == false)
 	{
-		swprintf_s(str, L"RESET");
-		Font::StrDraw(str, 650, 500, 50, gl);
-	}
 
+		if (s_r == true)
+		{
+			swprintf_s(str, L"RESET");
+			Font::StrDraw(str, 650, 500, 50, gl);
+		}
+
+		else
+		{
+			swprintf_s(str, L"RESET");
+			Font::StrDraw(str, 650, 500, 50, b);
+		}
+
+		//右クリック
+		if (s_r == true)
+		{
+			Font::StrDraw(L"Road", 600, 40, 20, c);
+			Font::StrDraw(L"操作\n マウス", 550, 300, 20, c);
+		}
+
+
+	}
 	else
 	{
-		swprintf_s(str, L"RESET");
-		Font::StrDraw(str, 650, 500, 50, b);
+		Font::StrDraw(L"Clear!!", 500, 250, 50, c);
+		Font::StrDraw(L"左クリックで次のステージへ", 450, 300, 25, c);
 	}
 
-
-
-	//右クリック
-	if (s_r == true)
-	{
-		Font::StrDraw(L"Road", 600, 40, 20, c);
-		Font::StrDraw(L"操作\n マウス", 550, 300, 20, c);
-	}
-
-	//左クリック
-	if (mou_l == true)
-		Font::StrDraw(L"左=押してる", 600, 60, 20, c);
-	else
-		Font::StrDraw(L"左=押してない", 600, 60, 20, c);
-
-	swprintf_s(str, L"横=%d", testx);
-	Font::StrDraw(str, 600, 200, 25, c);
-	swprintf_s(str, L"縦=%d", testy);
-	Font::StrDraw(str, 600, 226, 25, c);
 
 
 
