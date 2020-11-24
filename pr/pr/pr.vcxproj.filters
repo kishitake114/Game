@@ -225,9 +225,6 @@
     <ClInclude Include="SceneClear.h">
       <Filter>自作\ゲームクリア</Filter>
     </ClInclude>
-    <ClInclude Include="GameClear.h">
-      <Filter>自作\ゲームクリア</Filter>
-    </ClInclude>
     <ClInclude Include="ObjItem.h">
       <Filter>自作\アイテム</Filter>
     </ClInclude>

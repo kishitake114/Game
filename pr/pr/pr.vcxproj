@@ -62,7 +62,6 @@
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameClear.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
