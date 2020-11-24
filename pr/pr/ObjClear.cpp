@@ -30,7 +30,11 @@ void CObjClear::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	m_y -= 3;
+	if (m_y > -1300.0f)
+	{
+		m_y -= 3;
+	}
+
 
 	m_time++;
 
@@ -46,6 +50,8 @@ void CObjClear::Action()
 //ドロー
 void CObjClear::Draw()
 {
+	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
+
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -77,7 +83,41 @@ void CObjClear::Draw()
 		Font::StrDraw(L"プログラマディレクター　中辻　祭斗吏", 100, 780 + m_y, 30, c);
 	}
 
+	if (m_time >= 500 && m_time<=700)
+	{
+		Font::StrDraw(L"ドラゴンは倒された。", 100, 350, 20, c);
+	}
 
+	if(nul->count==4)
+	{
+		if (m_time >= 700 )
+		{
+			Font::StrDraw(L"画面の端を押すと何かが起こる", 100, 350, 20, c);
+		}
+	}
+
+
+	else
+	{
+		if (m_time >= 700)
+		{
+			Font::StrDraw(L"PERFECT　を狙うのだ！！", 100, 350, 20, c);
+		}
+	}
+
+	if (m_time >= 800)
+	{
+		Font::StrDraw(L"左クリックでタイトルに戻る", 100, 450, 30, c);
+	}
+
+
+	wchar_t str[256];
+
+	swprintf_s(str, L"%d", m_time);
+	Font::StrDraw(str, 0, 0, 30, c);
+
+	swprintf_s(str, L"%f", m_y);
+	Font::StrDraw(str, 0, 570, 30, c);
 
 
 	//表示：タイトル画面
@@ -89,10 +129,10 @@ void CObjClear::Draw()
 	src.m_right = 460.0f;
 	src.m_bottom = 265.0f;
 
-	dst.m_top = 0.0f;
-	dst.m_left = 0.0f;
-	dst.m_right = 450.0f;
-	dst.m_bottom = 200.0f;
+	dst.m_top = 1450.0f+m_y;
+	dst.m_left = 100.0f;
+	dst.m_right = 700.0f;
+	dst.m_bottom = 1650.0f+m_y;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }

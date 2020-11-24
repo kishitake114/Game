@@ -5,22 +5,17 @@
 using namespace GameL;
 
 //オブジェクト：背景
-class CObjTitle :public CObj
+class CObjnul :public CObj
 {
 public:
-	CObjTitle() {};
-	~CObjTitle() {};
+	CObjnul() {};
+	~CObjnul() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
 
-
+	int count;
 
 private:
-	float m_x;
-	float m_y;
-	float mou_x;  //マウスカーソル：横
-	float mou_y;  //マウスカーソル：縦
-	bool  mou_r;  //マウスボタン：右
-	bool  mou_l;  //マウスボタン：左
+	
 };

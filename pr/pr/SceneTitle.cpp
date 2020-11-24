@@ -31,6 +31,9 @@ void CSceneTitle::InitScene()
 
 	CObjTitle* CObjt = new CObjTitle();
 	Objs::InsertObj(CObjt, OBJ_TITLE, 1);
+
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL, 1);
 	
 	Audio::LoadAudio(0, L"ƒ^ƒCƒgƒ‹‰æ–Ê.wav", SOUND_TYPE::BACK_MUSIC);
 

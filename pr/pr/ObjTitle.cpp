@@ -12,10 +12,11 @@ using namespace GameL;
 //イニシャライズ
 void CObjTitle::Init()
 {
+	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
+
 	m_x = 170;
 	m_y = 100;
-
-	count = 0;
+	//nul->count = 0;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -48,6 +49,8 @@ void CObjTitle::Action()
 //ドロー
 void CObjTitle::Draw()
 {
+	//CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
+
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -70,10 +73,10 @@ void CObjTitle::Draw()
 	else
 		Font::StrDraw(L"左=押してない", 50, 60, 20, c);
 
-	for (int i = 0; i < count; i++)
+	/*for (int i = 0; i < nul->count; i++)
 	{
-		Font::StrDraw(L"★", 200+(i*32), 300, 32, c);
-	}
+		Font::StrDraw(L"★", 200 + (i * 32), 300, 32, c);
+	}*/
 
 	//表示：タイトル画面
 	RECT_F src;
