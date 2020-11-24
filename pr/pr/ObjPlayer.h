@@ -20,8 +20,8 @@ class CObjPlayer :public CObj
 		float GetVY() { return p_vy; }
 		float GetVX() { return p_vx; }
 
-		void SetX(float x) { p_x=x; }
-		void SetY(float y) { p_y=y; }
+		void SetX(float x) { p_x+=x; }
+		void SetY(float y) { p_y+=y; }
 		void SetVY(float vy) { p_y = vy; }
 		void SetVX(float vx) { p_x = vx; }
 
