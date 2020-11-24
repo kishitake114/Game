@@ -7,6 +7,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL/DrawFont.h"
 #include "GameL/UserData.h"
+#include "GameL/Audio.h"
 
 //使用するヘッダー
 #include "SceneStage2.h"
@@ -26,6 +27,11 @@ CSceneStage2::~CSceneStage2()
 //ゲームメイン初期化
 void CSceneStage2::InitScene()
 {
+	Audio::LoadAudio(0, L"Stage2.wav", BACK_MUSIC);
+
+	float v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster(-0.8f);
+
 	//外部データの読み込み（ステージ情報）
 	unique_ptr<wchar_t> p; //ステージ情報ポインター
 	int size;			   //ステージ情報大きさ

@@ -31,7 +31,7 @@ CSceneGameOver::~CSceneGameOver()
 //‰Šú‰»ƒƒ\ƒbƒh
 void CSceneGameOver::InitScene()
 {
-	Audio::LoadAudio(0, L"–Å‚Ñ‚Ì•æ (online-audio-converter.com).wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"GameOver.wav", BACK_MUSIC);
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster(-0.8f);
