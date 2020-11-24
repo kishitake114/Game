@@ -33,6 +33,8 @@ void CSceneClear::InitScene()
 {
 	Audio::LoadAudio(0, L"GameClear.wav", BACK_MUSIC);
 
+	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
+
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster(-0.8f);
 
@@ -43,6 +45,9 @@ void CSceneClear::InitScene()
 
 	CObjClear* CObj = new CObjClear();
 	Objs::InsertObj(CObj, OBJ_CLEAR, 1);
+
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL,1);
 }
 
 //実行中メソッド
