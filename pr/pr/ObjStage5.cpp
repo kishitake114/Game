@@ -99,6 +99,11 @@ void CObjStage5::Action()
 					//ã
 					if (r > 45 && r < 135)
 					{
+						if (player->p_x / 50.0f == 20.0f)
+						{
+
+						}
+
 						player->SetVY(y - 40.0f);
 						ht = true;
 					}
