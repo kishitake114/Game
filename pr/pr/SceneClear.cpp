@@ -31,7 +31,7 @@ CSceneClear::~CSceneClear()
 //‰Šú‰»ƒƒ\ƒbƒh
 void CSceneClear::InitScene()
 {
-	Audio::LoadAudio(0, L"•à‚¢‚Ä‚¢‚­‚ñ‚¾ (online-audio-converter.com).wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"GameClear.wav", BACK_MUSIC);
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster(-0.8f);

@@ -32,7 +32,7 @@ void CSceneTitle::InitScene()
 	CObjTitle* CObjt = new CObjTitle();
 	Objs::InsertObj(CObjt, OBJ_TITLE, 1);
 	
-	Audio::LoadAudio(0, L"できるかな？ (online-audio-converter.com).wav ", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(0, L"タイトル画面.wav", SOUND_TYPE::BACK_MUSIC);
 
 	float  Voiume = Audio::VolumeMaster(-0.8f); 
 
