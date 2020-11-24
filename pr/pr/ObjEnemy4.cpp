@@ -15,7 +15,7 @@ void CObjEnemy4::Init()
 {
 	srand(time(NULL));
 
-	HP = 3;
+	HP = 32;
 	p_x = 176.0f;
 	p_y = 0.0f;
 
