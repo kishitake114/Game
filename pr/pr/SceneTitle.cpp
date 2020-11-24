@@ -29,6 +29,8 @@ void CSceneTitle::InitScene()
 
 	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
+	Draw::LoadImage(L"demo.mp4", 1, TEX_SIZE_1024);
+
 	CObjTitle* CObjt = new CObjTitle();
 	Objs::InsertObj(CObjt, OBJ_TITLE, 1);
 
