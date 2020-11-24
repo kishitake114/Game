@@ -32,8 +32,7 @@ void CSceneTitle::InitScene()
 	CObjTitle* CObjt = new CObjTitle();
 	Objs::InsertObj(CObjt, OBJ_TITLE, 1);
 
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
 	
 	Audio::LoadAudio(0, L"タイトル画面.wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -45,4 +44,6 @@ void CSceneTitle::InitScene()
 //ゲームメイン実行中
 void CSceneTitle::Scene()
 {
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL, 1);
 }

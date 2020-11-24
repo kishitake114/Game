@@ -37,9 +37,13 @@ void CSceneRule2::InitScene()
 
 	CObjRule2* CObj = new CObjRule2();
 	Objs::InsertObj(CObj, OBJ_RULE2, 1);
+
+
 }
 
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
 void CSceneRule2::Scene()
 {
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL, 1);
 }

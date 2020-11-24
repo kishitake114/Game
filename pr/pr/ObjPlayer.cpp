@@ -90,7 +90,7 @@ void CObjPlayer::Action()
 			{
 				/*	Audio::Start(2);*/
 				   
-					p_y -= 10.0f;
+					p_y -= 5.0f;
 					cs_x = 95.0f;
 					count = '-';
 
@@ -100,7 +100,7 @@ void CObjPlayer::Action()
 			{
 			/*	    Audio::Start(2);*/
 
-					p_x -= 10.0f;
+					p_x -= 5.0f;
 					cs_x = 140.0f;
 					count = '-';
 
@@ -111,7 +111,7 @@ void CObjPlayer::Action()
 			{
 				    /*Audio::Start(2);*/
 	
-					p_x += 10.0f;
+					p_x += 5.0f;
 					cs_x = 50.0f;
 					count = '-';
 	
@@ -121,7 +121,7 @@ void CObjPlayer::Action()
 			{
 			/*	    Audio::Start(2);*/
 			
-					p_y += 10.0f;
+					p_y += 5.0f;
 					cs_x = 0.0;
 					count = '-';
 

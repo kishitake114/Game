@@ -94,6 +94,8 @@ void CObjStage4::Action()
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
+	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
+
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	float px = player->GetX();
 	float py = player->GetY();
@@ -5842,7 +5844,9 @@ void CObjStage4::Action()
 						}
 					}
 
-					time->m_time = 5400;
+					reset++;
+
+					time->m_time = 7200;
 					time->m_flag_time = true;
 
 					s_r = true;
@@ -5865,6 +5869,8 @@ void CObjStage4::Action()
 			player->battle = false;
 			Scene::SetScene(new CSceneClear);
 		}
+
+		nul->count++;
 
 		s_r = false;
 	}

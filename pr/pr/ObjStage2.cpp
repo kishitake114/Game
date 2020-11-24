@@ -89,6 +89,8 @@ void CObjStage2::Action()
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
+	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
+
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	float px = player->GetX();
 	float py = player->GetY();
@@ -2411,8 +2413,9 @@ void CObjStage2::Action()
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage3);
-			player->tarn = 1;
 		}
+
+		nul->count++;
 
 		s_r = false;
 	}

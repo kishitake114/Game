@@ -43,5 +43,6 @@ void CSceneStage5::InitScene()
 //ƒQ[ƒ€ƒƒCƒ“Às’†
 void CSceneStage5::Scene()
 {
-
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL, 1);
 }

@@ -2,7 +2,7 @@
 
 void CObjnul::Init()
 {
-	count = 3;
+	count = 0;
 }
 
 void CObjnul::Action()

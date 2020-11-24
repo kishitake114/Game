@@ -104,6 +104,7 @@ void CObjRoad::Action()
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
+	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
 
 	if (s_r == true && mou_l == true)
 	{
@@ -1606,8 +1607,9 @@ void CObjRoad::Action()
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
-			player->tarn = 1;
 		}
+
+		nul->count++;
 
 		s_r = false;
 	}

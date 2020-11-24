@@ -23,4 +23,11 @@ private:
 	float mou_y;  //マウスカーソル：縦
 	bool  mou_r;  //マウスボタン：右
 	bool  mou_l;  //マウスボタン：左
+
+	bool lup;
+	bool rup;
+	bool ldown;
+	bool rdown;
+
+	bool hard;
 };
