@@ -96,13 +96,6 @@ void CObjStage5::Action()
 						r = 360.0f - abs(r);
 					}
 
-					//‰E
-					if (r < 45 && r>0 || r > 315)
-					{
-						player->SetVX(x+40.0f);
-						ht = true;
-					}
-
 					//ã
 					if (r > 45 && r < 135)
 					{
@@ -111,18 +104,21 @@ void CObjStage5::Action()
 					}
 
 					//¶
-					if (r > 135 && r < 225 )
+					else if (r > 135 && r < 225 )
 					{
 						player->SetVX(x - 40.0f);
 					}
 
 					//‰º
-					if (r > 225 && r < 315)
+					else if (r > 225 && r < 315)
 					{
 						player->SetVY(y + 40.0f);
 					}
 
-					
+					else
+					{
+						player->SetVX(x + 40.0f);
+					}
 
 				}
 			}

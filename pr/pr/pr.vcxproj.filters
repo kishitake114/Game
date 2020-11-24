@@ -46,9 +46,6 @@
     <ClCompile Include="ObjRoad.cpp">
       <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>自作\ステージ\Stage 1 and Main</Filter>
-    </ClCompile>
     <ClCompile Include="SceneStage2.cpp">
       <Filter>自作\ステージ\Stage2</Filter>
     </ClCompile>
@@ -120,6 +117,9 @@
     </ClCompile>
     <ClCompile Include="ObjEnemy4.cpp">
       <Filter>自作\ステージ\Stage4</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>自作\ステージ\Stage 1 and Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

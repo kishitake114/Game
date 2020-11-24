@@ -25,7 +25,7 @@ CSceneRule::~CSceneRule()
 //ƒQ[ƒ€ƒƒCƒ“‰Šú‰»
 void CSceneRule::InitScene()
 {
-	Audio::LoadAudio(0, L"bgm_maoudamashii_8bit28 (2) (online-audio-converter.com).wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"ƒ‹[ƒ‹à–¾.wav",SOUND_TYPE::BACK_MUSIC);
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster(1.0 - v);
