@@ -86,7 +86,7 @@ void CObjPlayer::Action()
 	{
 	
 
-			if (Input::GetVKey('W') == true )
+			if (Input::GetVKey('W') == true || Input::GetVKey(VK_UP) == true)
 			{
 				/*	Audio::Start(2);*/
 				   
@@ -96,7 +96,7 @@ void CObjPlayer::Action()
 
 			}
 
-			else if (Input::GetVKey('A') == true)
+			else if (Input::GetVKey('A') == true || Input::GetVKey(VK_LEFT) == true)
 			{
 			/*	    Audio::Start(2);*/
 
@@ -107,7 +107,7 @@ void CObjPlayer::Action()
 
 			}
 			
-			else if (Input::GetVKey('D') == true)
+			else if (Input::GetVKey('D') == true || Input::GetVKey(VK_RIGHT) == true)
 			{
 				    /*Audio::Start(2);*/
 	
@@ -117,7 +117,7 @@ void CObjPlayer::Action()
 	
 			}
 
-			else if (Input::GetVKey('S') == true )
+			else if (Input::GetVKey('S') == true || Input::GetVKey(VK_DOWN) == true)
 			{
 			/*	    Audio::Start(2);*/
 			
@@ -450,6 +450,8 @@ void CObjPlayer::Draw()
 	//表示：プレイヤー
 	wchar_t str[256];
 
+
+
 	if (battle == false)
 	{
 
@@ -470,10 +472,13 @@ void CObjPlayer::Draw()
 		swprintf_s(str, L"%2d", HP);
 		Font::StrDraw(str, 730, 205, 30, c);
 
-
-
-
 	}
+
+	swprintf_s(str, L"x %f", p_x);
+	Font::StrDraw(str, 600, 440, 30, c);
+
+	swprintf_s(str, L"y %f", p_y);
+	Font::StrDraw(str, 600, 400, 30, c);
 
 
 	//表示：プレイヤー
