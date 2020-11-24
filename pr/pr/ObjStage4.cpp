@@ -5843,7 +5843,7 @@ void CObjStage4::Action()
 					}
 
 					time->m_time = 5400;
-					time->m_flag_time = false;
+					time->m_flag_time = true;
 
 					s_r = true;
 
