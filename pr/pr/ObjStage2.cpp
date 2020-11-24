@@ -2381,9 +2381,9 @@ void CObjStage2::Action()
 		{
 			if (mou_l == true)
 			{
-				for (int i = 0; i < 14; i++)
+				for (int i = 0; i < 17; i++)
 				{
-					for (int j = 0; j < 14; j++)
+					for (int j = 0; j < 17; j++)
 					{
 						map[i][j] = memmap[i][j];
 					}
