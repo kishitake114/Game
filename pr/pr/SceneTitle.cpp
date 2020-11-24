@@ -29,8 +29,8 @@ void CSceneTitle::InitScene()
 
 	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
-	CObjTitle* CObj = new CObjTitle();
-	Objs::InsertObj(CObj, OBJ_TITLE, 1);
+	CObjTitle* CObjt = new CObjTitle();
+	Objs::InsertObj(CObjt, OBJ_TITLE, 1);
 	
 	Audio::LoadAudio(0, L"ƒ^ƒCƒgƒ‹‰æ–Ê.wav", SOUND_TYPE::BACK_MUSIC);
 
