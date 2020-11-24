@@ -37,6 +37,8 @@ class CObjPlayer :public CObj
 
 		bool battle;
 
+		int tarn;
+
 	private:
 		float mou_x;  //マウスカーソル：横
 		float mou_y;  //マウスカーソル：縦

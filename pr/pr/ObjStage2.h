@@ -34,6 +34,9 @@ private:
 	float pv_x;
 	float pv_y;
 
+	int reset;
+
+
 	bool f_p;	  //ƒNƒŠƒbƒN‘€ì§Œä
 };
 

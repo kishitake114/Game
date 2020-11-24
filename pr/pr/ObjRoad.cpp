@@ -17,6 +17,8 @@ void CObjRoad::Init()
 	
 	player->num = 1;
 
+	reset = 0;
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;
@@ -1605,6 +1607,7 @@ void CObjRoad::Action()
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
+			player->tarn = 1;
 		}
 
 		s_r = false;
@@ -1637,6 +1640,8 @@ void CObjRoad::Action()
 
 				player->atk = 0;
 
+				reset++;
+
 			}
 		}
 	}
@@ -1659,6 +1664,7 @@ void CObjRoad::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
+	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 	if (s_r == true)
@@ -1683,7 +1689,7 @@ void CObjRoad::Draw()
 	}
 	else
 	{
-		if (player->HP == 10)
+		if (player->HP == 10 && reset==0)
 		{ 
 			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
 		}
@@ -1691,6 +1697,12 @@ void CObjRoad::Draw()
 		else
 		{
 			Font::StrDraw(L"YOU WIN", 600, 250, 30, c);
+
+			swprintf_s(str, L"受けたダメージ: %d",10-player->HP);
+			Font::StrDraw(str, 580, 350, 20, c);
+
+			swprintf_s(str, L"リセット回数: %d", reset);
+			Font::StrDraw(str, 580, 375, 20, c);
 		}
 			
 

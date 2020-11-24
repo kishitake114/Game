@@ -20,6 +20,8 @@ void CObjStage2::Init()
 	mou_r = false;
 	mou_l = false;
 
+	reset = 0;
+
 	pxc = 0.0f;
 	pyc = 0.0f;
 
@@ -2410,6 +2412,7 @@ void CObjStage2::Action()
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage3);
+			player->tarn = 1;
 		}
 
 		s_r = false;
@@ -2431,11 +2434,7 @@ void CObjStage2::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-	if (s_r == true)
-	{
-		Font::StrDraw(L"Road", 600, 30, 40, r);
-	}
-
+	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 	if (s_r == true)
@@ -2457,10 +2456,11 @@ void CObjStage2::Draw()
 			swprintf_s(str, L"RESET");
 			Font::StrDraw(str, 650, 500, 50, b);
 		}
+
 	}
 	else
 	{
-		if (player->HP == 10)
+		if (player->HP == 10 && reset == 0 )
 		{
 			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
 		}
@@ -2468,13 +2468,20 @@ void CObjStage2::Draw()
 		else
 		{
 			Font::StrDraw(L"YOU WIN", 600, 250, 30, c);
+
+			swprintf_s(str, L"受けたダメージ: %d", 10 - player->HP);
+			Font::StrDraw(str, 580, 350, 20, c);
+
+			swprintf_s(str, L"リセット回数: %d", reset);
+			Font::StrDraw(str, 580, 375, 20, c);
+
+			swprintf_s(str, L"ターン数: %d", player->tarn);
+			Font::StrDraw(str, 580, 400, 20, c);
 		}
 
 
 		Font::StrDraw(L"Next", 650, 300, 25, c);
 	}
-
-
 	//表示：通行可
 
 

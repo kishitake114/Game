@@ -19,6 +19,7 @@ void CObjEnemy::Init()
 	p_x = 80.0f;
 	p_y = 0.0f;
 
+
 	atr_x = 0.0f;
 	atr_y = 0.0f;
 

@@ -39,5 +39,8 @@ private:
 	int testy;
 
 	int num;  //デバッグ用：y移動
+
+	int reset;
+
 };
 

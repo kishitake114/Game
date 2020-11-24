@@ -462,11 +462,9 @@ void CObjStage5::Draw()
 			Font::StrDraw(str, 650, 500, 50, b);
 		}
 
-		//右クリック
 		if (s_r == true)
 		{
-			Font::StrDraw(L"Road", 600, 40, 20, c);
-			Font::StrDraw(L"操作\n マウス", 550, 300, 20, c);
+			Font::StrDraw(L"Road", 600, 30, 40, r);
 		}
 
 

@@ -19,6 +19,9 @@ void CObjStage4::Init()
 	obj->p_x = 0.0f;
 	obj->p_y = 242.0f;
 
+	reset = 0;
+
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;
@@ -5910,7 +5913,7 @@ void CObjStage4::Draw()
 	}
 	else
 	{
-		if (player->HP == 10)
+		if (player->HP == 10 && reset == 0)
 		{
 			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
 		}
@@ -5918,23 +5921,17 @@ void CObjStage4::Draw()
 		else
 		{
 			Font::StrDraw(L"YOU WIN", 600, 250, 30, c);
+
+			swprintf_s(str, L"受けたダメージ: %d", 10 - player->HP);
+			Font::StrDraw(str, 580, 350, 20, c);
+
+			swprintf_s(str, L"リセット回数: %d", reset);
+			Font::StrDraw(str, 580, 375, 20, c);
 		}
 
 
 		Font::StrDraw(L"Next", 650, 300, 25, c);
-
-		if (player->battle == true)
-		{
-			if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
-			{
-				player->battle = false;
-				Scene::SetScene(new CSceneClear);
-			}
-
-			s_r = false;
-		}
 	}
-
 	//表示：通行可
 
 

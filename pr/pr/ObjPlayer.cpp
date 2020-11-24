@@ -40,6 +40,9 @@ void CObjPlayer::Init()
 	p_x = 0.0f;
 	p_y = 0.0f;
 
+
+	tarn = 1;
+
 	kt = 0;
 
 	Hits::SetHitBox(this, p_x, p_y, 20, 20, ELEMENT_PLAYER, OBJ_PLAYER, 1);
@@ -59,6 +62,11 @@ void CObjPlayer::Action()
 	CObjStage4* road4 = (CObjStage4*)Objs::GetObj(OBJ_STAGE4);
 	CObjTime* Time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
+	CObjEnemy2* Enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
+	CObjEnemy3* Enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
+	CObjEnemy4* Enemy4 = (CObjEnemy4*)Objs::GetObj(OBJ_ENEMY4);
+
+
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -275,7 +283,6 @@ void CObjPlayer::Action()
 	{
 		s_p = true;
 
-
 		memp_x = p_x;
 		memp_y = p_y;
 
@@ -311,7 +318,6 @@ void CObjPlayer::Action()
 	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
 		s_p = true;
-
 
 		memp_x = p_x;
 		memp_y = p_y;
@@ -349,7 +355,6 @@ void CObjPlayer::Action()
 	{
 		s_p = true;
 
-
 		memp_x = p_x;
 		memp_y = p_y;
 
@@ -385,7 +390,6 @@ void CObjPlayer::Action()
 	if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 	{
 		s_p = true;
-
 
 		memp_x = p_x;
 		memp_y = p_y;
