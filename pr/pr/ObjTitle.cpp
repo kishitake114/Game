@@ -12,10 +12,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjTitle::Init()
 {
-
-	m_x = 170;
-	m_y = 100;
-
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;
@@ -139,13 +135,13 @@ void CObjTitle::Draw()
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 460.0f;
-	src.m_bottom = 265.0f;
+	src.m_right = 800.0f;
+	src.m_bottom = 600.0f;
 
-	dst.m_top = 0.0f + m_y;
-	dst.m_left = 0.0f + m_x;
-	dst.m_right = 450.0f + m_x;
-	dst.m_bottom = 200.0f + m_y;
+	dst.m_top = 0.0f;
+	dst.m_left = 0.0f;
+	dst.m_right = 800.0f;
+	dst.m_bottom = 600.0f;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
@@ -154,10 +150,10 @@ void CObjTitle::Draw()
 	src.m_right = 460.0f;
 	src.m_bottom = 265.0f;
 
-	dst.m_top = 0.0f + m_y;
-	dst.m_left = 0.0f + m_x;
-	dst.m_right = 450.0f + m_x;
-	dst.m_bottom = 200.0f + m_y;
+	dst.m_top = 0.0f;
+	dst.m_left = 0.0f;
+	dst.m_right = 450.0f;
+	dst.m_bottom = 200.0f;
 
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
