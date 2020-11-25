@@ -36,6 +36,6 @@ private:
 
 	bool se;
 
-
+	int e_time;
 
 };

@@ -287,7 +287,7 @@ void CObjPlayer::Action()
 		memp_y = p_y;
 
 		s_p = false;
-		road->s_r = true;
+
 		Time->m_flag_time = true;
 
 		if (cs_x == 0.0f)

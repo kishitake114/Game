@@ -35,6 +35,8 @@ void CObjEnemy::Init()
 
 	se = false;
 
+	e_time;
+
 	
 
 	Hits::SetHitBox(this, p_x, p_y, 40, 40, ELEMENT_ENEMY, OBJ_ENEMY, 1);
@@ -59,6 +61,8 @@ void CObjEnemy::Action()
 		//プレイヤーと接触しているかどうかを調べる
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
+			e_time++;
+
 			HP = HP - player->atk;
 			player->atk = 0;
 			if (HP <= 0)
@@ -68,7 +72,7 @@ void CObjEnemy::Action()
 
 				player->battle = true;
 			}
-			else
+			else if(HP>0)
 			{
 				player->HP--;
 			}
@@ -88,23 +92,17 @@ void CObjEnemy::Action()
 			//---------敵のアクション----------------
 
 			//ランダム変数
-			plx = rand() % 4;
-			ply = rand() % 4;
 
-
-			//今いる場所と同じ場合、ランダム処理をやり直す
-			if (memx == plx && memy == ply)
-			{
 				plx = rand() % 4;
 				ply = rand() % 4;
-			}
 
-			//それ以外は、memx,memyにランダム内容を入れる
-			else
-			{
-				memx = plx;
-				memy = ply;
-			}
+
+				//今いる場所と同じ場合、ランダム処理をやり直す
+				if (memx == plx && memy == ply)
+				{
+					plx = rand() % 4;
+					ply = rand() % 4;
+				}
 
 
 			switch (plx)
