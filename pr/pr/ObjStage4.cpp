@@ -362,6 +362,7 @@ void CObjStage4::Action()
 							}
 						}
 					}
+
 					//‰º
 					if (map[4][1] == 0)
 					{
