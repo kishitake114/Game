@@ -11,6 +11,7 @@ public:
 	CObjnul() {};
 	~CObjnul() {};
 	void Init();//イニシャライズ
+	void plus(int c);//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
 

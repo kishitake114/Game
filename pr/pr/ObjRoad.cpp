@@ -1,5 +1,6 @@
 #include "ObjRoad.h"
 #include "ObjItem.h"
+#include "Objnul.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -1603,13 +1604,13 @@ void CObjRoad::Action()
 
 	if (player->battle == true)
 	{
+		
 		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
+			
 		}
-
-		nul->count++;
 
 		s_r = false;
 	}

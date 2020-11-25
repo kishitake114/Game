@@ -65,6 +65,8 @@ void CObjEnemy::Action()
 
 			HP = HP - player->atk;
 			player->atk = 0;
+
+			Road->s_r = true;
 			if (HP <= 0)
 			{
 				this->SetStatus(false);
