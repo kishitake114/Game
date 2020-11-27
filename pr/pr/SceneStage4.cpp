@@ -52,11 +52,14 @@ void CSceneStage4::InitScene()
 
 	CObjEnemy4* CObjE4 = new CObjEnemy4();
 	Objs::InsertObj(CObjE4, OBJ_ENEMY4, 2);
+
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
 }
 
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
 void CSceneStage4::Scene()
 {
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
 }

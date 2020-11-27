@@ -25,17 +25,15 @@ CSceneTitle::~CSceneTitle()
 //ゲームメイン初期化
 void CSceneTitle::InitScene()
 {
+	CObjTitle* CObjt = new CObjTitle();
+	Objs::InsertObj(CObjt, OBJ_TITLE, 1);
+
 	Font::SetStrTex(L"左クリックで操作・ルール説明へ");
 
 	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
-	Draw::LoadImage(L"demo.mp4", 1, TEX_SIZE_1024);
+	Draw::LoadImage(L"Title2.png", 1, TEX_SIZE_1024);
 
-	CObjTitle* CObjt = new CObjTitle();
-	Objs::InsertObj(CObjt, OBJ_TITLE, 1);
-
-
-	
 	Audio::LoadAudio(0, L"タイトル画面.wav", SOUND_TYPE::BACK_MUSIC);
 
 	float  Voiume = Audio::VolumeMaster(-0.8f); 

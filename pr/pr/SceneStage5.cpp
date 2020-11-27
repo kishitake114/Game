@@ -38,11 +38,14 @@ void CSceneStage5::InitScene()
 
 	CObjStage5* CObj5 = new CObjStage5();
 	Objs::InsertObj(CObj5, OBJ_STAGE5, 1);
+
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
 }
 
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
 void CSceneStage5::Scene()
 {
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+	
 }

@@ -54,11 +54,13 @@ void CSceneStage3::InitScene()
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 3);
+
+	CObjnul* CObjn = new CObjnul();
+	Objs::InsertObj(CObjn, OBJ_NUL, 1);
 }
 
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
 void CSceneStage3::Scene()
 {
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
 }

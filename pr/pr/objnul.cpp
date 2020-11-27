@@ -4,12 +4,12 @@
 
 void CObjnul::Init()
 {
-	count=0;
+	count=4;
 }
 
 void CObjnul::plus(int c)
 {
-	count += c;
+	
 }
 
 
@@ -20,11 +20,6 @@ void CObjnul::Action()
 	CObjStage2* road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
 	CObjStage3* road3 = (CObjStage3*)Objs::GetObj(OBJ_STAGE3);
 	CObjStage4* road4 = (CObjStage4*)Objs::GetObj(OBJ_STAGE4);
-
-	if (player->HP == 10 && road->reset == 0 && count < 1)
-	{
-		count++;
-	}
 }
 
 void CObjnul::Draw()
