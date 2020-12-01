@@ -157,7 +157,8 @@ CObj* CSceneObjManager::GetObj(int name)
 {
     for(auto itr =m_ListData->begin() ; itr != m_ListData->end() ; itr++ )
 	{
-		if( (*itr)->GetName()== name )
+		
+		if( (*itr)->GetName()== name && (*itr)->GetStatus()==true)
 			return (*itr).get(); 
 	}
 

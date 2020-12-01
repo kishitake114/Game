@@ -25,6 +25,7 @@ void CObjTitle::Init()
 	hard = false;
 
 	static bool init_point = false;
+
 }
 //ƒAƒNƒVƒ‡ƒ“
 void CObjTitle::Action()

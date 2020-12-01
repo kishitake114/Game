@@ -10,12 +10,6 @@
 
 using namespace GameL;
 
-CObjPlayer::CObjPlayer(float x, float y)
-{
-	p_x = x;
-	p_y = y;
-}
-
 //イニシャライズ
 void CObjPlayer::Init()
 {
@@ -310,7 +304,7 @@ void CObjPlayer::Action()
 			cs_x = 0.0f;
 		}
 
-		if (cs_x == 140)
+		if (cs_x == 140.0f)
 		{
 			p_x = 520.0f;
 			cs_x = 50.0f;
@@ -346,7 +340,7 @@ void CObjPlayer::Action()
 			cs_x = 0.0f;
 		}
 
-		if (cs_x == 140)
+		if (cs_x == 140.0f)
 		{
 			p_x = 480.0f;
 			cs_x = 50.0f;
@@ -382,7 +376,9 @@ void CObjPlayer::Action()
 			cs_x = 0.0f;
 		}
 
-		if (cs_x == 140)
+
+		if (cs_x == 140.0f)
+
 		{
 			p_x = 0.0f;
 			cs_x = 50.0f;
@@ -424,7 +420,6 @@ void CObjPlayer::Action()
 			cs_x = 50.0f;
 		}
 	}
-
 	if (HP <= 0)
 		Scene::SetScene(new CSceneGameOver());
 	

@@ -9,7 +9,7 @@ using namespace GameL;
 class CObjPlayer :public CObj
 {
 	public:
-		CObjPlayer(float x,float y) ;
+		CObjPlayer() {};
 		~CObjPlayer() {};
 		void Init();
 		void Action();

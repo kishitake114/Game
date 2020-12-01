@@ -44,7 +44,7 @@ void CSceneStage4::InitScene()
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 
-	CObjPlayer* CObj = new CObjPlayer(0.0f, 200.0f);
+	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
 	CObjStage4* CObj4 = new CObjStage4();

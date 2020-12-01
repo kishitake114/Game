@@ -7,6 +7,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL/DrawFont.h"
 #include "GameL/UserData.h"
+#include "GameL/Audio.h"
 
 //使用するヘッダー
 #include "SceneStage5.h"
@@ -30,12 +31,14 @@ void CSceneStage5::InitScene()
 	//外部データの読み込み（ステージ情報）
 	unique_ptr<wchar_t> p; //ステージ情報ポインター
 	int size;			   //ステージ情報大きさ
-	p = Save::ExternalDataOpen(L"k.csv", &size);//外部データ読み込み
+//p = Save::ExternalDataOpen(L"k.csv", &size);//外部データ読み込み
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"stage0,1背景.png", 1, TEX_SIZE_512);
 
-	CObjPlayer* CObj = new CObjPlayer(0.0f, 200.0f);
+	Audio::LoadAudio(1, L"あるく.wav", ::EFFECT);
+
+	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
 	CObjStage5* CObj5 = new CObjStage5();
