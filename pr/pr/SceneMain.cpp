@@ -34,13 +34,10 @@ void CSceneMain::InitScene()
 {		
 	Audio::LoadAudio(0, L"Stage1.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(1, L"Ç†ÇÈÇ≠.wav", EFFECT);  
-
-	Audio::LoadAudio(2, L"åï.wav", EFFECT);
-
-
 	float Volume = Audio::VolumeMaster(-0.8f);
 	Audio::Start(0);
+
+
 
 	//FontçÏê¨
 	Font::SetStrTex(L"0123456789ï™ïb");

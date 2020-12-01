@@ -88,7 +88,7 @@ void CObjPlayer::Action()
 
 			if (Input::GetVKey('W') == true || Input::GetVKey(VK_UP) == true)
 			{
-					Audio::Start(1);
+				/*	Audio::Start(2);*/
 				   
 					p_y -= 5.0f;
 					cs_x = 95.0f;
@@ -98,7 +98,7 @@ void CObjPlayer::Action()
 
 			else if (Input::GetVKey('A') == true || Input::GetVKey(VK_LEFT) == true)
 			{
-				    Audio::Start(1);
+			/*	    Audio::Start(2);*/
 
 					p_x -= 5.0f;
 					cs_x = 140.0f;
@@ -109,7 +109,7 @@ void CObjPlayer::Action()
 			
 			else if (Input::GetVKey('D') == true || Input::GetVKey(VK_RIGHT) == true)
 			{
-				    Audio::Start(1);
+				    /*Audio::Start(2);*/
 	
 					p_x += 5.0f;
 					cs_x = 50.0f;
@@ -119,7 +119,7 @@ void CObjPlayer::Action()
 
 			else if (Input::GetVKey('S') == true || Input::GetVKey(VK_DOWN) == true)
 			{
-				    Audio::Start(1);
+			/*	    Audio::Start(2);*/
 			
 					p_y += 5.0f;
 					cs_x = 0.0;
