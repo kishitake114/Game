@@ -5,6 +5,7 @@
 #include "GameHead.h" 
 #include "GameL/WinInputs.h" 
 #include "GameL\HitBoxManager.h"
+#include "GameL/Audio.h"
 
 #include <stdlib.h>
 #include <time.h>
@@ -67,6 +68,8 @@ void CObjEnemy2::Action()
 			{
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
+
+				Audio::Start(2);
 
 				player->battle = true;
 			}

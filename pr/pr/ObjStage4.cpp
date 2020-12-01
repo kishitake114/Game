@@ -8,6 +8,9 @@
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
 
+#define PIECE 26
+#define SIZE 22.0f
+
 //使用するネームスペース
 using namespace GameL;
 
@@ -38,7 +41,7 @@ void CObjStage4::Init()
 	s_r = true;
 	sei = false;
 
-	int mapdata[26][26] =
+	int mapdata[PIECE][PIECE] =
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	    {0,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,0},
@@ -69,17 +72,16 @@ void CObjStage4::Init()
 
 	};
 
-	memcpy(map, mapdata, sizeof(int) * (26 * 26));
+	memcpy(map, mapdata, sizeof(int) * (PIECE * PIECE));
 
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
-
 			memmap[i][j] = map[i][j];
-
 		}
 	}
+
 
 	int mem[3][3] =
 	{
@@ -100,18 +102,17 @@ void CObjStage4::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < 26; i++)
+	//通行不可
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] <= 1)
 			{
-				float x = j * 22.0f;
-				float y = i * 22.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				map[i][j] == 2;
-
-				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -135,24 +136,24 @@ void CObjStage4::Action()
 					//上
 					if (r > 45 && r < 135)
 					{
-						player->SetVY(y - 22.0f);
+						player->SetVY(y - SIZE);
 					}
 
 					//左
 					else if (r > 135 && r < 225)
 					{
-						player->SetVX(x - 22.0f);
+						player->SetVX(x - SIZE);
 					}
 
 					//下
 					else if (r > 225 && r < 315)
 					{
-						player->SetVY(y + 22.0f);
+						player->SetVY(y + SIZE);
 					}
 
 					else
 					{
-						player->SetVX(x + 22.0f);
+						player->SetVX(x + SIZE);
 					}
 
 				}
@@ -163,18 +164,17 @@ void CObjStage4::Action()
 		}
 
 	}
-
-	//アイテム
-	for (int i = 0; i < 26; i++)
+	//アイテム（１）
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 3)
 			{
-				float x = j * 22.0f;
-				float y = i * 22.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -195,33 +195,31 @@ void CObjStage4::Action()
 						r = 360.0f - abs(r);
 					}
 
-					if (map[i][j] == 3)
+					if (r > 45 && r < 315)
 					{
-						map[i][j] = 2;
+						if (map[i][j] == 3)
+						{
+							map[i][j] = 2;
+						}
+
+						player->atk++;
 					}
 
-					player->atk += 1;
-
 				}
-
 			}
-
-
 		}
-
 	}
-
-	//アイテム
-	for (int i = 0; i < 26; i++)
+	//アイテム（２）
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 4)
 			{
-				float x = j * 22.0f;
-				float y = i * 22.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -242,33 +240,31 @@ void CObjStage4::Action()
 						r = 360.0f - abs(r);
 					}
 
-					if (map[i][j] == 4)
+					if (r > 45 && r < 315)
 					{
-						map[i][j] = 2;
+						if (map[i][j] == 4)
+						{
+							map[i][j] = 2;
+						}
+
+						player->atk += 2;
 					}
 
-					player->atk += 2;
-
 				}
-
 			}
-
-
 		}
-
 	}
-
-	//アイテム
-	for (int i = 0; i < 26; i++)
+	//アイテム（３）
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 5)
 			{
-				float x = j * 22.0f;
-				float y = i * 22.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				if ((px + 22.0f > x) && (px < x + 22.0f) && (py + 22.0f > y) && (py < y + 22.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -289,20 +285,19 @@ void CObjStage4::Action()
 						r = 360.0f - abs(r);
 					}
 
-					if (map[i][j] == 5)
+					if (r > 45 && r < 315)
 					{
-						map[i][j] = 2;
+						if (map[i][j] == 5)
+						{
+							map[i][j] = 2;
+						}
+
+						player->atk += 3;
 					}
 
-					player->atk += 3;
-
 				}
-
 			}
-
-
 		}
-
 	}
 
 	mou_x = (float)Input::GetPosX();
@@ -5837,13 +5832,14 @@ void CObjStage4::Action()
 			{
 				if (mou_l == true)
 				{
-					for (int i = 0; i < 26; i++)
+					for (int i = 0; i < PIECE; i++)
 					{
-						for (int j = 0; j < 26; j++)
+						for (int j = 0; j < PIECE; j++)
 						{
 							map[i][j] = memmap[i][j];
 						}
 					}
+
 
 					reset++;
 
@@ -5953,10 +5949,10 @@ void CObjStage4::Draw()
 
 			if (map[i][j] == 2)
 			{
-				dst.m_top = i * 22.0f;
-				dst.m_left = j * 22.0f;
-				dst.m_right = dst.m_left + 22.0f;
-				dst.m_bottom = dst.m_top + 22.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 			}
@@ -5971,16 +5967,16 @@ void CObjStage4::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 1)
 			{
-				dst.m_top = i * 22.0f;
-				dst.m_left = j * 22.0f;
-				dst.m_right = dst.m_left + 22.0f;
-				dst.m_bottom = dst.m_top + 22.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
@@ -5994,16 +5990,16 @@ void CObjStage4::Draw()
 	src.m_right = 51.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 3)
 			{
-				dst.m_top = i * 22.0f;
-				dst.m_left = j * 22.0f;
-				dst.m_right = dst.m_left + 22.0f;
-				dst.m_bottom = dst.m_top + 22.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
@@ -6018,16 +6014,16 @@ void CObjStage4::Draw()
 	src.m_right = 101.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 4)
 			{
-				dst.m_top = i * 22.0f;
-				dst.m_left = j * 22.0f;
-				dst.m_right = dst.m_left + 22.0f;
-				dst.m_bottom = dst.m_top + 22.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
@@ -6041,16 +6037,16 @@ void CObjStage4::Draw()
 	src.m_right = 151.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 5)
 			{
-				dst.m_top = i * 22.0f;
-				dst.m_left = j * 22.0f;
-				dst.m_right = dst.m_left + 22.0f;
-				dst.m_bottom = dst.m_top + 22.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
