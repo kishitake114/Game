@@ -27,7 +27,16 @@ CSceneStage2::~CSceneStage2()
 //ƒQ[ƒ€ƒƒCƒ“‰Šú‰»
 void CSceneStage2::InitScene()
 {
-	Audio::LoadAudio(0, L"Stage2.wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"Stage2.wav", SOUND_TYPE::BACK_MUSIC);
+
+	Audio::LoadAudio(1, L"‚ ‚é‚­.wav", EFFECT);
+
+	Audio::LoadAudio(2, L"Œ•.wav", EFFECT);
+
+
+	float Volume = Audio::VolumeMaster(-0.8f);
+	Audio::Start(0);
+
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster(-0.8f);
