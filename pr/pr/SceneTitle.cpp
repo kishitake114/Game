@@ -32,7 +32,7 @@ void CSceneTitle::InitScene()
 
 	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
-	Draw::LoadImage(L"Title2.png", 1, TEX_SIZE_1024);
+	Draw::LoadImage(L"Title2.png", 1, TEX_SIZE_512);
 
 	Audio::LoadAudio(0, L"ƒ^ƒCƒgƒ‹‰æ–Ê.wav", SOUND_TYPE::BACK_MUSIC);
 

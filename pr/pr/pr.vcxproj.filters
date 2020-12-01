@@ -41,13 +41,13 @@
       <Filter>リソースファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy.cpp">
-      <Filter>自作\ステージ\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClCompile>
     <ClCompile Include="ObjRoad.cpp">
-      <Filter>自作\ステージ\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClCompile>
     <ClCompile Include="SceneMain.cpp">
-      <Filter>自作\ステージ\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClCompile>
     <ClCompile Include="SceneStage2.cpp">
       <Filter>自作\ステージ\Stage2</Filter>
@@ -68,10 +68,10 @@
       <Filter>自作\ステージ\Stage4</Filter>
     </ClCompile>
     <ClCompile Include="ObjStage5.cpp">
-      <Filter>自作\ステージ\Stage5</Filter>
+      <Filter>自作\ステージ\stage01\Stage5</Filter>
     </ClCompile>
     <ClCompile Include="SceneStage5.cpp">
-      <Filter>自作\ステージ\Stage5</Filter>
+      <Filter>自作\ステージ\stage01\Stage5</Filter>
     </ClCompile>
     <ClCompile Include="ObjPlayer.cpp">
       <Filter>自作\プレイヤー</Filter>
@@ -124,6 +124,9 @@
     <ClCompile Include="objnul.cpp">
       <Filter>自作</Filter>
     </ClCompile>
+    <ClCompile Include="Background01.cpp">
+      <Filter>自作\ステージ\stage01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -166,13 +169,13 @@
       <Filter>リソースファイル</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy.h">
-      <Filter>自作\ステージ\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="ObjRoad.h">
-      <Filter>自作\ステージ\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="SceneMain.h">
-      <Filter>自作\ステージ\Stage 1 and Main</Filter>
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage2.h">
       <Filter>自作\ステージ\Stage2</Filter>
@@ -193,10 +196,10 @@
       <Filter>自作\ステージ\Stage4</Filter>
     </ClInclude>
     <ClInclude Include="ObjStage5.h">
-      <Filter>自作\ステージ\Stage5</Filter>
+      <Filter>自作\ステージ\stage01\Stage5</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage5.h">
-      <Filter>自作\ステージ\Stage5</Filter>
+      <Filter>自作\ステージ\stage01\Stage5</Filter>
     </ClInclude>
     <ClInclude Include="ObjPlayer.h">
       <Filter>自作\プレイヤー</Filter>
@@ -247,6 +250,9 @@
       <Filter>自作\ステージ\Stage4</Filter>
     </ClInclude>
     <ClInclude Include="objnul.h" />
+    <ClInclude Include="Background01.h">
+      <Filter>自作\ステージ\stage01</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
@@ -288,13 +294,16 @@
     <Filter Include="自作\ステージ\Stage4">
       <UniqueIdentifier>{6b65cc78-82b7-431a-a573-386ff578a94e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ\Stage 1 and Main">
-      <UniqueIdentifier>{670706e9-c6d4-4e34-b7ef-0b75ca484d96}</UniqueIdentifier>
-    </Filter>
     <Filter Include="自作\ステージ\Stage2">
       <UniqueIdentifier>{ed494f3a-4958-4696-8b3c-41918258ff15}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ\Stage5">
+    <Filter Include="自作\ステージ\stage01">
+      <UniqueIdentifier>{046c9fac-211c-4619-a078-e53e6d57beb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\stage01\Stage 1 and Main">
+      <UniqueIdentifier>{670706e9-c6d4-4e34-b7ef-0b75ca484d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ステージ\stage01\Stage5">
       <UniqueIdentifier>{89e72df9-3aae-491a-b449-231746046ea4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

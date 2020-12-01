@@ -9,6 +9,9 @@
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
 
+#define PIECE 14
+#define SIZE 40.0f
+
 
 //イニシャライズ
 void CObjRoad::Init()
@@ -46,7 +49,7 @@ void CObjRoad::Init()
 
 
 
-		int mapdata[14][14] =
+		int mapdata[PIECE][PIECE] =
 	{
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	{0,1,2,1,1,2,1,1,1,1,1,1,1,0},
@@ -64,11 +67,11 @@ void CObjRoad::Init()
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	};
 
-	memcpy(map, mapdata, sizeof(int) * (14 * 14));
+	memcpy(map, mapdata, sizeof(int) * (PIECE * PIECE));
 
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 
 			memmap[i][j] = map[i][j];
@@ -119,16 +122,16 @@ void CObjRoad::Action()
 	//mapにアクセス
 
 	//通行不可
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j]  <= 1)
 			{
-				float x = j * 40.0f;
-				float y = i * 40.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -152,26 +155,25 @@ void CObjRoad::Action()
 					//上
 					if (r > 45 && r < 135)
 					{
-						player->SetVY(y - 40.0f);
+						player->SetVY(y - SIZE);
 					}
 
 					//左
 					else if (r > 135 && r < 225)
 					{
-						player->SetVX(x - 40.0f);
+						player->SetVX(x - SIZE);
 					}
 
 					//下
 					else if (r > 225 && r < 315)
 					{
-						player->SetVY(y + 40.0f);
+						player->SetVY(y + SIZE);
 					}
 
 					else
 					{
-						player->SetVX(x + 40.0f);
+						player->SetVX(x + SIZE);
 					}
-
 				}
 	
 			}
@@ -181,16 +183,16 @@ void CObjRoad::Action()
 
 	}
 	//アイテム（１）
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 3)
 			{
-				float x = j * 40.0f;
-				float y = i * 40.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -226,16 +228,16 @@ void CObjRoad::Action()
 		}
 	}
 	//アイテム（２）
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 4)
 			{
-				float x = j * 40.0f;
-				float y = i * 40.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -271,16 +273,16 @@ void CObjRoad::Action()
 		}
 	}
 	//アイテム（３）
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 5)
 			{
-				float x = j * 40.0f;
-				float y = i * 40.0f;
+				float x = j * SIZE;
+				float y = i * SIZE;
 
-				if ((px + 40.0f > x) && (px < x + 40.0f) && (py + 40.0f > y) && (py < y + 40.0f))
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -1622,9 +1624,9 @@ void CObjRoad::Action()
 		{
 			if (mou_l == true)
 			{
-				for (int i = 0; i < 14; i++)
+				for (int i = 0; i < PIECE; i++)
 				{
-					for (int j = 0; j < 14; j++)
+					for (int j = 0; j < PIECE; j++)
 					{
 						map[i][j] = memmap[i][j];
 					}
@@ -1718,17 +1720,17 @@ void CObjRoad::Draw()
 	src.m_right = 85.0f;
 	src.m_bottom = 125.0f;
 	
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 
 			if (map[i][j] == 2)
 			{
-				dst.m_top = i * 40.0f;
-				dst.m_left = j * 40.0f;
-				dst.m_right = dst.m_left + 40.0f;
-				dst.m_bottom = dst.m_top + 40.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 			}
@@ -1743,16 +1745,16 @@ void CObjRoad::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 1)
 			{
-				dst.m_top = i * 40.0f;
-				dst.m_left = j * 40.0f;
-				dst.m_right = dst.m_left + 40.0f;
-				dst.m_bottom = dst.m_top + 40.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
@@ -1766,16 +1768,16 @@ void CObjRoad::Draw()
 	src.m_right = 51.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 3)
 			{
-				dst.m_top = i * 40.0f;
-				dst.m_left = j * 40.0f;
-				dst.m_right = dst.m_left + 40.0f;
-				dst.m_bottom = dst.m_top + 40.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
@@ -1790,16 +1792,16 @@ void CObjRoad::Draw()
 	src.m_right = 101.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 4)
 			{
-				dst.m_top = i * 40.0f;
-				dst.m_left = j * 40.0f;
-				dst.m_right = dst.m_left + 40.0f;
-				dst.m_bottom = dst.m_top + 40.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
@@ -1813,22 +1815,24 @@ void CObjRoad::Draw()
 	src.m_right = 151.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < 14; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			if (map[i][j] == 5)
 			{
-				dst.m_top = i * 40.0f;
-				dst.m_left = j * 40.0f;
-				dst.m_right = dst.m_left + 40.0f;
-				dst.m_bottom = dst.m_top + 40.0f;
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 
 			}
 		}
 	}
+
+
 }
 
 

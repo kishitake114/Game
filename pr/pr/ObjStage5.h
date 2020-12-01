@@ -10,12 +10,6 @@ class CObjStage5 :public CObj
 public:
 	CObjStage5() {};
 	~CObjStage5() {};
-	//void RoadHit
-	//(
-	//	float* x, float* y, bool scroll_on,
-	//	bool* up, bool* down, bool* left, bool* right,
-	//	float* vx, float* vy, int* bt
-	//);
 
 	void Init();//イニシャライズ
 	void Action();//アクション
