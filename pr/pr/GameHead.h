@@ -25,6 +25,8 @@ enum OBJ_NAME
 	OBJ_ENEMY3,
 	OBJ_ENEMY4,
 	OBJ_NUL,
+
+	OBJ_BACKGROUND01
 };
 //------------------------------------------------
 
@@ -52,13 +54,13 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	int Hperfect;
 	
 };
 //------------------------------------------------
 
 
 //ゲーム内で使用されるグローバル変数・定数・列挙--
-
 
 
 //------------------------------------------------
@@ -105,5 +107,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneTitle
+#define SET_GAME_START  CSceneStage4
 //-----------------------------------------------

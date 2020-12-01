@@ -147,12 +147,14 @@ void CObjPlayer::Action()
 				//ステージ下端から出ないようにする
 				if (p_y > 280.0f)
 				{
+					battle = true;
 					p_y = 280.0f;
 				}
 
 				//ステージ下端から出ないようにする
 				if (p_x > 280.0f)
 				{
+					battle = true;
 					p_x = 280.0f;
 				}
 

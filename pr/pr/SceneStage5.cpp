@@ -12,6 +12,7 @@
 #include "SceneStage5.h"
 #include "GameHead.h"
 #include "ObjStage5.h"
+#include "Background01.h"
 
 //コンストラクタ
 CSceneStage5::CSceneStage5()
@@ -32,6 +33,7 @@ void CSceneStage5::InitScene()
 	p = Save::ExternalDataOpen(L"k.csv", &size);//外部データ読み込み
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
+	Draw::LoadImage(L"stage0,1背景.png", 1, TEX_SIZE_512);
 
 	CObjPlayer* CObj = new CObjPlayer(0.0f, 200.0f);
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
@@ -41,6 +43,9 @@ void CSceneStage5::InitScene()
 
 	CObjnul* CObjn = new CObjnul();
 	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
+	CObjBackGround01* CObbg = new 	CObjBackGround01();
+	Objs::InsertObj(CObbg, OBJ_BACKGROUND01, 0);
 
 }
 

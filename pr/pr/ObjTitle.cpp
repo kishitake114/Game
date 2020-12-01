@@ -23,6 +23,8 @@ void CObjTitle::Init()
 	rdown = false;
 
 	hard = false;
+
+	static bool init_point = false;
 }
 //ƒAƒNƒVƒ‡ƒ“
 void CObjTitle::Action()
@@ -34,7 +36,9 @@ void CObjTitle::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	if (nul->count == 4)
+
+
+	if(1)
 	{
 		if (mou_x > 0 && mou_x < 50 && mou_y > 0 && mou_y < 50)
 		{
