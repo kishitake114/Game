@@ -30,13 +30,20 @@ void CSceneTitle::InitScene()
 
 	Font::SetStrTex(L"左クリックで操作・ルール説明へ");
 
+	Draw::LoadImage(L"star.png", 2, TEX_SIZE_512);
+
 	Draw::LoadImage(L"Title.png", 0, TEX_SIZE_1024);
 
 	Draw::LoadImage(L"Title2.png", 1, TEX_SIZE_512);
 
+	
+
 	Audio::LoadAudio(0, L"タイトル画面.wav", SOUND_TYPE::BACK_MUSIC);
 
-	float  Voiume = Audio::VolumeMaster(-0.8f); 
+	float  Voiume = Audio::VolumeMaster(-0.8f);
+
+	CObjStar* CObjs = new CObjStar();
+	Objs::InsertObj(CObjs, OBJ_STAR, 1);
 
 	Audio::Start(0);
 }
@@ -44,6 +51,5 @@ void CSceneTitle::InitScene()
 //ゲームメイン実行中
 void CSceneTitle::Scene()
 {
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
 }

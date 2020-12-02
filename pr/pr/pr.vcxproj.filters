@@ -127,6 +127,9 @@
     <ClCompile Include="Background01.cpp">
       <Filter>自作\ステージ\stage01</Filter>
     </ClCompile>
+    <ClCompile Include="Objstar.cpp">
+      <Filter>自作\タイトル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -252,6 +255,9 @@
     <ClInclude Include="objnul.h" />
     <ClInclude Include="Background01.h">
       <Filter>自作\ステージ\stage01</Filter>
+    </ClInclude>
+    <ClInclude Include="Objstar.h">
+      <Filter>自作\タイトル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

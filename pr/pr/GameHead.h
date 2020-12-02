@@ -25,8 +25,9 @@ enum OBJ_NAME
 	OBJ_ENEMY3,
 	OBJ_ENEMY4,
 	OBJ_NUL,
+	OBJ_STAR,
 
-	OBJ_BACKGROUND01
+	OBJ_BACKGROUND01,
 };
 //------------------------------------------------
 
@@ -88,6 +89,8 @@ struct UserData
 #include "ObjEnemy2.h"
 #include "ObjEnemy3.h"
 #include "ObjEnemy4.h"
+
+#include "Objstar.h"
 
 //------------------------------------------------
 
