@@ -8,6 +8,7 @@
 #include "GameL/WinInputs.h"
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
+#include "GameL/UserData.h"
 
 #define PIECE 14
 #define SIZE 40.0f
@@ -1611,8 +1612,13 @@ void CObjRoad::Action()
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
-			
+
+			if (player->HP == 10 && reset == 0)
+			{
+				((UserData*)Save::GetData())->Hperfect++;
+			}
 		}
+
 
 		s_r = false;
 	}

@@ -7,6 +7,7 @@
 #include "GameL/WinInputs.h"
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
+#include "GameL/UserData.h"
 
 #define PIECE 17
 #define SIZE 30.0f
@@ -298,9 +299,6 @@ void CObjStage2::Action()
 			}
 		}
 	}
-
-
-
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -2388,6 +2386,8 @@ void CObjStage2::Action()
 					}
 				}
 
+				reset++;
+
 				time->m_time = 5400;
 				time->m_flag_time = true;
 
@@ -2410,9 +2410,15 @@ void CObjStage2::Action()
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage3);
+
+			if (player->HP == 10 && reset == 0)
+			{
+				((UserData*)Save::GetData())->Hperfect++;
+			}
 		}
 
-		nul->count++;
+
+
 
 		s_r = false;
 	}

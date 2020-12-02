@@ -24,6 +24,8 @@ private:
 	bool  mou_r;  //マウスボタン：右
 	bool  mou_l;  //マウスボタン：左
 
+	int Hcount;
+
 	bool lup;
 	bool rup;
 	bool ldown;

@@ -5,6 +5,7 @@
 #include "ObjClear.h"
 #include "GameHead.h" 
 #include "GameL/WinInputs.h" 
+#include "GameL/UserData.h"
 
 using namespace GameL;
 
@@ -38,13 +39,15 @@ void CObjClear::Action()
 
 	m_time++;
 
-	//if (mou_x > 200 && mou_x < 629 && mou_y > 391 && mou_y < 423)
-	//{
-	//	if (mou_l == true)
-	//	{
-	//		Scene::SetScene(new CSceneTitle());
-	//	}
-	//}
+
+
+	if (m_time>=800)
+	{
+		if (mou_l == true)
+		{
+			Scene::SetScene(new CSceneTitle());
+		}
+	}
 }
 
 //ドロー
@@ -88,14 +91,13 @@ void CObjClear::Draw()
 		Font::StrDraw(L"ドラゴンは倒された。", 100, 350, 20, c);
 	}
 
-	if(nul->count==4)
+	if(	((UserData*)Save::GetData())->Hperfect>=2)
 	{
 		if (m_time >= 700 )
 		{
 			Font::StrDraw(L"画面の端を押すと何かが起こる", 100, 350, 20, c);
 		}
 	}
-
 
 	else
 	{

@@ -5,6 +5,7 @@
 #include "GameL/SceneManager.h"
 #include "GameHead.h"
 #include "ObjTitle.h"
+#include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -25,6 +26,13 @@ void CObjTitle::Init()
 	hard = false;
 
 	static bool init_point = false;
+	if (init_point == false)
+	{
+		((UserData*)Save::GetData())->Hperfect = 0;
+		init_point = true;
+	}
+
+	Hcount=((UserData*)Save::GetData())->Hperfect;
 
 }
 //アクション
@@ -39,7 +47,7 @@ void CObjTitle::Action()
 
 
 
-	if(1)
+	if(((UserData*)Save::GetData())->Hperfect >= 2)
 	{
 		if (mou_x > 0 && mou_x < 50 && mou_y > 0 && mou_y < 50)
 		{
@@ -129,7 +137,7 @@ void CObjTitle::Draw()
 	else
 		Font::StrDraw(L"左=押してない", 50, 60, 20, c);
 
-	for (int i = 0; i < nul->count; i++)
+	for (int i = 0; i < Hcount; i++)
 	{
 		Font::StrDraw(L"★", 200 + (i * 32), 300, 32, c);
 	}

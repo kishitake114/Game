@@ -7,6 +7,7 @@
 #include "GameL/WinInputs.h"
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
+#include "GameL/UserData.h"
 
 #define PIECE 20
 #define SIZE 25.0f
@@ -3390,6 +3391,8 @@ void CObjStage3::Action()
 
 				player->atk = 0;
 
+				reset++;
+
 			}
 		}
 	}
@@ -3400,9 +3403,14 @@ void CObjStage3::Action()
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneStage4);
+
+			if (player->HP == 10 && reset == 0)
+			{
+				((UserData*)Save::GetData())->Hperfect++;
+			}
 		}
 
-		nul->count++;
+
 
 		s_r = false;
 	}
