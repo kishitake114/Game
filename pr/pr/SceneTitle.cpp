@@ -43,7 +43,7 @@ void CSceneTitle::InitScene()
 	float  Voiume = Audio::VolumeMaster(-0.8f);
 
 	CObjStar* CObjs = new CObjStar();
-	Objs::InsertObj(CObjs, OBJ_STAR, 1);
+	Objs::InsertObj(CObjs, OBJ_STAR, 2);
 
 	Audio::Start(0);
 }

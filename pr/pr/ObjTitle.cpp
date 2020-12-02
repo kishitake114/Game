@@ -137,11 +137,6 @@ void CObjTitle::Draw()
 	else
 		Font::StrDraw(L"左=押してない", 50, 60, 20, c);
 
-	for (int i = 0; i < Hcount; i++)
-	{
-		Font::StrDraw(L"★", 200 + (i * 32), 300, 32, c);
-	}
-
 	//表示：タイトル画面
 	RECT_F src;
 	RECT_F dst;
