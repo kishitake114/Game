@@ -130,6 +130,8 @@
     <ClCompile Include="Objstar.cpp">
       <Filter>自作\タイトル</Filter>
     </ClCompile>
+    <ClCompile Include="scenehardstage1.cpp" />
+    <ClCompile Include="hardstage1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -258,6 +260,12 @@
     </ClInclude>
     <ClInclude Include="Objstar.h">
       <Filter>自作\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="hardstage1.h">
+      <Filter>自作</Filter>
+    </ClInclude>
+    <ClInclude Include="scenehardstage1.h">
+      <Filter>自作</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -23,6 +23,8 @@ void CObjTitle::Init()
 	ldown = false;
 	rdown = false;
 
+	title = 0;
+
 	hard = false;
 
 	static bool init_point = false;
@@ -84,6 +86,7 @@ void CObjTitle::Action()
 		if (lup == true && rup == true && ldown == true && rdown == true)
 		{
 			hard = true;
+			title = 1;
 		}
 	}
 
@@ -141,8 +144,6 @@ void CObjTitle::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (hard == false)
-	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
 		src.m_right = 512.0f;
@@ -153,26 +154,6 @@ void CObjTitle::Draw()
 		dst.m_right = 800.0f;
 		dst.m_bottom = 600.0f;
 
-		Draw::Draw(0, &src, &dst, c, 0.0f);
-	}
-
-	if (hard == true)
-	{
-		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 512.0f;
-		src.m_bottom = 512.0f;
-
-		dst.m_top = 0.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 800.0f;
-		dst.m_bottom = 600.0f;
-
-		Draw::Draw(1, &src, &dst, c, 0.0f);
-	}
-
-
-
-
+		Draw::Draw(title, &src, &dst, c, 0.0f);
 
 }
