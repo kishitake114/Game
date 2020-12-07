@@ -104,7 +104,7 @@ void CObjHardStage1::Init()
 		{0,0,2,0,0,2,0,0,},
 	};
 
-	memcpy(map, alfhamap, sizeof(int) * (8 * 8));*/
+	memcpy(map, alfhamap, sizeof(int) *  (8 * 8));*/
 
 	int mem[3][3] =
 	{
