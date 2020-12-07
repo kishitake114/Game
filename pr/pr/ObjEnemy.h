@@ -15,7 +15,7 @@ public:
 	void Draw();
 	int HP;
 
-
+	bool atk;
 
 private:
 
@@ -37,5 +37,8 @@ private:
 	bool se;
 
 	int e_time;
+
+	bool e_s;
+
 
 };

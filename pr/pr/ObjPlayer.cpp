@@ -79,7 +79,6 @@ void CObjPlayer::Action()
 
 	if (s_p == true)
 	{
-	
 
 			if (Input::GetVKey('W') == true || Input::GetVKey(VK_UP) == true)
 			{

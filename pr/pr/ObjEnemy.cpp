@@ -33,7 +33,10 @@ void CObjEnemy::Init()
 
 	ran = 0;
 
+	e_s = false;
+
 	se = false;
+	atk = false;
 
 	e_time;
 
@@ -46,71 +49,41 @@ void CObjEnemy::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-	CObjRoad  * Road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
+	CObjRoad* Road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
 
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
 
 
-	if (se == true)
+	if (e_s == true)
 	{
+		plx = rand() % 4;
+		ply = rand() % 4;
 
+		//---------“G‚ÌƒAƒNƒVƒ‡ƒ“----------------
 
-		//ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð’²‚×‚é
-		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
+		for (int i = 0; i < 50; i++)
 		{
-			e_time++;
-
-			HP = HP - player->atk;
-			player->atk = 0;
-
-			Road->s_r = true;
-			if (HP <= 0)
+			if (i / 5 == 0)
 			{
-				this->SetStatus(false);
-				Hits::DeleteHitBox(this);
+				plx = rand() % 4;
+				ply = rand() % 4;
+			}	
 
-				Audio::Start(2);
-
-				player->battle = true;
-			}
-			else if(HP>0)
+			//¡‚¢‚éêŠ‚Æ“¯‚¶ê‡Aƒ‰ƒ“ƒ_ƒ€ˆ—‚ð‚â‚è’¼‚·
+			if (memx == plx && memy == ply)
 			{
-				player->HP--;
+				plx = rand() % 4;
+				ply = rand() % 4;
 			}
 
-				for (int i = 0; i < 14; i++)
-				{
-					for (int j = 0; j < 14; j++)
-					{
-						Road->memmap[i][j] = Road->map[i][j];
-					}
-				}
-
-			time->m_time = 3600;
-
-			
-
-			//---------“G‚ÌƒAƒNƒVƒ‡ƒ“----------------
 
 			//ƒ‰ƒ“ƒ_ƒ€•Ï”
 
-				plx = rand() % 4;
-				ply = rand() % 4;
-
-
-				//¡‚¢‚éêŠ‚Æ“¯‚¶ê‡Aƒ‰ƒ“ƒ_ƒ€ˆ—‚ð‚â‚è’¼‚·
-				if (memx == plx && memy == ply)
-				{
-					plx = rand() % 4;
-					ply = rand() % 4;
-				}
-
-
 			switch (plx)
 			{
-			
-			//plx‚ª‚O‚Ìê‡map[0][](ã)‚ÉˆÚ“®
+
+				//plx‚ª‚O‚Ìê‡map[0][](ã)‚ÉˆÚ“®
 			case 0:
 
 				//ply=0@map[0][2]
@@ -129,11 +102,11 @@ void CObjEnemy::Action()
 				if (ply == 1)
 				{
 					p_x = 200.0f;
-					atr_x = 120.0f;			
+					atr_x = 120.0f;
 					cs_xe = 0.0f;
 
 					p_y = 0.0f;
-					atr_y =0.0f;
+					atr_y = 0.0f;
 				}
 
 				//ply=2@map[0][8]
@@ -160,7 +133,7 @@ void CObjEnemy::Action()
 
 				break;
 
-			//plx‚ª‚P‚Ìê‡map[][0](¶)‚ÉˆÚ“®
+				//plx‚ª‚P‚Ìê‡map[][0](¶)‚ÉˆÚ“®
 			case 1:
 
 				//ply=0@map[0][2]
@@ -208,7 +181,7 @@ void CObjEnemy::Action()
 				}
 				break;
 
-			//plx‚ª‚Q‚Ìê‡map[][13](‰E)‚ÉˆÚ“®
+				//plx‚ª‚Q‚Ìê‡map[][13](‰E)‚ÉˆÚ“®
 			case 2:
 
 				//ply=0@map[2][13]
@@ -257,7 +230,7 @@ void CObjEnemy::Action()
 
 				break;
 
-			//plx‚ª‚P‚Ìê‡map[13][](‰º)‚ÉˆÚ“®
+				//plx‚ª‚P‚Ìê‡map[13][](‰º)‚ÉˆÚ“®
 			case 3:
 
 				//ply=0@map[13][2]
@@ -313,14 +286,59 @@ void CObjEnemy::Action()
 
 			}
 
-			//HP‚ª‚O‚É‚È‚Á‚½‚ç”jŠü
+		}
+		e_s = false;
+	}
 
-			se = false;
+	if (se == false)
+	{
+
+	
+		//ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð’²‚×‚é
+		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
+		{
+			e_s = true;
+			se = true;
+
+			HP = HP - player->atk;
+			player->atk = 0;
+
+			Road->s_r = true;
+			if (HP <= 0)
+			{
+				this->SetStatus(false);
+				Hits::DeleteHitBox(this);
+
+				player->battle = true;
+			}
+			else if (HP > 0)
+			{
+				if (atk == false)
+				{
+					player->HP--;
+					atk = true;
+				}
+			}
+
+			Audio::Start(2);
+
+			for (int i = 0; i < 14; i++)
+			{
+				for (int j = 0; j < 14; j++)
+				{
+					Road->memmap[i][j] = Road->map[i][j];
+				}
+			}
+
+			time->m_time = 3600;
+
+
 		}
 	}
+	
 	else
 	{
-		se = true;
+		se = false;
 	}
 
 

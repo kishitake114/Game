@@ -113,6 +113,7 @@ void CObjRoad::Action()
 	}
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	float px = player->GetX();
 	float py = player->GetY();
 
@@ -389,10 +390,13 @@ void CObjRoad::Action()
 	//ロード内のプログラム
 	if (s_r == true)
 	{
+		
+
 		//右クリックで操作中止
 		if (mou_r == true)
 		{
 			s_r = false;
+			Enemy->atk = false;
 		}
 
 		//1列目1マス目
