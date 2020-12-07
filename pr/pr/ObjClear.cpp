@@ -36,11 +36,11 @@ void CObjClear::Action()
 		m_y -= 3;
 	}
 
-
-	m_time++;
-
-
-
+	if (m_time < 800)
+	{
+		m_time++;
+	}
+	
 	if (m_time>=800)
 	{
 		if (mou_l == true)
@@ -106,7 +106,7 @@ void CObjClear::Draw()
 		}
 	}
 
-	if (m_time >= 800)
+	if (m_time == 800)
 	{
 		Font::StrDraw(L"左クリックでタイトルに戻る", 100, 450, 30, c);
 	}

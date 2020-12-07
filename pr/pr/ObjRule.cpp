@@ -30,7 +30,6 @@ void CObjRule::Action()
 
 	if (mou_x > 0 && mou_x < 800 && mou_y > 0 && mou_y < 600)
 	{
-				//Scene::SetScene(new CSceneStage5());
 			if(mou_l==true)
 			{
 				if (s_r == true) 

@@ -6,24 +6,35 @@ enum OBJ_NAME
 	OBJ_NO_NAME,	//オブジェクト名無し(禁止)
 	//ゲームで使うオブジェクトの名前
 	//OBJ_○○と表記
-	OBJ_PLAYER,
 	OBJ_TITLE,
 	OBJ_NO_ROAD,
-	OBJ_ROAD,
 	OBJ_GAME_OVER,
-	OBJ_ENEMY,
 	OBJ_CLEAR,
+
+	OBJ_PLAYER,
+
 	OBJ_RULE,
 	OBJ_RULE2,
+
+	OBJ_ROAD,
 	OBJ_STAGE2,
 	OBJ_STAGE3,
 	OBJ_STAGE4,
 	OBJ_STAGE5,
+
 	OBJ_TIME,
 	OBJ_ITEM,
+
+	OBJ_ENEMY,
 	OBJ_ENEMY2,
 	OBJ_ENEMY3,
 	OBJ_ENEMY4,
+
+	OBJ_HARD_ENEMY,
+	OBJ_HARD_ENEMY2,
+	OBJ_HARD_ENEMY3,
+	OBJ_HARD_ENEMY4,
+
 	OBJ_STAR,
 
 	OBJ_BACKGROUND01,
@@ -57,6 +68,7 @@ struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
 	int Hperfect;
+	int EXperfect;
 	
 };
 //------------------------------------------------
@@ -89,6 +101,7 @@ struct UserData
 #include "ObjEnemy2.h"
 #include "ObjEnemy3.h"
 #include "ObjEnemy4.h"
+#include "ObjHardEnemy.h"
 
 #include "Objstar.h"
 
@@ -111,5 +124,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneTitle
+#define SET_GAME_START  CSceneHardstage1
 //-----------------------------------------------

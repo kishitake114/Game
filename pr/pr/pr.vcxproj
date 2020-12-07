@@ -40,6 +40,7 @@
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
+    <ClCompile Include="ObjHardEnemy.cpp" />
     <ClCompile Include="ObjItem.cpp" />
     <ClCompile Include="ObjPlayer.cpp" />
     <ClCompile Include="ObjRoad.cpp" />
@@ -86,6 +87,7 @@
     <ClInclude Include="ObjEnemy3.h" />
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjGameOver.h" />
+    <ClInclude Include="ObjHardEnemy.h" />
     <ClInclude Include="ObjItem.h" />
     <ClInclude Include="ObjPlayer.h" />
     <ClInclude Include="ObjRoad.h" />

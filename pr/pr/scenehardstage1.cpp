@@ -16,6 +16,7 @@ using namespace GameL;
 #include "GameHead.h"
 #include "Objplayer.h"
 #include "hardstage1.h"
+#include "ObjHardEnemy.h"
 
 #include "scenehardstage1.h"
 
@@ -59,6 +60,9 @@ void CSceneHardstage1::InitScene()
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 2);
+
+	CObjHardEnemy* CObjE = new  CObjHardEnemy();
+	Objs::InsertObj(CObjE, OBJ_HARD_ENEMY, 3);
 }
 
 void CSceneHardstage1::Scene()

@@ -127,8 +127,15 @@
     <ClCompile Include="Objstar.cpp">
       <Filter>自作\タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="scenehardstage1.cpp" />
-    <ClCompile Include="hardstage1.cpp" />
+    <ClCompile Include="hardstage1.cpp">
+      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+    </ClCompile>
+    <ClCompile Include="scenehardstage1.cpp">
+      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHardEnemy.cpp">
+      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -258,10 +265,13 @@
       <Filter>自作\タイトル</Filter>
     </ClInclude>
     <ClInclude Include="hardstage1.h">
-      <Filter>自作</Filter>
+      <Filter>自作\ハードステージ\ハードステージ1</Filter>
     </ClInclude>
     <ClInclude Include="scenehardstage1.h">
-      <Filter>自作</Filter>
+      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHardEnemy.h">
+      <Filter>自作\ハードステージ\ハードステージ1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -315,6 +325,12 @@
     </Filter>
     <Filter Include="自作\ステージ\stage01\Stage5">
       <UniqueIdentifier>{89e72df9-3aae-491a-b449-231746046ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ハードステージ">
+      <UniqueIdentifier>{2cb0f21b-4957-4efe-b404-5c61afee8d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ハードステージ\ハードステージ1">
+      <UniqueIdentifier>{b92168c6-25e2-43d5-8aa9-a21e4d24af87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

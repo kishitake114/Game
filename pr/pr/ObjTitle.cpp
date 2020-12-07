@@ -31,6 +31,7 @@ void CObjTitle::Init()
 	if (init_point == false)
 	{
 		((UserData*)Save::GetData())->Hperfect = 0;
+		((UserData*)Save::GetData())->EXperfect = 0;
 		init_point = true;
 	}
 
@@ -91,18 +92,24 @@ void CObjTitle::Action()
 
 	if (mou_x > 161 && mou_x < 629 && mou_y > 391 && mou_y < 423)
 	{
+		
 		if (mou_l == true)
 		{
 			Scene::SetScene(new CSceneRule());
+			((UserData*)Save::GetData())->Hperfect = 0;
 		}
 	}
-	else
+
+	if (mou_x > 161 && mou_x < 629 && mou_y > 441 && mou_y < 473)
 	{
-		mou_l = true;
+		if (hard == true)
+		{
+			if (mou_l == true)
+			{
+				Scene::SetScene(new CSceneRule2());
+			}
+		}
 	}
-
-
-	
 
 }
 //ドロー
@@ -111,14 +118,7 @@ void CObjTitle::Draw()
 	
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
-
-	Font::StrDraw(L"左クリックで操作・ルール説明へ", 160, 400, 32, c);
-
-	if (hard == true)
-	{
-		Font::StrDraw(L"？？？？？？", 160, 450, 32, r);
-	}
+	float r[4] = { 0.3f,0.3f,0.3f,1.0f };
 
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];

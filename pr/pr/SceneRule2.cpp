@@ -33,7 +33,8 @@ void CSceneRule2::InitScene()
 
 	Audio::Start(0);
 
-	Draw::LoadImage(L"Rule2.png", 0, TEX_SIZE_1024);
+	Draw::LoadImage(L"hard1.png", 0, TEX_SIZE_512);
+	Draw::LoadImage(L"hard2.png", 1, TEX_SIZE_512);
 
 	CObjRule2* CObj = new CObjRule2();
 	Objs::InsertObj(CObj, OBJ_RULE2, 1);

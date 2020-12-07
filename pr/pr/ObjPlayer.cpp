@@ -287,28 +287,28 @@ void CObjPlayer::Action()
 
 		Time->m_flag_time = true;
 
-		if (cs_x == 0.0f)
+		if (p_x-40.0f <= 0.0f)
 		{
-			p_y = 520.0f;
+			p_x = 0.0f;
 			cs_x = 95.0f;
 		}
 
-		if (cs_x == 50.0f)
+		if (p_x+40.0f >= 520.0f)
 		{
-			p_x = 0.0f;
+			p_x = 520.0f;
 			cs_x = 140.0f;
 		}
 
-		if (cs_x == 95.0f)
+		if (p_y-40.0f <= 0.0f)
 		{
 			p_y = 0.0f;
 			cs_x = 0.0f;
 		}
 
-		if (cs_x == 140.0f)
+		if (p_y + 40.0f >= 520.0f)
 		{
-			p_x = 520.0f;
-			cs_x = 50.0f;
+			p_y = 520.0f;
+
 		}
 	}
 

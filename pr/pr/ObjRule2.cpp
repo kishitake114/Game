@@ -17,6 +17,9 @@ void CObjRule2::Init()
 	mou_y = 0.0f;
 	mou_r = false;
 	mou_l = false;
+
+	Image = 0;
+	s_r = true;
 }
 //ƒAƒNƒVƒ‡ƒ“
 void CObjRule2::Action()
@@ -31,7 +34,33 @@ void CObjRule2::Action()
 	{
 		if (mou_l == true)
 		{
-			Scene::SetScene(new CSceneStage5());
+			if (s_r == true)
+			{
+				if (Image < 1)
+				{
+					Image++;
+					s_r = false;
+				}
+				else if (Image == 3)
+				{
+				
+				}
+			}
+		}
+		else if (mou_r == true)
+		{
+			if (s_r == true)
+			{
+				if (Image > 0)
+				{
+					Image--;
+					s_r = false;
+				}
+			}
+		}
+		else
+		{
+			s_r = true;
 		}
 	}
 
@@ -48,16 +77,16 @@ void CObjRule2::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 260.0f;
-	src.m_left = 170.0f;
-	src.m_right = 845.0f;
-	src.m_bottom = 765.0f;
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 512.0f;
+	src.m_bottom = 512.0f;
 
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0f;
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(Image, &src, &dst, c, 0.0f);
 
 }
