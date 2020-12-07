@@ -66,9 +66,6 @@ void CSceneMain::InitScene()
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 2);
-	
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 2);
 
 	CObjBackGround01* CObbg = new 	CObjBackGround01();
 	Objs::InsertObj(CObbg, OBJ_BACKGROUND01, 1);

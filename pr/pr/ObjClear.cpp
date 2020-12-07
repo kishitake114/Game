@@ -53,7 +53,6 @@ void CObjClear::Action()
 //ドロー
 void CObjClear::Draw()
 {
-	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
 
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };

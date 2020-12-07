@@ -33,6 +33,9 @@ void CSceneRule::InitScene()
 	Audio::Start(0);
 
 	Draw::LoadImage(L"Rule.png", 0, TEX_SIZE_1024);
+	Draw::LoadImage(L"Rule2.png", 1, TEX_SIZE_1024);
+	Draw::LoadImage(L"Rule3.png", 2, TEX_SIZE_1024);
+	Draw::LoadImage(L"Rule4.png", 3, TEX_SIZE_1024);
 
 	CObjRule* CObj = new CObjRule();
 	Objs::InsertObj(CObj, OBJ_RULE, 1);
@@ -43,6 +46,5 @@ void CSceneRule::InitScene()
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
 void CSceneRule::Scene()
 {
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+	
 }

@@ -21,4 +21,7 @@ private:
 	float mou_y;  //マウスカーソル：縦
 	bool  mou_r;  //マウスボタン：右
 	bool  mou_l;  //マウスボタン：左
+
+	int Image;
+	bool s_r;
 };

@@ -59,9 +59,6 @@ void CSceneStage2::InitScene()
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 3);
 
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
-
 }
 
 //ƒQ[ƒ€ƒƒCƒ“Às’†

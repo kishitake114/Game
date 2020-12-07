@@ -38,13 +38,13 @@ void CObjStage3::Init()
 		{2,1,3,2,2,2,2,1,3,1,1,2,2,2,3,2,2,4,2,2},
 		{0,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,1,1,1,0},
 		{0,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,1,2,1,0},
-		{2,1,2,1,1,2,2,2,4,2,2,3,2,2,3,1,2,2,1,2},
+		{2,1,2,1,1,2,2,2,4,2,2,3,2,2,3,1,2,6,1,2},
 		{0,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,0},
 		{0,1,1,1,1,2,1,1,2,1,1,2,1,1,1,1,1,2,1,0},
 		{2,2,3,2,1,5,1,2,3,2,1,3,1,1,2,2,2,3,2,2},
 		{0,1,2,1,1,2,1,1,2,1,1,2,1,1,2,1,1,1,1,0},
 		{0,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,0},
-		{2,2,2,2,2,3,1,2,2,1,2,5,2,1,4,2,1,2,1,2},
+		{2,2,6,2,2,3,1,2,2,1,2,5,2,1,4,2,1,6,1,2},
 		{0,1,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,0},
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 
@@ -79,8 +79,6 @@ void CObjStage3::Action()
 {
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-
-	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	float px = player->GetX();
@@ -285,8 +283,54 @@ void CObjStage3::Action()
 			}
 		}
 	}
+	//回復アイテム
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			if (map[i][j] == 6)
+			{
+				float x = j * SIZE;
+				float y = i * SIZE;
 
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
 
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (r > 45 && r < 315)
+					{
+						if (map[i][j] == 6)
+						{
+							map[i][j] = 2;
+						}
+
+						if (player->HP < 10)
+						{
+							player->HP++;
+						}
+					}
+
+				}
+			}
+		}
+	}
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -3424,6 +3468,7 @@ void CObjStage3::Draw()
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
 	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
+	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
@@ -3542,6 +3587,24 @@ void CObjStage3::Draw()
 				dst.m_bottom = dst.m_top + SIZE;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
+
+			}
+		}
+	}
+
+	//表示：回復アイテム
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			if (map[i][j] == 6)
+			{
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
+
+				Draw::Draw(0, &src, &dst, p, 0.0f);
 
 			}
 		}

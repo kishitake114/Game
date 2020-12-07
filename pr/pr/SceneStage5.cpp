@@ -44,9 +44,6 @@ void CSceneStage5::InitScene()
 	CObjStage5* CObj5 = new CObjStage5();
 	Objs::InsertObj(CObj5, OBJ_STAGE5, 1);
 
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
-
 	CObjBackGround01* CObbg = new 	CObjBackGround01();
 	Objs::InsertObj(CObbg, OBJ_BACKGROUND01, 0);
 

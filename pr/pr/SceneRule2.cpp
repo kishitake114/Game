@@ -44,6 +44,5 @@ void CSceneRule2::InitScene()
 //ƒQ[ƒ€ƒƒCƒ“Às’†
 void CSceneRule2::Scene()
 {
-	CObjnul* CObjn = new CObjnul();
-	Objs::InsertObj(CObjn, OBJ_NUL, 1);
+
 }

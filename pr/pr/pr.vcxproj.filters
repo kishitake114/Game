@@ -121,9 +121,6 @@
     <ClCompile Include="ObjEnemy4.cpp">
       <Filter>自作\ステージ\Stage4</Filter>
     </ClCompile>
-    <ClCompile Include="objnul.cpp">
-      <Filter>自作</Filter>
-    </ClCompile>
     <ClCompile Include="Background01.cpp">
       <Filter>自作\ステージ\stage01</Filter>
     </ClCompile>
@@ -254,7 +251,6 @@
     <ClInclude Include="ObjEnemy4.h">
       <Filter>自作\ステージ\Stage4</Filter>
     </ClInclude>
-    <ClInclude Include="objnul.h" />
     <ClInclude Include="Background01.h">
       <Filter>自作\ステージ\stage01</Filter>
     </ClInclude>
