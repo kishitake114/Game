@@ -1,6 +1,4 @@
 #include "ObjRoad.h"
-#include "ObjItem.h"
-#include "Objnul.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -54,7 +52,7 @@ void CObjRoad::Init()
 	{
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	{0,1,2,1,1,2,1,1,1,1,1,1,1,0},
-	{2,2,3,2,1,2,1,2,5,1,2,2,2,2},
+	{2,2,3,2,1,2,1,2,5,1,2,6,2,2},
 	{0,1,2,1,1,2,1,1,2,1,1,1,1,0},
 	{0,1,2,1,1,2,1,1,1,1,1,1,1,0},
 	{2,1,2,1,2,2,2,2,2,1,1,2,2,2},
@@ -108,8 +106,6 @@ void CObjRoad::Action()
 {
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-
-	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
 
 	if (s_r == true && mou_l == true)
 	{
@@ -312,6 +308,54 @@ void CObjRoad::Action()
 						}
 
 						player->atk+=3;
+					}
+
+				}
+			}
+		}
+	}
+	//回復アイテム
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			if (map[i][j] == 6)
+			{
+				float x = j * SIZE;
+				float y = i * SIZE;
+
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (r > 45 && r < 315)
+					{
+						if (map[i][j] == 6)
+						{
+							map[i][j] = 2;
+						}
+
+						if (player->HP < 10)
+						{
+							player->HP++;
+						}
 					}
 
 				}
@@ -1667,6 +1711,7 @@ void CObjRoad::Draw()
 	float b[4]  = { 0.0f,0.0f,1.0f,1.0f };
 	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
+	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
@@ -1767,8 +1812,8 @@ void CObjRoad::Draw()
 			}
 		}
 	}
-
-	//表示：アイテム
+	
+	//表示：アイテム1
 	src.m_top = 130.0f;
 	src.m_left = 1.0f;
 	src.m_right = 51.0f;
@@ -1791,8 +1836,26 @@ void CObjRoad::Draw()
 		}
 	}
 
+	//表示：回復アイテム
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			if (map[i][j] == 6)
+			{
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
 
-	//表示：アイテム
+				Draw::Draw(0, &src, &dst, p, 0.0f);
+
+			}
+		}
+	}
+
+
+	//表示：アイテム2
 	src.m_top = 130.0f;
 	src.m_left = 52.0f;
 	src.m_right = 101.0f;
@@ -1815,7 +1878,7 @@ void CObjRoad::Draw()
 		}
 	}
 
-	//表示：アイテム
+	//表示：アイテム3
 	src.m_top = 130.0f;
 	src.m_left = 102.0f;
 	src.m_right = 151.0f;

@@ -1,6 +1,5 @@
 #include "hardstage1.h"
 #include "ObjItem.h"
-#include "Objnul.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -110,9 +109,6 @@ void CObjHardStage1::Action()
 {
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-
-	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
-
 	if (s_r == true && mou_l == true)
 	{
 		time->m_flag_time = true;

@@ -30,7 +30,7 @@ void CObjTitle::Init()
 	static bool init_point = false;
 	if (init_point == false)
 	{
-		((UserData*)Save::GetData())->Hperfect = 4;
+		((UserData*)Save::GetData())->Hperfect = 0;
 		init_point = true;
 	}
 
@@ -40,8 +40,6 @@ void CObjTitle::Init()
 //アクション
 void CObjTitle::Action()
 {
-	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
-
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -110,8 +108,7 @@ void CObjTitle::Action()
 //ドロー
 void CObjTitle::Draw()
 {
-	CObjnul* nul = (CObjnul*)Objs::GetObj(OBJ_NUL);
-
+	
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	float r[4] = { 1.0f,0.0f,0.0f,1.0f };

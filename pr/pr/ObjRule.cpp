@@ -17,11 +17,12 @@ void CObjRule::Init()
 	mou_y = 0.0f;
 	mou_r = false;
 	mou_l = false;
+	Image = 0;
+	s_r = true;
 }
 //アクション
 void CObjRule::Action()
 {
-
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -29,14 +30,38 @@ void CObjRule::Action()
 
 	if (mou_x > 0 && mou_x < 800 && mou_y > 0 && mou_y < 600)
 	{
-		if (mou_l == true)
-		{
-			Scene::SetScene(new CSceneRule2());
-		}
+				//Scene::SetScene(new CSceneStage5());
+			if(mou_l==true)
+			{
+				if (s_r == true) 
+				{
+					if (Image < 3)
+					{
+						Image++;
+						s_r = false;
+					}
+					else if (Image == 3)
+					{
+						Scene::SetScene(new CSceneStage5());
+					}
+				}
+			}
+			else if (mou_r == true)
+			{
+				if (s_r == true)
+				{
+					if (Image > 0)
+					{
+						Image--;
+						s_r = false;
+					}
+				}
+			}
+			else
+			{
+				s_r = true;
+			}
 	}
-
-
-
 }
 //ドロー
 void CObjRule::Draw()
@@ -48,16 +73,16 @@ void CObjRule::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 300.0f;
-	src.m_left = 160.0f;
-	src.m_right = 835.0f;
-	src.m_bottom = 810.0f;
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 800.0f;
+	src.m_bottom = 600.0f;
 
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0f;
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(Image, &src, &dst, c, 0.0f);
 
 }
