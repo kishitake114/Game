@@ -48,5 +48,7 @@ private:
 
 	bool piece;
 
+	int RESETcount;
+
 
 };

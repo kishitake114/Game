@@ -44,6 +44,8 @@ void CObjHardStage1::Init()
 
 	itemc = 0.0f;
 
+	RESETcount = 0;
+
 
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	obj->p_x = 0.0f;
@@ -55,7 +57,7 @@ void CObjHardStage1::Init()
 	{
 	{0,0,7,0,0,7,0,0,7,0,0,7,0,0},
 	{0,1,2,1,1,2,1,1,1,1,1,2,1,0},
-	{7,2,2,2,1,4,1,2,2,2,2,2,2,7},
+	{7,2,2,2,1,4,1,2,2,2,2,6,2,7},
 	{0,1,2,1,1,2,1,1,2,1,1,1,1,0},
 	{0,1,2,1,1,1,1,1,1,1,1,2,1,0},
 	{7,1,4,1,2,2,2,2,5,2,1,2,2,7},
@@ -64,7 +66,7 @@ void CObjHardStage1::Init()
 	{7,2,3,2,1,2,2,2,3,2,2,2,1,7},
 	{0,1,1,1,1,2,1,1,1,1,1,2,1,0},
 	{0,1,2,1,0,0,0,1,2,1,1,1,1,0},
-	{7,2,2,1,0,0,0,1,2,1,2,4,2,7},
+	{7,2,6,1,0,0,0,1,2,1,2,4,2,7},
 	{0,1,2,1,0,0,0,1,2,1,1,1,1,0},
 	{0,0,7,0,0,7,0,0,7,0,0,7,0,0},
 	};
@@ -371,6 +373,54 @@ void CObjHardStage1::Action()
 						}
 
 						player->atk += 3;
+					}
+
+				}
+			}
+		}
+	}
+	//回復アイテム
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			if (map[i][j] == 6)
+			{
+				float x = j * SIZE;
+				float y = i * SIZE;
+
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (r > 45 && r < 315)
+					{
+						if (map[i][j] == 6)
+						{
+							map[i][j] = 2;
+						}
+
+						if (player->HP < 10)
+						{
+							player->HP++;
+						}
 					}
 
 				}
@@ -1770,6 +1820,17 @@ void CObjHardStage1::Action()
 
 	if (player->battle == true)
 	{
+		for (int i = 0; i < PIECE; i++)
+		{
+			for (int j = 0; j < PIECE; j++)
+			{
+				if (map[i][j] >= 2&&map[i][j]<7)
+				{
+					map[i][j] = 0;
+				}
+			}
+		}
+
 
 		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
 		{
@@ -1787,40 +1848,44 @@ void CObjHardStage1::Action()
 	//リセットボタンのプログラム
 	if (s_r == false)
 	{
-		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+		if (reset < 5)
 		{
-			if (mou_l == true)
+			if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
 			{
-				for (int i = 0; i < PIECE; i++)
+				if (mou_l == true)
 				{
-					for (int j = 0; j < PIECE; j++)
+					for (int i = 0; i < PIECE; i++)
 					{
-						map[i][j] = memmap[i][j];
+						for (int j = 0; j < PIECE; j++)
+						{
+							map[i][j] = memmap[i][j];
+						}
 					}
-				}
 
-				for (int i = 0; i < PIECE; i++)
-				{
-					for (int j = 0; j < PIECE; j++)
+					for (int i = 0; i < PIECE; i++)
 					{
-						Hmap[i][j] = Hmemmap[i][j];
+						for (int j = 0; j < PIECE; j++)
+						{
+							Hmap[i][j] = Hmemmap[i][j];
+						}
 					}
+
+					time->m_time = 3600;
+					time->m_flag_time = false;
+
+					s_r = true;
+
+					player->s_p = false;
+
+					player->p_x = player->memp_x;
+					player->p_y = player->memp_y;
+
+					player->atk = 0;
+
+					reset++;
+
+
 				}
-
-				time->m_time = 3600;
-				time->m_flag_time = false;
-
-				s_r = true;
-
-				player->s_p = false;
-
-				player->p_x = player->memp_x;
-				player->p_y = player->memp_y;
-
-				player->atk = 0;
-
-				reset++;
-
 			}
 		}
 	}
@@ -1837,6 +1902,7 @@ void CObjHardStage1::Draw()
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
 	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
+	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
@@ -1855,7 +1921,7 @@ void CObjHardStage1::Draw()
 	if (player->battle == false)
 	{
 
-		if (s_r == true)
+		if (s_r == true||reset>=5)
 		{
 			swprintf_s(str, L"RESET");
 			Font::StrDraw(str, 650, 500, 50, gl);
@@ -1979,6 +2045,24 @@ void CObjHardStage1::Draw()
 		}
 	}
 
+
+	//表示：回復アイテム
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			if (map[i][j] == 6)
+			{
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
+
+				Draw::Draw(0, &src, &dst, p, 0.0f);
+
+			}
+		}
+	}
 
 	//表示：アイテム
 	src.m_top = 130.0f;
