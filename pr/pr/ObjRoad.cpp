@@ -1839,6 +1839,10 @@ void CObjRoad::Draw()
 			}
 		}
 	}
+	src.m_top = 130.0f;
+	src.m_left = 152.0f;
+	src.m_right = 203.0f;
+	src.m_bottom = 180.0f;
 
 	//表示：回復アイテム
 	for (int i = 0; i < PIECE; i++)
@@ -1852,7 +1856,7 @@ void CObjRoad::Draw()
 				dst.m_right = dst.m_left + SIZE;
 				dst.m_bottom = dst.m_top + SIZE;
 
-				Draw::Draw(0, &src, &dst, p, 0.0f);
+				Draw::Draw(0, &src, &dst, c, 0.0f);
 
 			}
 		}
