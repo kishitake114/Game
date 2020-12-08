@@ -79,15 +79,26 @@ void CObjHardEnemy::Action()
 			{
 				for (int j = 0; j < 14; j++)
 				{
-					if (Road->Hmap[i][j] == 2)
+					if (Road->map[i][j] == 8)
 					{
 						Road->map[i][j] = 2;
 					}
 
-					else if (Road->Hmap[i][j] == 1)
+					if (Road->Hmap[i][j] == 1)
 					{
-						Road->map[i][j] = 0;
-						Road->Hmap[i][j] = 2;
+						Road->map[i][j] = 8;
+					}
+				}
+			}
+
+			for (int i = 0; i < 14; i++)
+			{
+				for (int j = 0; j < 14; j++)
+				{
+
+					if (Road->Hmap[i][j] == 1)
+					{
+						Road->Hmap[i][j] = 8;
 					}
 				}
 			}

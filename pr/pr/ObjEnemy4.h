@@ -14,6 +14,7 @@ public:
 	void Action();
 	void Draw();
 	int HP;
+	bool atk;
 private:
 	float p_x;
 	float p_y;
@@ -31,5 +32,6 @@ private:
 	int memy;
 
 	bool se;
+	bool e_s;
 
 };

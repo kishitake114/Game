@@ -62,13 +62,10 @@ void CObjEnemy::Action()
 
 		//---------敵のアクション----------------
 
-		for (int i = 0; i < 50; i++)
-		{
-			if (i / 5 == 0)
-			{
+
 				plx = rand() % 4;
 				ply = rand() % 4;
-			}	
+	
 
 			//今いる場所と同じ場合、ランダム処理をやり直す
 			if (memx == plx && memy == ply)
@@ -286,7 +283,7 @@ void CObjEnemy::Action()
 
 			}
 
-		}
+		
 		e_s = false;
 	}
 

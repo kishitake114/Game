@@ -39,6 +39,7 @@ void CObjStage2::Init()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
+	
 
 	player->num = 2;
 
@@ -93,6 +94,7 @@ void CObjStage2::Action()
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
+	CObjEnemy2* Enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	float px = player->GetX();
 	float py = player->GetY();
@@ -377,6 +379,7 @@ void CObjStage2::Action()
 		if (mou_r == true)
 		{
 			s_r = false;
+			Enemy2->atk = false;
 		}
 		
 		//1’i–Ú‚Ì1ŒÂ–Ú(¶‚©‚ç)

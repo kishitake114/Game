@@ -33,7 +33,10 @@ void CObjEnemy3::Init()
 
 	ran = 0;
 
+
 	se = false;
+	atk = false;
+	e_s = false;
 
 
 
@@ -47,357 +50,372 @@ void CObjEnemy3::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
 
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	CObjStage3* Road3 = (CObjStage3*)Objs::GetObj(OBJ_STAGE3);
 
-	if (se == true)
+
+	if (e_s == true)
+	{
+
+		plx = rand() % 4;
+		ply = rand() % 5;
+
+
+		plx = rand() % 4;
+		ply = rand() % 6;
+
+
+		if (memx == plx && memy == ply)
+		{
+			plx = rand() % 4;
+			ply = rand() % 6;
+		}
+
+		else
+		{
+			memx = plx;
+			memy = ply;
+		}
+
+		switch (plx)
+		{
+
+			//plxが０の場合＝map[0][](上)に移動
+		case 0:
+
+			//ply=0　map[0][2]
+			if (ply == 0)
+			{
+				p_x = 50.0f;
+				atr_x = 50.0f;
+				cs_xe = 0.0f;
+
+				p_y = 0.0f;
+				atr_y = 0.0f;
+
+			}
+
+			//ply=1　map[0][5]
+			if (ply == 1)
+			{
+				p_x = 125.0f;
+				atr_x = 125.0f;
+				cs_xe = 0.0f;
+
+				p_y = 0.0f;
+				atr_y = 0.0f;
+			}
+
+			//ply=2　map[0][8]
+			if (ply == 2)
+			{
+				p_x = 200.0f;
+				atr_x = 200.0f;
+				cs_xe = 0.0f;
+
+				p_y = 0.0f;
+				atr_y = 0.0f;
+			}
+
+			//ply=3　map[0][11]
+			if (ply == 3)
+			{
+				p_x = 275.0f;
+				atr_x = 275.0f;
+				cs_xe = 0.0f;
+
+				p_y = 0.0f;
+				atr_y = 0.0f;
+			}
+
+			if (ply == 4)
+			{
+				p_x = 350.0f;
+				atr_x = 350.0f;
+				cs_xe = 0.0f;
+
+				p_y = 0.0f;
+				atr_y = 0.0f;
+			}
+
+			if (ply == 5)
+			{
+				p_x = 425.0f;
+				atr_x = 425.0f;
+				cs_xe = 0.0f;
+
+				p_y = 0.0f;
+				atr_y = 0.0f;
+			}
+
+			break;
+
+			//plxが１の場合＝map[][0](左)に移動
+		case 1:
+
+			//ply=0　map[0][2]
+			if (ply == 0)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 50.0f;
+				atr_y = 50.0f;
+			}
+
+			//ply=1　map[0][5]
+			if (ply == 1)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 125.0f;
+				atr_y = 125.0f;
+			}
+
+			//ply=2　map[0][8]
+			if (ply == 2)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 200.0f;
+				atr_y = 200.0f;
+			}
+
+			//ply=3　map[0][11]
+			if (ply == 3)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 275.0f;
+				atr_y = 275.0f;
+			}
+
+			//ply=3　map[0][11]
+			if (ply == 4)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 350.0f;
+				atr_y = 350.0f;
+			}
+
+			if (ply == 5)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 425.0f;
+				atr_y = 425.0f;
+			}
+			break;
+
+			//plxが２の場合＝map[][13](右)に移動
+		case 2:
+
+			if (ply == 0)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 50.0f;
+				atr_y = 50.0f;
+			}
+
+			//ply=1　map[0][5]
+			if (ply == 1)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 125.0f;
+				atr_y = 150.0f;
+			}
+
+			//ply=2　map[0][8]
+			if (ply == 2)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 200.0f;
+				atr_y = 200.0f;
+			}
+
+			//ply=3　map[0][11]
+			if (ply == 3)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 275.0f;
+				atr_y = 275.0f;
+			}
+
+			//ply=3　map[0][11]
+			if (ply == 4)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 350.0f;
+				atr_y = 350.0f;
+			}
+
+			if (ply == 5)
+			{
+				p_x = 0.0f;
+				atr_x = 0.0f;
+				cs_xe = 100.0f;
+
+				p_y = 425.0f;
+				atr_y = 425.0f;
+			}
+
+
+			break;
+
+			//plxが１の場合＝map[13][](下)に移動
+		case 3:
+
+			//ply=0　map[0][2]
+			if (ply == 0)
+			{
+				p_x = 475.0f;
+				atr_x = 475.0f;
+				cs_xe = 55.0f;
+
+				p_y = 50.0f;
+				atr_y = 50.0f;
+			}
+
+			//ply=1　map[0][5]
+			if (ply == 1)
+			{
+				p_x = 475.0f;
+				atr_x = 475.0f;
+				cs_xe = 55.0f;
+
+				p_y = 125.0f;
+				atr_y = 125.0f;
+			}
+
+			//ply=2　map[0][8]
+			if (ply == 2)
+			{
+				p_x = 475.0f;
+				atr_x = 475.0f;
+				cs_xe = 55.0f;
+
+				p_y = 200.0f;
+				atr_y = 200.0f;
+			}
+
+			//ply=3　map[0][11]
+			if (ply == 3)
+			{
+				p_x = 475.0f;
+				atr_x = 475.0f;
+				cs_xe = 55.0f;
+
+				p_y = 275.0f;
+				atr_y = 275.0f;
+			}
+
+			//ply=3　map[0][11]
+			if (ply == 4)
+			{
+				p_x = 475.0f;
+				atr_x = 475.0f;
+				cs_xe = 55.0f;
+
+				p_y = 350.0f;
+				atr_y = 350.0f;
+			}
+
+			if (ply == 5)
+			{
+				p_x = 475.0f;
+				atr_x = 475.0f;
+				cs_xe = 55.0f;
+
+				p_y = 425.0f;
+				atr_y = 425.0f;
+			}
+
+		default:
+			break;
+
+		}
+		e_s = false;
+	}
+
+	if (se == false)
 	{
 
 
 		//プレイヤーと接触しているかどうかを調べる
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
-			ran = 1;
 
-			CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-			CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-			CObjStage3* Road3 = (CObjStage3*)Objs::GetObj(OBJ_STAGE3);
-
+			e_s = true;
 
 			HP = HP - player->atk;
 			player->atk = 0;
+
+			Road3->s_r = true;
 			if (HP <= 0)
 			{
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
 
-				Audio::Start(2);
-
 				player->battle = true;
 			}
-			else
+			else if (HP > 0)
 			{
-				player->HP--;
+				if (atk == false)
+				{
+					player->HP--;
+					atk = true;
+				}
 			}
 
-			for (int i = 0; i < 17; i++)
+			Audio::Start(2);
+
+			for (int i = 0; i < 14; i++)
 			{
-				for (int j = 0; j < 17; j++)
+				for (int j = 0; j < 14; j++)
 				{
 					Road3->memmap[i][j] = Road3->map[i][j];
 				}
 			}
 
-			time->m_time = 7200;
+			time->m_time = 3600;
 
+			se = true;
 
-			se = false;
-
-			plx = rand() % 4;
-			ply = rand() % 6;
-
-
-			if (memx == plx && memy == ply)
-			{
-				plx = rand() % 4;
-				ply = rand() % 6;
-			}
-
-			else
-			{
-				memx = plx;
-				memy = ply;
-			}
-
-			switch (plx)
-			{
-
-				//plxが０の場合＝map[0][](上)に移動
-			case 0:
-
-				//ply=0　map[0][2]
-				if (ply == 0)
-				{
-					p_x = 50.0f;
-					atr_x = 50.0f;
-					cs_xe = 0.0f;
-
-					p_y = 0.0f;
-					atr_y = 0.0f;
-
-				}
-
-				//ply=1　map[0][5]
-				if (ply == 1)
-				{
-					p_x = 125.0f;
-					atr_x = 125.0f;
-					cs_xe = 0.0f;
-
-					p_y = 0.0f;
-					atr_y = 0.0f;
-				}
-
-				//ply=2　map[0][8]
-				if (ply == 2)
-				{
-					p_x = 200.0f;
-					atr_x = 200.0f;
-					cs_xe = 0.0f;
-
-					p_y = 0.0f;
-					atr_y = 0.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 3)
-				{
-					p_x = 275.0f;
-					atr_x = 275.0f;
-					cs_xe = 0.0f;
-
-					p_y = 0.0f;
-					atr_y = 0.0f;
-				}
-
-				if (ply == 4)
-				{
-					p_x = 350.0f;
-					atr_x = 350.0f;
-					cs_xe = 0.0f;
-
-					p_y = 0.0f;
-					atr_y = 0.0f;
-				}
-
-				if (ply == 5)
-				{
-					p_x = 425.0f;
-					atr_x = 425.0f;
-					cs_xe = 0.0f;
-
-					p_y = 0.0f;
-					atr_y = 0.0f;
-				}
-
-				break;
-
-				//plxが１の場合＝map[][0](左)に移動
-			case 1:
-
-				//ply=0　map[0][2]
-				if (ply == 0)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 50.0f;
-					atr_y = 50.0f;
-				}
-
-				//ply=1　map[0][5]
-				if (ply == 1)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 125.0f;
-					atr_y = 125.0f;
-				}
-
-				//ply=2　map[0][8]
-				if (ply == 2)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 200.0f;
-					atr_y = 200.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 3)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 275.0f;
-					atr_y = 275.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 4)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 350.0f;
-					atr_y = 350.0f;
-				}
-
-				if (ply == 5)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 425.0f;
-					atr_y = 425.0f;
-				}
-				break;
-
-				//plxが２の場合＝map[][13](右)に移動
-			case 2:
-
-				if (ply == 0)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 50.0f;
-					atr_y = 50.0f;
-				}
-
-				//ply=1　map[0][5]
-				if (ply == 1)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 125.0f;
-					atr_y = 150.0f;
-				}
-
-				//ply=2　map[0][8]
-				if (ply == 2)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 200.0f;
-					atr_y = 200.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 3)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 275.0f;
-					atr_y = 275.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 4)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 350.0f;
-					atr_y = 350.0f;
-				}
-
-				if (ply == 5)
-				{
-					p_x = 0.0f;
-					atr_x = 0.0f;
-					cs_xe = 100.0f;
-
-					p_y = 425.0f;
-					atr_y = 425.0f;
-				}
-				
-
-				break;
-
-				//plxが１の場合＝map[13][](下)に移動
-			case 3:
-
-				//ply=0　map[0][2]
-				if (ply == 0)
-				{
-					p_x = 475.0f;
-					atr_x = 475.0f;
-					cs_xe = 55.0f;
-
-					p_y = 50.0f;
-					atr_y = 50.0f;
-				}
-
-				//ply=1　map[0][5]
-				if (ply == 1)
-				{
-					p_x = 475.0f;
-					atr_x = 475.0f;
-					cs_xe = 55.0f;
-
-					p_y = 125.0f;
-					atr_y = 125.0f;
-				}
-
-				//ply=2　map[0][8]
-				if (ply == 2)
-				{
-					p_x = 475.0f;
-					atr_x = 475.0f;
-					cs_xe = 55.0f;
-
-					p_y = 200.0f;
-					atr_y = 200.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 3)
-				{
-					p_x = 475.0f;
-					atr_x = 475.0f;
-					cs_xe = 55.0f;
-
-					p_y = 275.0f;
-					atr_y = 275.0f;
-				}
-
-				//ply=3　map[0][11]
-				if (ply == 4)
-				{
-					p_x = 475.0f;
-					atr_x = 475.0f;
-					cs_xe = 55.0f;
-
-					p_y = 350.0f;
-					atr_y = 350.0f;
-				}
-
-				if (ply == 5)
-				{
-					p_x = 475.0f;
-					atr_x = 475.0f;
-					cs_xe = 55.0f;
-
-					p_y = 425.0f;
-					atr_y = 425.0f;
-				}
-
-			default:
-				break;
-
-			}
 		}
 	}
+
 	else
 	{
-		se = true;
+		se = false;
 	}
-
 
 }
 

@@ -81,6 +81,7 @@ void CObjStage3::Action()
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjEnemy3* Enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
 	float px = player->GetX();
 	float py = player->GetY();
 
@@ -362,6 +363,7 @@ void CObjStage3::Action()
 		if (mou_r == true)
 		{
 			s_r = false;
+			Enemy3->atk = false;
 		}
 
 
