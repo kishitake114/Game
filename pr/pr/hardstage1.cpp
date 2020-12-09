@@ -42,8 +42,6 @@ void CObjHardStage1::Init()
 	sei = false;
 	swi = false;
 
-	itemc = 0.0f;
-
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	obj->p_x = 0.0f;
 	obj->p_y = 200.0f;
@@ -89,19 +87,6 @@ void CObjHardStage1::Init()
 		}
 	}
 
-	/*int alfhamap[8][8] =
-	{
-		{0,0,2,0,0,2,0,0,},
-		{0,1,2,1,1,2,1,0,},
-		{2,2,2,2,1,2,1,2,},
-		{0,1,2,1,1,2,1,0,},
-		{0,1,1,1,0,0,0,0,},
-		{2,2,2,2,0,0,0,2,},
-		{0,1,1,1,0,0,0,0,},
-		{0,0,2,0,0,2,0,0,},
-	};
-
-	memcpy(map, alfhamap, sizeof(int) *  (8 * 8));*/
 
 	int mem[3][3] =
 	{

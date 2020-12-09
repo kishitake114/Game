@@ -40,6 +40,10 @@ enum OBJ_NAME
 	OBJ_BACKGROUND01,
 
 	OBJ_HARD_STAGE1,
+	OBJ_HARD_STAGE2,
+	OBJ_HARD_STAGE3,
+	OBJ_HARD_STAGE4,
+	OBJ_HARD_STAGE5,
 };
 //------------------------------------------------
 
@@ -102,6 +106,9 @@ struct UserData
 #include "ObjEnemy3.h"
 #include "ObjEnemy4.h"
 #include "ObjHardEnemy.h"
+#include "ObjHardEnemy2.h"
+#include "hardstage1.h"
+#include "hardstage2.h"
 
 #include "Objstar.h"
 
@@ -119,10 +126,11 @@ struct UserData
 #include "SceneStage4.h"
 #include "SceneStage5.h"
 #include "scenehardstage1.h"
+#include "sceneHardstage2.h"
 
 //-----------------------------------------------
 //シーンスタートクラス---------------------------
 
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneStage3
+#define SET_GAME_START   CSceneHardstage2
 //-----------------------------------------------

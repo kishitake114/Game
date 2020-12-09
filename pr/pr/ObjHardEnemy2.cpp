@@ -1,4 +1,4 @@
-#include "ObjEnemy2.h"
+#include "ObjHardEnemy2.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -9,9 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-
-//イニシャライズ
-void CObjEnemy2::Init()
+void CObjHardEnemy2::Init()
 {
 	srand(time(NULL));
 
@@ -38,17 +36,15 @@ void CObjEnemy2::Init()
 	e_s = false;
 
 	Hits::SetHitBox(this, p_x, p_y, 30, 30, ELEMENT_ENEMY, OBJ_ENEMY2, 1);
-
 }
 
-//アクション
-void CObjEnemy2::Action()
+void CObjHardEnemy2::Action()
 {
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
 
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-	CObjStage2* Road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
+	CObjHardStage2* Road2 = (CObjHardStage2*)Objs::GetObj(OBJ_HARD_STAGE2);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 	if (e_s == true)
@@ -326,7 +322,7 @@ void CObjEnemy2::Action()
 		{
 
 			e_s = true;
-			
+
 			HP = HP - player->atk;
 			player->atk = 0;
 
@@ -342,7 +338,7 @@ void CObjEnemy2::Action()
 			{
 				if (atk == false)
 				{
-					player->HP--;
+					player->HP-=2;
 					atk = true;
 				}
 			}
@@ -371,8 +367,7 @@ void CObjEnemy2::Action()
 
 }
 
-//ドロー
-void CObjEnemy2::Draw()
+void CObjHardEnemy2::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
@@ -401,7 +396,7 @@ void CObjEnemy2::Draw()
 
 
 	src.m_top = 0.0f;
-	src.m_left = 0.0f ;
+	src.m_left = 0.0f;
 	src.m_right = 45.0f;
 	src.m_bottom = 50.0f;
 

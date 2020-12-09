@@ -277,7 +277,6 @@ void CObjPlayer::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr|| hit->CheckObjNameHit(OBJ_HARD_ENEMY) != nullptr)
 	{
-		s_p = true;
 
 		memp_x = p_x;
 		memp_y = p_y;
@@ -311,17 +310,14 @@ void CObjPlayer::Action()
 		}
 	}
 
-	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
+	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr|| hit->CheckObjNameHit(OBJ_HARD_ENEMY2) != nullptr)
 	{
-		s_p = true;
-
-		//480.0f
 
 		memp_x = p_x;
 		memp_y = p_y;
 
 		s_p = false;
-		road2->s_r = true;
+	
 		Time->m_flag_time = true;
 
 		if (p_x - 40.0f <= 0.0f)
@@ -351,13 +347,11 @@ void CObjPlayer::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 	{
-		s_p = true;
-
 		memp_x = p_x;
 		memp_y = p_y;
 
 		s_p = false;
-		road3->s_r = true;
+
 		Time->m_flag_time = true;
 
 		if (cs_x == 0.0f)

@@ -1,5 +1,5 @@
 //使用するヘッダーファイル
-#include "ObjStage2.h"
+#include "hardstage2.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -12,13 +12,8 @@
 #define PIECE 17
 #define SIZE 30.0f
 
-//使用するネームスペース
-using namespace GameL;
-
-//イニシャライズ
-void CObjStage2::Init()
+void CObjHardStage2::Init()
 {
-
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;
@@ -38,8 +33,6 @@ void CObjStage2::Init()
 	sei = false;
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
-	
 
 	player->num = 2;
 
@@ -68,9 +61,17 @@ void CObjStage2::Init()
 	   //0,1,2,3,4,5,6,7,8,9,10
 	};
 
-
-
 	memcpy(map, mapdata, sizeof(int) * (PIECE * PIECE));
+
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+
+			Hmap[i][j] = 0;
+
+		}
+	}
 
 	for (int i = 0; i < PIECE; i++)
 	{
@@ -79,22 +80,19 @@ void CObjStage2::Init()
 			memmap[i][j] = map[i][j];
 		}
 	}
-
 	int mem[3][3] =
 	{
 		{0,0,0},
 		{0,0,0},
 		{0,0,0},
 	};
-
 }
-//アクション
-void CObjStage2::Action()
+
+void CObjHardStage2::Action()
 {
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
-	CObjEnemy2* Enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	float px = player->GetX();
 	float py = player->GetY();
@@ -154,6 +152,55 @@ void CObjStage2::Action()
 					else
 					{
 						player->SetVX(x + SIZE);
+					}
+
+				}
+
+			}
+
+
+		}
+
+	}
+	//通行可
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			if (map[i][j] == 2)
+			{
+				float x = j * SIZE;
+				float y = i * SIZE;
+
+
+
+				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				{
+					//ベクトル作成
+					float vx = px - x;
+					float vy = py - y;
+
+					float len = sqrt(vx * vx + vy * vy);
+
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+					{
+						r = abs(r);
+					}
+
+					else
+					{
+						r = 360.0f - abs(r);
+					}
+
+					if (r > 45 && r < 315)
+					{
+						if (map[i][j] == 2)
+						{
+							Hmap[i][j] = 1;
+						}
 					}
 
 				}
@@ -348,7 +395,6 @@ void CObjStage2::Action()
 		}
 	}
 
-
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -379,9 +425,9 @@ void CObjStage2::Action()
 		if (mou_r == true)
 		{
 			s_r = false;
-			Enemy2->atk = false;
+			/*Enemy2->atk = false;*/
 		}
-		
+
 		//1段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 118.0f && mou_y>28.0f && mou_y < 118.0f)
 		{
@@ -432,7 +478,7 @@ void CObjStage2::Action()
 					}
 				}
 
-				
+
 			}
 
 
@@ -511,7 +557,7 @@ void CObjStage2::Action()
 					}
 				}
 
-		
+
 			}
 
 
@@ -1563,7 +1609,7 @@ void CObjStage2::Action()
 		{
 			if (mou_l == true)
 			{
-				
+
 				//下へ移動
 				if (map[10][13] == 0)
 				{
@@ -1810,7 +1856,7 @@ void CObjStage2::Action()
 					}
 				}
 			}
-			
+
 
 		}
 
@@ -1910,7 +1956,7 @@ void CObjStage2::Action()
 					}
 				}
 			}
-			
+
 
 		}
 
@@ -2467,14 +2513,11 @@ void CObjStage2::Action()
 			}
 		}
 
-
-
-
 		s_r = false;
 	}
 }
-//ドロー
-void CObjStage2::Draw()
+
+void CObjHardStage2::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
@@ -2515,7 +2558,7 @@ void CObjStage2::Draw()
 	}
 	else
 	{
-		if (player->HP == 10 && reset == 0 )
+		if (player->HP == 10 && reset == 0)
 		{
 			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
 		}

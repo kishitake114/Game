@@ -34,6 +34,7 @@
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="hardstage1.cpp" />
+    <ClCompile Include="hardstage2.cpp" />
     <ClCompile Include="ObjClear.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjEnemy2.cpp" />
@@ -41,6 +42,7 @@
     <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjHardEnemy.cpp" />
+    <ClCompile Include="ObjHardEnemy2.cpp" />
     <ClCompile Include="ObjItem.cpp" />
     <ClCompile Include="ObjPlayer.cpp" />
     <ClCompile Include="ObjRoad.cpp" />
@@ -56,6 +58,7 @@
     <ClCompile Include="SceneClear.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="scenehardstage1.cpp" />
+    <ClCompile Include="sceneHardstage2.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneRule.cpp" />
     <ClCompile Include="SceneRule2.cpp" />
@@ -80,6 +83,7 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="hardstage1.h" />
+    <ClInclude Include="hardstage2.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjClear.h" />
     <ClInclude Include="ObjEnemy.h" />
@@ -88,6 +92,7 @@
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjHardEnemy.h" />
+    <ClInclude Include="ObjHardEnemy2.h" />
     <ClInclude Include="ObjItem.h" />
     <ClInclude Include="ObjPlayer.h" />
     <ClInclude Include="ObjRoad.h" />
@@ -103,6 +108,7 @@
     <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="scenehardstage1.h" />
+    <ClInclude Include="sceneHardstage2.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneRule.h" />
     <ClInclude Include="SceneRule2.h" />

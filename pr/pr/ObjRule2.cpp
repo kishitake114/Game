@@ -41,9 +41,9 @@ void CObjRule2::Action()
 					Image++;
 					s_r = false;
 				}
-				else if (Image == 3)
+				else if (Image == 1)
 				{
-				
+					Scene::SetScene(new CSceneHardstage1());
 				}
 			}
 		}

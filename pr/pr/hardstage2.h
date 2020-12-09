@@ -3,15 +3,15 @@
 #include "GameL/SceneObjManager.h"
 //使用するネームスペース
 using namespace GameL;
-#define MAP 14
+#define MAP 17
 #define MEM 3
 
 //オブジェク：プレイヤー
-class CObjHardStage1 :public CObj
+class CObjHardStage2 :public CObj
 {
 public:
-	CObjHardStage1() {};
-	~CObjHardStage1() {};
+	CObjHardStage2() {};
+	~CObjHardStage2() {};
 	void Init();
 	void Action();
 	void Draw();

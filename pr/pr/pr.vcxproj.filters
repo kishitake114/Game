@@ -88,16 +88,10 @@
     <ClCompile Include="SceneRule2.cpp">
       <Filter>自作\ルール説明</Filter>
     </ClCompile>
-    <ClCompile Include="SceneGameOver.cpp">
-      <Filter>自作\ゲームオーバー</Filter>
-    </ClCompile>
     <ClCompile Include="ObjGameOver.cpp">
       <Filter>自作\ゲームオーバー</Filter>
     </ClCompile>
     <ClCompile Include="ObjClear.cpp">
-      <Filter>自作\ゲームクリア</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneClear.cpp">
       <Filter>自作\ゲームクリア</Filter>
     </ClCompile>
     <ClCompile Include="ObjItem.cpp">
@@ -136,6 +130,19 @@
     <ClCompile Include="ObjHardEnemy.cpp">
       <Filter>自作\ハードステージ\ハードステージ1</Filter>
     </ClCompile>
+    <ClCompile Include="hardstage2.cpp">
+      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneHardstage2.cpp">
+      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>自作\ゲームオーバー\シーン　ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneClear.cpp">
+      <Filter>自作\ゲームクリア\シーン　ゲームクリア</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHardEnemy2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -225,9 +232,6 @@
     <ClInclude Include="SceneRule2.h">
       <Filter>自作\ルール説明</Filter>
     </ClInclude>
-    <ClInclude Include="SceneGameOver.h">
-      <Filter>自作\ゲームオーバー</Filter>
-    </ClInclude>
     <ClInclude Include="ObjGameOver.h">
       <Filter>自作\ゲームオーバー</Filter>
     </ClInclude>
@@ -272,6 +276,18 @@
     </ClInclude>
     <ClInclude Include="ObjHardEnemy.h">
       <Filter>自作\ハードステージ\ハードステージ1</Filter>
+    </ClInclude>
+    <ClInclude Include="hardstage2.h">
+      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+    </ClInclude>
+    <ClInclude Include="sceneHardstage2.h">
+      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>自作\ゲームオーバー\シーン　ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHardEnemy2.h">
+      <Filter>自作\ハードステージ\ハードステージ２</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +347,15 @@
     </Filter>
     <Filter Include="自作\ハードステージ\ハードステージ1">
       <UniqueIdentifier>{b92168c6-25e2-43d5-8aa9-a21e4d24af87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ハードステージ\ハードステージ２">
+      <UniqueIdentifier>{06e12e2b-063c-413a-94cc-8f908fbda48c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ゲームオーバー\シーン　ゲームオーバー">
+      <UniqueIdentifier>{17bafe89-6cdf-4ca7-8163-c786cbda0b1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="自作\ゲームクリア\シーン　ゲームクリア">
+      <UniqueIdentifier>{038e460f-69ea-4a78-9248-14397a4d0517}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
