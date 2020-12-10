@@ -142,7 +142,9 @@
     <ClCompile Include="SceneClear.cpp">
       <Filter>自作\ゲームクリア\シーン　ゲームクリア</Filter>
     </ClCompile>
-    <ClCompile Include="ObjHardEnemy2.cpp" />
+    <ClCompile Include="ObjHardEnemy2.cpp">
+      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">

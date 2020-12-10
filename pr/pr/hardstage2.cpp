@@ -41,23 +41,23 @@ void CObjHardStage2::Init()
 
 	int mapdata[PIECE][PIECE] =
 	{                     //11.12.13.14.15.16
-		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},//0
+		{0,0,7,0,0,7,0,0,7,0,0,7,0,0,7,0,0},//0
 		{0,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,0},//1
-		{2,1,3,2,2,2,2,1,5,1,1,2,2,2,3,1,2},//2
+		{7,1,3,2,2,2,2,1,5,1,1,2,2,2,3,1,7},//2
 		{0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,0},//3
 		{0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,0},//4
-		{2,2,3,2,2,2,1,1,2,2,1,4,1,1,3,2,2},//5
+		{7,2,3,2,2,2,1,1,2,2,1,4,1,1,3,2,7},//5
 		{0,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,0},//6
 		{0,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,0},//7
-		{2,2,2,2,2,4,2,2,2,1,2,3,2,2,2,1,2},//8
+		{7,2,2,2,2,4,2,2,2,1,2,3,2,2,2,1,7},//8
 		{0,1,1,1,1,2,1,1,2,1,1,2,1,1,2,1,0},//9
 		{0,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,0},//10
-		{2,1,6,2,1,2,1,2,3,2,2,2,1,2,5,2,2},//11
+		{7,1,6,2,1,2,1,2,3,2,2,2,1,2,5,2,7},//11
 		{0,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,0},//12
 		{0,1,2,1,1,2,1,1,2,1,1,2,1,0,0,0,0},//13
-		{2,2,5,2,2,2,1,1,3,2,2,4,1,0,0,0,2},//14
+		{7,2,5,2,2,2,1,1,3,2,2,4,1,0,0,0,7},//14
 		{0,1,2,1,1,1,1,1,1,1,1,1,1,0,0,0,0},//15
-		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},//16
+		{0,0,7,0,0,7,0,0,7,0,0,7,0,0,7,0,0},//16
 	   //0,1,2,3,4,5,6,7,8,9,10
 	};
 
@@ -94,6 +94,7 @@ void CObjHardStage2::Action()
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjHardEnemy2* Enemy2 = (CObjHardEnemy2*)Objs::GetObj(OBJ_HARD_ENEMY2);
 	float px = player->GetX();
 	float py = player->GetY();
 
@@ -105,7 +106,7 @@ void CObjHardStage2::Action()
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] <= 1)
+			if (map[i][j] <= 1||map[i][j]>7)
 			{
 				float x = j * SIZE;
 				float y = i * SIZE;
@@ -425,7 +426,7 @@ void CObjHardStage2::Action()
 		if (mou_r == true)
 		{
 			s_r = false;
-			/*Enemy2->atk = false;*/
+			Enemy2->atk = false;
 		}
 
 		//1段目の1個目(左から)
@@ -441,6 +442,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][1 + j];
+							Hmem[i][j] = Hmap[1 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -451,6 +453,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
+							Hmap[1 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -463,6 +466,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][1 + j];
+							Hmem[i][j] = Hmap[1 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -473,6 +477,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
+							Hmap[4 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -483,7 +488,6 @@ void CObjHardStage2::Action()
 
 
 		}
-
 		//1段目の2個目(左から)
 		if (mou_x > 117.0f && mou_x < 207.0f && mou_y>28.0f && mou_y < 118.0f)
 		{
@@ -497,6 +501,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
+							Hmem[i][j] = Hmap[1 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -507,6 +512,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][7 + j] = mem[i][j];
+							Hmap[1 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -519,6 +525,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
+							Hmem[i][j] = Hmap[1 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -529,6 +536,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
+							Hmap[4 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -542,6 +550,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][4 + j];
+							Hmem[i][j] = Hmap[1 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -552,6 +561,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][1 + j] = mem[i][j];
+							Hmap[1 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -562,7 +572,6 @@ void CObjHardStage2::Action()
 
 
 		}
-
 		//1段目の3個目(左から)
 		if (mou_x > 205.0f && mou_x < 297.0f && mou_y>28.0f && mou_y < 118.0f)
 		{
@@ -576,6 +585,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
+							Hmem[i][j] = Hmap[1 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -586,6 +596,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][10 + j] = mem[i][j];
+							Hmap[1 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -598,6 +609,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
+							Hmem[i][j] = Hmap[1 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -608,6 +620,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][7 + j] = mem[i][j];
+							Hmap[4 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -621,6 +634,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][7 + j];
+							Hmem[i][j] = Hmap[1 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -631,6 +645,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
+							Hmap[1 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -640,7 +655,6 @@ void CObjHardStage2::Action()
 
 
 		}
-
 		//1段目の4個目(左から)
 		if (mou_x > 294.0f && mou_x < 386.0f && mou_y>28.0f && mou_y < 118.0f)
 		{
@@ -654,6 +668,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][10 + j];
+							Hmem[i][j] = Hmap[1 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -664,6 +679,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][13 + j] = mem[i][j];
+							Hmap[1 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -676,6 +692,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][10 + j];
+							Hmem[i][j] = Hmap[1 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -686,6 +703,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][10 + j] = mem[i][j];
+							Hmap[4 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -699,6 +717,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][10 + j];
+							Hmem[i][j] = Hmap[1 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -709,6 +728,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][7 + j] = mem[i][j];
+							Hmap[1 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -717,7 +737,6 @@ void CObjHardStage2::Action()
 			}
 
 		}
-
 		//1段目の5個目(左から)
 		if (mou_x > 383.0f && mou_x < 474.0f && mou_y>27.0f && mou_y < 118.0f)
 		{
@@ -731,6 +750,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][13 + j];
+							Hmem[i][j] = Hmap[1 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -741,6 +761,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][13 + j] = mem[i][j];
+							Hmap[4 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -754,6 +775,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[1 + i][13 + j];
+							Hmem[i][j] = Hmap[1 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -764,6 +786,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][10 + j] = mem[i][j];
+							Hmap[1 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -771,7 +794,6 @@ void CObjHardStage2::Action()
 
 			}
 		}
-
 		//2段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 120.0f && mou_y>115.0f && mou_y < 210.0f)
 		{
@@ -785,6 +807,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
+							Hmem[i][j] = Hmap[4 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -795,6 +818,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
+							Hmap[4 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -807,6 +831,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
+							Hmem[i][j] = Hmap[4 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -817,6 +842,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][1 + j] = mem[i][j];
+							Hmap[7 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -830,6 +856,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][1 + j];
+							Hmem[i][j] = Hmap[4 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -840,6 +867,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][1 + j] = mem[i][j];
+							Hmap[1 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -848,7 +876,6 @@ void CObjHardStage2::Action()
 
 
 		}
-
 		//2段目の2個目(左から)
 		if (mou_x > 117.0f && mou_x < 206.0f && mou_y>117.0f && mou_y < 206.0f)
 		{
@@ -862,6 +889,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+							Hmem[i][j] = Hmap[4 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -872,6 +900,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][7 + j] = mem[i][j];
+							Hmap[4 + i][7 + j] =Hmem[i][j];
 						}
 
 					}
@@ -884,6 +913,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+							Hmem[i][j] = Hmap[4 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -894,6 +924,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][4 + j] = mem[i][j];
+							Hmap[7 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -907,6 +938,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+							Hmem[i][j] = Hmap[4 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -917,6 +949,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
+							Hmap[4 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -930,6 +963,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][4 + j];
+							Hmem[i][j] = Hmap[4 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -940,6 +974,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][4 + j] = mem[i][j];
+							Hmap[1 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -948,7 +983,6 @@ void CObjHardStage2::Action()
 
 
 		}
-
 		//2段目の3個目(左から)
 		if (mou_x > 205.0f && mou_x < 297.0f && mou_y>115.0f && mou_y < 205.0f)
 		{
@@ -962,6 +996,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+							Hmem[i][j] =Hmap[4 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -972,6 +1007,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][10 + j] = mem[i][j];
+							Hmap[4 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -984,6 +1020,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+							Hmem[i][j] = Hmap[4 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -994,6 +1031,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][7 + j] = mem[i][j];
+							Hmap[7 + i][7 + j] =Hmem[i][j];
 						}
 
 					}
@@ -1007,6 +1045,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+							Hmem[i][j] = Hmap[4 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1017,6 +1056,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
+							Hmap[4 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1030,6 +1070,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][7 + j];
+							Hmem[i][j] = Hmap[4 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1040,6 +1081,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][7 + j] = mem[i][j];
+							Hmap[1 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1062,6 +1104,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
+							Hmem[i][j] = Hmap[4 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1072,6 +1115,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][13 + j] = mem[i][j];
+							Hmap[4 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1084,6 +1128,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
+							Hmem[i][j] = Hmap[4 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1094,6 +1139,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][10 + j] = mem[i][j];
+							Hmap[7 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1107,6 +1153,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
+							Hmem[i][j] = Hmap[4 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1117,6 +1164,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][7 + j] = mem[i][j];
+							Hmap[4 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1130,6 +1178,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][10 + j];
+							Hmem[i][j] = Hmap[4 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1140,6 +1189,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][10 + j] = mem[i][j];
+							Hmap[1 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1162,6 +1212,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][13 + j];
+							Hmem[i][j] = Hmap[4 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1172,6 +1223,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][13 + j] = mem[i][j];
+							Hmap[7 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1185,6 +1237,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][13 + j];
+							Hmem[i][j] = Hmap[4 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1195,6 +1248,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][10 + j] = mem[i][j];
+							Hmap[4 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1208,6 +1262,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[4 + i][13 + j];
+							Hmem[i][j] = Hmap[4 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1218,6 +1273,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[1 + i][13 + j] = mem[i][j];
+							Hmap[1 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1240,6 +1296,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][1 + j];
+							Hmem[i][j] = Hmap[7 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1250,6 +1307,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][4 + j] = mem[i][j];
+							Hmap[7 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1262,6 +1320,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][1 + j];
+							Hmem[i][j] = Hmap[7 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1272,6 +1331,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][1 + j] = mem[i][j];
+							Hmap[10 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1285,6 +1345,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][1 + j];
+							Hmem[i][j] = Hmap[7 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1295,6 +1356,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][1 + j] = mem[i][j];
+							Hmap[4 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1317,6 +1379,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+							Hmem[i][j] = Hmap[7 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1327,6 +1390,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][7 + j] = mem[i][j];
+							Hmap[7 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1339,6 +1403,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+							Hmem[i][j] = Hmap[7 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1349,6 +1414,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][4 + j] = mem[i][j];
+							Hmap[10 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1362,6 +1428,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+							Hmem[i][j] = Hmap[7 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1372,6 +1439,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][1 + j] = mem[i][j];
+							Hmap[7 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1385,6 +1453,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][4 + j];
+							Hmem[i][j] = Hmap[7 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1395,6 +1464,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][4 + j] = mem[i][j];
+							Hmap[4 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1417,6 +1487,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+							Hmem[i][j] = Hmap[7 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1427,6 +1498,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][10 + j] = mem[i][j];
+							Hmap[7 + i][10 + j] =Hmem[i][j];
 						}
 
 					}
@@ -1439,6 +1511,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+							Hmem[i][j] =Hmap[7 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1449,6 +1522,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][7 + j] = mem[i][j];
+							Hmap[10 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1462,6 +1536,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+							Hmem[i][j] = Hmap[7 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1472,6 +1547,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][4 + j] = mem[i][j];
+							Hmap[7 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1485,6 +1561,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][7 + j];
+							Hmem[i][j] = Hmap[7 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1495,6 +1572,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][7 + j] = mem[i][j];
+							Hmap[4 + i][7 + j] =Hmem[i][j];
 						}
 
 					}
@@ -1517,6 +1595,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
+							Hmem[i][j] =Hmap[7 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1527,6 +1606,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][13 + j] = mem[i][j];
+							Hmap[7 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1539,6 +1619,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
+							Hmem[i][j] = Hmap[7 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1549,6 +1630,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][10 + j] = mem[i][j];
+							Hmap[10 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1562,6 +1644,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
+							Hmem[i][j] =Hmap[7 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1572,6 +1655,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][7 + j] = mem[i][j];
+							Hmap[7 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1585,6 +1669,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][10 + j];
+							Hmem[i][j] = Hmap[7 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1595,6 +1680,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][10 + j] = mem[i][j];
+							Hmap[4 + i][10 + j] =Hmem[i][j];
 						}
 
 					}
@@ -1618,6 +1704,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][13 + j];
+							Hmem[i][j] = Hmap[7 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1628,6 +1715,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][13 + j] = mem[i][j];
+							Hmap[10 + i][13 + j] =Hmem[i][j];
 						}
 
 					}
@@ -1641,6 +1729,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][13 + j];
+							Hmem[i][j] = Hmap[7 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1651,6 +1740,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][10 + j] = mem[i][j];
+							Hmap[7 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1664,6 +1754,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[7 + i][13 + j];
+							Hmem[i][j] = Hmap[7 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1674,6 +1765,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[4 + i][13 + j] = mem[i][j];
+							Hmap[4 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1697,6 +1789,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][1 + j];
+							Hmem[i][j] = Hmap[10 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1707,6 +1800,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][4 + j] = mem[i][j];
+							Hmap[10 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1719,6 +1813,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][1 + j];
+							Hmem[i][j] = Hmap[10 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1729,6 +1824,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][1 + j] = mem[i][j];
+							Hmap[13 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1742,6 +1838,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][1 + j];
+							Hmem[i][j] = Hmap[10 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1752,6 +1849,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][1 + j] = mem[i][j];
+							Hmap[7 + i][1 + j] =Hmem[i][j];
 						}
 
 					}
@@ -1773,6 +1871,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
+							Hmem[i][j] = Hmap[10 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1783,6 +1882,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][7 + j] = mem[i][j];
+							Hmap[10 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1795,6 +1895,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
+							Hmem[i][j] = Hmap[10 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1805,6 +1906,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][4 + j] = mem[i][j];
+							Hmap[13 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1818,6 +1920,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
+							Hmem[i][j]=Hmap[10 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1828,6 +1931,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][1 + j] = mem[i][j];
+							Hmap[10 + i][1 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1841,6 +1945,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][4 + j];
+							Hmem[i][j] = Hmap[10 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1851,6 +1956,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][4 + j] = mem[i][j];
+							Hmap[7 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1873,6 +1979,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
+							Hmem[i][j] = Hmap[10 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1895,6 +2002,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
+							Hmem[i][j] =Hmap[10 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1905,6 +2013,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][7 + j] = mem[i][j];
+							Hmap[13 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1918,6 +2027,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
+							Hmem[i][j] = Hmap[10 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1928,6 +2038,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][4 + j] = mem[i][j];
+							Hmap[10 + i][4 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1941,6 +2052,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][7 + j];
+							Hmem[i][j] = Hmap[10 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1951,6 +2063,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][7 + j] = mem[i][j];
+							Hmap[7 + i][7 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1973,6 +2086,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
+							Hmem[i][j] = Hmap[10 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1983,6 +2097,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][13 + j] = mem[i][j];
+							Hmap[10 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -1995,6 +2110,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
+							Hmem[i][j] = Hmap[10 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2005,6 +2121,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][10 + j] = mem[i][j];
+							Hmap[13 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -2018,6 +2135,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
+							Hmem[i][j] = Hmap[10 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2028,6 +2146,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][7 + j] = mem[i][j];
+							Hmap[10 + i][7 + j] =Hmem[i][j];
 						}
 
 					}
@@ -2041,6 +2160,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][10 + j];
+							Hmem[i][j] = Hmap[10 + i][10 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2051,6 +2171,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][10 + j] = mem[i][j];
+							Hmap[7 + i][10 + j] = Hmem[i][j];
 						}
 
 					}
@@ -2072,6 +2193,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][13 + j];
+							Hmem[i][j] = Hmap[10 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2082,6 +2204,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][13 + j] = mem[i][j];
+							Hmap[13 + i][13 + j] =Hmem[i][j];
 						}
 
 					}
@@ -2094,6 +2217,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][13 + j];
+							Hmem[i][j] = Hmap[10 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2104,6 +2228,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][10 + j] = mem[i][j];
+							Hmap[10 + i][10 + j]=Hmem[i][j];
 						}
 
 					}
@@ -2117,6 +2242,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[10 + i][13 + j];
+							Hmem[i][j] = Hmap[10 + i][13 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2127,6 +2253,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[7 + i][13 + j] = mem[i][j];
+							Hmap[7 + i][13 + j] = Hmem[i][j];
 						}
 
 					}
@@ -2148,6 +2275,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][1 + j];
+							Hmem[i][j] = Hmap[13 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2158,6 +2286,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][4 + j] = mem[i][j];
+							Hmap[13 + i][4 + j] = Hmem[i][j];
 						}
 					}
 				}
@@ -2170,6 +2299,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][1 + j];
+							Hmem[i][j] =Hmap[13 + i][1 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2180,6 +2310,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][1 + j] = mem[i][j];
+							Hmap[10 + i][1 + j] = Hmem[i][j];
 						}
 					}
 				}
@@ -2202,6 +2333,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][4 + j];
+							Hmem[i][j] = Hmap[13 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2212,6 +2344,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][7 + j] = mem[i][j];
+							Hmap[13 + i][7 + j] = Hmem[i][j];
 						}
 					}
 				}
@@ -2224,6 +2357,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][4 + j];
+							Hmem[i][j] = Hmap[13 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2234,6 +2368,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][1 + j] = mem[i][j];
+							Hmap[13 + i][1 + j] = Hmem[i][j];
 						}
 					}
 				}
@@ -2246,6 +2381,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][4 + j];
+							Hmem[i][j] = Hmap[13 + i][4 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2256,6 +2392,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][4 + j] = mem[i][j];
+							Hmap[10 + i][4 + j] = Hmem[i][j];
 						}
 					}
 				}
@@ -2277,6 +2414,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][7 + j];
+							Hmem[i][j] = Hmap[13 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2287,6 +2425,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][10 + j] = mem[i][j];
+							Hmap[13 + i][10 + j] = Hmem[i][j];
 						}
 					}
 				}
@@ -2299,6 +2438,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][7 + j];
+							Hmem[i][j] = Hmap[13 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2309,6 +2449,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[13 + i][4 + j] = mem[i][j];
+							Hmap[13 + i][4 + j] =Hmem[i][j];
 						}
 					}
 				}
@@ -2321,6 +2462,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							mem[i][j] = map[13 + i][7 + j];
+							Hmem[i][j] = Hmap[13 + i][7 + j];
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -2331,6 +2473,7 @@ void CObjHardStage2::Action()
 						for (int j = 0; j < 3; j++)
 						{
 							map[10 + i][7 + j] = mem[i][j];
+							Hmap[10 + i][7 + j] = Hmem[i][j];
 						}
 					}
 				}
@@ -2502,6 +2645,17 @@ void CObjHardStage2::Action()
 
 	if (player->battle == true)
 	{
+		for (int i = 0; i < PIECE; i++)
+		{
+			for (int j = 0; j < PIECE; j++)
+			{
+				if (map[i][j] >= 2 && map[i][j] < 7)
+				{
+					map[i][j] = 0;
+				}
+			}
+		}
+
 		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
 		{
 			player->battle = false;
@@ -2591,6 +2745,24 @@ void CObjHardStage2::Draw()
 		{
 
 			if (map[i][j] == 2)
+			{
+				dst.m_top = i * SIZE;
+				dst.m_left = j * SIZE;
+				dst.m_right = dst.m_left + SIZE;
+				dst.m_bottom = dst.m_top + SIZE;
+
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+			}
+
+		}
+	}
+
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+
+			if (map[i][j] == 7)
 			{
 				dst.m_top = i * SIZE;
 				dst.m_left = j * SIZE;

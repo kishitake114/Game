@@ -345,9 +345,47 @@ void CObjHardEnemy2::Action()
 
 			Audio::Start(2);
 
-			for (int i = 0; i < 14; i++)
+
+			for (int i = 0; i < 17; i++)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j < 17; j++)
+				{
+					if (Road2->map[i][j] == 8)
+					{
+						Road2->map[i][j] = 2;
+					}
+
+					if (Road2->Hmap[i][j] == 1)
+					{
+						Road2->map[i][j] = 8;
+						
+					}
+				}
+			}
+
+			for (int i = 0; i < 17; i++)
+			{
+				for (int j = 0; j < 17; j++)
+				{
+
+					if (Road2->Hmap[i][j] == 1)
+					{
+						Road2->Hmap[i][j] = 8;
+					}
+				}
+			}
+
+			for (int i = 0; i < 17; i++)
+			{
+				for (int j = 0; j < 17; j++)
+				{
+					Road2->Hmemmap[i][j] = Road2->Hmap[i][j];
+				}
+			}
+
+			for (int i = 0; i < 17; i++)
+			{
+				for (int j = 0; j < 17; j++)
 				{
 					Road2->memmap[i][j] = Road2->map[i][j];
 				}

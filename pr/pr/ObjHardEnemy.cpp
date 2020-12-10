@@ -98,7 +98,7 @@ void CObjHardEnemy::Action()
 
 					if (Road->Hmap[i][j] == 1)
 					{
-						Road->Hmap[i][j] = 8;
+						Road->Hmap[i][j] = 0;
 					}
 				}
 			}
