@@ -31,17 +31,19 @@ void CObjClear::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	if (m_y > -1300.0f)
-	{
-		m_y -= 1.5f;
-	}
+
 		m_time++;
+
+		if (m_time >= 200)
+		{
+			m_y -= 1.0f;
+		}
 
 	if (m_time>=800)
 	{
 		if (mou_l == true)
 		{
-			Scene::SetScene(new CSceneTitle());
+			//Scene::SetScene(new CSceneTitle());
 		}
 	}
 }
@@ -52,9 +54,45 @@ void CObjClear::Draw()
 
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
+	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
+	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
+	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 
-	/*Font::StrDraw(L"GAME CLEAR!", 300, 200, 32, c);
-	Font::StrDraw(L"左クリックでタイトル画面へ", 200, 400, 32, c);*/
+	/*Font::StrDraw(L"GAME CLEAR!", 300, 200, 32, c);*/
+
+		Font::StrDraw(L"STAFF CREDIT", 250, 1000 + m_y, 40, c);
+
+	//-------------------チーム　ジャンケン弱者------------------
+		Font::StrDraw(L"TEAM", 200, 1150 + m_y, 20, c);
+		Font::StrDraw(L"JYANKEN JYAKUSYA", 250, 1200 + m_y, 32, c);
+
+		Font::StrDraw(L"GENERAL DIRECTOR", 200, 1350 + m_y, 20, c);
+		Font::StrDraw(L"TAKERU KISHIMOTO", 250, 1400 + m_y, 32, c);
+
+		Font::StrDraw(L"PLANNING DIRECTOR", 200, 1550 + m_y, 20, c);
+		Font::StrDraw(L"RYOMA TAKENOSHITA", 250, 1600 + m_y, 32, c);
+
+		Font::StrDraw(L"DESIGN DIRECTOR", 200, 1750 + m_y, 20, c);
+		Font::StrDraw(L"YUDAI HAYASHI", 250, 1800 + m_y, 32, c);
+
+		Font::StrDraw(L"SOUND DIRECTOR", 200, 1950 + m_y, 20, c);
+		Font::StrDraw(L"RIKU MINAMI", 250, 2000 + m_y, 32, c);
+
+		Font::StrDraw(L"PROGRAMU DIRECTOR", 200, 2150 + m_y, 20, c);
+		Font::StrDraw(L"MATSURI NAKATSUJI", 250, 2200 + m_y, 32, c);
+	//-------------------------------------------------------------
+	//----------------------マスター資料---------------------------
+
+
+	//-------------------------------------------------------------
+	//----------------------製作ソフト-----------------------------
+
+	//-------------------------------------------------------------
+	//----------------------スペシャルサンクス---------------------
+
+	//-------------------------------------------------------------
+		
 
 	wchar_t str[256];
 
@@ -69,15 +107,18 @@ void CObjClear::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 5.0f;
-	src.m_left = 20.0f;
-	src.m_right = 505.0f;
-	src.m_bottom = 315.0f;
+	src.m_top = 128.0f;
+	src.m_left = 0.0f;
+	src.m_right = 512.0f;
+	src.m_bottom = 380.0f;
+	if (m_time >= 130)
+	{
+		dst.m_top = 100.0f + m_y;
+		dst.m_left = 200.0f;
+		dst.m_right = 600.0f;
+		dst.m_bottom = 300.0f + m_y;
 
-	dst.m_top = 150.0f;
-	dst.m_left = 150.0f;
-	dst.m_right = 650.0f;
-	dst.m_bottom = 350.0f;
-
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+		Draw::Draw(0, &src, &dst, c, 0.0f);
+	}
 }
+	
