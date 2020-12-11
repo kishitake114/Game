@@ -36,6 +36,10 @@ private:
 	bool f_p;	  //ƒNƒŠƒbƒN‘€ì§Œä
 
 	int reset;
+	int s_time;
+	int second;
+
+	bool set;
 
 };
 

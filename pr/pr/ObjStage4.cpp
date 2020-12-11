@@ -43,6 +43,10 @@ void CObjStage4::Init()
 	s_r = true;
 	sei = false;
 
+	s_time = 240;
+	second = 4;
+	set = false;
+
 	int mapdata[PIECE][PIECE] =
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
@@ -102,6 +106,22 @@ void CObjStage4::Action()
 	CObjEnemy4* Enemy4 = (CObjEnemy4*)Objs::GetObj(OBJ_ENEMY4);
 	float px = player->GetX();
 	float py = player->GetY();
+
+	if (set == false)
+	{
+		s_time--;
+		if (s_time % 60 == 0)
+		{
+			second--;
+		}
+		if (second == 0)
+		{
+			s_r = true;
+			set = true;
+			time->m_flag_time = true;
+		}
+
+	}
 
 	//通行不可
 	for (int i = 0; i < PIECE; i++)
@@ -5948,6 +5968,19 @@ void CObjStage4::Draw()
 
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
+
+	if (set == false)
+	{
+		if (second > 1)
+		{
+			swprintf_s(str, L"%d", second - 1);
+			Font::StrDraw(str, 642, 350, 100, c);
+		}
+		else
+		{
+			Font::StrDraw(L"GO!", 642, 350, 100, r);
+		}
+	}
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
