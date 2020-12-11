@@ -27,6 +27,11 @@ void CObjStage3::Init()
 
 	reset = 0;
 
+	s_time = 240;
+	second = 4;
+	set = false;
+
+
 	int mapdata[PIECE][PIECE] =
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
@@ -74,7 +79,7 @@ void CObjStage3::Init()
 	testx = 0;		//位置確認用（横）
 	testy = 0;		//位置確認用（縦）
 
-	s_r = true;
+	s_r = false;
 }
 //アクション
 void CObjStage3::Action()
@@ -86,6 +91,23 @@ void CObjStage3::Action()
 	CObjEnemy3* Enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
 	float px = player->GetX();
 	float py = player->GetY();
+
+
+	if (set == false)
+	{
+		s_time--;
+		if (s_time % 60 == 0)
+		{
+			second--;
+		}
+		if (second == 0)
+		{
+			s_r = true;
+			set = true;
+			time->m_flag_time = true;
+		}
+
+	}
 
 	//mapにアクセス
 
@@ -3413,7 +3435,7 @@ void CObjStage3::Action()
 	}
 
 	//リセットボタンのプログラム
-	if (s_r == false)
+	if (s_r == false&&set==true)
 	{
 		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
 		{
@@ -3480,6 +3502,19 @@ void CObjStage3::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
+	if (set == false)
+	{
+		if (second > 1)
+		{
+			swprintf_s(str, L"%d", second - 1);
+			Font::StrDraw(str, 642, 350, 100, c);
+		}
+		else
+		{
+			Font::StrDraw(L"GO!", 642, 350, 100, r);
+		}
+	}
+
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 	if (s_r == true)
@@ -3490,7 +3525,7 @@ void CObjStage3::Draw()
 	if (player->battle == false)
 	{
 
-		if (s_r == true)
+		if (s_r == true||set==false)
 		{
 			swprintf_s(str, L"RESET");
 			Font::StrDraw(str, 650, 500, 50, gl);
