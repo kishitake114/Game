@@ -65,7 +65,7 @@ void CObjClear::Action()
 	
 		if (m_time >= 200&&m_y>-7900.0f)
 		{
-			m_y -= 1.0f;
+			m_y -= 2.0f;
 		}
 
 	if (m_time>=800)
