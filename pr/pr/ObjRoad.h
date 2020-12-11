@@ -42,5 +42,10 @@ private:
 
 	float itemc;
 
+	int s_time;
+	int second;
+
+	bool set;
+
 
 };

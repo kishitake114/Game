@@ -22,5 +22,8 @@ private:
 	bool  mou_l;  //マウスボタン：左
 
 	int m_time;
+	int sigo;
+	bool skip;
+	bool cont;
 
 };

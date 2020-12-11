@@ -467,12 +467,6 @@ void CObjPlayer::Draw()
 
 	}
 
-	swprintf_s(str, L"x %f", p_x);
-	Font::StrDraw(str, 600, 440, 30, c);
-
-	swprintf_s(str, L"y %f", p_y);
-	Font::StrDraw(str, 600, 400, 30, c);
-
 
 	swprintf_s(str, L"%d",((UserData*)Save::GetData())->Hperfect);
 	Font::StrDraw(str, 0, 550, 30, c);

@@ -18,6 +18,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjStage2::Init()
 {
+	((UserData*)Save::GetData())->stage = 2;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -34,8 +35,13 @@ void CObjStage2::Init()
 
 	f_p = false;
 
-	s_r = true;
+	s_r = false;
 	sei = false;
+
+	s_time = 240;
+	second = 4;
+	set = false;
+
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
@@ -100,6 +106,23 @@ void CObjStage2::Action()
 	float py = player->GetY();
 
 	//mapにアクセス
+
+
+	if (set == false)
+	{
+		s_time--;
+		if (s_time % 60 == 0)
+		{
+			second--;
+		}
+		if (second == 0)
+		{
+			s_r = true;
+			set = true;
+			time->m_flag_time = true;
+		}
+
+	}
 
 
 	//通行不可
@@ -2422,7 +2445,7 @@ void CObjStage2::Action()
 	}
 
 	//リセットボタンのプログラム
-	if (s_r == false)
+	if (s_r == false&&set==true)
 	{
 		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
 		{
@@ -2489,6 +2512,19 @@ void CObjStage2::Draw()
 
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
+
+	if (set == false)
+	{
+		if (second > 1)
+		{
+			swprintf_s(str, L"%d", second - 1);
+			Font::StrDraw(str, 642, 350, 100, c);
+		}
+		else
+		{
+			Font::StrDraw(L"GO!", 642, 350, 100, r);
+		}
+	}
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 

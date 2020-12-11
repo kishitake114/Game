@@ -13,7 +13,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjTime::Init()
 {
-	m_flag_time = true;
+	m_flag_time = false;
 
 	mou_r = false;
 	mou_l = false;

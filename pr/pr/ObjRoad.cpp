@@ -17,6 +17,8 @@ void CObjRoad::Init()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+
+	((UserData*)Save::GetData())->stage=1;
 	
 	player->num = 1;
 
@@ -35,16 +37,22 @@ void CObjRoad::Init()
 
 	f_p = false;
 
-	s_r = true;
+	s_r = false;
 	sei = false;
 	swi = false;
 
 	itemc = 0.0f;
 
+	s_time = 240;
+	second = 4;
+	set = false;
+
 
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	obj->p_x = 0.0f;
 	obj->p_y = 200.0f;
+
+	obj->s_p = false;
 
 
 
@@ -104,12 +112,22 @@ void CObjRoad::Init()
 //ƒAƒNƒVƒ‡ƒ“
 void CObjRoad::Action()
 {
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
-	if (s_r == true && mou_l == true)
+	if (set == false)
 	{
-		time->m_flag_time = true;
+		s_time--;
+		if (s_time % 60 == 0)
+		{
+			second--;
+		}
+		if (second == 0)
+		{
+			s_r = true;
+			set = true;
+			time->m_flag_time = true;
+		}	
+
 	}
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
@@ -650,10 +668,7 @@ void CObjRoad::Action()
 						{
 							mem[i][j] = map[1 + i][10 + j];
 
-							if (mem[i][j] == 3)
-							{
-								item->m_x -= 120.0f;
-							}
+					
 						}
 
 						for (int j = 0; j < 3; j++)
@@ -1725,6 +1740,20 @@ void CObjRoad::Draw()
 
 	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+
+	if (set == false)
+	{
+		if (second > 1)
+		{
+			swprintf_s(str, L"%d", second-1);
+			Font::StrDraw(str, 642, 350, 100, c);
+		}
+		else
+		{
+			Font::StrDraw(L"GO!", 642, 350, 100, r);
+		}
+	}
+
 
 	if (s_r == true)
 	{

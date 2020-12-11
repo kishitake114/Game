@@ -20,7 +20,11 @@ void CObjClear::Init()
 	mou_r = false;
 	mou_l = false;
 
+	skip = false;
+	cont = false;
+
 	m_time = 0;
+	sigo = 0;
 }
 
 //アクション
@@ -31,9 +35,34 @@ void CObjClear::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-
+	if (mou_l==true)
+	{
+		if (cont == false)
+		{
+			if (skip == false)
+			{
+				skip = true;
+				cont = true;
+			}
+			else
+			{
+				Scene::SetScene(new CSceneTitle());
+			}
+		}
+	
+	}
+	else
+	{
+		cont = false;
+	}
+	
 		m_time++;
 
+		if (m_time % 60 == 0)
+		{
+			sigo++;
+		}
+	
 		if (m_time >= 200)
 		{
 			m_y -= 1.0f;
@@ -93,11 +122,19 @@ void CObjClear::Draw()
 
 	//-------------------------------------------------------------
 		
+		if (skip == true)
+		{
+			if(sigo%2==0)
+				Font::StrDraw(L"左クリックでタイトルへ戻る ", 530, 0, 18, c);	
+		}
 
 	wchar_t str[256];
 
 	swprintf_s(str, L"%d", m_time);
 	Font::StrDraw(str, 0, 0, 30, c);
+
+	swprintf_s(str, L"%d", sigo);
+	Font::StrDraw(str, 0, 33, 30, c);
 
 	swprintf_s(str, L"%f", m_y);
 	Font::StrDraw(str, 0, 570, 30, c);
