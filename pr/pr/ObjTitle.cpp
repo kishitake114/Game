@@ -26,6 +26,7 @@ void CObjTitle::Init()
 	title = 0;
 
 	hard = false;
+	story = true;
 
 	static bool init_point = false;
 	if (init_point == false)
@@ -46,71 +47,74 @@ void CObjTitle::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-
-
-	//if(((UserData*)Save::GetData())->Hperfect >= 2)
-	//{
-	//	if (mou_x > 0 && mou_x < 50 && mou_y > 0 && mou_y < 50)
-	//	{
-	//		if (mou_l == true)
-	//		{
-	//			lup = true;
-	//		}
-	//	}
-
-	//	if (mou_x > 750 && mou_x < 800 && mou_y > 0 && mou_y < 50)
-	//	{
-	//		if (mou_l == true)
-	//		{
-	//			rup = true;
-	//		}
-	//	}
-
-	//	if (mou_x > 0 && mou_x < 50 && mou_y > 550 && mou_y < 600)
-	//	{
-	//		if (mou_l == true)
-	//		{
-	//			ldown = true;
-	//		}
-	//	}
-
-	//	if (mou_x > 750 && mou_x < 800 && mou_y > 550 && mou_y < 600)
-	//	{
-	//		if (mou_l == true)
-	//		{
-	//			rdown = true;
-	//		}
-	//	}
-
-	//	if (lup == true && rup == true && ldown == true && rdown == true)
-	//	{
-	//		hard = true;
-	//		title = 1;
-	//	}
-	//}
-
-
-	if (mou_x > 161 && mou_x < 629 && mou_y > 391 && mou_y < 423)
+	if (story == false)
 	{
-		
-		if (mou_l == true)
-		{
-			Scene::SetScene(new CSceneRule());
-			((UserData*)Save::GetData())->Hperfect = 0;
-		}
-	}
 
-	if (mou_x > 161 && mou_x < 629 && mou_y > 441 && mou_y < 473)
-	{
-		if (hard == true)
+
+
+		//if(((UserData*)Save::GetData())->Hperfect >= 2)
+		//{
+		//	if (mou_x > 0 && mou_x < 50 && mou_y > 0 && mou_y < 50)
+		//	{
+		//		if (mou_l == true)
+		//		{
+		//			lup = true;
+		//		}
+		//	}
+
+		//	if (mou_x > 750 && mou_x < 800 && mou_y > 0 && mou_y < 50)
+		//	{
+		//		if (mou_l == true)
+		//		{
+		//			rup = true;
+		//		}
+		//	}
+
+		//	if (mou_x > 0 && mou_x < 50 && mou_y > 550 && mou_y < 600)
+		//	{
+		//		if (mou_l == true)
+		//		{
+		//			ldown = true;
+		//		}
+		//	}
+
+		//	if (mou_x > 750 && mou_x < 800 && mou_y > 550 && mou_y < 600)
+		//	{
+		//		if (mou_l == true)
+		//		{
+		//			rdown = true;
+		//		}
+		//	}
+
+		//	if (lup == true && rup == true && ldown == true && rdown == true)
+		//	{
+		//		hard = true;
+		//		title = 1;
+		//	}
+		//}
+
+
+		if (mou_x > 161 && mou_x < 629 && mou_y > 391 && mou_y < 423)
 		{
+
 			if (mou_l == true)
 			{
-				Scene::SetScene(new CSceneRule2());
+				Scene::SetScene(new CSceneRule());
+				((UserData*)Save::GetData())->Hperfect = 0;
+			}
+		}
+
+		if (mou_x > 161 && mou_x < 629 && mou_y > 441 && mou_y < 473)
+		{
+			if (hard == true)
+			{
+				if (mou_l == true)
+				{
+					Scene::SetScene(new CSceneRule2());
+				}
 			}
 		}
 	}
-
 }
 //ƒhƒ[
 void CObjTitle::Draw()

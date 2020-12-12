@@ -23,7 +23,9 @@ class CObjGameOver :public CObj
         float f_p;
         float pxc;
         float pyc;
-        int time;
+        int Time;
         int second;
+
+        int hint;
 
 };

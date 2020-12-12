@@ -371,7 +371,7 @@ void CObjRoad::Action()
 							map[i][j] = 2;
 						}
 
-						if (player->HP < 10)
+						if (player->HP < 5)
 						{
 							player->HP++;
 						}
@@ -1676,7 +1676,7 @@ void CObjRoad::Action()
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
 
-			if (player->HP == 10 && reset == 0)
+			if (player->HP == 5 && reset == 0)
 			{
 				((UserData*)Save::GetData())->Hperfect++;
 			}
@@ -1687,7 +1687,7 @@ void CObjRoad::Action()
 	}
 
 	//リセットボタンのプログラム
-	if (s_r == false)
+	if (s_r == false&&set==true)
 	{
 		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
 		{
@@ -1763,7 +1763,7 @@ void CObjRoad::Draw()
 	if (player->battle == false)
 	{
 
-		if (s_r == true)
+		if (s_r == true||set==false)
 		{
 			swprintf_s(str, L"RESET");
 			Font::StrDraw(str, 650, 500, 50, gl);
@@ -1786,7 +1786,7 @@ void CObjRoad::Draw()
 		{
 			Font::StrDraw(L"YOU WIN", 600, 250, 30, c);
 
-			swprintf_s(str, L"受けたダメージ: %d",10-player->HP);
+			swprintf_s(str, L"受けたダメージ: %d",5-player->HP);
 			Font::StrDraw(str, 580, 350, 20, c);
 
 			swprintf_s(str, L"リセット回数: %d", reset);

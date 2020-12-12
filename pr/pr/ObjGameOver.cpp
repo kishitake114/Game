@@ -9,12 +9,19 @@
 #include "GameHead.h"
 #include "ObjGameOver.h"
 
+#include <stdlib.h>
+#include <time.h>
+
+
 //使用するネームスペース
 using namespace GameL;
-
 //イニシャライズ
 void CObjGameOver::Init()
 {
+	hint = 0;
+	srand(time(NULL));
+	hint = rand() % 5;
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;
@@ -24,7 +31,7 @@ void CObjGameOver::Init()
 	pxc = 0.0f;
 	pyc = 0.0f;
 
-	time = 600;
+	Time = 600;
 	second = 10;
 }
 
@@ -35,7 +42,8 @@ void CObjGameOver::Action()
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
-	time--;
+	Time--;
+
 
 	if (mou_l == true)
 	{
@@ -53,9 +61,12 @@ void CObjGameOver::Action()
 
 	}
 
-	if (time % 60 == 0)
+	if (Time % 60 == 0)
 	{
-		second--;
+		if (second > 0)
+		{
+			second--;
+		}
 	}
 
 	if (second < 0)
@@ -73,6 +84,7 @@ void CObjGameOver::Action()
 		{
 			if (mou_l == true)
 			{
+				((UserData*)Save::GetData())->Hperfect = 0;
 				Scene::SetScene(new CSceneMain());
 			}
 		}
@@ -83,6 +95,7 @@ void CObjGameOver::Action()
 		{
 			if (mou_l == true)
 			{
+				((UserData*)Save::GetData())->Hperfect = 0;
 				Scene::SetScene(new CSceneStage2());
 			}
 		}
@@ -93,6 +106,7 @@ void CObjGameOver::Action()
 		{
 			if (mou_l == true)
 			{
+				((UserData*)Save::GetData())->Hperfect = 0;
 				Scene::SetScene(new CSceneStage3());
 			}
 		}
@@ -103,6 +117,7 @@ void CObjGameOver::Action()
 		{
 			if (mou_l == true)
 			{
+				((UserData*)Save::GetData())->Hperfect = 0;
 				Scene::SetScene(new CSceneStage4());
 			}
 		}
@@ -127,24 +142,36 @@ void CObjGameOver::Draw()
 	if (second < 4)
 	{
 		swprintf_s(str, L"%2d", second);
-		Font::StrDraw(str, 770, 0, 30, r);
+		Font::StrDraw(str , 650, 200, 100, r);
 	}
 
 	else if (second < 6)
 	{
 		swprintf_s(str, L"%2d", second);
-		Font::StrDraw(str, 770, 0, 30, y);
+		Font::StrDraw(str, 650, 200, 100, y);
 	}
 
 	else
 	{
 		swprintf_s(str, L"%2d", second);
-		Font::StrDraw(str, 770, 0, 30, c);
+		Font::StrDraw(str,650 , 200, 100, c);
 	}
 
 	
-
+	
 	Font::StrDraw(L"GAME OVER", 130, 200, 100, c);
+
+	Font::StrDraw(L"ヒント:", 70, 350, 30, c);
+
+	if (hint==0||hint==3)
+	Font::StrDraw(L"パズル操作中、左ボタン長押しでマウスを動かしてみて!", 180, 355, 20, c);
+
+	if (hint == 1||hint==4)
+		Font::StrDraw(L"攻撃を取らず敵に当たるとダメージ喰らうよ!", 180, 355, 25, c);
+
+	if (hint == 2)
+		Font::StrDraw(L"・・・・・・あ、寝てた。", 180, 355, 25, c);
+	
 
 	Font::StrDraw(L"continue...?", 130, 500, 30, c);
 	if (((UserData*)Save::GetData())->stage >= 1)

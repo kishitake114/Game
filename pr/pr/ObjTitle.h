@@ -27,6 +27,9 @@ private:
 	int title;
 	int Hcount;
 
+	int second;
+	bool story;
+
 	bool lup;
 	bool rup;
 	bool ldown;

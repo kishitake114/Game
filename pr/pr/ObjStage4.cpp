@@ -358,7 +358,7 @@ void CObjStage4::Action()
 							map[i][j] = 2;
 						}
 
-						if (player->HP < 10)
+						if (player->HP < 5)
 						{
 							player->HP++;
 						}
@@ -5937,7 +5937,7 @@ void CObjStage4::Action()
 			player->battle = false;
 			Scene::SetScene(new CSceneClear);
 
-			if (player->HP == 10 && reset == 0)
+			if (player->HP ==5 && reset == 0)
 			{
 				((UserData*)Save::GetData())->Hperfect++;
 			}
@@ -6015,7 +6015,7 @@ void CObjStage4::Draw()
 		{
 			Font::StrDraw(L"YOU WIN", 600, 250, 30, c);
 
-			swprintf_s(str, L"受けたダメージ: %d", 10 - player->HP);
+			swprintf_s(str, L"受けたダメージ: %d", 5 - player->HP);
 			Font::StrDraw(str, 580, 350, 20, c);
 
 			swprintf_s(str, L"リセット回数: %d", reset);

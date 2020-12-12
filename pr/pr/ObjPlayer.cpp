@@ -1,4 +1,4 @@
-//�g�p����w�b�_�[
+﻿//使用するヘッダー
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "ObjPlayer.h"
@@ -11,7 +11,7 @@
 
 using namespace GameL;
 
-//�C�j�V�����C�Y
+//イニシャライズ
 void CObjPlayer::Init()
 {
 	atk = 0;
@@ -30,7 +30,7 @@ void CObjPlayer::Init()
 
 	cs_x = 50.0f;
 
-	HP = 10;
+	HP = 5;
 
 	p_x = 0.0f;
 	p_y = 0.0f;
@@ -47,7 +47,7 @@ void CObjPlayer::Init()
 
 }
 
-//�A�N�V����
+//アクション
 void CObjPlayer::Action()
 {
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
@@ -122,7 +122,7 @@ void CObjPlayer::Action()
 			}
 
 			
-			//�`���[�g���A���X�e�[�W�̈ړ�����
+			//チュートリアルステージの移動制御
 			if (num == 0)
 			{
 				if (p_x < 0.0f)
@@ -130,7 +130,7 @@ void CObjPlayer::Action()
 					p_x = 0.0f;
 				}
 
-				//�X�e�[�W��[����o�Ȃ��悤�ɂ���
+				//ステージ上端から出ないようにする
 				if (p_y < 0.0f)
 				{
 					battle = true;
@@ -138,14 +138,14 @@ void CObjPlayer::Action()
 					
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_y > 280.0f)
 				{
 					battle = true;
 					p_y = 280.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_x > 280.0f)
 				{
 					battle = true;
@@ -156,26 +156,26 @@ void CObjPlayer::Action()
 
 			if (num == 1)
 			{
-				//----------------�X�e�[�W����o�Ȃ��悤�ɂ���v���O����----------------------
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
 				if (p_x < 0.0f)
 				{
 					p_x = 0.0f;
 				}
 
-				//�X�e�[�W��[����o�Ȃ��悤�ɂ���
+				//ステージ上端から出ないようにする
 				if (p_y < 0.0f)
 				{
 					p_y = 0.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_y > 520.0f)
 				{
 					p_y = 520.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_x > 520.0f)
 				{
 					p_x = 520.0f;
@@ -185,26 +185,26 @@ void CObjPlayer::Action()
 
 			if (num == 2)
 			{
-				//----------------�X�e�[�W����o�Ȃ��悤�ɂ���v���O����----------------------
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
 				if (p_x < 0.0f)
 				{
 					p_x = 0.0f;
 				}
 
-				//�X�e�[�W��[����o�Ȃ��悤�ɂ���
+				//ステージ上端から出ないようにする
 				if (p_y < 0.0f)
 				{
 					p_y = 0.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_y > 480.0f)
 				{
 					p_y = 480.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_x > 480.0f)
 				{
 					p_x = 480.0f;
@@ -214,26 +214,26 @@ void CObjPlayer::Action()
 
 			if (num == 3)
 			{
-				//----------------�X�e�[�W����o�Ȃ��悤�ɂ���v���O����----------------------
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
 				if (p_x < 0.0f)
 				{
 					p_x = 0.0f;
 				}
 
-				//�X�e�[�W��[����o�Ȃ��悤�ɂ���
+				//ステージ上端から出ないようにする
 				if (p_y < 0.0f)
 				{
 					p_y = 0.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_y > 475.0f)
 				{
 					p_y = 475.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_x > 475.0f)
 				{
 					p_x = 475.0f;
@@ -243,26 +243,26 @@ void CObjPlayer::Action()
 
 			if (num == 4)
 			{
-				//----------------�X�e�[�W����o�Ȃ��悤�ɂ���v���O����----------------------
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//----------------ステージから出ないようにするプログラム----------------------
+				//ステージ左端から出ないようにする
 				if (p_x < 0.0f)
 				{
 					p_x = 0.0f;
 				}
 
-				//�X�e�[�W��[����o�Ȃ��悤�ɂ���
+				//ステージ上端から出ないようにする
 				if (p_y < 0.0f)
 				{
 					p_y = 0.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_y > 550.0f)
 				{
 					p_y = 550.0f;
 				}
 
-				//�X�e�[�W���[����o�Ȃ��悤�ɂ���
+				//ステージ下端から出ないようにする
 				if (p_x > 550.0f)
 				{
 					p_x = 550.0f;
@@ -432,7 +432,7 @@ void CObjPlayer::Action()
 }
 
 
-//�h���[
+//ドロー
 void CObjPlayer::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
@@ -440,7 +440,7 @@ void CObjPlayer::Draw()
 	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
 
-	//�\���F�v���C���[
+	//表示：プレイヤー
 	wchar_t str[256];
 
 
@@ -459,7 +459,7 @@ void CObjPlayer::Draw()
 		swprintf_s(str, L"%2d", atk);
 		Font::StrDraw(str, 730, 155, 30, c);
 
-		swprintf_s(str, L"Player HP");
+		swprintf_s(str, L"Player H");
 		Font::StrDraw(str, 642,200, 20, c);
 
 		swprintf_s(str, L"%2d", HP);
@@ -471,7 +471,7 @@ void CObjPlayer::Draw()
 	swprintf_s(str, L"%d",((UserData*)Save::GetData())->Hperfect);
 	Font::StrDraw(str, 0, 550, 30, c);
 
-	//�\���F�v���C���[
+	//表示：プレイヤー
 	RECT_F src;
 	RECT_F dst;
 

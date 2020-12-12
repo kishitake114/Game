@@ -46,22 +46,6 @@ void CObjTime::Action()
 	mou_l = Input::GetMouButtonL();
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-
-
-	//if (road2->s_r == true && mou_l == true)
-	//{
-	//	m_flag_time = true;
-	//}
-
-	//if (road3->s_r == true && mou_l == true)
-	//{
-	//	m_flag_time = true;
-	//}
-
-	//if (road4->s_r == true && mou_l == true)
-	//{
-	//	m_flag_time = true;
-	//}
 	
 	if (mou_r == true)
 	{
