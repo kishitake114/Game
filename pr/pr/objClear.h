@@ -26,4 +26,6 @@ private:
 	bool skip;
 	bool cont;
 
+	bool ed;
+
 };

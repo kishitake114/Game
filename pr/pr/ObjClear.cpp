@@ -25,6 +25,8 @@ void CObjClear::Init()
 
 	m_time = 0;
 	sigo = 0;
+
+	ed = false;
 }
 
 //アクション
@@ -57,23 +59,17 @@ void CObjClear::Action()
 	}
 	
 		m_time++;
-
-		if (m_time % 60 == 0)
-		{
-			sigo++;
-		}
 	
-		if (m_time >= 200&&m_y>-7900.0f)
-		{
-			m_y -= 2.0f;
-		}
-
-	if (m_time>=800)
+	
+	if (ed==true&&m_time >= 210&&m_y>-7900.0f)
 	{
-		if (mou_l == true)
-		{
-			//Scene::SetScene(new CSceneTitle());
-		}
+		m_y -= 2.5f;
+	}
+
+	if (ed==false&&m_time>480)
+	{
+		ed = true;
+		m_time = 0;
 	}
 }
 
@@ -89,6 +85,26 @@ void CObjClear::Draw()
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 
 	/*Font::StrDraw(L"GAME CLEAR!", 300, 200, 32, c);*/
+
+	if (ed == false)
+	{
+		if(m_time>=60)
+			Font::StrDraw(L"こうして無事モンスターを懲らしめ、道の修復を終えた勇者は、", 50, 125, 25, c);
+
+		if (m_time >= 120)
+			Font::StrDraw(L"　　　　　村の住民のみんなから感謝されました。　　　　　　", 50, 200, 25, c);
+
+		if (m_time >= 180)
+			Font::StrDraw(L"　　　　　　　こうして再び村に平和が訪れ,　　　　　　　　　", 50, 275, 25, c);
+
+		if (m_time >= 240)
+			Font::StrDraw(L"　　　勇者は家に帰るといきなり眠りについたとさ...　　　 ", 50, 350, 25, c);
+
+		if (m_time >= 300)
+			Font::StrDraw(L"　　　　　　　　　　　おしまい！　　　　　　　　　　　　　", 50, 425, 25, c);
+
+	}
+
 
 		Font::StrDraw(L"STAFF CREDIT", 250, 1000 + m_y, 40, c);
 
@@ -223,7 +239,7 @@ void CObjClear::Draw()
 	src.m_left = 0.0f;
 	src.m_right = 512.0f;
 	src.m_bottom = 380.0f;
-	if (m_time >= 130)
+	if (ed==true&&m_time >= 120)
 	{
 		dst.m_top = 100.0f + m_y;
 		dst.m_left = 200.0f;

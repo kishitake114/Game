@@ -24,7 +24,7 @@ private:
 	bool  mou_r;  //マウスボタン：右
 	bool  mou_l;  //マウスボタン：左
 
-	int title;
+	int m_time;
 	int Hcount;
 
 	int second;
@@ -34,6 +34,8 @@ private:
 	bool rup;
 	bool ldown;
 	bool rdown;
+
+	float slide;
 
 	bool hard;
 };
