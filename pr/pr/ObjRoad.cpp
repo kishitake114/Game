@@ -1777,7 +1777,7 @@ void CObjRoad::Draw()
 	}
 	else
 	{
-		if (player->HP == 10 && reset==0)
+		if (player->HP == 5 && reset==0)
 		{ 
 			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
 		}

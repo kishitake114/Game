@@ -2536,7 +2536,7 @@ void CObjStage2::Draw()
 	if (player->battle == false)
 	{
 
-		if (s_r == true)
+		if (s_r == true||set==true)
 		{
 			swprintf_s(str, L"RESET");
 			Font::StrDraw(str, 650, 500, 50, gl);
@@ -2551,7 +2551,7 @@ void CObjStage2::Draw()
 	}
 	else
 	{
-		if (player->HP == 10 && reset == 0 )
+		if (player->HP == 5 && reset == 0)
 		{
 			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
 		}

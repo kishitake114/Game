@@ -16,6 +16,10 @@ public:
 private:
 	float m_x;
 	float m_y;
+	float pf;
+
+	int P;
+
 	float mou_x;  //マウスカーソル：横
 	float mou_y;  //マウスカーソル：縦
 	bool  mou_r;  //マウスボタン：右

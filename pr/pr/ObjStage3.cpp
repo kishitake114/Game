@@ -3474,7 +3474,7 @@ void CObjStage3::Action()
 			player->battle = false;
 			Scene::SetScene(new CSceneStage4);
 
-			if (player->HP == 10 && reset == 0)
+			if (player->HP == 5 && reset == 0)
 			{
 				((UserData*)Save::GetData())->Hperfect++;
 			}

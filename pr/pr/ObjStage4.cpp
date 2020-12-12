@@ -40,7 +40,7 @@ void CObjStage4::Init()
 
 	f_p = false;
 
-	s_r = true;
+	s_r = false;
 	sei = false;
 
 	s_time = 240;
@@ -6006,7 +6006,7 @@ void CObjStage4::Draw()
 	}
 	else
 	{
-		if (player->HP == 10 && reset == 0)
+		if (player->HP == 5 && reset == 0)
 		{
 			Font::StrDraw(L"PERFECT", 600, 250, 30, y);
 		}

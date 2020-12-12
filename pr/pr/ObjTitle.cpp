@@ -27,6 +27,8 @@ void CObjTitle::Init()
 
 	slide = 0.0f;
 
+	P = 0;
+
 	hard = false;
 	story = false;
 
@@ -104,6 +106,12 @@ void CObjTitle::Action()
 			if (mou_l == true)
 			{
 				Scene::SetScene(new CSceneRule());
+				((UserData*)Save::GetData())->Hperfect = 0;
+			}
+
+			else if (mou_r == true)
+			{
+				Scene::SetScene(new CSceneMain());
 				((UserData*)Save::GetData())->Hperfect = 0;
 			}
 		}

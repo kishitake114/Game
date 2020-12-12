@@ -12,7 +12,8 @@ using namespace GameL;
 //イニシャライズ
 void CObjClear::Init()
 {
-	m_x = 170;
+
+	m_x = 100;
 	m_y = 100;
 
 	mou_x = 0.0f;
@@ -22,6 +23,10 @@ void CObjClear::Init()
 
 	skip = false;
 	cont = false;
+
+	P = 0;
+
+	pf = 0.0f;
 
 	m_time = 0;
 	sigo = 0;
@@ -58,12 +63,19 @@ void CObjClear::Action()
 		cont = false;
 	}
 	
-		m_time++;
+	if(ed==false)
+		m_time++;	
 	
 	
-	if (ed==true&&m_time >= 210&&m_y>-7900.0f)
+	if (ed == true && m_time >= 210&&m_y>-10000.0F)
 	{
-		m_y -= 2.5f;
+			m_y -= 2.5f;
+			m_x -= 2.5f;
+	}
+
+	if (ed == true && m_time <= 320)
+	{
+		m_time++;
 	}
 
 	if (ed==false&&m_time>480)
@@ -211,11 +223,28 @@ void CObjClear::Draw()
 		Font::StrDraw(L"TAKERU IWANAGA", 250, 7050 + m_y, 32, c);
 
 	//-------------------------------------------------------------	
-		Font::StrDraw(L"近畿コンピュータ電子専門学校", 180, 8200 + m_y, 32, c);
-		
+		Font::StrDraw(L"_____________________________", 150, 7500+ m_y, 32, c);
+		Font::StrDraw(L"CAST", 350, 7750+ m_y, 32, c);
+		Font::StrDraw(L"____", 350, 7751+ m_y, 32, c);
+
+		Font::StrDraw(L"HERO", 200, 7900 + m_y, 20, c);
+		Font::StrDraw(L"YUSYA", 250, 7950 + m_y, 32, c);
+
+		Font::StrDraw(L"STAGE1", 200, 8100 + m_y, 20, c);
+		Font::StrDraw(L"SLIME", 250, 8150 + m_y, 32, c);
+
+		Font::StrDraw(L"STAGE2", 200, 8300 + m_y, 20, c);
+		Font::StrDraw(L"GOBLIN", 250, 8350 + m_y, 32, c);
+
+		Font::StrDraw(L"STAGE3", 200, 8500 + m_y, 20, c);
+		Font::StrDraw(L"GOLEM", 250, 8550 + m_y, 32, c);
+
+		Font::StrDraw(L"STAGE4", 200, 8700 + m_y, 20, c);
+		Font::StrDraw(L"DRAGON", 250, 8750 + m_y, 32, c);
+
+
 		if (skip == true)
 		{
-			if(sigo%2==0)
 				Font::StrDraw(L"左クリックでタイトルへ戻る ", 530, 0, 18, c);	
 		}
 
@@ -229,6 +258,9 @@ void CObjClear::Draw()
 
 	swprintf_s(str, L"%f", m_y);
 	Font::StrDraw(str, 0, 570, 30, c);
+
+	swprintf_s(str, L"%f", m_x);
+	Font::StrDraw(str, 0, 530, 30, c);
 
 
 	//表示：タイトル画面
@@ -247,6 +279,135 @@ void CObjClear::Draw()
 		dst.m_bottom = 300.0f + m_y;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
+	}
+
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 45.0f;
+	src.m_bottom = 45.0f;
+
+	dst.m_top = 7950.0f+m_x;
+	dst.m_left = 400.0f - pf;
+	dst.m_right = 432.0f - pf;
+	dst.m_bottom = 7982.0f + m_x;
+
+	Draw::Draw(1, &src, &dst, c, 0.0f);
+
+	src.m_top = 50.0f;
+	src.m_left = 0.0f;
+	src.m_right = 45.0f;
+	src.m_bottom = 80.0f;
+
+	dst.m_top = 8150.0f + m_x;
+	dst.m_left = 400.0f - (pf * 2) - P;
+	dst.m_right = 432.0f - (pf * 2) - P;
+	dst.m_bottom = 8182.0f + m_x;
+
+	Draw::Draw(1, &src, &dst, c, 0.0f);
+
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 45.0f;
+	src.m_bottom = 50.0f;
+
+	dst.m_top = 8350.0f + m_x;
+	dst.m_left = 400.0f + (pf * 2) + P;
+	dst.m_right = 432.0f + (pf * 2) + P;
+	dst.m_bottom = 8382.0f + m_x;
+
+	Draw::Draw(3, &src, &dst, c, 0.0f);
+
+	src.m_top = 64.0f;
+	src.m_left = 10.0f;
+	src.m_right = 40.0f;
+	src.m_bottom = 84.0f;
+
+	dst.m_top = 8550.0f + m_x;
+	dst.m_left = 400.0f-(pf*3)-P;
+	dst.m_right = 432.0f - (pf * 3) - P;
+	dst.m_bottom = 8582.0f + m_x;
+
+	Draw::Draw(2, &src, &dst, c, 0.0f);
+
+	src.m_top = 10.0f;
+	src.m_left = 160.0f;
+	src.m_right = 190.0f;
+	src.m_bottom = 35.0f;
+
+	dst.m_top = 8750.0f + m_x;
+	dst.m_left = 400.0f + (pf * 3) + P;
+	dst.m_right = 432.0f + (pf * 3) + P;
+	dst.m_bottom = 8782.0f + m_x;
+
+	Draw::Draw(2, &src, &dst, c, 0.0f);
+
+	if (((UserData*)Save::GetData())->Hperfect == 4&&m_y<-10000.0f)
+	{
+		Font::StrDraw(L"THANK YOU!", 280, 200, 50, c);
+
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 45.0f;
+		src.m_bottom = 45.0f;
+
+		dst.m_top = 284.0f;
+		dst.m_left = 384.0f;
+		dst.m_right = 416.0f;
+		dst.m_bottom = 316.0f;
+
+		Draw::Draw(1, &src, &dst, c, 0.0f);
+
+		src.m_top = 50.0f;
+		src.m_left = 0.0f;
+		src.m_right = 45.0f;
+		src.m_bottom = 80.0f;
+
+		dst.m_top = 284.0f;
+		dst.m_left = 347.0f;
+		dst.m_right = 379.0f;
+		dst.m_bottom = 316.0f;
+
+		Draw::Draw(1, &src, &dst, c, 0.0f);
+
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 45.0f;
+		src.m_bottom = 50.0f;
+
+		dst.m_top = 284.0f;
+		dst.m_left = 421.0f;
+		dst.m_right = 453.0f;
+		dst.m_bottom = 316.0f;
+
+		Draw::Draw(3, &src, &dst, c, 0.0f);
+
+		src.m_top = 64.0f;
+		src.m_left = 10.0f;
+		src.m_right = 40.0f;
+		src.m_bottom = 84.0f;
+
+		dst.m_top = 284.0f;
+		dst.m_left = 310.0f;
+		dst.m_right = 342.0f;
+		dst.m_bottom = 316.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
+
+		src.m_top = 10.0f;
+		src.m_left = 160.0f;
+		src.m_right = 190.0f;
+		src.m_bottom = 35.0f;
+
+		dst.m_top = 284.0f;
+		dst.m_left = 458.0f;
+		dst.m_right = 490.0f;
+		dst.m_bottom = 316.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
+	}
+	else if(m_y<-10000.0f)
+	{
+		Font::StrDraw(L"END", 325, 275, 50, c);
 	}
 }
 	

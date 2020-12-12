@@ -34,6 +34,9 @@ void CSceneClear::InitScene()
 	Audio::LoadAudio(0, L"GameClear.wav", BACK_MUSIC);
 
 	Draw::LoadImage(L"rogo.png", 0, TEX_SIZE_512);
+	Draw::LoadImage(L"image.png", 1, TEX_SIZE_512);
+	Draw::LoadImage(L"image2.png", 2, TEX_SIZE_512);
+	Draw::LoadImage(L"image3.png", 3, TEX_SIZE_512);
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster(-0.8f);

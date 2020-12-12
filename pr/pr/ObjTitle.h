@@ -27,6 +27,8 @@ private:
 	int m_time;
 	int Hcount;
 
+	int P;
+
 	int second;
 	bool story;
 

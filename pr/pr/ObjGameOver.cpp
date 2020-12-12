@@ -20,7 +20,7 @@ void CObjGameOver::Init()
 {
 	hint = 0;
 	srand(time(NULL));
-	hint = rand() % 5;
+	hint = rand() % 7;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -164,13 +164,16 @@ void CObjGameOver::Draw()
 	Font::StrDraw(L"ヒント:", 70, 350, 30, c);
 
 	if (hint==0||hint==3)
-	Font::StrDraw(L"パズル操作中、左ボタン長押しでマウスを動かしてみて!", 180, 355, 20, c);
+	Font::StrDraw(L"パズル操作中、マウス左を長押しでマウスを動かしてみて!", 180, 355, 20, c);
 
 	if (hint == 1||hint==4)
-		Font::StrDraw(L"攻撃を取らず敵に当たるとダメージ喰らうよ!", 180, 355, 25, c);
+		Font::StrDraw(L"攻撃を取らず敵に当たるとダメージ受けるよ!", 180, 355, 25, c);
 
 	if (hint == 2)
 		Font::StrDraw(L"・・・・・・あ、寝てた。", 180, 355, 25, c);
+
+	if (hint == 6 || hint == 7)
+		Font::StrDraw(L"ゲームを始めるときにマウス右を押すとすぐにゲームを始めれる!", 180, 355, 20, c);
 	
 
 	Font::StrDraw(L"continue...?", 130, 500, 30, c);
