@@ -402,6 +402,7 @@ void CObjStage2::Action()
 		if (mou_r == true)
 		{
 			s_r = false;
+			player->s_p = true;
 			Enemy2->atk = false;
 		}
 		
@@ -2568,7 +2569,7 @@ void CObjStage2::Draw()
 		}
 
 
-		Font::StrDraw(L"Next", 650, 300, 25, c);
+		Font::StrDraw(L"次のステージへ", 650, 300, 25, c);
 	}
 	//表示：通行可
 

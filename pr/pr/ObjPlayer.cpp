@@ -70,7 +70,6 @@ void CObjPlayer::Action()
 
 	if (mou_r == true)
 	{
-			s_p = true;
 
 			memp_x = p_x;
 			memp_y = p_y;

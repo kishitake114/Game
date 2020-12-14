@@ -28,8 +28,8 @@ void CObjEnemy3::Init()
 	plx = 0;
 	ply = 3;
 
-	memx = 0;
-	memy = 0;
+	memx = 3;
+	memy = 1;
 
 	ran = 0;
 
@@ -59,12 +59,7 @@ void CObjEnemy3::Action()
 	{
 
 		plx = rand() % 4;
-		ply = rand() % 5;
-
-
-		plx = rand() % 4;
 		ply = rand() % 6;
-
 
 		if (memx == plx && memy == ply)
 		{
@@ -367,8 +362,6 @@ void CObjEnemy3::Action()
 
 	if (se == false)
 	{
-
-
 		//ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð’²‚×‚é
 		if (hit->CheckObjNameHit(OBJ_PLAYER) != nullptr)
 		{
@@ -397,15 +390,15 @@ void CObjEnemy3::Action()
 
 			Audio::Start(2);
 
-			for (int i = 0; i < 14; i++)
+			for (int i = 0; i < 20; i++)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j < 20; j++)
 				{
 					Road3->memmap[i][j] = Road3->map[i][j];
 				}
 			}
 
-			time->m_time = 3600;
+			time->m_time = 7200;
 
 			se = true;
 

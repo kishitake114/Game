@@ -473,7 +473,7 @@ void CObjStage5::Draw()
 	else
 	{
 		Font::StrDraw(L"Clear!!", 500, 250, 50, c);
-		Font::StrDraw(L"左クリックで次のステージへ", 450, 300, 25, c);
+		Font::StrDraw(L"次から本番だ！", 500, 300, 25, c);
 	}
 
 

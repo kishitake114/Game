@@ -397,6 +397,7 @@ void CObjStage4::Action()
 		if (mou_r == true)
 		{
 			s_r = false;
+			player->s_p = true;
 			Enemy4->atk = false;
 		}
 	
@@ -5897,7 +5898,7 @@ void CObjStage4::Action()
 		}
 
 	//リセットボタンのプログラム
-	if (s_r == false)
+	if (s_r == false&&set==true)
 		{
 			if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
 			{
@@ -6023,7 +6024,7 @@ void CObjStage4::Draw()
 		}
 
 
-		Font::StrDraw(L"Next", 650, 300, 25, c);
+		Font::StrDraw(L"次へ", 650, 300, 25, y);
 	}
 	//表示：通行可
 
