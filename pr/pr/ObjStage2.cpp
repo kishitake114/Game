@@ -2483,8 +2483,10 @@ void CObjStage2::Action()
 
 	if (player->battle == true)
 	{
-		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
+		if (mou_l == true)
 		{
+
+
 			player->battle = false;
 			Scene::SetScene(new CSceneStage3);
 
@@ -2492,8 +2494,8 @@ void CObjStage2::Action()
 			{
 				((UserData*)Save::GetData())->Hperfect++;
 			}
-		}
 
+		}
 
 
 
@@ -2572,7 +2574,7 @@ void CObjStage2::Draw()
 		}
 
 
-		Font::StrDraw(L"次のステージへ", 650, 300, 25, c);
+		Font::StrDraw(L"次のステージへ", 600, 300, 25, c);
 	}
 	//表示：通行可
 

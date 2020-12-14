@@ -169,19 +169,19 @@ void CObjRoad::Action()
 					}
 
 					//上
-					if (r > 45 && r < 135)
+					if (r > 50 && r < 140)
 					{
 						player->SetVY(y - SIZE);
 					}
 
 					//左
-					else if (r > 135 && r < 225)
+					else if (r > 140 && r < 230)
 					{
 						player->SetVX(x - SIZE);
 					}
 
 					//下
-					else if (r > 225 && r < 315)
+					else if (r > 230 && r < 320)
 					{
 						player->SetVY(y + SIZE);
 					}
@@ -1671,9 +1671,10 @@ void CObjRoad::Action()
 
 	if (player->battle == true)
 	{
-		
-		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
+		if (mou_l == true)
 		{
+
+
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
 
@@ -1681,10 +1682,9 @@ void CObjRoad::Action()
 			{
 				((UserData*)Save::GetData())->Hperfect++;
 			}
+
+			s_r = false;
 		}
-
-
-		s_r = false;
 	}
 
 	//リセットボタンのプログラム
@@ -1795,7 +1795,7 @@ void CObjRoad::Draw()
 		}
 			
 
-		Font::StrDraw(L"次のステージへ", 650, 300, 25, c);
+		Font::StrDraw(L"次のステージへ", 600, 300, 25, c);
 	}
 	//表示：通行可
 

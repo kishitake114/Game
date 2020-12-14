@@ -5933,7 +5933,7 @@ void CObjStage4::Action()
 
 	if (player->battle == true)
 	{
-		if (pxc > 444.0f && pxc < 765.0f && pyc>301 && pyc < 312)
+		if (mou_l == true)
 		{
 			player->battle = false;
 			Scene::SetScene(new CSceneClear);
@@ -6024,7 +6024,7 @@ void CObjStage4::Draw()
 		}
 
 
-		Font::StrDraw(L"Ÿ‚Ö", 650, 300, 25, y);
+		Font::StrDraw(L"Ÿ‚Ö", 600, 300, 25, y);
 	}
 	//•\¦F’Ês‰Â
 

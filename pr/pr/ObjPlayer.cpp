@@ -83,7 +83,7 @@ void CObjPlayer::Action()
 			{
 					//Audio::Start(1);
 				   
-					p_y -= 5.0f;
+					p_y -= 2.0f;
 					cs_x = 95.0f;
 					count = '-';
 
@@ -91,9 +91,9 @@ void CObjPlayer::Action()
 
 			else if (Input::GetVKey('A') == true || Input::GetVKey(VK_LEFT) == true)
 			{
-				   // Audio::Start(1);
+				  // Audio::Start(1);
 
-					p_x -= 5.0f;
+					p_x -=2.0f;
 					cs_x = 140.0f;
 					count = '-';
 
@@ -102,9 +102,9 @@ void CObjPlayer::Action()
 			
 			else if (Input::GetVKey('D') == true || Input::GetVKey(VK_RIGHT) == true)
 			{
-				   // Audio::Start(1);
+				   //Audio::Start(1);
 	
-					p_x += 5.0f;
+					p_x += 2.0f;
 					cs_x = 50.0f;
 					count = '-';
 	
@@ -112,9 +112,9 @@ void CObjPlayer::Action()
 
 			else if (Input::GetVKey('S') == true || Input::GetVKey(VK_DOWN) == true)
 			{
-				   // Audio::Start(1);
+				   //Audio::Start(1);
 			
-					p_y += 5.0f;
+					p_y += 2.0f;
 					cs_x = 0.0;
 					count = '-';
 
