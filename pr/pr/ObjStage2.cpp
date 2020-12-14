@@ -8,6 +8,7 @@
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
 #include "GameL/UserData.h"
+#include "GameL/Audio.h"
 
 #define PIECE 17
 #define SIZE 30.0f
@@ -19,6 +20,8 @@ using namespace GameL;
 void CObjStage2::Init()
 {
 	((UserData*)Save::GetData())->stage = 2;
+
+
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;

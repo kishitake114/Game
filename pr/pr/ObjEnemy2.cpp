@@ -349,9 +349,9 @@ void CObjEnemy2::Action()
 
 			Audio::Start(2);
 
-			for (int i = 0; i < 14; i++)
+			for (int i = 0; i < 17; i++)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j <17; j++)
 				{
 					Road2->memmap[i][j] = Road2->map[i][j];
 				}

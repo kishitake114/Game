@@ -18,9 +18,11 @@ using namespace GameL;
 //イニシャライズ
 void CObjGameOver::Init()
 {
+	((UserData*)Save::GetData())->stage = 2;
+
 	hint = 0;
 	srand(time(NULL));
-	hint = rand() % 7;
+	hint = rand() % 6;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -63,7 +65,7 @@ void CObjGameOver::Action()
 
 	if (Time % 60 == 0)
 	{
-		if (second > 0)
+		if (second >= 0)
 		{
 			second--;
 		}
@@ -135,9 +137,6 @@ void CObjGameOver::Draw()
 
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
-
-	swprintf_s(str, L"x=%f,y=%f", mou_x, mou_y);
-	Font::StrDraw(str, 50, 20, 15, c);
 
 	if (second < 4)
 	{

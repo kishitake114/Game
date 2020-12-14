@@ -496,9 +496,9 @@ void CObjEnemy4::Action()
 
 			Audio::Start(2);
 
-			for (int i = 0; i < 14; i++)
+			for (int i = 0; i < 26; i++)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j < 26; j++)
 				{
 					Road4->memmap[i][j] = Road4->map[i][j];
 				}
