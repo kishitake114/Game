@@ -353,30 +353,28 @@ void CObjPlayer::Action()
 
 		Time->m_flag_time = true;
 
-		if (cs_x == 0.0f)
+		if (p_x - 40.0f <= 0.0f)
 		{
-			p_y = 475.0f;
+			p_x = 0.0f;
 			cs_x = 95.0f;
 		}
 
-		if (cs_x == 50.0f)
+		if (p_x + 40.0f >= 475.0f)
 		{
-			p_x = 0.0f;
+			p_x = 475.0f;
 			cs_x = 140.0f;
 		}
 
-		if (cs_x == 95.0f)
+		if (p_y - 40.0f <= 0.0f)
 		{
 			p_y = 0.0f;
 			cs_x = 0.0f;
 		}
 
-
-		if (cs_x == 140.0f)
-
+		if (p_y + 40.0f >= 475.0f)
 		{
-			p_x = 0.0f;
-			cs_x = 50.0f;
+			p_y = 475.0f;
+
 		}
 	}
 
@@ -385,34 +383,36 @@ void CObjPlayer::Action()
 		s_p = true;
 
 		memp_x = p_x;
+
+		//550
 		memp_y = p_y;
 
 		s_p = false;
 		road4->s_r = true;
 		Time->m_flag_time = true;
 
-		if (cs_x == 0.0f)
+		if (p_x - 40.0f <= 0.0f)
 		{
-			p_y = 550.0f;
+			p_x = 0.0f;
 			cs_x = 95.0f;
 		}
 
-		if (cs_x == 50.0f)
+		if (p_x + 40.0f >= 550.0f)
 		{
 			p_x = 550.0f;
 			cs_x = 140.0f;
 		}
 
-		if (cs_x == 95.0f)
+		if (p_y - 40.0f <= 0.0f)
 		{
 			p_y = 0.0f;
 			cs_x = 0.0f;
 		}
 
-		if (cs_x == 140)
+		if (p_y + 40.0f >= 550.0f)
 		{
-			p_x = 0.0f;
-			cs_x = 50.0f;
+			p_y = 550.0f;
+
 		}
 	}
 	if (HP <= 0)
@@ -458,7 +458,7 @@ void CObjPlayer::Draw()
 		swprintf_s(str, L"%2d", atk);
 		Font::StrDraw(str, 730, 155, 30, c);
 
-		swprintf_s(str, L"Player H");
+		swprintf_s(str, L"Player HP");
 		Font::StrDraw(str, 642,200, 20, c);
 
 		swprintf_s(str, L"%2d", HP);

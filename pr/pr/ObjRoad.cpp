@@ -1703,7 +1703,7 @@ void CObjRoad::Action()
 				}
 
 				time->m_time = 3600;
-				time->m_flag_time = false;
+				time->m_flag_time = true;
 
 				s_r = true;
 
