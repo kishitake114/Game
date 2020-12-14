@@ -164,6 +164,7 @@ void CObjStage5::Action()
 		if (mou_r == true)
 		{
 			s_r = false;
+			player->s_p = true;
 		}
 
 		//1—ñ–Ú1ƒ}ƒX–Ú
