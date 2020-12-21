@@ -7,6 +7,7 @@
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
 #include "GameL/UserData.h"
+#include "GameL/Audio.h"
 
 #define PIECE 14
 #define SIZE 40.0f
@@ -123,6 +124,7 @@ void CObjRoad::Action()
 		}
 		if (second == 0)
 		{
+			Audio::Start(0);
 			s_r = true;
 			set = true;
 			time->m_flag_time = true;
@@ -1671,9 +1673,10 @@ void CObjRoad::Action()
 
 	if (player->battle == true)
 	{
+		Audio::Stop(0);
 		if (mou_l == true)
 		{
-
+		
 
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
@@ -1725,13 +1728,13 @@ void CObjRoad::Action()
 void CObjRoad::Draw()
 {
 
-	float c[4]  = { 1.0f,1.0f,1.0f,1.0f };
-	float r[4]  = { 1.0f,0.0f,0.0f,1.0f };
-	float g[4]  = { 0.0f,1.0f,0.0f,1.0f };
-	float b[4]  = { 0.0f,0.0f,1.0f,1.0f };
-	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
-	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
-	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
+	float c [4]  = { 1.0f,1.0f,1.0f,1.0f };
+	float r [4]  = { 1.0f,0.0f,0.0f,1.0f };
+	float g [4]  = { 0.0f,1.0f,0.0f,1.0f };
+	float b [4]  = { 0.0f,0.0f,1.0f,1.0f };
+	float gl[4]  = { 0.3f,0.3f,0.3f,1.0f };
+	float y [4]  = { 1.0f,1.0f,0.0f,1.0f };
+	float p [4]  = { 1.0f,0.5f,0.5f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;

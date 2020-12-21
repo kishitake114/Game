@@ -9,6 +9,7 @@
 #include "GameL/SceneObjManager.h"
 #include "GameL/UserData.h"
 #include "GameL/Audio.h"
+#include "SceneStage2.h"
 
 #define PIECE 17
 #define SIZE 30.0f
@@ -20,8 +21,6 @@ using namespace GameL;
 void CObjStage2::Init()
 {
 	((UserData*)Save::GetData())->stage = 2;
-
-
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -45,11 +44,9 @@ void CObjStage2::Init()
 	second = 4;
 	set = false;
 
-
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	
-
 	player->num = 2;
 
 	player->p_x = 0.0f;
@@ -110,7 +107,6 @@ void CObjStage2::Action()
 
 	//mapにアクセス
 
-
 	if (set == false)
 	{
 		s_time--;
@@ -120,6 +116,7 @@ void CObjStage2::Action()
 		}
 		if (second == 0)
 		{
+			Audio::Start(0);
 			s_r = true;
 			set = true;
 			time->m_flag_time = true;
@@ -2483,10 +2480,10 @@ void CObjStage2::Action()
 
 	if (player->battle == true)
 	{
+		Audio::Stop(0);
+
 		if (mou_l == true)
 		{
-
-
 			player->battle = false;
 			Scene::SetScene(new CSceneStage3);
 
@@ -2541,7 +2538,7 @@ void CObjStage2::Draw()
 
 	if (player->battle == false)
 	{
-
+		Audio::Stop(0);
 		if (s_r == true||set==true)
 		{
 			swprintf_s(str, L"RESET");

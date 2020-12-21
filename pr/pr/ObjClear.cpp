@@ -12,8 +12,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjClear::Init()
 {
-
-	m_x = 100;
 	m_y = 100;
 
 	mou_x = 0.0f;
@@ -32,6 +30,8 @@ void CObjClear::Init()
 	sigo = 0;
 
 	ed = false;
+
+	((UserData*)Save::GetData())->Hperfect = 4;
 }
 
 //アクション
@@ -67,10 +67,9 @@ void CObjClear::Action()
 		m_time++;	
 	
 	
-	if (ed == true && m_time >= 210&&m_y>-10000.0F)
+	if (ed == true && m_time >= 210&&m_y>-9300.0F)
 	{
 			m_y -= 2.5f;
-			m_x -= 2.5f;
 	}
 
 	if (ed == true && m_time <= 320)
@@ -286,10 +285,10 @@ void CObjClear::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 45.0f;
 
-	dst.m_top = 7950.0f+m_x;
+	dst.m_top = 7950.0f+m_y;
 	dst.m_left = 400.0f - pf;
 	dst.m_right = 432.0f - pf;
-	dst.m_bottom = 7982.0f + m_x;
+	dst.m_bottom = 7982.0f + m_y;
 
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
@@ -298,10 +297,10 @@ void CObjClear::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 80.0f;
 
-	dst.m_top = 8150.0f + m_x;
+	dst.m_top = 8150.0f + m_y;
 	dst.m_left = 400.0f - (pf * 2) - P;
 	dst.m_right = 432.0f - (pf * 2) - P;
-	dst.m_bottom = 8182.0f + m_x;
+	dst.m_bottom = 8182.0f + m_y;
 
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
@@ -310,10 +309,10 @@ void CObjClear::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 50.0f;
 
-	dst.m_top = 8350.0f + m_x;
+	dst.m_top = 8350.0f + m_y;
 	dst.m_left = 400.0f + (pf * 2) + P;
 	dst.m_right = 432.0f + (pf * 2) + P;
-	dst.m_bottom = 8382.0f + m_x;
+	dst.m_bottom = 8382.0f + m_y;
 
 	Draw::Draw(3, &src, &dst, c, 0.0f);
 
@@ -322,10 +321,10 @@ void CObjClear::Draw()
 	src.m_right = 40.0f;
 	src.m_bottom = 84.0f;
 
-	dst.m_top = 8550.0f + m_x;
+	dst.m_top = 8550.0f + m_y;
 	dst.m_left = 400.0f-(pf*3)-P;
 	dst.m_right = 432.0f - (pf * 3) - P;
-	dst.m_bottom = 8582.0f + m_x;
+	dst.m_bottom = 8582.0f + m_y;
 
 	Draw::Draw(2, &src, &dst, c, 0.0f);
 
@@ -334,16 +333,16 @@ void CObjClear::Draw()
 	src.m_right = 190.0f;
 	src.m_bottom = 35.0f;
 
-	dst.m_top = 8750.0f + m_x;
+	dst.m_top = 8750.0f + m_y;
 	dst.m_left = 400.0f + (pf * 3) + P;
 	dst.m_right = 432.0f + (pf * 3) + P;
-	dst.m_bottom = 8782.0f + m_x;
+	dst.m_bottom = 8782.0f + m_y;
 
 	Draw::Draw(2, &src, &dst, c, 0.0f);
 
-	if (((UserData*)Save::GetData())->Hperfect == 4&&m_y<-10000.0f)
+	if (((UserData*)Save::GetData())->Hperfect == 4&&m_y<-9250.0f)
 	{
-		Font::StrDraw(L"THANK YOU!", 280, 200, 50, c);
+		Font::StrDraw(L"THANK YOU!", 280, 200, 50, y);
 
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
@@ -405,7 +404,7 @@ void CObjClear::Draw()
 
 		Draw::Draw(2, &src, &dst, c, 0.0f);
 	}
-	else if(m_y<-10000.0f)
+	else if(m_y<-9250.0f)
 	{
 		Font::StrDraw(L"END", 325, 275, 50, c);
 	}

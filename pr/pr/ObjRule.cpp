@@ -6,6 +6,7 @@
 #include "GameHead.h"
 #include "GameL/Audio.h"
 #include "ObjRule.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -41,6 +42,7 @@ void CObjRule::Action()
 					}
 					else if (Image == 3)
 					{
+						Audio::Stop(0);
 						Scene::SetScene(new CSceneStage5());
 					}
 				}

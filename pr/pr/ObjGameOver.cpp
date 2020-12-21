@@ -22,7 +22,7 @@ void CObjGameOver::Init()
 
 	hint = 0;
 	srand(time(NULL));
-	hint = rand() % 6;
+	hint = rand() % 8;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -34,7 +34,7 @@ void CObjGameOver::Init()
 	pyc = 0.0f;
 
 	Time = 600;
-	second = 10;
+	second = 11;
 }
 
 //アクション
@@ -62,7 +62,7 @@ void CObjGameOver::Action()
 		f_p = true;
 
 	}
-
+	 
 	if (Time % 60 == 0)
 	{
 		if (second >= 0)
@@ -138,21 +138,21 @@ void CObjGameOver::Draw()
 	//表示：マウスカーソルとボタン
 	wchar_t str[256];
 
-	if (second < 4)
+	if (second < 5)
 	{
-		swprintf_s(str, L"%2d", second);
+		swprintf_s(str, L"%2d", second-1);
 		Font::StrDraw(str , 650, 200, 100, r);
 	}
 
-	else if (second < 6)
+	else if (second < 7)
 	{
-		swprintf_s(str, L"%2d", second);
+		swprintf_s(str, L"%2d", second-1);
 		Font::StrDraw(str, 650, 200, 100, y);
 	}
 
 	else
 	{
-		swprintf_s(str, L"%2d", second);
+		swprintf_s(str, L"%2d", second-1);
 		Font::StrDraw(str,650 , 200, 100, c);
 	}
 
@@ -173,6 +173,9 @@ void CObjGameOver::Draw()
 
 	if (hint == 6 || hint == 7)
 		Font::StrDraw(L"ゲームを始めるときにマウス右を押すとすぐにゲームを始めれる!", 180, 355, 20, c);
+
+	if (hint == 5)
+		Font::StrDraw(L"PERFECTを狙おう！ライフを取っても狙える！", 180, 355, 20, c);
 	
 
 	Font::StrDraw(L"continue...?", 130, 500, 30, c);

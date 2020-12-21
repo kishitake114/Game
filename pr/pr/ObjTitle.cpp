@@ -6,6 +6,7 @@
 #include "GameHead.h"
 #include "ObjTitle.h"
 #include "GameL/UserData.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -105,12 +106,14 @@ void CObjTitle::Action()
 
 			if (mou_l == true)
 			{
+				Audio::Stop(0);
 				Scene::SetScene(new CSceneRule());
 				((UserData*)Save::GetData())->Hperfect = 0;
 			}
 
 			else if (mou_r == true)
 			{
+				Audio::Stop(0);
 				Scene::SetScene(new CSceneMain());
 				((UserData*)Save::GetData())->Hperfect = 0;
 			}

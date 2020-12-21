@@ -40,17 +40,9 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(2, L"剣.wav", ::EFFECT);
 
 	float Volume = Audio::VolumeMaster(-0.8f);
-	Audio::Start(0);
-
-
 
 	//Font作成
 	Font::SetStrTex(L"0123456789分秒");
-	
-	//外部データの読み込み（ステージ情報）
-	unique_ptr<wchar_t> p; //ステージ情報ポインター
-	int size;			   //ステージ情報大きさ
-	p = Save::ExternalDataOpen(L"k.csv", &size);//外部データ読み込み
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"stage0,1background.png", 1, TEX_SIZE_512);
