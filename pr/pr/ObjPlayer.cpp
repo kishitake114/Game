@@ -50,7 +50,6 @@ void CObjPlayer::Init()
 //アクション
 void CObjPlayer::Action()
 {
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
 	CObjStage2* road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
 	CObjStage3* road3 = (CObjStage3*)Objs::GetObj(OBJ_STAGE3);

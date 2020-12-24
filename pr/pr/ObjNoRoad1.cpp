@@ -1,24 +1,22 @@
-#include "ObjNoRoad0.h"
-#include "ObjStage5.h"
+#include "ObjNoRoad1.h"
+#include "ObjRoad.h"
 #include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 
-#define NUM 8
+#define NUM 14
 #define SIZE 40.0f
 
-void CObjNoRoad0::Init()
+void CObjNoRoad1::Init()
 {
-
 }
 
-void CObjNoRoad0::Action()
+void CObjNoRoad1::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
 	float px = player->GetX();
 	float py = player->GetY();
-
-	CObjStage5* road = (CObjStage5*)Objs::GetObj(OBJ_STAGE5);
 
 	for (int i = 0; i < NUM; i++)
 	{
@@ -88,7 +86,7 @@ void CObjNoRoad0::Action()
 	}
 }
 
-void CObjNoRoad0::Draw()
+void CObjNoRoad1::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 

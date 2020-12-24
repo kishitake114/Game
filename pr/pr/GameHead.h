@@ -112,7 +112,6 @@ struct UserData
 #include "ObjStage4.h"
 #include "ObjStage5.h"
 #include "ObjTime.h"
-#include "ObjItem.h"
 #include "ObjEnemy2.h"
 #include "ObjEnemy3.h"
 #include "ObjEnemy4.h"
@@ -126,7 +125,7 @@ struct UserData
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
-#include "SceneMain.h"
+#include "SceneStage1.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
 #include "SceneClear.h"
@@ -143,5 +142,5 @@ struct UserData
 //シーンスタートクラス---------------------------
 
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START   CSceneMain
+#define SET_GAME_START   CSceneStage1
 //-----------------------------------------------

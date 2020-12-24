@@ -46,9 +46,6 @@
     <ClCompile Include="ObjRoad.cpp">
       <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClCompile>
     <ClCompile Include="SceneStage2.cpp">
       <Filter>自作\ステージ\Stage2</Filter>
     </ClCompile>
@@ -93,9 +90,6 @@
     </ClCompile>
     <ClCompile Include="ObjClear.cpp">
       <Filter>自作\ゲームクリア</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjItem.cpp">
-      <Filter>自作\アイテム</Filter>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
       <Filter>自作\タイトル</Filter>
@@ -148,6 +142,12 @@
     <ClCompile Include="ObjNoRoad0.cpp">
       <Filter>自作\ステージ\stage01\Stage5</Filter>
     </ClCompile>
+    <ClCompile Include="SceneStage1.cpp">
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjNoRoad1.cpp">
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -193,9 +193,6 @@
       <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="ObjRoad.h">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneMain.h">
       <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage2.h">
@@ -246,9 +243,6 @@
     <ClInclude Include="SceneClear.h">
       <Filter>自作\ゲームクリア</Filter>
     </ClInclude>
-    <ClInclude Include="ObjItem.h">
-      <Filter>自作\アイテム</Filter>
-    </ClInclude>
     <ClInclude Include="ObjTitle.h">
       <Filter>自作\タイトル</Filter>
     </ClInclude>
@@ -297,6 +291,12 @@
     <ClInclude Include="ObjNoRoad0.h">
       <Filter>自作\ステージ\stage01\Stage5</Filter>
     </ClInclude>
+    <ClInclude Include="SceneStage1.h">
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad1.h">
+      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="自作">
@@ -319,9 +319,6 @@
     </Filter>
     <Filter Include="自作\ゲームクリア">
       <UniqueIdentifier>{7af1eacb-2ec9-487c-9889-d558007c15f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\アイテム">
-      <UniqueIdentifier>{69a92082-134d-42c0-b523-8e8609d6bf02}</UniqueIdentifier>
     </Filter>
     <Filter Include="自作\タイム">
       <UniqueIdentifier>{afa02b7e-9c19-4d92-abe6-e4b308f1dd10}</UniqueIdentifier>

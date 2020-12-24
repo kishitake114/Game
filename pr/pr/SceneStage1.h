@@ -6,11 +6,11 @@
 using namespace GameL;
 
 //シーン：ゲームメイン
-class CSceneMain :public CScene
+class CSceneStage1:public CScene
 {
 	public:
-		CSceneMain();
-		~CSceneMain();
+		CSceneStage1();
+		~CSceneStage1();
 		void InitScene();	//初期化
 		void Scene();		//実行中
 	private:

@@ -361,7 +361,7 @@ void CObjStage5::Action()
 		if (mou_l == true)
 		{
 			player->battle = false;
-			Scene::SetScene(new CSceneMain);
+			Scene::SetScene(new CSceneStage1);
 		}
 	}
 

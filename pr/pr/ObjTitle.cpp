@@ -114,7 +114,7 @@ void CObjTitle::Action()
 			else if (mou_r == true)
 			{
 				Audio::Stop(0);
-				Scene::SetScene(new CSceneMain());
+				Scene::SetScene(new CSceneStage1());
 				((UserData*)Save::GetData())->Hperfect = 0;
 			}
 		}

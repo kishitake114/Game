@@ -12,7 +12,7 @@
 using namespace GameL;
 
 //使用するヘッダー
-#include "SceneMain.h"
+#include "SceneStage1.h"
 #include "GameHead.h"
 #include "Objplayer.h"
 #include "hardstage1.h"

@@ -87,7 +87,7 @@ void CObjGameOver::Action()
 			if (mou_l == true)
 			{
 				((UserData*)Save::GetData())->Hperfect = 0;
-				Scene::SetScene(new CSceneMain());
+				Scene::SetScene(new CSceneStage1());
 			}
 		}
 	}

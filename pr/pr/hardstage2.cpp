@@ -90,7 +90,6 @@ void CObjHardStage2::Init()
 
 void CObjHardStage2::Action()
 {
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);

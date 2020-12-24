@@ -12,7 +12,8 @@
 using namespace GameL;
 
 //使用するヘッダー
-#include "SceneMain.h"
+#include "SceneStage1.h"
+#include "ObjNoRoad1.h"
 #include "GameHead.h"
 #include "Objplayer.h"
 #include "ObjRoad.h"
@@ -21,17 +22,17 @@ using namespace GameL;
 
 
 //コンストラクタ
-CSceneMain::CSceneMain()
+CSceneStage1::CSceneStage1()
 {
 }
 
 //デストラクタ
-CSceneMain::~CSceneMain()
+CSceneStage1::~CSceneStage1()
 {
 }
 
 //ゲームメイン初期化
-void CSceneMain::InitScene()
+void CSceneStage1::InitScene()
 {		
 	Audio::LoadAudio(0, L"Stage1.wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -61,10 +62,13 @@ void CSceneMain::InitScene()
 
 	CObjBackGround01* CObbg = new 	CObjBackGround01();
 	Objs::InsertObj(CObbg, OBJ_BACKGROUND01, 1);
+
+	CObjNoRoad1* CObjN = new CObjNoRoad1();
+	Objs::InsertObj(CObjN, OBJ_NO_ROAD1, 2);
 }
 
 //ゲームメイン実行中
-void CSceneMain::Scene()
+void CSceneStage1::Scene()
 {
 
 

@@ -45,7 +45,6 @@ void CObjStage2::Init()
 	set = false;
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	
 	player->num = 2;
 
@@ -97,7 +96,6 @@ void CObjStage2::Init()
 //ƒAƒNƒVƒ‡ƒ“
 void CObjStage2::Action()
 {
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
 	CObjEnemy2* Enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
