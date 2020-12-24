@@ -145,6 +145,9 @@
     <ClCompile Include="ObjHardEnemy2.cpp">
       <Filter>自作\ハードステージ\ハードステージ２</Filter>
     </ClCompile>
+    <ClCompile Include="ObjNoRoad0.cpp">
+      <Filter>自作\ステージ\stage01\Stage5</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -290,6 +293,9 @@
     </ClInclude>
     <ClInclude Include="ObjHardEnemy2.h">
       <Filter>自作\ハードステージ\ハードステージ２</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad0.h">
+      <Filter>自作\ステージ\stage01\Stage5</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

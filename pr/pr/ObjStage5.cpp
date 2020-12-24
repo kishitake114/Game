@@ -65,67 +65,7 @@ void CObjStage5::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	//mapにアクセス
-	for (int i = 0; i < 8; i++)
-	{
-		for (int j = 0; j < 8; j++)
-		{
-			if (map[i][j] < 2)
-			{
-				float x = j * 40.0f;
-				float y = i * 40.0f;
-
-				if ((px + 40.0f > x)&&(px < x + 40.0f)&& (py + 40.0f > y) && (py < y + 40.0f))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					//上
-					if (r > 45 && r < 135)
-					{
-						player->SetVY(y - 40.0f);
-					}
-
-					//左
-					else if (r > 135 && r < 225 )
-					{
-						player->SetVX(x - 40.0f);
-					}
-
-					//下
-					else if (r > 225 && r < 315)
-					{
-						player->SetVY(y + 40.0f);
-					}
-
-					else
-					{
-						player->SetVX(x + 40.0f);
-					}
-
-				}
-			}
-			ht=false;
 	
-
-		}
-	}
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -462,17 +402,12 @@ void CObjStage5::Draw()
 		{
 			Font::StrDraw(L"Road", 600, 30, 40, r);
 		}
-
-
 	}
 	else
 	{
 		Font::StrDraw(L"Clear!!", 500, 250, 50, c);
 		Font::StrDraw(L"次から本番だ！", 500, 300, 25, c);
 	}
-
-
-
 
 	//表示：通行可
 
@@ -499,27 +434,5 @@ void CObjStage5::Draw()
 		}
 	}
 
-	//表示：通行不可
 
-	src.m_top = 90.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
-	src.m_bottom = 125.0f;
-
-	for (int i = 0; i < 8; i++)
-	{
-		for (int j = 0; j < 8; j++)
-		{
-			if (map[i][j] == 1)
-			{
-				dst.m_top = i * 40.0f;
-				dst.m_left = j * 40.0f;
-				dst.m_right = dst.m_left + 40.0f;
-				dst.m_bottom = dst.m_top + 40.0f;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
 }

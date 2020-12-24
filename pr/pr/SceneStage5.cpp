@@ -14,6 +14,7 @@
 #include "GameHead.h"
 #include "ObjStage5.h"
 #include "Background01.h"
+#include "ObjNoRoad0.h"
 
 //コンストラクタ
 CSceneStage5::CSceneStage5()
@@ -46,6 +47,9 @@ void CSceneStage5::InitScene()
 
 	CObjBackGround01* CObbg = new 	CObjBackGround01();
 	Objs::InsertObj(CObbg, OBJ_BACKGROUND01, 0);
+
+	CObjNoRoad0* CObjN = new CObjNoRoad0();
+	Objs::InsertObj(CObjN, 	OBJ_NO_ROAD0, 1);
 
 }
 

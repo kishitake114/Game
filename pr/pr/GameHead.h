@@ -44,6 +44,12 @@ enum OBJ_NAME
 	OBJ_HARD_STAGE3,
 	OBJ_HARD_STAGE4,
 	OBJ_HARD_STAGE5,
+
+	OBJ_NO_ROAD0,
+	OBJ_NO_ROAD1,
+	OBJ_NO_ROAD2,
+	OBJ_NO_ROAD3,
+	OBJ_NO_ROAD4,
 };
 //------------------------------------------------
 
@@ -90,8 +96,12 @@ struct UserData
 
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjPlayer.h"
+
 #include "ObjTitle.h"
+
 #include "ObjRoad.h"
+#include "ObjNoRoad0.h"
+
 #include "ObjGameOver.h"
 #include "ObjEnemy.h"
 #include "ObjClear.h"
@@ -133,5 +143,5 @@ struct UserData
 //シーンスタートクラス---------------------------
 
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START   CSceneClear
+#define SET_GAME_START   CSceneMain
 //-----------------------------------------------
