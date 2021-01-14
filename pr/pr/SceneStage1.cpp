@@ -17,7 +17,6 @@ using namespace GameL;
 #include "GameHead.h"
 #include "Objplayer.h"
 #include "ObjRoad.h"
-#include "ObjItem.h"
 #include "Background01.h"
 
 

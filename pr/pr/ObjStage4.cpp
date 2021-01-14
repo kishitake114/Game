@@ -99,8 +99,6 @@ void CObjStage4::Init()
 //アクション
 void CObjStage4::Action()
 {
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
-	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjEnemy4* Enemy4 = (CObjEnemy4*)Objs::GetObj(OBJ_ENEMY4);
@@ -118,7 +116,6 @@ void CObjStage4::Action()
 		{
 			s_r = true;
 			set = true;
-			time->m_flag_time = true;
 		}
 
 	}
@@ -5896,6 +5893,7 @@ void CObjStage4::Action()
 			}
 		}
 		}
+		CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
 	//リセットボタンのプログラム
 	if (s_r == false&&set==true)
