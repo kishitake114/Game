@@ -40,7 +40,7 @@ void CObjClear::Action()
 	mou_r = Input::GetMouButtonR();
 	mou_l = Input::GetMouButtonL();
 
-	if (mou_l==true)
+	if (mou_r==true)
 	{
 		if (cont == false)
 		{
@@ -87,7 +87,6 @@ void CObjClear::Draw()
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 
-	/*Font::StrDraw(L"GAME CLEAR!", 300, 200, 32, c);*/
 
 	if (ed == false)
 	{
@@ -107,12 +106,112 @@ void CObjClear::Draw()
 			Font::StrDraw(L"　　　　　　　　　　　おしまい！　　　　　　　　　　　　　", 50, 425, 25, c);
 
 	}
+	else
+	{
+		if(m_time>=120&&m_time<=240)
+		Font::StrDraw(L"STAFF CREDIT", 250, 310, 40, c);
 
-	Font::StrDraw(L"STAFF CREDIT", 250, 1000 + m_y, 40, c);
+		//スタッフクレジット　チーム
+		if (m_time >= 250 && m_time <= 470)
+		{
+			Font::StrDraw(L"チーム", 280, 80, 15, c);
+			Font::StrDraw(L"ジャンケン弱者", 300, 100, 30, c);
+
+			Font::StrDraw(L"総合ディレクター", 250, 150, 15, c);
+			Font::StrDraw(L"岸本　偉", 300, 170, 30, c);
+
+			Font::StrDraw(L"プランナーディレクター", 250, 220, 15, c);
+			Font::StrDraw(L"竹之下　涼馬", 300, 240, 30, c);
+
+			Font::StrDraw(L"プログラムディレクター", 250, 290, 15, c);
+			Font::StrDraw(L"中辻　祭斗史", 300, 310, 30, c);
+
+			Font::StrDraw(L"デザインディレクター", 250, 360, 15, c);
+			Font::StrDraw(L"林　雄大", 300, 380, 30, c);
+
+			Font::StrDraw(L"サウンドディレクター", 250, 430, 15, c);
+			Font::StrDraw(L"南　陸玖", 300, 450, 30, c);
+
+
+		}
+
+		//スタッフクレジット　ソフト
+		if (m_time >= 480 && m_time <= 700)
+		{
+			Font::StrDraw(L"ソフト", 325, 100, 30, c);
+
+			Font::StrDraw(L"Visual Studio 2019", 250, 150, 30, c);
+
+			Font::StrDraw(L"Git Hub", 250, 200, 30, c);
+
+			Font::StrDraw(L"Power Point", 250, 250, 30, c);
+
+			Font::StrDraw(L"Ward", 250, 300, 30, c);
+
+			Font::StrDraw(L"Excel", 250, 350, 30, c);
+
+			Font::StrDraw(L"Trello", 250, 400, 30, c);
+
+
+		}
+
+		//スタッフクレジット　スペシャルサンクスその1
+		if (m_time >= 710 && m_time <= 930)
+		{
+			Font::StrDraw(L"スペシャルサンクス", 250, 100, 30, c);
+
+			Font::StrDraw(L"サポート", 250, 200, 15, c);
+			Font::StrDraw(L"田中　喜人", 300, 220, 30, c);
+			Font::StrDraw(L"先生", 450, 240, 20, c);
+
+			Font::StrDraw(L"アドバイス", 250, 290, 15, c);
+			Font::StrDraw(L"木村　尽志", 300, 310, 30, c);
+			Font::StrDraw(L"先生", 450, 330, 20, c);
+		}
+
+		//スタッフクレジット　スペシャルサンクスその2
+		if (m_time >= 940 && m_time <= 1160)
+		{
+			Font::StrDraw(L"スペシャルサンクス", 250, 100, 30, c);
+			Font::StrDraw(L"　 テストプレイ", 250, 140, 30, c);
+
+			Font::StrDraw(L"岩永　猛", 200, 200, 25, c);
+
+			Font::StrDraw(L"岩本　悠生", 500, 200, 25, c);
+
+			Font::StrDraw(L"上田　茂樹", 200, 240, 25, c);
+
+			Font::StrDraw(L"桶谷　光城", 500, 240, 25, c);
+
+			Font::StrDraw(L"杉下　友一", 200, 280, 25, c);
+
+			Font::StrDraw(L"田畑　拓大", 500, 280, 25, c);
+
+			Font::StrDraw(L"富永　綾斗", 200, 320, 20, c);
+
+			Font::StrDraw(L"仲宗根　颯汰", 500, 320, 20, c);
+
+			Font::StrDraw(L"永原　颯人", 200, 360, 20, c);
+
+			Font::StrDraw(L"藤田　隆平", 500, 360, 20, c);
+
+			Font::StrDraw(L"本山　佑亮", 200, 400, 20, c);
+
+			Font::StrDraw(L"山口　真優", 500, 400, 20, c);
+
+			Font::StrDraw(L"山田　陵人", 200, 440, 20, c);
+		}
+		if (m_time >= 1170)
+		{
+			Font::StrDraw(L"END", 325, 235, 50, c);
+		}
+
+	}
+	
 
 	if (skip == true)
 	{
-		Font::StrDraw(L"左クリックでタイトルへ戻る ", 530, 0, 18, c);
+		Font::StrDraw(L"右クリックでタイトルへ戻る ", 530, 0, 18, c);
 	}
 
 	wchar_t str[256];
@@ -139,136 +238,7 @@ void CObjClear::Draw()
 		dst.m_bottom = 300.0f;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
-		//}
 
-		//src.m_top = 0.0f;
-		//src.m_left = 0.0f;
-		//src.m_right = 45.0f;
-		//src.m_bottom = 45.0f;
-
-		//dst.m_top = 7950.0f;
-		//dst.m_left = 400.0f ;
-		//dst.m_right = 432.0f;
-		//dst.m_bottom = 7982.0f;
-
-		//Draw::Draw(1, &src, &dst, c, 0.0f);
-
-		//src.m_top = 50.0f;
-		//src.m_left = 0.0f;
-		//src.m_right = 45.0f;
-		//src.m_bottom = 80.0f;
-
-		//dst.m_top = 8150.0f + m_y;
-		//dst.m_left = 400.0f - (pf * 2) - P;
-		//dst.m_right = 432.0f - (pf * 2) - P;
-		//dst.m_bottom = 8182.0f + m_y;
-
-		//Draw::Draw(1, &src, &dst, c, 0.0f);
-
-		//src.m_top = 0.0f;
-		//src.m_left = 0.0f;
-		//src.m_right = 45.0f;
-		//src.m_bottom = 50.0f;
-
-		//dst.m_top = 8350.0f + m_y;
-		//dst.m_left = 400.0f + (pf * 2) + P;
-		//dst.m_right = 432.0f + (pf * 2) + P;
-		//dst.m_bottom = 8382.0f + m_y;
-
-		//Draw::Draw(3, &src, &dst, c, 0.0f);
-
-		//src.m_top = 64.0f;
-		//src.m_left = 10.0f;
-		//src.m_right = 40.0f;
-		//src.m_bottom = 84.0f;
-
-		//dst.m_top = 8550.0f + m_y;
-		//dst.m_left = 400.0f-(pf*3)-P;
-		//dst.m_right = 432.0f - (pf * 3) - P;
-		//dst.m_bottom = 8582.0f + m_y;
-
-		//Draw::Draw(2, &src, &dst, c, 0.0f);
-
-		//src.m_top = 10.0f;
-		//src.m_left = 160.0f;
-		//src.m_right = 190.0f;
-		//src.m_bottom = 35.0f;
-
-		//dst.m_top = 8750.0f + m_y;
-		//dst.m_left = 400.0f + (pf * 3) + P;
-		//dst.m_right = 432.0f + (pf * 3) + P;
-		//dst.m_bottom = 8782.0f + m_y;
-
-		//Draw::Draw(2, &src, &dst, c, 0.0f);
-
-	/*	if (((UserData*)Save::GetData())->Hperfect == 4&&m_y<-9250.0f)
-		{
-			Font::StrDraw(L"THANK YOU!", 280, 200, 50, y);
-
-			src.m_top = 0.0f;
-			src.m_left = 0.0f;
-			src.m_right = 45.0f;
-			src.m_bottom = 45.0f;
-
-			dst.m_top = 284.0f;
-			dst.m_left = 384.0f;
-			dst.m_right = 416.0f;
-			dst.m_bottom = 316.0f;
-
-			Draw::Draw(1, &src, &dst, c, 0.0f);
-
-			src.m_top = 50.0f;
-			src.m_left = 0.0f;
-			src.m_right = 45.0f;
-			src.m_bottom = 80.0f;
-
-			dst.m_top = 284.0f;
-			dst.m_left = 347.0f;
-			dst.m_right = 379.0f;
-			dst.m_bottom = 316.0f;
-
-			Draw::Draw(1, &src, &dst, c, 0.0f);
-
-			src.m_top = 0.0f;
-			src.m_left = 0.0f;
-			src.m_right = 45.0f;
-			src.m_bottom = 50.0f;
-
-			dst.m_top = 284.0f;
-			dst.m_left = 421.0f;
-			dst.m_right = 453.0f;
-			dst.m_bottom = 316.0f;
-
-			Draw::Draw(3, &src, &dst, c, 0.0f);
-
-			src.m_top = 64.0f;
-			src.m_left = 10.0f;
-			src.m_right = 40.0f;
-			src.m_bottom = 84.0f;
-
-			dst.m_top = 284.0f;
-			dst.m_left = 310.0f;
-			dst.m_right = 342.0f;
-			dst.m_bottom = 316.0f;
-
-			Draw::Draw(2, &src, &dst, c, 0.0f);
-
-			src.m_top = 10.0f;
-			src.m_left = 160.0f;
-			src.m_right = 190.0f;
-			src.m_bottom = 35.0f;
-
-			dst.m_top = 284.0f;
-			dst.m_left = 458.0f;
-			dst.m_right = 490.0f;
-			dst.m_bottom = 316.0f;
-
-			Draw::Draw(2, &src, &dst, c, 0.0f);
-		}*/
-		//if(m_y<-9250.0f)
-		//{
-		//	Font::StrDraw(L"END", 325, 275, 50, c);
-		//}
 	}
 }
 	
