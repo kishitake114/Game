@@ -49,7 +49,7 @@ void CSceneStage3::InitScene()
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
 	CObjStage3* CObj3 = new CObjStage3();
-	Objs::InsertObj(CObj3, OBJ_STAGE3, 1);
+	Objs::InsertObj(CObj3, OBJ_ROAD3, 1);
 
 
 	Draw::LoadImage(L"image2.png", 1, TEX_SIZE_512);

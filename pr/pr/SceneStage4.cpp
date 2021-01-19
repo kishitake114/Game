@@ -48,7 +48,7 @@ void CSceneStage4::InitScene()
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
 	CObjStage4* CObj4 = new CObjStage4();
-	Objs::InsertObj(CObj4, OBJ_STAGE4, 1);
+	Objs::InsertObj(CObj4, OBJ_ROAD4, 1);
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 1);

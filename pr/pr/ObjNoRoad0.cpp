@@ -18,7 +18,7 @@ void CObjNoRoad0::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	CObjStage5* road = (CObjStage5*)Objs::GetObj(OBJ_STAGE5);
+	CObjStage5* road = (CObjStage5*)Objs::GetObj(OBJ_ROAD5);
 
 	for (int i = 0; i < NUM; i++)
 	{

@@ -1,5 +1,5 @@
 //使用するヘッダーファイル
-#include "ObjStage3.h"
+#include "ObjRoad3.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -16,7 +16,7 @@
 using namespace GameL;
 
 //イニシャライズ
-void CObjStage3::Init()
+void CObjRoad3::Init()
 {
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
@@ -82,7 +82,7 @@ void CObjStage3::Init()
 	s_r = false;
 }
 //アクション
-void CObjStage3::Action()
+void CObjRoad3::Action()
 {
 
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
@@ -3487,7 +3487,7 @@ void CObjStage3::Action()
 	}
 }
 //ドロー
-void CObjStage3::Draw()
+void CObjRoad3::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	float r[4] = { 1.0f,0.0f,0.0f,1.0f };

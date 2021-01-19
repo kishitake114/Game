@@ -49,7 +49,7 @@ void CObjEnemy::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-	CObjRoad* Road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
+	CObjRoad* Road = (CObjRoad*)Objs::GetObj(OBJ_ROAD1);
 
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);

@@ -40,122 +40,148 @@
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソースファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy.cpp">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClCompile>
     <ClCompile Include="ObjRoad.cpp">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneStage2.cpp">
-      <Filter>自作\ステージ\Stage2</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjStage3.cpp">
-      <Filter>自作\ステージ\Stage3</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main</Filter>
     </ClCompile>
     <ClCompile Include="SceneStage3.cpp">
-      <Filter>自作\ステージ\Stage3</Filter>
+      <Filter>プログラム\ステージ\Stage3</Filter>
     </ClCompile>
     <ClCompile Include="SceneStage4.cpp">
-      <Filter>自作\ステージ\Stage4</Filter>
+      <Filter>プログラム\ステージ\Stage4</Filter>
     </ClCompile>
     <ClCompile Include="ObjStage4.cpp">
-      <Filter>自作\ステージ\Stage4</Filter>
+      <Filter>プログラム\ステージ\Stage4</Filter>
     </ClCompile>
     <ClCompile Include="ObjStage5.cpp">
-      <Filter>自作\ステージ\stage01\Stage5</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
     </ClCompile>
     <ClCompile Include="SceneStage5.cpp">
-      <Filter>自作\ステージ\stage01\Stage5</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
     </ClCompile>
     <ClCompile Include="ObjPlayer.cpp">
-      <Filter>自作\プレイヤー</Filter>
+      <Filter>プログラム\プレイヤー</Filter>
     </ClCompile>
     <ClCompile Include="ObjRule.cpp">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClCompile>
     <ClCompile Include="ObjRule2.cpp">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClCompile>
     <ClCompile Include="SceneRule.cpp">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClCompile>
     <ClCompile Include="SceneRule2.cpp">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClCompile>
     <ClCompile Include="ObjGameOver.cpp">
-      <Filter>自作\ゲームオーバー</Filter>
+      <Filter>プログラム\ゲームオーバー</Filter>
     </ClCompile>
     <ClCompile Include="ObjClear.cpp">
-      <Filter>自作\ゲームクリア</Filter>
+      <Filter>プログラム\ゲームクリア</Filter>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
-      <Filter>自作\タイトル</Filter>
+      <Filter>プログラム\タイトル</Filter>
     </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
-      <Filter>自作\タイトル</Filter>
+      <Filter>プログラム\タイトル</Filter>
     </ClCompile>
     <ClCompile Include="ObjTime.cpp">
-      <Filter>自作\タイム</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjEnemy2.cpp">
-      <Filter>自作\ステージ\Stage2</Filter>
+      <Filter>プログラム\タイム</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy3.cpp">
-      <Filter>自作\ステージ\Stage3</Filter>
+      <Filter>プログラム\ステージ\Stage3</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy4.cpp">
-      <Filter>自作\ステージ\Stage4</Filter>
+      <Filter>プログラム\ステージ\Stage4</Filter>
     </ClCompile>
     <ClCompile Include="Background01.cpp">
-      <Filter>自作\ステージ\stage01</Filter>
+      <Filter>プログラム\ステージ\stage01</Filter>
     </ClCompile>
     <ClCompile Include="Objstar.cpp">
-      <Filter>自作\タイトル</Filter>
+      <Filter>プログラム\タイトル</Filter>
     </ClCompile>
     <ClCompile Include="hardstage1.cpp">
-      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ1</Filter>
     </ClCompile>
     <ClCompile Include="scenehardstage1.cpp">
-      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ1</Filter>
     </ClCompile>
     <ClCompile Include="ObjHardEnemy.cpp">
-      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ1</Filter>
     </ClCompile>
     <ClCompile Include="hardstage2.cpp">
-      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ２</Filter>
     </ClCompile>
     <ClCompile Include="sceneHardstage2.cpp">
-      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ２</Filter>
     </ClCompile>
     <ClCompile Include="SceneGameOver.cpp">
-      <Filter>自作\ゲームオーバー\シーン　ゲームオーバー</Filter>
+      <Filter>プログラム\ゲームオーバー\シーン　ゲームオーバー</Filter>
     </ClCompile>
     <ClCompile Include="SceneClear.cpp">
-      <Filter>自作\ゲームクリア\シーン　ゲームクリア</Filter>
+      <Filter>プログラム\ゲームクリア\シーン　ゲームクリア</Filter>
     </ClCompile>
     <ClCompile Include="ObjHardEnemy2.cpp">
-      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ２</Filter>
     </ClCompile>
     <ClCompile Include="ObjNoRoad0.cpp">
-      <Filter>自作\ステージ\stage01\Stage5</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
     </ClCompile>
-    <ClCompile Include="SceneStage1.cpp">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
+    <ClCompile Include="ObjRoad2.cpp">
+      <Filter>プログラム\ステージ\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage1item1.cpp">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage1item2.cpp">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage1item3.cpp">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage1LifeiTem.cpp">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\敵データ</Filter>
     </ClCompile>
     <ClCompile Include="ObjNoRoad1.cpp">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\通行不可データ</Filter>
     </ClCompile>
-    <ClCompile Include="ObjNoRoad2.cpp" />
-    <ClCompile Include="ObjRoad2.cpp">
-      <Filter>自作\ステージ\Stage2</Filter>
+    <ClCompile Include="SceneStage1.cpp">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStage2.cpp">
+      <Filter>プログラム\ステージ\Stage2\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy2.cpp">
+      <Filter>プログラム\ステージ\Stage2\敵データ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjNoRoad2.cpp">
+      <Filter>プログラム\ステージ\Stage2\通行不可データ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage2item1.cpp">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage2item2.cpp">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage2item3.cpp">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage2LifeiTem.cpp">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRoad3.cpp">
+      <Filter>プログラム\ステージ\Stage3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
-      <Filter>自作\GameMain</Filter>
+      <Filter>プログラム\GameMain</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
-      <Filter>自作\GameMain</Filter>
+      <Filter>プログラム\GameMain</Filter>
     </ClInclude>
     <ClInclude Include="GameL\Audio.h">
       <Filter>リソースファイル</Filter>
@@ -190,181 +216,241 @@
     <ClInclude Include="GameL\WinInputs.h">
       <Filter>リソースファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjEnemy.h">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClInclude>
     <ClInclude Include="ObjRoad.h">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneStage2.h">
-      <Filter>自作\ステージ\Stage2</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjStage3.h">
-      <Filter>自作\ステージ\Stage3</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage3.h">
-      <Filter>自作\ステージ\Stage3</Filter>
+      <Filter>プログラム\ステージ\Stage3</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage4.h">
-      <Filter>自作\ステージ\Stage4</Filter>
+      <Filter>プログラム\ステージ\Stage4</Filter>
     </ClInclude>
     <ClInclude Include="ObjStage4.h">
-      <Filter>自作\ステージ\Stage4</Filter>
+      <Filter>プログラム\ステージ\Stage4</Filter>
     </ClInclude>
     <ClInclude Include="ObjStage5.h">
-      <Filter>自作\ステージ\stage01\Stage5</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage5.h">
-      <Filter>自作\ステージ\stage01\Stage5</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
     </ClInclude>
     <ClInclude Include="ObjPlayer.h">
-      <Filter>自作\プレイヤー</Filter>
+      <Filter>プログラム\プレイヤー</Filter>
     </ClInclude>
     <ClInclude Include="ObjRule.h">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClInclude>
     <ClInclude Include="ObjRule2.h">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClInclude>
     <ClInclude Include="SceneRule.h">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClInclude>
     <ClInclude Include="SceneRule2.h">
-      <Filter>自作\ルール説明</Filter>
+      <Filter>プログラム\ルール説明</Filter>
     </ClInclude>
     <ClInclude Include="ObjGameOver.h">
-      <Filter>自作\ゲームオーバー</Filter>
+      <Filter>プログラム\ゲームオーバー</Filter>
     </ClInclude>
     <ClInclude Include="ObjClear.h">
-      <Filter>自作\ゲームクリア</Filter>
+      <Filter>プログラム\ゲームクリア</Filter>
     </ClInclude>
     <ClInclude Include="SceneClear.h">
-      <Filter>自作\ゲームクリア</Filter>
+      <Filter>プログラム\ゲームクリア</Filter>
     </ClInclude>
     <ClInclude Include="ObjTitle.h">
-      <Filter>自作\タイトル</Filter>
+      <Filter>プログラム\タイトル</Filter>
     </ClInclude>
     <ClInclude Include="SceneTitle.h">
-      <Filter>自作\タイトル</Filter>
+      <Filter>プログラム\タイトル</Filter>
     </ClInclude>
     <ClInclude Include="ObjTime.h">
-      <Filter>自作\タイム</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjEnemy2.h">
-      <Filter>自作\ステージ\Stage2</Filter>
+      <Filter>プログラム\タイム</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy3.h">
-      <Filter>自作\ステージ\Stage3</Filter>
+      <Filter>プログラム\ステージ\Stage3</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy4.h">
-      <Filter>自作\ステージ\Stage4</Filter>
+      <Filter>プログラム\ステージ\Stage4</Filter>
     </ClInclude>
     <ClInclude Include="Background01.h">
-      <Filter>自作\ステージ\stage01</Filter>
+      <Filter>プログラム\ステージ\stage01</Filter>
     </ClInclude>
     <ClInclude Include="Objstar.h">
-      <Filter>自作\タイトル</Filter>
+      <Filter>プログラム\タイトル</Filter>
     </ClInclude>
     <ClInclude Include="hardstage1.h">
-      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ1</Filter>
     </ClInclude>
     <ClInclude Include="scenehardstage1.h">
-      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ1</Filter>
     </ClInclude>
     <ClInclude Include="ObjHardEnemy.h">
-      <Filter>自作\ハードステージ\ハードステージ1</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ1</Filter>
     </ClInclude>
     <ClInclude Include="hardstage2.h">
-      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ２</Filter>
     </ClInclude>
     <ClInclude Include="sceneHardstage2.h">
-      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ２</Filter>
     </ClInclude>
     <ClInclude Include="SceneGameOver.h">
-      <Filter>自作\ゲームオーバー\シーン　ゲームオーバー</Filter>
+      <Filter>プログラム\ゲームオーバー\シーン　ゲームオーバー</Filter>
     </ClInclude>
     <ClInclude Include="ObjHardEnemy2.h">
-      <Filter>自作\ハードステージ\ハードステージ２</Filter>
+      <Filter>プログラム\ハードステージ\ハードステージ２</Filter>
     </ClInclude>
     <ClInclude Include="ObjNoRoad0.h">
-      <Filter>自作\ステージ\stage01\Stage5</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneStage1.h">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjNoRoad1.h">
-      <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjNoRoad2.h">
-      <Filter>自作\ステージ\Stage2</Filter>
+      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
     </ClInclude>
     <ClInclude Include="ObjRoad2.h">
-      <Filter>自作\ステージ\Stage2</Filter>
+      <Filter>プログラム\ステージ\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage1item1.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage1item2.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage1item3.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage1LifeiTem.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\敵データ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad1.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\通行不可データ</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage1.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage2.h">
+      <Filter>プログラム\ステージ\Stage2\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy2.h">
+      <Filter>プログラム\ステージ\Stage2\敵データ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad2.h">
+      <Filter>プログラム\ステージ\Stage2\通行不可データ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage2item1.h">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage2item2.h">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage2item3.h">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage2LifeiTem.h">
+      <Filter>プログラム\ステージ\Stage2\アイテムデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRoad3.h">
+      <Filter>プログラム\ステージ\Stage3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="自作">
-      <UniqueIdentifier>{6d4f75ce-456a-458f-9ead-3fc43b66f8d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\GameMain">
-      <UniqueIdentifier>{51ebdf6c-7de3-416e-8a26-6cc067ffdf89}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソースファイル">
       <UniqueIdentifier>{01ac1e39-a6ee-4b87-bd7b-afdf641e46da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ">
+    <Filter Include="プログラム">
+      <UniqueIdentifier>{6d4f75ce-456a-458f-9ead-3fc43b66f8d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\GameMain">
+      <UniqueIdentifier>{51ebdf6c-7de3-416e-8a26-6cc067ffdf89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ">
       <UniqueIdentifier>{ed332d99-a6c6-45c3-bd2b-44b9bf4d8c81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ルール説明">
-      <UniqueIdentifier>{3fffcad7-3c32-4fd5-83af-9e2cd52ca517}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ゲームオーバー">
-      <UniqueIdentifier>{675f23c0-9e4e-4ee6-b49f-3ce276e15be5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ゲームクリア">
-      <UniqueIdentifier>{7af1eacb-2ec9-487c-9889-d558007c15f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\タイム">
-      <UniqueIdentifier>{afa02b7e-9c19-4d92-abe6-e4b308f1dd10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\プレイヤー">
-      <UniqueIdentifier>{db74152d-ca7d-469e-8c07-acddc03292b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ステージ\Stage3">
+    <Filter Include="プログラム\ステージ\Stage3">
       <UniqueIdentifier>{681680ab-818a-4511-bbf1-ef375981f93f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\タイトル">
-      <UniqueIdentifier>{4e140391-de22-4406-ad97-7b8741d51b5f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ステージ\Stage4">
+    <Filter Include="プログラム\ステージ\Stage4">
       <UniqueIdentifier>{6b65cc78-82b7-431a-a573-386ff578a94e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ\Stage2">
+    <Filter Include="プログラム\ステージ\Stage2">
       <UniqueIdentifier>{ed494f3a-4958-4696-8b3c-41918258ff15}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ\stage01">
+    <Filter Include="プログラム\ステージ\stage01">
       <UniqueIdentifier>{046c9fac-211c-4619-a078-e53e6d57beb1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ\stage01\Stage 1 and Main">
+    <Filter Include="プログラム\ステージ\stage01\Stage 1 and Main">
       <UniqueIdentifier>{670706e9-c6d4-4e34-b7ef-0b75ca484d96}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ステージ\stage01\Stage5">
+    <Filter Include="プログラム\ステージ\stage01\Stage5">
       <UniqueIdentifier>{89e72df9-3aae-491a-b449-231746046ea4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ハードステージ">
-      <UniqueIdentifier>{2cb0f21b-4957-4efe-b404-5c61afee8d40}</UniqueIdentifier>
+    <Filter Include="プログラム\ルール説明">
+      <UniqueIdentifier>{3fffcad7-3c32-4fd5-83af-9e2cd52ca517}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ハードステージ\ハードステージ1">
-      <UniqueIdentifier>{b92168c6-25e2-43d5-8aa9-a21e4d24af87}</UniqueIdentifier>
+    <Filter Include="プログラム\ゲームオーバー">
+      <UniqueIdentifier>{675f23c0-9e4e-4ee6-b49f-3ce276e15be5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ハードステージ\ハードステージ２">
-      <UniqueIdentifier>{06e12e2b-063c-413a-94cc-8f908fbda48c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="自作\ゲームオーバー\シーン　ゲームオーバー">
+    <Filter Include="プログラム\ゲームオーバー\シーン　ゲームオーバー">
       <UniqueIdentifier>{17bafe89-6cdf-4ca7-8163-c786cbda0b1d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="自作\ゲームクリア\シーン　ゲームクリア">
+    <Filter Include="プログラム\ゲームクリア">
+      <UniqueIdentifier>{7af1eacb-2ec9-487c-9889-d558007c15f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ゲームクリア\シーン　ゲームクリア">
       <UniqueIdentifier>{038e460f-69ea-4a78-9248-14397a4d0517}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\タイム">
+      <UniqueIdentifier>{afa02b7e-9c19-4d92-abe6-e4b308f1dd10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\プレイヤー">
+      <UniqueIdentifier>{db74152d-ca7d-469e-8c07-acddc03292b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\タイトル">
+      <UniqueIdentifier>{4e140391-de22-4406-ad97-7b8741d51b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ハードステージ">
+      <UniqueIdentifier>{2cb0f21b-4957-4efe-b404-5c61afee8d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ハードステージ\ハードステージ1">
+      <UniqueIdentifier>{b92168c6-25e2-43d5-8aa9-a21e4d24af87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ハードステージ\ハードステージ２">
+      <UniqueIdentifier>{06e12e2b-063c-413a-94cc-8f908fbda48c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\stage01\Stage 1 and Main\敵データ">
+      <UniqueIdentifier>{d776d96b-1015-41c9-a185-b8963f917750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\stage01\Stage 1 and Main\アイテムデータ">
+      <UniqueIdentifier>{2e75bfc8-fe7c-499c-9165-6bdbaed1a422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\stage01\Stage 1 and Main\通行不可データ">
+      <UniqueIdentifier>{02a88b80-d812-4167-bcd5-0b60c83f2e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\stage01\Stage 1 and Main\シーン">
+      <UniqueIdentifier>{7c63a1c0-37d5-4053-9003-f028cde7e058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage2\シーン">
+      <UniqueIdentifier>{776c5faa-76e1-4478-9243-d5422a69df30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage2\通行不可データ">
+      <UniqueIdentifier>{7ab4db39-6604-4293-a55b-c5f140b199fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage2\敵データ">
+      <UniqueIdentifier>{8f751ec8-271d-490e-ac23-d79d2b99cf13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage2\アイテムデータ">
+      <UniqueIdentifier>{3e177239-7486-4bfc-8d56-3eef78c8070a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage3\敵データ">
+      <UniqueIdentifier>{3abea0d4-d409-4922-b293-35f52a6dada5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage3\シーン">
+      <UniqueIdentifier>{17c00d48-6b55-4d63-bdd1-3f73a2bf902f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage3\アイテム">
+      <UniqueIdentifier>{d542de34-bc7d-43c7-b3a6-44cc19abb2e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage3\通行不可データ">
+      <UniqueIdentifier>{96ce3ccd-73d5-43cc-ad45-ab3502d87a23}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

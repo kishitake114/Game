@@ -18,6 +18,12 @@ using namespace GameL;
 #include "Objplayer.h"
 #include "ObjRoad.h"
 #include "Background01.h"
+#include "ObjStage1item1.h"
+#include "ObjStage1item2.h"
+#include "ObjStage1item3.h"
+#include "ObjStage1LifeiTem.h"
+
+
 
 
 //コンストラクタ
@@ -41,6 +47,8 @@ void CSceneStage1::InitScene()
 
 	float Volume = Audio::VolumeMaster(-0.8f);
 
+	Audio::Start(0);
+	
 	//Font作成
 	Font::SetStrTex(L"0123456789分秒");
 
@@ -54,7 +62,7 @@ void CSceneStage1::InitScene()
 	Objs::InsertObj(CObjE, OBJ_ENEMY, 2);
 
 	CObjRoad* CObjR = new CObjRoad();
-	Objs::InsertObj(CObjR, OBJ_ROAD, 2);
+	Objs::InsertObj(CObjR, OBJ_ROAD1, 2);
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 2);
@@ -64,11 +72,22 @@ void CSceneStage1::InitScene()
 
 	CObjNoRoad1* CObjN = new CObjNoRoad1();
 	Objs::InsertObj(CObjN, OBJ_NO_ROAD1, 2);
+
+	CObjStage1item1* CObjI1 = new CObjStage1item1();
+	Objs::InsertObj(CObjI1, OBJ_ITEM, 3);
+
+	CObjStage1item2* CObjI2 = new CObjStage1item2();
+	Objs::InsertObj(CObjI2, OBJ_ITEM, 3);
+
+	CObjStage1item3* CObjI3 = new CObjStage1item3();
+	Objs::InsertObj(CObjI3, OBJ_ITEM, 3);
+
+	CObjStage1Lifeitem* CObjL = new CObjStage1Lifeitem();
+	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
 }
 
 //ゲームメイン実行中
 void CSceneStage1::Scene()
 {
-
 
 }

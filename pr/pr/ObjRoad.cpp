@@ -12,7 +12,6 @@
 #define PIECE 14
 #define SIZE 40.0f
 
-
 //イニシャライズ
 void CObjRoad::Init()
 {
@@ -55,8 +54,6 @@ void CObjRoad::Init()
 
 	obj->s_p = false;
 
-
-
 		int mapdata[PIECE][PIECE] =
 	{
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
@@ -81,9 +78,7 @@ void CObjRoad::Init()
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-
 			memmap[i][j] = map[i][j];
-
 		}
 	}
 
@@ -109,7 +104,6 @@ void CObjRoad::Init()
 		};
 }
 
-
 //アクション
 void CObjRoad::Action()
 {
@@ -124,7 +118,6 @@ void CObjRoad::Action()
 		}
 		if (second == 0)
 		{
-			Audio::Start(0);
 			s_r = true;
 			set = true;
 			time->m_flag_time = true;
@@ -138,190 +131,6 @@ void CObjRoad::Action()
 	float py = player->GetY();
 
 	//mapにアクセス
-
-	//アイテム（１）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 3)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 3)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk++;
-					}
-
-				}
-			}
-		}
-	}
-	//アイテム（２）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 4)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 4)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk+=2;
-					}
-
-				}
-			}
-		}
-	}
-	//アイテム（３）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 5)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 5)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk+=3;
-					}
-
-				}
-			}
-		}
-	}
-	//回復アイテム
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 6)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 6)
-						{
-							map[i][j] = 2;
-						}
-
-						if (player->HP < 5)
-						{
-							player->HP++;
-						}
-					}
-
-				}
-			}
-		}
-	}
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -1765,97 +1574,6 @@ void CObjRoad::Draw()
 		}
 	}
 
-	//表示：アイテム1
-	src.m_top = 130.0f;
-	src.m_left = 1.0f;
-	src.m_right = 51.0f;
-	src.m_bottom = 180.0f;
-
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 3)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
-	src.m_top = 130.0f;
-	src.m_left = 152.0f;
-	src.m_right = 203.0f;
-	src.m_bottom = 180.0f;
-
-	//表示：回復アイテム
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 6)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
-
-
-	//表示：アイテム2
-	src.m_top = 130.0f;
-	src.m_left = 52.0f;
-	src.m_right = 101.0f;
-	src.m_bottom = 180.0f;
-
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 4)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
-
-	//表示：アイテム3
-	src.m_top = 130.0f;
-	src.m_left = 102.0f;
-	src.m_right = 151.0f;
-	src.m_bottom = 180.0f;
-
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 5)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
 
 
 }

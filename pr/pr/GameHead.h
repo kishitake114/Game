@@ -16,11 +16,11 @@ enum OBJ_NAME
 	OBJ_RULE,
 	OBJ_RULE2,
 
-	OBJ_ROAD,
-	OBJ_STAGE2,
-	OBJ_STAGE3,
-	OBJ_STAGE4,
-	OBJ_STAGE5,
+	OBJ_ROAD1,
+	OBJ_ROAD2,
+	OBJ_ROAD3,
+	OBJ_ROAD4,
+	OBJ_ROAD5,
 
 	OBJ_TIME,
 	OBJ_ITEM,
@@ -99,24 +99,38 @@ struct UserData
 
 #include "ObjTitle.h"
 
+//ステージ１のプログラムデータ
 #include "ObjRoad.h"
-#include "ObjNoRoad0.h"
+#include "ObjEnemy.h"
+#include "ObjNoRoad1.h"
+#include "ObjStage1item1.h"
+#include "ObjStage1item2.h"
+#include "ObjStage1item3.h"
+#include "ObjStage1LifeiTem.h"
 
+//ステージ２のプログラムデータ
 #include "ObjRoad2.h"
 #include "ObjNoRoad2.h"
+#include "ObjEnemy2.h"
+#include "ObjStage2item1.h"
+#include "ObjStage2item2.h"
+#include "ObjStage2item3.h"
+#include "ObjStage2LifeiTem.h"
+
+//ステージ３のプログラムデータ
+#include "ObjRoad3.h"
+#include "ObjEnemy3.h"
 
 #include "ObjGameOver.h"
-#include "ObjEnemy.h"
 #include "ObjClear.h"
 #include "ObjRule.h"
 #include "ObjRule2.h"
 
-#include "ObjStage3.h"
+#include "ObjNoRoad0.h"
+
 #include "ObjStage4.h"
 #include "ObjStage5.h"
 #include "ObjTime.h"
-#include "ObjEnemy2.h"
-#include "ObjEnemy3.h"
 #include "ObjEnemy4.h"
 #include "ObjHardEnemy.h"
 #include "ObjHardEnemy2.h"

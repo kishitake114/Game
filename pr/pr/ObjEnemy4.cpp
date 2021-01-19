@@ -51,7 +51,7 @@ void CObjEnemy4::Action()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-	CObjStage4* Road4 = (CObjStage4*)Objs::GetObj(OBJ_STAGE4);
+	CObjStage4* Road4 = (CObjStage4*)Objs::GetObj(OBJ_ROAD4);
 
 	if (e_s == true)
 	{

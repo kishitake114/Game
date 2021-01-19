@@ -1,27 +1,23 @@
-//使用するヘッダーファイル
+#include "ObjStage2item1.h"
 #include "ObjNoRoad2.h"
+#include "ObjRoad2.h"
+#include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
-#include "GameL/DrawFont.h"
-#include "GameHead.h" 
-#include "GameL/WinInputs.h"
-#include "GameL/HitBoxManager.h"
-#include "GameL/SceneObjManager.h"
-#include "GameL/UserData.h"
-#include "GameL/Audio.h"
-#include "SceneStage2.h"
 
 #define PIECE 17
 #define SIZE 30.0f
 
-void CObjNoRoad2::Init()
+void CObjStage2item1::Init()
 {
-
 }
 
-void CObjNoRoad2::Action()
+void CObjStage2item1::Action()
 {
 	CObjRoad2* road = (CObjRoad2*)Objs::GetObj(OBJ_ROAD2);
+	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	float px = player->GetX();
+	float py = player->GetY();
 
 	for (int i = 0; i < PIECE; i++)
 	{
@@ -31,16 +27,12 @@ void CObjNoRoad2::Action()
 		}
 	}
 
-	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	float px = player->GetX();
-	float py = player->GetY();
-
-	//通行不可
+	//アイテム（１）
 	for (int i = 0; i < PIECE; i++)
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] <= 1)
+			if (map[i][j] == 3)
 			{
 				float x = j * SIZE;
 				float y = i * SIZE;
@@ -66,58 +58,40 @@ void CObjNoRoad2::Action()
 						r = 360.0f - abs(r);
 					}
 
-					//上
-					if (r > 45 && r < 135)
+					if (r > 45 && r < 315)
 					{
-						player->SetVY(y - SIZE);
-					}
+						if (map[i][j] == 3)
+						{
+							road->map[i][j] = 2;
+						}
 
-					//左
-					else if (r > 135 && r < 225)
-					{
-						player->SetVX(x - SIZE);
-					}
-
-					//下
-					else if (r > 225 && r < 315)
-					{
-						player->SetVY(y + SIZE);
-					}
-
-					else
-					{
-						player->SetVX(x + SIZE);
+						player->atk++;
 					}
 
 				}
-
 			}
-
-
 		}
-
 	}
 }
 
-void CObjNoRoad2::Draw()
+void CObjStage2item1::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
 
-	//表示：通行不可
-
-	src.m_top = 90.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
-	src.m_bottom = 125.0f;
+	//表示：アイテム1
+	src.m_top = 130.0f;
+	src.m_left = 1.0f;
+	src.m_right = 51.0f;
+	src.m_bottom = 180.0f;
 
 	for (int i = 0; i < PIECE; i++)
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] == 1)
+			if (map[i][j] == 3)
 			{
 				dst.m_top = i * SIZE;
 				dst.m_left = j * SIZE;
@@ -129,4 +103,5 @@ void CObjNoRoad2::Draw()
 			}
 		}
 	}
+
 }

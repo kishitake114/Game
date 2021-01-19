@@ -1,38 +1,38 @@
+#include "ObjStage1item1.h"
 #include "ObjNoRoad1.h"
 #include "ObjRoad.h"
 #include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 
-#define NUM 14
+#define PIECE 14
 #define SIZE 40.0f
 
-void CObjNoRoad1::Init()
+void CObjStage1item1::Init()
 {
-
 }
 
-void CObjNoRoad1::Action()
+void CObjStage1item1::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD1);
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < NUM; i++)
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
-	//mapにアクセス
-	for (int i = 0; i < NUM; i++)
+	//アイテム（１）
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] < 2)
+			if (map[i][j] == 3)
 			{
 				float x = j * SIZE;
 				float y = i * SIZE;
@@ -58,53 +58,44 @@ void CObjNoRoad1::Action()
 						r = 360.0f - abs(r);
 					}
 
-					//上
-					if (r > 45 && r < 135)
+					if (r > 45 && r < 315)
 					{
-						player->SetVY(y - SIZE);
-					}
+						if (map[i][j] == 3)
+						{
+							road->map[i][j] = 2;
+						}
 
-					//左
-					else if (r > 135 && r < 225)
-					{
-						player->SetVX(x - SIZE);
-					}
-
-					//下
-					else if (r > 225 && r < 315)
-					{
-						player->SetVY(y + SIZE);
-					}
-
-					else
-					{
-						player->SetVX(x + SIZE);
+						player->atk++;
 					}
 
 				}
 			}
 		}
 	}
+
 }
 
-void CObjNoRoad1::Draw()
+void CObjStage1item1::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
 
-	//表示：通行不可
-	src.m_top = 90.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
-	src.m_bottom = 125.0f;
+	//表示：マウスカーソルとボタン
+	wchar_t str[256];
 
-	for (int i = 0; i < NUM; i++)
+	//表示：アイテム1
+	src.m_top = 130.0f;
+	src.m_left = 1.0f;
+	src.m_right = 51.0f;
+	src.m_bottom = 180.0f;
+
+	for (int i = 0; i < PIECE; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] == 1)
+			if (map[i][j] == 3)
 			{
 				dst.m_top = i * SIZE;
 				dst.m_left = j * SIZE;
