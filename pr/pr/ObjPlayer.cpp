@@ -51,7 +51,7 @@ void CObjPlayer::Init()
 void CObjPlayer::Action()
 {
 	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD);
-	CObjStage2* road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
+	CObjRoad2* Road2 = (CObjRoad2*)Objs::GetObj(OBJ_STAGE2);
 	CObjStage3* road3 = (CObjStage3*)Objs::GetObj(OBJ_STAGE3);
 	CObjStage4* road4 = (CObjStage4*)Objs::GetObj(OBJ_STAGE4);
 	CObjTime* Time = (CObjTime*)Objs::GetObj(OBJ_TIME);
@@ -82,7 +82,7 @@ void CObjPlayer::Action()
 			{
 					//Audio::Start(1);
 				   
-					p_y -= 2.0f;
+					p_y -= 5.0f;
 					cs_x = 95.0f;
 					count = '-';
 
@@ -92,7 +92,7 @@ void CObjPlayer::Action()
 			{
 				  // Audio::Start(1);
 
-					p_x -=2.0f;
+					p_x -=5.0f;
 					cs_x = 140.0f;
 					count = '-';
 
@@ -103,7 +103,7 @@ void CObjPlayer::Action()
 			{
 				   //Audio::Start(1);
 	
-					p_x += 2.0f;
+					p_x += 5.0f;
 					cs_x = 50.0f;
 					count = '-';
 	
@@ -113,7 +113,7 @@ void CObjPlayer::Action()
 			{
 				   //Audio::Start(1);
 			
-					p_y += 2.0f;
+					p_y += 5.0f;
 					cs_x = 0.0;
 					count = '-';
 

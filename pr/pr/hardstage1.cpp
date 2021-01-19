@@ -1,5 +1,4 @@
 #include "hardstage1.h"
-#include "ObjItem.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -100,7 +99,6 @@ void CObjHardStage1::Init()
 //ƒAƒNƒVƒ‡ƒ“
 void CObjHardStage1::Action()
 {
-	CObjItem* item = (CObjItem*)Objs::GetObj(OBJ_ITEM);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 
 	if (s_r == true && mou_l == true)

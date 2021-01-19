@@ -12,7 +12,7 @@
 //使用するヘッダー
 #include "SceneStage2.h"
 #include "GameHead.h"
-#include "ObjStage2.h"
+#include "ObjRoad2.h"
 
 //コンストラクタ
 CSceneStage2::CSceneStage2()
@@ -40,9 +40,8 @@ void CSceneStage2::InitScene()
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
-	CObjStage2* CObj2 = new CObjStage2();
+	CObjRoad2* CObj2 = new CObjRoad2();
 	Objs::InsertObj(CObj2, OBJ_STAGE2, 1);
-
 
 	Draw::LoadImage(L"image3.png", 1, TEX_SIZE_512);
 

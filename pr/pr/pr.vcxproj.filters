@@ -49,9 +49,6 @@
     <ClCompile Include="SceneStage2.cpp">
       <Filter>自作\ステージ\Stage2</Filter>
     </ClCompile>
-    <ClCompile Include="ObjStage2.cpp">
-      <Filter>自作\ステージ\Stage2</Filter>
-    </ClCompile>
     <ClCompile Include="ObjStage3.cpp">
       <Filter>自作\ステージ\Stage3</Filter>
     </ClCompile>
@@ -148,6 +145,10 @@
     <ClCompile Include="ObjNoRoad1.cpp">
       <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClCompile>
+    <ClCompile Include="ObjNoRoad2.cpp" />
+    <ClCompile Include="ObjRoad2.cpp">
+      <Filter>自作\ステージ\Stage2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -196,9 +197,6 @@
       <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage2.h">
-      <Filter>自作\ステージ\Stage2</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjStage2.h">
       <Filter>自作\ステージ\Stage2</Filter>
     </ClInclude>
     <ClInclude Include="ObjStage3.h">
@@ -296,6 +294,12 @@
     </ClInclude>
     <ClInclude Include="ObjNoRoad1.h">
       <Filter>自作\ステージ\stage01\Stage 1 and Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad2.h">
+      <Filter>自作\ステージ\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRoad2.h">
+      <Filter>自作\ステージ\Stage2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

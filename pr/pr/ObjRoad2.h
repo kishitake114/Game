@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：背景
-class CObjStage2 :public CObj
+class CObjRoad2 :public CObj
 {
 public:
-	CObjStage2() {};
-	~CObjStage2() {};
+	CObjRoad2() {};
+	~CObjRoad2() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー

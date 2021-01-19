@@ -102,12 +102,15 @@ struct UserData
 #include "ObjRoad.h"
 #include "ObjNoRoad0.h"
 
+#include "ObjRoad2.h"
+#include "ObjNoRoad2.h"
+
 #include "ObjGameOver.h"
 #include "ObjEnemy.h"
 #include "ObjClear.h"
 #include "ObjRule.h"
 #include "ObjRule2.h"
-#include "ObjStage2.h"
+
 #include "ObjStage3.h"
 #include "ObjStage4.h"
 #include "ObjStage5.h"
@@ -142,5 +145,5 @@ struct UserData
 //シーンスタートクラス---------------------------
 
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START   CSceneClear
+#define SET_GAME_START   CSceneStage2
 //-----------------------------------------------

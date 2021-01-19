@@ -48,7 +48,7 @@ void CObjEnemy2::Action()
 	hit->SetPos(p_x, p_y);
 
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-	CObjStage2* Road2 = (CObjStage2*)Objs::GetObj(OBJ_STAGE2);
+	CObjRoad2* Road2 = (CObjRoad2*)Objs::GetObj(OBJ_STAGE2);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
 	if (e_s == true)

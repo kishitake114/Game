@@ -9,6 +9,7 @@
 
 void CObjNoRoad1::Init()
 {
+
 }
 
 void CObjNoRoad1::Action()
