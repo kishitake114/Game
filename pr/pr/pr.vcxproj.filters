@@ -43,9 +43,6 @@
     <ClCompile Include="ObjRoad.cpp">
       <Filter>プログラム\ステージ\stage01\Stage 1 and Main</Filter>
     </ClCompile>
-    <ClCompile Include="SceneStage3.cpp">
-      <Filter>プログラム\ステージ\Stage3</Filter>
-    </ClCompile>
     <ClCompile Include="SceneStage4.cpp">
       <Filter>プログラム\ステージ\Stage4</Filter>
     </ClCompile>
@@ -175,6 +172,15 @@
     <ClCompile Include="ObjRoad3.cpp">
       <Filter>プログラム\ステージ\Stage3</Filter>
     </ClCompile>
+    <ClCompile Include="SceneStage3.cpp">
+      <Filter>プログラム\ステージ\Stage3\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjNoRoad3.cpp">
+      <Filter>プログラム\ステージ\Stage3\通行不可データ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage3item1.cpp">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -218,9 +224,6 @@
     </ClInclude>
     <ClInclude Include="ObjRoad.h">
       <Filter>プログラム\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneStage3.h">
-      <Filter>プログラム\ステージ\Stage3</Filter>
     </ClInclude>
     <ClInclude Include="SceneStage4.h">
       <Filter>プログラム\ステージ\Stage4</Filter>
@@ -321,9 +324,6 @@
     <ClInclude Include="ObjEnemy.h">
       <Filter>プログラム\ステージ\stage01\Stage 1 and Main\敵データ</Filter>
     </ClInclude>
-    <ClInclude Include="ObjNoRoad1.h">
-      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\通行不可データ</Filter>
-    </ClInclude>
     <ClInclude Include="SceneStage1.h">
       <Filter>プログラム\ステージ\stage01\Stage 1 and Main\シーン</Filter>
     </ClInclude>
@@ -350,6 +350,18 @@
     </ClInclude>
     <ClInclude Include="ObjRoad3.h">
       <Filter>プログラム\ステージ\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage3.h">
+      <Filter>プログラム\ステージ\Stage3\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad3.h">
+      <Filter>プログラム\ステージ\Stage3\通行不可データ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad1.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main\通行不可データ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage3item1.h">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -443,14 +455,14 @@
     <Filter Include="プログラム\ステージ\Stage3\敵データ">
       <UniqueIdentifier>{3abea0d4-d409-4922-b293-35f52a6dada5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="プログラム\ステージ\Stage3\シーン">
-      <UniqueIdentifier>{17c00d48-6b55-4d63-bdd1-3f73a2bf902f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="プログラム\ステージ\Stage3\アイテム">
       <UniqueIdentifier>{d542de34-bc7d-43c7-b3a6-44cc19abb2e7}</UniqueIdentifier>
     </Filter>
     <Filter Include="プログラム\ステージ\Stage3\通行不可データ">
       <UniqueIdentifier>{96ce3ccd-73d5-43cc-ad45-ab3502d87a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage3\シーン">
+      <UniqueIdentifier>{17c00d48-6b55-4d63-bdd1-3f73a2bf902f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

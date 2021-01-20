@@ -111,113 +111,6 @@ void CObjRoad3::Action()
 
 	//mapにアクセス
 
-	//通行不可
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] <= 1)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					//上
-					if (r > 45 && r < 135)
-					{
-						player->SetVY(y - SIZE);
-					}
-
-					//左
-					else if (r > 135 && r < 225)
-					{
-						player->SetVX(x - SIZE);
-					}
-
-					//下
-					else if (r > 225 && r < 315)
-					{
-						player->SetVY(y + SIZE);
-					}
-
-					else
-					{
-						player->SetVX(x + SIZE);
-					}
-
-				}
-
-			}
-
-
-		}
-
-	}
-	//アイテム（１）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 3)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 3)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk++;
-					}
-
-				}
-			}
-		}
-	}
 	//アイテム（２）
 	for (int i = 0; i < PIECE; i++)
 	{
@@ -3561,7 +3454,6 @@ void CObjRoad3::Draw()
 	}
 	//表示：通行可
 
-
 	src.m_top = 90.0f;
 	src.m_left = 45.0f;
 	src.m_right = 85.0f;
@@ -3582,53 +3474,6 @@ void CObjRoad3::Draw()
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 			}
 
-		}
-	}
-
-	//表示：通行不可
-
-	src.m_top = 90.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
-	src.m_bottom = 125.0f;
-
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 1)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
-
-	//表示：アイテム
-	src.m_top = 130.0f;
-	src.m_left = 1.0f;
-	src.m_right = 51.0f;
-	src.m_bottom = 180.0f;
-
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 3)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
 		}
 	}
 

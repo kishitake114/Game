@@ -52,7 +52,7 @@ void CObjPlayer::Action()
 {
 	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD1);
 	CObjRoad2* Road2 = (CObjRoad2*)Objs::GetObj(OBJ_ROAD2);
-	CObjStage3* road3 = (CObjStage3*)Objs::GetObj(OBJ_ROAD3);
+	CObjRoad3* road3 = (CObjRoad3*)Objs::GetObj(OBJ_ROAD3);
 	CObjStage4* road4 = (CObjStage4*)Objs::GetObj(OBJ_ROAD4);
 	CObjTime* Time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);

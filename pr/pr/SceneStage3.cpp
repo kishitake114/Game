@@ -12,7 +12,8 @@
 //使用するヘッダー
 #include "SceneStage3.h"
 #include "GameHead.h"
-#include "ObjStage3.h"
+#include "ObjRoad3.h"
+#include "ObjNoRoad3.h"
 
 //コンストラクタ
 CSceneStage3::CSceneStage3()
@@ -48,8 +49,11 @@ void CSceneStage3::InitScene()
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
-	CObjStage3* CObj3 = new CObjStage3();
+	CObjRoad3* CObj3 = new CObjRoad3();
 	Objs::InsertObj(CObj3, OBJ_ROAD3, 1);
+
+	CObjNoRoad3* CObjN = new CObjNoRoad3();
+	Objs::InsertObj(CObjN, OBJ_NO_ROAD3, 1);
 
 
 	Draw::LoadImage(L"image2.png", 1, TEX_SIZE_512);

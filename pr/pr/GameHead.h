@@ -120,6 +120,7 @@ struct UserData
 //ステージ３のプログラムデータ
 #include "ObjRoad3.h"
 #include "ObjEnemy3.h"
+#include "ObjNoRoad3.h"
 
 #include "ObjGameOver.h"
 #include "ObjClear.h"
@@ -159,5 +160,5 @@ struct UserData
 //シーンスタートクラス---------------------------
 
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START   CSceneStage2
+#define SET_GAME_START   CSceneStage3
 //-----------------------------------------------

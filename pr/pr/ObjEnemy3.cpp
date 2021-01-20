@@ -1,5 +1,5 @@
 #include "ObjEnemy3.h"
-#include "ObjStage3.h"
+#include "ObjRoad3.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -52,7 +52,7 @@ void CObjEnemy3::Action()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-	CObjStage3* Road3 = (CObjStage3*)Objs::GetObj(OBJ_ROAD3);
+	CObjRoad3* Road3 = (CObjRoad3*)Objs::GetObj(OBJ_ROAD3);
 
 
 	if (e_s == true)
