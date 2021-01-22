@@ -69,6 +69,9 @@ void CObjClear::Action()
 		m_time++;
 	}
 
+	if (m_time % 30 == 0)
+		sigo++;
+
 	if (ed==false&&m_time>480)
 	{
 		ed = true;
@@ -211,6 +214,7 @@ void CObjClear::Draw()
 
 	if (skip == true)
 	{
+		if(sigo%2==0)
 		Font::StrDraw(L"右クリックでタイトルへ戻る ", 530, 0, 18, c);
 	}
 

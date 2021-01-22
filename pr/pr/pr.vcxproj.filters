@@ -181,6 +181,12 @@
     <ClCompile Include="ObjStage3item1.cpp">
       <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
     </ClCompile>
+    <ClCompile Include="ObjStage3item2.cpp">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage3item3.cpp">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -361,6 +367,12 @@
       <Filter>プログラム\ステージ\stage01\Stage 1 and Main\通行不可データ</Filter>
     </ClInclude>
     <ClInclude Include="ObjStage3item1.h">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage3item2.h">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage3item3.h">
       <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
     </ClInclude>
   </ItemGroup>
