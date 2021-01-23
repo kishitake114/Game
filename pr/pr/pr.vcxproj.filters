@@ -187,6 +187,9 @@
     <ClCompile Include="ObjStage3item3.cpp">
       <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
     </ClCompile>
+    <ClCompile Include="ObjRP.cpp">
+      <Filter>プログラム\ステージ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -374,6 +377,9 @@
     </ClInclude>
     <ClInclude Include="ObjStage3item3.h">
       <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRP.h">
+      <Filter>プログラム\ステージ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
