@@ -22,6 +22,7 @@ public:
 	int map[14][14];
 	int memmap[14][14];
 	int reset;
+	bool set;
 
 
 private:
@@ -45,7 +46,6 @@ private:
 	int s_time;
 	int second;
 
-	bool set;
 
 
 };

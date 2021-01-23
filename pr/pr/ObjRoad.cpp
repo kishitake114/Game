@@ -1,5 +1,6 @@
 #include "ObjRoad.h"
 #include "ObjPlayer.h"
+#include "ObjRP.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -108,6 +109,7 @@ void CObjRoad::Init()
 void CObjRoad::Action()
 {
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	CObjRP* RP = (CObjRP*)Objs::GetObj(OBJ_SWITCH);
 
 	if (set == false)
 	{
@@ -121,16 +123,13 @@ void CObjRoad::Action()
 			s_r = true;
 			set = true;
 			time->m_flag_time = true;
+			RP->sc=false;
 		}	
 
 	}
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
-	float px = player->GetX();
-	float py = player->GetY();
-
-	//mapにアクセス
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();

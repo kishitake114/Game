@@ -446,11 +446,6 @@ void CObjPlayer::Draw()
 	if (battle == false)
 	{
 
-		if (s_p == true)
-		{
-			Font::StrDraw(L"Player", 600, 80, 40, b);
-		}
-
 		swprintf_s(str, L"ATK");
 		Font::StrDraw(str, 642, 150, 20, c);
 

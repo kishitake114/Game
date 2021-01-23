@@ -13,6 +13,8 @@ enum OBJ_NAME
 
 	OBJ_PLAYER,
 
+	OBJ_SWITCH,
+
 	OBJ_RULE,
 	OBJ_RULE2,
 
@@ -87,7 +89,6 @@ struct UserData
 
 //ゲーム内で使用されるグローバル変数・定数・列挙--
 
-
 //------------------------------------------------
 //ゲーム内で使用するクラスヘッダ------------------
 
@@ -98,6 +99,8 @@ struct UserData
 #include "ObjPlayer.h"
 
 #include "ObjTitle.h"
+
+#include "ObjRP.h"
 
 //ステージ１のプログラムデータ
 #include "ObjRoad.h"

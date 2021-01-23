@@ -4,11 +4,16 @@
 //使用するネームスペース
 using namespace GameL;
 
-class ObjRP :public Objs
+class CObjRP :public CObj
 {
-	ObjRP() {};
-	~ObjRP() {};
-	void Init();
-	void Action();
-	void Draw();
+	public:
+		CObjRP() {};
+		~CObjRP() {};
+		void Init();
+		void Action();
+		void Draw();
+		bool sc;	//スタート時とクリア時のもの
+
+	private:
+		bool sw;	//ROADとPLAYERの表示欄
 };

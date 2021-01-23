@@ -22,6 +22,7 @@ using namespace GameL;
 #include "ObjStage1item2.h"
 #include "ObjStage1item3.h"
 #include "ObjStage1LifeiTem.h"
+#include "ObjRP.h"
 
 
 
@@ -47,7 +48,7 @@ void CSceneStage1::InitScene()
 
 	float Volume = Audio::VolumeMaster(-0.8f);
 
-	Audio::Start(0);
+	//Audio::Start(0);
 	
 	//FontçÏê¨
 	Font::SetStrTex(L"0123456789ï™ïb");
@@ -68,8 +69,8 @@ void CSceneStage1::InitScene()
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 2);
 
-	CObjBackGround01* CObbg = new 	CObjBackGround01();
-	Objs::InsertObj(CObbg, OBJ_BACKGROUND01, 1);
+	CObjBackGround01* CObg = new 	CObjBackGround01();
+	Objs::InsertObj(CObg, OBJ_BACKGROUND01, 1);
 
 	CObjNoRoad1* CObjN = new CObjNoRoad1();
 	Objs::InsertObj(CObjN, OBJ_NO_ROAD1, 2);
@@ -85,6 +86,10 @@ void CSceneStage1::InitScene()
 
 	CObjStage1Lifeitem* CObjL = new CObjStage1Lifeitem();
 	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
+	
+	CObjRP* CObjS = new CObjRP();
+	Objs::InsertObj(CObjS, OBJ_SWITCH, 10);
+
 }
 
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ
