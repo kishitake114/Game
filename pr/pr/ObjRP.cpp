@@ -56,10 +56,10 @@ void CObjRP::Draw()
 		src.m_bottom = 40.0f;
 	}
 
-		dst.m_top = 20.0f;
+		dst.m_top = 55.0f;
 		dst.m_left = 600.0f;
 		dst.m_right = 750.0f;
-		dst.m_bottom = 70.0f;
+		dst.m_bottom = 105.0f;
 
 		Draw::Draw(2, &src, &dst, c, 0.0f);
 		
@@ -82,24 +82,24 @@ void CObjRP::Draw()
 		
 	}
 
-		dst.m_top = 80.0f;
+		dst.m_top = 110.0f;
 		dst.m_left = 600.0f;
 		dst.m_right = 750.0f;
-		dst.m_bottom = 130.0f;
+		dst.m_bottom = 160.0f;
 
 		Draw::Draw(2, &src, &dst, c, 0.0f);
 	}
 
 	if (sw == false)
 	{
-		Font::StrDraw(L"ROAD", 645, 30, 30, c);
-		Font::StrDraw(L"PLAYER", 630, 90, 30, bl);
+		Font::StrDraw(L"ROAD", 645, 65, 30, c);
+		Font::StrDraw(L"PLAYER", 630, 120, 30, bl);
 	}
 
 	else
 	{
-		Font::StrDraw(L"PLAYER", 630, 90, 30, c);
-		Font::StrDraw(L"ROAD", 645, 30, 30, bl);
+		Font::StrDraw(L"PLAYER", 630, 120, 30, c);
+		Font::StrDraw(L"ROAD", 645, 65, 30, bl);
 	}
 
 	//開始前とクリア後の表示
@@ -110,10 +110,10 @@ void CObjRP::Draw()
 		src.m_right = 263.0f;
 		src.m_bottom = 40.0f;
 
-		dst.m_top = 20.0f;
+		dst.m_top = 55.0f;
 		dst.m_left = 600.0f;
 		dst.m_right = 750.0f;
-		dst.m_bottom = 70.0f;
+		dst.m_bottom = 105.0f;
 
 		Draw::Draw(2, &src, &dst, c, 0.0f);
 
@@ -122,15 +122,15 @@ void CObjRP::Draw()
 		src.m_right = 263.0f;
 		src.m_bottom = 40.0f;
 
-		dst.m_top = 80.0f;
+		dst.m_top = 110.0f;
 		dst.m_left = 600.0f;
 		dst.m_right = 750.0f;
-		dst.m_bottom = 130.0f;
+		dst.m_bottom = 160.0f;
 
 		Draw::Draw(2, &src, &dst, c, 0.0f);
 
-		Font::StrDraw(L"ROAD", 645, 30, 30, bl);
-		Font::StrDraw(L"PLAYER", 630, 90, 30, bl);
+		Font::StrDraw(L"ROAD", 645, 65, 30, bl);
+		Font::StrDraw(L"PLAYER", 630, 120, 30, bl);
 	}
 
 

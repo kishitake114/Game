@@ -58,13 +58,13 @@ void CSceneStage1::InitScene()
 	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
 
 	CObjPlayer* CObj = new CObjPlayer();
-	Objs::InsertObj(CObj, OBJ_PLAYER, 2);
+	Objs::InsertObj(CObj, OBJ_PLAYER, 20);
 
 	CObjEnemy* CObjE = new CObjEnemy();
-	Objs::InsertObj(CObjE, OBJ_ENEMY, 2);
+	Objs::InsertObj(CObjE, OBJ_ENEMY, 20);
 
 	CObjRoad* CObjR = new CObjRoad();
-	Objs::InsertObj(CObjR, OBJ_ROAD1, 2);
+	Objs::InsertObj(CObjR, OBJ_ROAD1, 10);
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 2);

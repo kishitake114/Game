@@ -65,11 +65,8 @@ void CObjTime::Action()
 		player->HP--;		//m_Timeが0->PlayerHPを-1する。
 		m_time = 3600+plas;
 	}
-	//フラグがオフになったら、１分に戻す
-	else if (m_flag_time == false)
-	{
-		;
-	}
+
+
 }
 //ドロー
 void CObjTime::Draw()
@@ -83,15 +80,23 @@ void CObjTime::Draw()
 
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f, };
 	wchar_t str[128];
+
+	Font::StrDraw(L"TIME", 600, 0, 40, c);
+
 	//分：秒の値を文字列化
 	if (second < 10)
 	{
-		swprintf_s(str, L"%d分0%d秒", minute, second);
+		swprintf_s(str, L"%d 0%d", minute, second);
 	}
 	else
 	{
-		swprintf_s(str, L"%d分%d秒", minute, second);
+		swprintf_s(str, L"%d %d", minute, second);
 	}
 
-	Font::StrDraw(str, 650, 550, 30, c);
+	Font::StrDraw(str, 720, 0, 40, c);
+
+	if (m_time )
+	{
+		Font::StrDraw(L":", 740, 0, 40, c);
+	}
 }

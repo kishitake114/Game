@@ -25,4 +25,6 @@ private:
 	float mou_l;
 
 	int plas;
+	bool count;//時計のアニメ―ション
+
 };

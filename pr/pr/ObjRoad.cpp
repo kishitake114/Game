@@ -1440,7 +1440,7 @@ void CObjRoad::Action()
 	//リセットボタンのプログラム
 	if (s_r == false&&set==true)
 	{
-		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
 		{
 			if (mou_l == true)
 			{
@@ -1505,28 +1505,7 @@ void CObjRoad::Draw()
 		}
 	}
 
-
-	if (s_r == true)
-	{
-		Font::StrDraw(L"Road", 600, 30, 40, r);
-	}
-
-	if (player->battle == false)
-	{
-
-		if (s_r == true||set==false)
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, gl);
-		}
-
-		else
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, b);
-		}
-	}
-	else
+	if (player->battle == true)
 	{
 		if (player->HP == 5 && reset==0)
 		{ 
@@ -1573,8 +1552,65 @@ void CObjRoad::Draw()
 		}
 	}
 
+	//土台
+	src.m_top = 45.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 157.0f;
 
+	dst.m_top = 500.0f;
+	dst.m_left = 600.0f;
+	dst.m_right = 800.0f;
+	dst.m_bottom = 600.0f;
 
+	Draw::Draw(2, &src, &dst, c, 0.0f);
+
+	//リセットボタン
+	src.m_top = 172.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 291.0f;
+
+	if (s_r == false && set == true)
+	{
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
+		{
+
+		dst.m_top = 475.0f;
+		dst.m_left = 622.0f;
+		dst.m_right = 765.0f;
+		dst.m_bottom = 555.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+
+		else
+		{
+		dst.m_top = 450.0f;
+		dst.m_left = 622.0f;
+		dst.m_right = 765.0f;
+		dst.m_bottom = 555.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+	}
+
+	else
+	{
+		src.m_top = 300.0f;
+		src.m_left = 8.0f;
+		src.m_right = 201.0f;
+		src.m_bottom = 417.0f;
+
+		dst.m_top = 450.0f;
+		dst.m_left = 622.0f;
+		dst.m_right = 765.0f;
+		dst.m_bottom = 555.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
+	}
+
+	
 }
 
 
