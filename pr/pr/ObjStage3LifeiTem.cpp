@@ -1,18 +1,17 @@
-#include "ObjNoRoad3.h"
+#include "ObjStage3LifeiTem.h"
 #include "ObjRoad3.h"
 #include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
-
 #define PIECE 20
 #define SIZE 25.0f
 
-void CObjNoRoad3::Init()
+void CObjStage3Lifeitem::Init()
 {
 
 }
 
-void CObjNoRoad3::Action()
+void CObjStage3Lifeitem::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjRoad3* road = (CObjRoad3*)Objs::GetObj(OBJ_ROAD3);
@@ -27,12 +26,12 @@ void CObjNoRoad3::Action()
 		}
 	}
 
-	//通行不可
+	//回復アイテム
 	for (int i = 0; i < PIECE; i++)
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] <= 1)
+			if (map[i][j] == 6)
 			{
 				float x = j * SIZE;
 				float y = i * SIZE;
@@ -58,58 +57,43 @@ void CObjNoRoad3::Action()
 						r = 360.0f - abs(r);
 					}
 
-					//上
-					if (r > 45 && r < 135)
+					if (r > 45 && r < 315)
 					{
-						player->SetVY(y - SIZE);
-					}
+						if (map[i][j] == 6)
+						{
+							road->map[i][j] = 2;
+						}
 
-					//左
-					else if (r > 135 && r < 225)
-					{
-						player->SetVX(x - SIZE);
-					}
-
-					//下
-					else if (r > 225 && r < 315)
-					{
-						player->SetVY(y + SIZE);
-					}
-
-					else
-					{
-						player->SetVX(x + SIZE);
+						if (player->HP < 5)
+						{
+							player->HP++;
+						}
 					}
 
 				}
-
 			}
-
-
 		}
-
 	}
-
 }
 
-void CObjNoRoad3::Draw()
+void CObjStage3Lifeitem::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
 
-	//表示：通行不可
-	src.m_top = 90.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
-	src.m_bottom = 125.0f;
+	src.m_top = 130.0f;
+	src.m_left = 152.0f;
+	src.m_right = 203.0f;
+	src.m_bottom = 180.0f;
 
+	//表示：回復アイテム
 	for (int i = 0; i < PIECE; i++)
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] == 1)
+			if (map[i][j] == 6)
 			{
 				dst.m_top = i * SIZE;
 				dst.m_left = j * SIZE;
@@ -121,4 +105,5 @@ void CObjNoRoad3::Draw()
 			}
 		}
 	}
+
 }

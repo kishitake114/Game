@@ -153,7 +153,6 @@ void CObjRoad::Action()
 
 	}
 
-
 	//ロード内のプログラム
 	if (s_r == true)
 	{
@@ -1571,30 +1570,34 @@ void CObjRoad::Draw()
 	src.m_right = 201.0f;
 	src.m_bottom = 291.0f;
 
+
+
 	if (s_r == false && set == true)
 	{
+		//押された時にしずむ
 		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
 		{
+			dst.m_top = 475.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
 
-		dst.m_top = 475.0f;
-		dst.m_left = 622.0f;
-		dst.m_right = 765.0f;
-		dst.m_bottom = 555.0f;
-
-		Draw::Draw(2, &src, &dst, c, 0.0f);
+			Draw::Draw(2, &src, &dst, c, 0.0f);
 		}
 
+		//それ以外
 		else
 		{
-		dst.m_top = 450.0f;
-		dst.m_left = 622.0f;
-		dst.m_right = 765.0f;
-		dst.m_bottom = 555.0f;
+			dst.m_top = 450.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
 
-		Draw::Draw(2, &src, &dst, c, 0.0f);
+			Draw::Draw(2, &src, &dst, c, 0.0f);
 		}
 	}
 
+	//ピース操作時のボタン
 	else
 	{
 		src.m_top = 300.0f;

@@ -64,6 +64,7 @@
     <ClCompile Include="ObjStage3item1.cpp" />
     <ClCompile Include="ObjStage3item2.cpp" />
     <ClCompile Include="ObjStage3item3.cpp" />
+    <ClCompile Include="ObjStage3LifeiTem.cpp" />
     <ClCompile Include="ObjStage5.cpp" />
     <ClCompile Include="ObjStage4.cpp" />
     <ClCompile Include="ObjNoRoad0.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="ObjStage3item1.h" />
     <ClInclude Include="ObjStage3item2.h" />
     <ClInclude Include="ObjStage3item3.h" />
+    <ClInclude Include="ObjStage3LifeiTem.h" />
     <ClInclude Include="ObjStage5.h" />
     <ClInclude Include="ObjStage4.h" />
     <ClInclude Include="ObjNoRoad0.h" />

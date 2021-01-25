@@ -14,6 +14,10 @@
 #include "GameHead.h"
 #include "ObjRoad3.h"
 #include "ObjNoRoad3.h"
+#include "ObjStage3item1.h"
+#include "ObjStage3item2.h"
+#include "ObjStage3item3.h"
+#include "ObjStage3LifeiTem.h"
 
 //コンストラクタ
 CSceneStage3::CSceneStage3()
@@ -63,6 +67,18 @@ void CSceneStage3::InitScene()
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 3);
+
+	CObjStage3item1* CObjI1 = new CObjStage3item1();
+	Objs::InsertObj(CObjI1, OBJ_ITEM, 1);
+
+	CObjStage3item2* CObjI2 = new CObjStage3item2();
+	Objs::InsertObj(CObjI2, OBJ_ITEM, 1);
+
+	CObjStage3item3* CObjI3 = new CObjStage3item3();
+	Objs::InsertObj(CObjI3, OBJ_ITEM, 1);
+
+	CObjStage3Lifeitem* CObjL = new CObjStage3Lifeitem();
+	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
 }
 
 //ゲームメイン実行中

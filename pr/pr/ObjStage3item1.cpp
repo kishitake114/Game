@@ -18,6 +18,14 @@ void CObjStage3item1::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			map[i][j] = road->map[i][j];
+		}
+	}
+
 	//アイテム（１）
 	for (int i = 0; i < PIECE; i++)
 	{
@@ -71,7 +79,6 @@ void CObjStage3item1::Draw()
 
 	RECT_F src;
 	RECT_F dst;
-
 
 	//表示：アイテム
 	src.m_top = 130.0f;

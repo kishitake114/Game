@@ -19,6 +19,14 @@ void CObjStage3item2::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
+	for (int i = 0; i < PIECE; i++)
+	{
+		for (int j = 0; j < PIECE; j++)
+		{
+			map[i][j] = road->map[i][j];
+		}
+	}
+
 	//アイテム（２）
 	for (int i = 0; i < PIECE; i++)
 	{
@@ -54,7 +62,7 @@ void CObjStage3item2::Action()
 					{
 						if (map[i][j] == 4)
 						{
-							map[i][j] = 2;
+							road->map[i][j] = 2;
 						}
 
 						player->atk += 2;
