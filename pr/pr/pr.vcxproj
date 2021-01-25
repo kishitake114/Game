@@ -46,6 +46,7 @@
     <ClCompile Include="ObjNoRoad1.cpp" />
     <ClCompile Include="ObjNoRoad2.cpp" />
     <ClCompile Include="ObjNoRoad3.cpp" />
+    <ClCompile Include="ObjNoRoad4.cpp" />
     <ClCompile Include="ObjPlayer.cpp" />
     <ClCompile Include="ObjRoad.cpp" />
     <ClCompile Include="ObjRP.cpp" />
@@ -65,8 +66,12 @@
     <ClCompile Include="ObjStage3item2.cpp" />
     <ClCompile Include="ObjStage3item3.cpp" />
     <ClCompile Include="ObjStage3LifeiTem.cpp" />
+    <ClCompile Include="ObjStage4item1.cpp" />
+    <ClCompile Include="ObjStage4item2.cpp" />
+    <ClCompile Include="ObjStage4item3.cpp" />
+    <ClCompile Include="ObjStage4LifeiTem.cpp" />
     <ClCompile Include="ObjStage5.cpp" />
-    <ClCompile Include="ObjStage4.cpp" />
+    <ClCompile Include="ObjRoad4.cpp" />
     <ClCompile Include="ObjNoRoad0.cpp" />
     <ClCompile Include="Objstar.cpp" />
     <ClCompile Include="ObjTime.cpp" />
@@ -112,6 +117,7 @@
     <ClInclude Include="ObjNoRoad2.h" />
     <ClInclude Include="ObjNoRoad1.h" />
     <ClInclude Include="ObjNoRoad3.h" />
+    <ClInclude Include="ObjNoRoad4.h" />
     <ClInclude Include="ObjPlayer.h" />
     <ClInclude Include="ObjRoad.h" />
     <ClInclude Include="ObjRP.h" />
@@ -131,8 +137,12 @@
     <ClInclude Include="ObjStage3item2.h" />
     <ClInclude Include="ObjStage3item3.h" />
     <ClInclude Include="ObjStage3LifeiTem.h" />
+    <ClInclude Include="ObjStage4item1.h" />
+    <ClInclude Include="ObjStage4item2.h" />
+    <ClInclude Include="ObjStage4item3.h" />
+    <ClInclude Include="ObjStage4LifeiTem.h" />
     <ClInclude Include="ObjStage5.h" />
-    <ClInclude Include="ObjStage4.h" />
+    <ClInclude Include="ObjRoad4.h" />
     <ClInclude Include="ObjNoRoad0.h" />
     <ClInclude Include="Objstar.h" />
     <ClInclude Include="ObjTime.h" />

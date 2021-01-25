@@ -53,7 +53,7 @@ void CObjPlayer::Action()
 	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD1);
 	CObjRoad2* Road2 = (CObjRoad2*)Objs::GetObj(OBJ_ROAD2);
 	CObjRoad3* road3 = (CObjRoad3*)Objs::GetObj(OBJ_ROAD3);
-	CObjStage4* road4 = (CObjStage4*)Objs::GetObj(OBJ_ROAD4);
+	CObjRoad4* road4 = (CObjRoad4*)Objs::GetObj(OBJ_ROAD4);
 	CObjTime* Time = (CObjTime*)Objs::GetObj(OBJ_TIME);
 	CObjEnemy* Enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	CObjEnemy2* Enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
@@ -447,16 +447,16 @@ void CObjPlayer::Draw()
 	{
 
 		swprintf_s(str, L"ATK");
-		Font::StrDraw(str, 642, 150, 20, c);
+		Font::StrDraw(str, 642, 200, 20, c);
 
 		swprintf_s(str, L"%2d", atk);
-		Font::StrDraw(str, 730, 155, 30, c);
+		Font::StrDraw(str, 730, 205, 30, c);
 
 		swprintf_s(str, L"Player HP");
-		Font::StrDraw(str, 642,200, 20, c);
+		Font::StrDraw(str, 642,240, 20, c);
 
 		swprintf_s(str, L"%2d", HP);
-		Font::StrDraw(str, 730, 205, 30, c);
+		Font::StrDraw(str, 730, 245, 30, c);
 
 	}
 
@@ -512,28 +512,29 @@ void CObjPlayer::Draw()
 
 	if (battle == false)
 	{
-
+		//主人公状況
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
 		src.m_right = 45.0f;
 		src.m_bottom = 45.0f;
 
-		dst.m_top = 200.0f;
+		dst.m_top = 240.0f;
 		dst.m_left = 600.0f;
 		dst.m_right = 640.0f;
-		dst.m_bottom = 240.0f;
+		dst.m_bottom = 280.0f;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 
+		//攻撃状況
 		src.m_top = 130.0f;
 		src.m_left = 1.0f;
 		src.m_right = 51.0f;
 		src.m_bottom = 180.0f;
 
-		dst.m_top = 150.0f;
-		dst.m_left = 598.0f;
-		dst.m_right = 642.0f;
-		dst.m_bottom = 190.0f;
+		dst.m_top = 200.0f;
+		dst.m_left = 600.0f;
+		dst.m_right = 640.0f;
+		dst.m_bottom = 240.0f;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}

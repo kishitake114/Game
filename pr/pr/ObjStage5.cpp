@@ -7,6 +7,7 @@
 #include "GameL/WinInputs.h"
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
+#include "ObjRP.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -17,6 +18,7 @@ using namespace GameL;
 void CObjStage5::Init()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	CObjRP* RP = (CObjRP*)Objs::GetObj(OBJ_SWITCH);
 	player->num = 0;
 	player->p_x = 0.0f;
 	player->p_y = 200.0f;
@@ -65,7 +67,8 @@ void CObjStage5::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	
+	CObjRP* RP = (CObjRP*)Objs::GetObj(OBJ_SWITCH);
+	RP->sc = false;
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -331,7 +334,7 @@ void CObjStage5::Action()
 	//リセットボタンのプログラム
 	if (s_r == false)
 	{
-		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
 		{
 			if (mou_l == true)
 			{
@@ -383,27 +386,7 @@ void CObjStage5::Draw()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
-	if (player->battle == false)
-	{
-
-		if (s_r == true)
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, gl);
-		}
-
-		else
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, b);
-		}
-
-		if (s_r == true)
-		{
-			Font::StrDraw(L"Road", 600, 30, 40, r);
-		}
-	}
-	else
+	if (player->battle == true)
 	{
 		Font::StrDraw(L"Clear!!", 500, 250, 50, c);
 		Font::StrDraw(L"次から本番だ！", 500, 300, 25, c);
@@ -434,5 +417,64 @@ void CObjStage5::Draw()
 		}
 	}
 
+	//土台
+	src.m_top = 45.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 157.0f;
+
+	dst.m_top = 500.0f;
+	dst.m_left = 600.0f;
+	dst.m_right = 800.0f;
+	dst.m_bottom = 600.0f;
+
+	Draw::Draw(2, &src, &dst, c, 0.0f);
+
+	//リセットボタン
+	src.m_top = 172.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 291.0f;
+
+	if (s_r == false)
+	{
+		//押された時にしずむ
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
+		{
+			dst.m_top = 475.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
+
+			Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+
+		//それ以外
+		else
+		{
+			dst.m_top = 450.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
+
+			Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+	}
+
+	//ピース操作時のボタン
+	else
+	{
+		src.m_top = 300.0f;
+		src.m_left = 8.0f;
+		src.m_right = 201.0f;
+		src.m_bottom = 417.0f;
+
+		dst.m_top = 450.0f;
+		dst.m_left = 622.0f;
+		dst.m_right = 765.0f;
+		dst.m_bottom = 555.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
+	}
 
 }

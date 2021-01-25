@@ -15,6 +15,7 @@
 #include "ObjStage5.h"
 #include "Background01.h"
 #include "ObjNoRoad0.h"
+#include "ObjRP.h"
 
 //コンストラクタ
 CSceneStage5::CSceneStage5()
@@ -50,6 +51,11 @@ void CSceneStage5::InitScene()
 
 	CObjNoRoad0* CObjN = new CObjNoRoad0();
 	Objs::InsertObj(CObjN, 	OBJ_NO_ROAD0, 1);
+
+	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
+
+	CObjRP* CObjS = new CObjRP();
+	Objs::InsertObj(CObjS, OBJ_SWITCH, 10);
 
 }
 

@@ -86,6 +86,7 @@ void CObjRoad3::Action()
 {
 
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	CObjRP* RP = (CObjRP*)Objs::GetObj(OBJ_SWITCH);
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjEnemy3* Enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
@@ -105,6 +106,7 @@ void CObjRoad3::Action()
 			s_r = true;
 			set = true;
 			time->m_flag_time = true;
+			RP->sc = false;
 		}
 
 	}
@@ -3192,7 +3194,7 @@ void CObjRoad3::Action()
 	//リセットボタンのプログラム
 	if (s_r == false&&set==true)
 	{
-		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
 		{
 			if (mou_l == true)
 			{
@@ -3272,27 +3274,8 @@ void CObjRoad3::Draw()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
-	if (s_r == true)
-	{
-		Font::StrDraw(L"Road", 600, 30, 40, r);
-	}
 
-	if (player->battle == false)
-	{
-
-		if (s_r == true||set==false)
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, gl);
-		}
-
-		else
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, b);
-		}
-	}
-	else
+	if (player->battle == true)
 	{
 		if (player->HP == 5 && reset == 0)
 		{
@@ -3336,5 +3319,66 @@ void CObjRoad3::Draw()
 			}
 
 		}
+	}
+
+
+	//土台
+	src.m_top = 45.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 157.0f;
+
+	dst.m_top = 500.0f;
+	dst.m_left = 600.0f;
+	dst.m_right = 800.0f;
+	dst.m_bottom = 600.0f;
+
+	Draw::Draw(2, &src, &dst, c, 0.0f);
+
+	//リセットボタン
+	src.m_top = 172.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 291.0f;
+
+	if (s_r == false && set == true)
+	{
+		//押された時にしずむ
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
+		{
+			dst.m_top = 475.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
+
+			Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+
+		//それ以外
+		else
+		{
+			dst.m_top = 450.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
+
+			Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+	}
+
+	//ピース操作時のボタン
+	else
+	{
+		src.m_top = 300.0f;
+		src.m_left = 8.0f;
+		src.m_right = 201.0f;
+		src.m_bottom = 417.0f;
+
+		dst.m_top = 450.0f;
+		dst.m_left = 622.0f;
+		dst.m_right = 765.0f;
+		dst.m_bottom = 555.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
 	}
 }

@@ -18,6 +18,7 @@
 #include "ObjStage2item2.h"
 #include "ObjStage2item3.h"
 #include "ObjStage2LifeiTem.h"
+#include "ObjRP.h"
 
 //コンストラクタ
 CSceneStage2::CSceneStage2()
@@ -72,6 +73,11 @@ void CSceneStage2::InitScene()
 
 	CObjStage2Lifeitem* CObjL = new CObjStage2Lifeitem();
 	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
+
+	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
+
+	CObjRP* CObjS = new CObjRP();
+	Objs::InsertObj(CObjS, OBJ_SWITCH, 10);
 
 }
 

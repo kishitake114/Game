@@ -12,7 +12,13 @@
 //使用するヘッダー
 #include "SceneStage4.h"
 #include "GameHead.h"
-#include "ObjStage4.h"
+#include "ObjRoad4.h"
+#include "ObjNoRoad4.h"
+#include "ObjStage4item1.h"
+#include "ObjStage4item2.h"
+#include "ObjStage4item3.h"
+#include "ObjStage4LifeiTem.h"
+#include "ObjRP.h"
 
 //コンストラクタ
 CSceneStage4::CSceneStage4()
@@ -47,8 +53,11 @@ void CSceneStage4::InitScene()
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
 
-	CObjStage4* CObj4 = new CObjStage4();
+	CObjRoad4* CObj4 = new CObjRoad4();
 	Objs::InsertObj(CObj4, OBJ_ROAD4, 1);
+
+	CObjNoRoad4* CObjN = new CObjNoRoad4();
+	Objs::InsertObj(CObjN, OBJ_NO_ROAD4, 1);
 
 	CObjTime* CObjT = new CObjTime();
 	Objs::InsertObj(CObjT, OBJ_TIME, 1);
@@ -57,6 +66,23 @@ void CSceneStage4::InitScene()
 
 	CObjEnemy4* CObjE4 = new CObjEnemy4();
 	Objs::InsertObj(CObjE4, OBJ_ENEMY4, 2);
+
+	CObjStage4item1* CObjI1 = new CObjStage4item1();
+	Objs::InsertObj(CObjI1, OBJ_ITEM, 3);
+
+	CObjStage4item2* CObjI2 = new CObjStage4item2();
+	Objs::InsertObj(CObjI2, OBJ_ITEM, 3);
+
+	CObjStage4item3* CObjI3 = new CObjStage4item3();
+	Objs::InsertObj(CObjI3, OBJ_ITEM, 3);
+
+	CObjStage4Lifeitem* CObjL = new CObjStage4Lifeitem();
+	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
+
+	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
+
+	CObjRP* CObjS = new CObjRP();
+	Objs::InsertObj(CObjS, OBJ_SWITCH, 10);
 
 }
 
