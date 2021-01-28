@@ -157,6 +157,8 @@ void CObjRoad2::Action()
 			Enemy2->atk = false;
 		}
 		
+		//1段目
+
 		//1段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 118.0f && mou_y>28.0f && mou_y < 118.0f)
 		{
@@ -500,6 +502,8 @@ void CObjRoad2::Action()
 
 			}
 		}
+
+		//2段目
 
 		//2段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 120.0f && mou_y>115.0f && mou_y < 210.0f)
@@ -955,6 +959,8 @@ void CObjRoad2::Action()
 
 
 		}
+
+		//3段目
 
 		//3段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 119.0f && mou_y>205.0f && mou_y < 296.0f)
@@ -1412,6 +1418,8 @@ void CObjRoad2::Action()
 
 		}
 
+		//4段目
+
 		//4段目の1個目(左から)
 		if (mou_x > 29.0f && mou_x < 120.0f && mou_y>293.0f && mou_y < 384.0f)
 		{
@@ -1862,6 +1870,8 @@ void CObjRoad2::Action()
 				}
 			}
 		}
+
+		//5段目
 
 		//5段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 120.0f && mou_y>382.0f && mou_y < 471.0f)
