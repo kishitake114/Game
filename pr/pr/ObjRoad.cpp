@@ -166,6 +166,8 @@ void CObjRoad::Action()
 			Enemy->atk = false;
 		}
 
+		//1—ñ–Ú
+
 		//1—ñ–Ú1ƒ}ƒX–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>40.0f && mou_y < 155.0f)
 		{
@@ -434,6 +436,8 @@ void CObjRoad::Action()
 				}
 			}
 		}
+
+		//2—ñ–Ú
 
 		//2—ñ–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>156.0f && mou_y < 273.0f)
@@ -790,6 +794,8 @@ void CObjRoad::Action()
 		}
 
 		//3—ñ–Ú
+
+		//3—ñ–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>274.0f && mou_y < 394.0f)
 		{
 			if (mou_l == true)
@@ -1144,6 +1150,8 @@ void CObjRoad::Action()
 				}
 			}
 		}
+
+		//4—ñ–Ú
 
 		//4—ñ–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>394.0f && mou_y < 520.0f)

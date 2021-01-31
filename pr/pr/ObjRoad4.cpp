@@ -3594,6 +3594,8 @@ void CObjRoad4::Action()
 			}
 		}
 
+		//6段目
+
 		//6段目の1個目(左から)
 		if (mou_x > 22.0f && mou_x < 86.0f && mou_y>346.0f && mou_y < 410.0f)
 		{
@@ -4333,6 +4335,8 @@ void CObjRoad4::Action()
 			}
 		}
 
+		//7段目
+		
 		//7段目の1個目(左から)
 		if (mou_x > 22.0f && mou_x < 86.0f && mou_y>412.0f && mou_y < 478.0f)
 		{
@@ -5072,6 +5076,7 @@ void CObjRoad4::Action()
 			}
 		}
 
+		//8段目
 
 		//8段目の1個目(左から)
 		if (mou_x > 20.0f && mou_x < 88.0f && mou_y>474.0f && mou_y < 540.0f)
