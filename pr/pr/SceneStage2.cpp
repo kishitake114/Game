@@ -40,7 +40,6 @@ void CSceneStage2::InitScene()
 	Audio::LoadAudio(2, L"Œ•.wav", ::EFFECT);
 
 	float Volume = Audio::VolumeMaster(-0.8f);
-
 	Audio::Start(0);
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);

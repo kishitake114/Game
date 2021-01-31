@@ -3249,7 +3249,7 @@ void CObjRoad3::Draw()
 	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
 	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
-	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
+	float gl[4] = { 0.9f,0.9f,0.9f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
 
@@ -3299,8 +3299,8 @@ void CObjRoad3::Draw()
 	//ï\é¶ÅFí çsâ¬
 
 	src.m_top = 90.0f;
-	src.m_left = 45.0f;
-	src.m_right = 85.0f;
+	src.m_left = 236.0f;
+	src.m_right = 279.0f;
 	src.m_bottom = 125.0f;
 
 	for (int i = 0; i < PIECE; i++)
@@ -3315,7 +3315,7 @@ void CObjRoad3::Draw()
 				dst.m_right = dst.m_left + SIZE;
 				dst.m_bottom = dst.m_top + SIZE;
 
-				Draw::Draw(0, &src, &dst, c, 0.0f);
+				Draw::Draw(0, &src, &dst, gl, 0.0f);
 			}
 
 		}

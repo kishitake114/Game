@@ -190,19 +190,19 @@ void CObjClear::Draw()
 
 			Font::StrDraw(L"“c”¨@‘ñ‘å", 500, 280, 25, c);
 
-			Font::StrDraw(L"•x‰i@ˆ»“l", 200, 320, 20, c);
+			Font::StrDraw(L"•x‰i@ˆ»“l", 200, 320, 25, c);
 
-			Font::StrDraw(L"’‡@ª@éD‘¿", 500, 320, 20, c);
+			Font::StrDraw(L"’‡@ª@éD‘¿", 500, 320, 25, c);
 
-			Font::StrDraw(L"‰iŒ´@éDl", 200, 360, 20, c);
+			Font::StrDraw(L"‰iŒ´@éDl", 200, 360, 25, c);
 
-			Font::StrDraw(L"“¡“c@—²•½", 500, 360, 20, c);
+			Font::StrDraw(L"“¡“c@—²•½", 500, 360, 25, c);
 
-			Font::StrDraw(L"–{ŽR@—C—º", 200, 400, 20, c);
+			Font::StrDraw(L"–{ŽR@—C—º", 200, 400, 25, c);
 
-			Font::StrDraw(L"ŽRŒû@^—D", 500, 400, 20, c);
+			Font::StrDraw(L"ŽRŒû@^—D", 500, 400, 25, c);
 
-			Font::StrDraw(L"ŽR“c@—Ël", 200, 440, 20, c);
+			Font::StrDraw(L"ŽR“c@—Ël", 200, 440, 25, c);
 		}
 		if (m_time >= 1170)
 		{

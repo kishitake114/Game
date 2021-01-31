@@ -5758,8 +5758,8 @@ void CObjRoad4::Draw()
 	//ï\é¶ÅFí çsâ¬
 
 	src.m_top = 90.0f;
-	src.m_left = 45.0f;
-	src.m_right = 85.0f;
+	src.m_left = 331.0f;
+	src.m_right = 377.0f;
 	src.m_bottom = 125.0f;
 
 	for (int i = 0; i < 26; i++)

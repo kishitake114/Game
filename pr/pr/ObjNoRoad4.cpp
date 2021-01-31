@@ -97,8 +97,8 @@ void CObjNoRoad4::Draw()
 	//表示：通行不可
 
 	src.m_top = 90.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
+	src.m_left = 286.0f;
+	src.m_right = 329.0f;
 	src.m_bottom = 125.0f;
 
 	for (int i = 0; i < PIECE; i++)

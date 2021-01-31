@@ -47,8 +47,7 @@ void CSceneStage1::InitScene()
 	Audio::LoadAudio(2, L"Œ•.wav", ::EFFECT);
 
 	float Volume = Audio::VolumeMaster(-0.8f);
-
-	//Audio::Start(0);
+	Audio::Start(0);
 	
 	//Fontì¬
 	Font::SetStrTex(L"0123456789•ª•b");

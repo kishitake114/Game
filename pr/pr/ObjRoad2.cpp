@@ -2260,6 +2260,7 @@ void CObjRoad2::Draw()
 	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
+	float br[4] = { 0.7f,0.3f,0.0f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
@@ -2307,8 +2308,8 @@ void CObjRoad2::Draw()
 
 
 	src.m_top = 90.0f;
-	src.m_left = 45.0f;
-	src.m_right = 85.0f;
+	src.m_left = 142.0f;
+	src.m_right = 190.0f;
 	src.m_bottom = 125.0f;
 
 	for (int i = 0; i < PIECE; i++)

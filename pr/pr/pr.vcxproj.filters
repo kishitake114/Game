@@ -202,9 +202,11 @@
     <ClCompile Include="ObjStage4item3.cpp">
       <Filter>プログラム\ステージ\Stage4\アイテムデータ</Filter>
     </ClCompile>
-    <ClCompile Include="ObjStage4LifeiTem.cpp" />
     <ClCompile Include="ObjEnemy3.cpp">
       <Filter>プログラム\ステージ\Stage3\敵データ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage4LifeiTem.cpp">
+      <Filter>プログラム\ステージ\Stage4\アイテムデータ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
