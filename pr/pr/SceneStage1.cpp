@@ -46,6 +46,8 @@ void CSceneStage1::InitScene()
 
 	Audio::LoadAudio(2, L"Œ•.wav", ::EFFECT);
 
+	Audio::LoadAudio(3, L"‚É‚°‚é.wav", ::EFFECT);
+
 	float Volume = Audio::VolumeMaster(-0.8f);
 	Audio::Start(0);
 	

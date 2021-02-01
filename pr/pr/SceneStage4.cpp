@@ -39,10 +39,10 @@ void CSceneStage4::InitScene()
 
 	Audio::LoadAudio(2, L"剣.wav", ::EFFECT);
 
+	Audio::LoadAudio(3, L"にげる.wav", ::EFFECT);
 
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(-0.8f);
-
+	v = Audio::VolumeMaster((1.0 - v));
 	Audio::Start(0);
 
 	//外部データの読み込み（ステージ情報）

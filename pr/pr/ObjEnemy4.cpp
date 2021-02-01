@@ -482,6 +482,7 @@ void CObjEnemy4::Action()
 			{
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
+				Audio::Start(2);
 
 				player->battle = true;
 			}
@@ -491,10 +492,10 @@ void CObjEnemy4::Action()
 				{
 					player->HP--;
 					atk = true;
+					Audio::Start(3);
 				}
 			}
 
-			Audio::Start(2);
 
 			for (int i = 0; i < 26; i++)
 			{

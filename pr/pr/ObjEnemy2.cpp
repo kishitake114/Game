@@ -337,6 +337,7 @@ void CObjEnemy2::Action()
 				Hits::DeleteHitBox(this);
 
 				player->battle = true;
+				Audio::Start(2);
 			}
 			else if (HP > 0)
 			{
@@ -344,10 +345,10 @@ void CObjEnemy2::Action()
 				{
 					player->HP--;
 					atk = true;
+					Audio::Start(3);
 				}
 			}
 
-			Audio::Start(2);
 
 			for (int i = 0; i < 17; i++)
 			{

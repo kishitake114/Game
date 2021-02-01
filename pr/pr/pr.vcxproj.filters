@@ -318,9 +318,6 @@
     <ClInclude Include="ObjHardEnemy2.h">
       <Filter>プログラム\ハードステージ\ハードステージ２</Filter>
     </ClInclude>
-    <ClInclude Include="ObjNoRoad0.h">
-      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
-    </ClInclude>
     <ClInclude Include="ObjRoad2.h">
       <Filter>プログラム\ステージ\Stage2</Filter>
     </ClInclude>
@@ -417,6 +414,9 @@
     <ClInclude Include="ObjEnemy3.h">
       <Filter>プログラム\ステージ\Stage3\敵データ</Filter>
     </ClInclude>
+    <ClInclude Include="ObjNoRoad0.h">
+      <Filter>プログラム\ステージ\stage01\Stage 1 and Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="リソースファイル">
@@ -503,9 +503,6 @@
     <Filter Include="プログラム\ステージ\Stage2\敵データ">
       <UniqueIdentifier>{8f751ec8-271d-490e-ac23-d79d2b99cf13}</UniqueIdentifier>
     </Filter>
-    <Filter Include="プログラム\ステージ\Stage2\アイテムデータ">
-      <UniqueIdentifier>{3e177239-7486-4bfc-8d56-3eef78c8070a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="プログラム\ステージ\Stage3\敵データ">
       <UniqueIdentifier>{3abea0d4-d409-4922-b293-35f52a6dada5}</UniqueIdentifier>
     </Filter>
@@ -529,6 +526,9 @@
     </Filter>
     <Filter Include="プログラム\ステージ\Stage4\敵データ">
       <UniqueIdentifier>{e09e8918-0366-4c2e-9948-1d007a3309e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="プログラム\ステージ\Stage2\アイテムデータ">
+      <UniqueIdentifier>{3e177239-7486-4bfc-8d56-3eef78c8070a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
