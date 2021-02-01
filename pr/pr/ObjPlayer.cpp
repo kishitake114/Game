@@ -28,13 +28,14 @@ void CObjPlayer::Init()
 	sw = false;
 	sei = false;
 
+	w_time = 1;
+
 	cs_x = 50.0f;
 
 	HP = 5;
 
 	p_x = 0.0f;
 	p_y = 0.0f;
-
 
 	tarn = 1;
 
@@ -60,8 +61,6 @@ void CObjPlayer::Action()
 	CObjEnemy3* Enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
 	CObjEnemy4* Enemy4 = (CObjEnemy4*)Objs::GetObj(OBJ_ENEMY4);
 
-
-
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
 	mou_r = Input::GetMouButtonR();
@@ -77,47 +76,49 @@ void CObjPlayer::Action()
 
 	if (s_p == true)
 	{
+		if (w_time % 10 == 0)
+		{
+			Audio::Start(1);
+		}
 
 			if (Input::GetVKey('W') == true || Input::GetVKey(VK_UP) == true)
 			{
-					//Audio::Start(1);
-				   
+					w_time++;
 					p_y -= 5.0f;
 					cs_x = 95.0f;
-					count = '-';
 
 			}
+
 
 			else if (Input::GetVKey('A') == true || Input::GetVKey(VK_LEFT) == true)
 			{
-				  // Audio::Start(1);
-
+					w_time++;
 					p_x -=5.0f;
 					cs_x = 140.0f;
-					count = '-';
-
 
 			}
+
 			
 			else if (Input::GetVKey('D') == true || Input::GetVKey(VK_RIGHT) == true)
 			{
-				   //Audio::Start(1);
-	
+					w_time++;
 					p_x += 5.0f;
 					cs_x = 50.0f;
-					count = '-';
+
 	
 			}
 
 			else if (Input::GetVKey('S') == true || Input::GetVKey(VK_DOWN) == true)
 			{
-				   //Audio::Start(1);
-			
+					w_time++;
 					p_y += 5.0f;
 					cs_x = 0.0;
-					count = '-';
-
 			}
+			else
+			{
+				w_time = 1;
+			}
+
 
 			
 			//チュートリアルステージの移動制御
@@ -441,7 +442,8 @@ void CObjPlayer::Draw()
 	//表示：プレイヤー
 	wchar_t str[256];
 
-
+	swprintf_s(str, L"%d", w_time);
+	Font::StrDraw(str, 0, 0, 30, c);
 
 	if (battle == false)
 	{

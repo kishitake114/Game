@@ -8,6 +8,7 @@
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
 #include "GameL/UserData.h"
+#include"GameL/Audio.h"
 
 #define PIECE 20
 #define SIZE 25.0f
@@ -31,6 +32,7 @@ void CObjRoad3::Init()
 	second = 4;
 	set = false;
 
+	s_count = false;
 
 	int mapdata[PIECE][PIECE] =
 	{
@@ -145,6 +147,7 @@ void CObjRoad3::Action()
 			s_r = false;
 			player->s_p = true;
 			Enemy3->atk = false;
+			Audio::Start(5);
 		}
 
 
@@ -3180,6 +3183,20 @@ void CObjRoad3::Action()
 
 				}
 			}
+
+			if (mou_l == true)
+			{
+				if (s_count == true)
+				{
+					Audio::Start(2);
+					s_count = false;
+				}
+			}
+			else
+			{
+				s_count = true;
+			}
+
 		}
 
 	
@@ -3219,6 +3236,7 @@ void CObjRoad3::Action()
 				player->atk = 0;
 
 				reset++;
+				Audio::Start(4);
 
 			}
 		}

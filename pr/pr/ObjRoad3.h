@@ -40,6 +40,8 @@ private:
 
 	int num;  //デバッグ用：y移動
 
+	bool s_count;	//サウンド用カウント
+
 	int reset;
 	int s_time;
 	int second;

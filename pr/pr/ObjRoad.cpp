@@ -33,6 +33,8 @@ void CObjRoad::Init()
 	pxc = 0.0f;
 	pyc = 0.0f;
 
+	s_count = false;
+
 	pv_x = 0.0f;
 	pv_y = 0.0f;
 
@@ -117,6 +119,9 @@ void CObjRoad::Action()
 		if (s_time % 60 == 0)
 		{
 			second--;
+			if(s_time>60)
+			Audio::Start(9);
+
 		}
 		if (second == 0)
 		{
@@ -124,6 +129,9 @@ void CObjRoad::Action()
 			set = true;
 			time->m_flag_time = true;
 			RP->sc=false;
+
+			Audio::Start(10);
+
 		}	
 
 	}
@@ -164,6 +172,7 @@ void CObjRoad::Action()
 			s_r = false;
 			player->s_p = true;
 			Enemy->atk = false;
+			Audio::Start(5);
 		}
 
 		//1—ñ–Ú
@@ -1423,6 +1432,20 @@ void CObjRoad::Action()
 			}
 		}
 
+		if (mou_l == true)
+		{
+			if (s_count == true)
+			{
+				Audio::Start(2);
+				s_count = false;
+			}
+		}
+		else
+		{
+			s_count = true;
+		}
+
+
 	}
 
 	if (player->battle == true)
@@ -1472,6 +1495,8 @@ void CObjRoad::Action()
 				player->atk = 0;
 
 				reset++;
+
+				Audio::Start(4);
 
 			}
 		}
@@ -1537,7 +1562,7 @@ void CObjRoad::Draw()
 
 
 	src.m_top = 90.0f;
-	src.m_left = 45.0f;
+	src.m_left = 51.0f;
 	src.m_right = 85.0f;
 	src.m_bottom = 125.0f;
 	

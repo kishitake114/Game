@@ -35,6 +35,8 @@ private:
 
 	bool f_p;	  //クリック操作制御
 
+	bool s_count;	//サウンド用カウント
+
 	int reset;
 	int s_time;
 	int second;

@@ -42,6 +42,7 @@ private:
 	bool f_p;	  //クリック操作制御
 
 	float itemc;
+	bool s_count;	//サウンド用カウント
 
 	int s_time;
 	int second;

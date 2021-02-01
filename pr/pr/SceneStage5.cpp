@@ -38,7 +38,13 @@ void CSceneStage5::InitScene()
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"stage0,1背景.png", 1, TEX_SIZE_512);
 
-	Audio::LoadAudio(1, L"あるく.wav", ::EFFECT);
+
+	Audio::LoadAudio(1, L"足音.wav", ::EFFECT);
+	Audio::LoadAudio(2, L"ロード.wav", ::EFFECT);
+	Audio::LoadAudio(3, L"マウス.wav", ::EFFECT);
+	Audio::LoadAudio(4, L"リセット.wav", ::EFFECT);
+
+	float Volume = Audio::VolumeMaster(-0.8f);
 
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);

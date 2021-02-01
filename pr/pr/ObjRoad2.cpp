@@ -44,6 +44,8 @@ void CObjRoad2::Init()
 	second = 4;
 	set = false;
 
+	s_count = false;
+
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	
 	player->num = 2;
@@ -155,6 +157,7 @@ void CObjRoad2::Action()
 			s_r = false;
 			player->s_p = true;
 			Enemy2->atk = false;
+			Audio::Start(5);
 		}
 		
 		//1段目
@@ -2204,6 +2207,20 @@ void CObjRoad2::Action()
 				}
 			}
 		}
+
+		if (mou_l == true)
+		{
+			if (s_count == true)
+			{
+				Audio::Start(2);
+				s_count = false;
+			}
+		}
+		else
+		{
+			s_count = true;
+		}
+
 	}
 
 	//リセットボタンのプログラム
@@ -2234,6 +2251,7 @@ void CObjRoad2::Action()
 				player->p_y = player->memp_y;
 
 				player->atk = 0;
+				Audio::Start(4);
 
 			}
 		}

@@ -305,14 +305,14 @@ void CObjEnemy::Action()
 			{
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
-				Audio::Start(2);
+				Audio::Start(3);
 				player->battle = true;
 			}
 			else if (HP > 0)
 			{
 				if (atk == false)
 				{
-					Audio::Start(3);
+					Audio::Start(6);
 
 					player->HP--;
 					atk = true;

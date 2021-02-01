@@ -34,12 +34,12 @@ CSceneStage3::~CSceneStage3()
 void CSceneStage3::InitScene()
 {
 	Audio::LoadAudio(0, L"Stage3.wav", SOUND_TYPE::BACK_MUSIC);
-
-	Audio::LoadAudio(1, L"あるく.wav", ::EFFECT);
-
-	Audio::LoadAudio(2, L"剣.wav", ::EFFECT);
-
-	Audio::LoadAudio(3, L"にげる.wav", ::EFFECT);
+	Audio::LoadAudio(1, L"足音.wav", ::EFFECT);
+	Audio::LoadAudio(2, L"ロード.wav", ::EFFECT);
+	Audio::LoadAudio(3, L"剣.wav", ::EFFECT);
+	Audio::LoadAudio(4, L"リセット.wav", ::EFFECT);
+	Audio::LoadAudio(5, L"マウス.wav", ::EFFECT);
+	Audio::LoadAudio(6, L"にげる.wav", ::EFFECT);
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster((0.3 - v));

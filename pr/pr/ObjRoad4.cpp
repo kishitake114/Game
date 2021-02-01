@@ -8,6 +8,7 @@
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
 #include "GameL/UserData.h"
+#include "GameL/Audio.h"
 
 #define PIECE 26
 #define SIZE 22.0f
@@ -26,6 +27,7 @@ void CObjRoad4::Init()
 
 	reset = 0;
 
+	s_count = false;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -152,6 +154,7 @@ void CObjRoad4::Action()
 			s_r = false;
 			player->s_p = true;
 			Enemy4->atk = false;
+			Audio::Start(5);
 		}
 	
 		//1段目
@@ -5653,7 +5656,21 @@ void CObjRoad4::Action()
 				}
 			}
 		}
+
+		if (mou_l == true)
+		{
+			if (s_count == true)
+			{
+				Audio::Start(2);
+				s_count = false;
+			}
 		}
+		else
+		{
+			s_count = true;
+		}
+
+	}
 
 	//リセットボタンのプログラム
 	if (s_r == false&&set==true)
@@ -5684,6 +5701,8 @@ void CObjRoad4::Action()
 					player->p_y = player->memp_y;
 
 					player->atk = 0;
+
+					Audio::Start(4);
 
 				}
 			}
