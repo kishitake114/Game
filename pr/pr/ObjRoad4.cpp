@@ -110,7 +110,13 @@ void CObjRoad4::Action()
 
 	if (set == false)
 	{
+		if (s_time % 60 == 0 && s_time >= 120)
+			Audio::Start(9);
+		if (s_time == 60)
+			Audio::Start(10);
+
 		s_time--;
+
 		if (s_time % 60 == 0)
 		{
 			second--;
@@ -121,6 +127,8 @@ void CObjRoad4::Action()
 			set = true;
 			time->m_flag_time = true;
 			RP->sc = false;
+
+			Audio::Start(0);
 		}
 
 	}
@@ -5710,6 +5718,8 @@ void CObjRoad4::Action()
 
 	if (player->battle == true)
 	{
+		Audio::Stop(0);
+		s_r = false;
 		if (mou_l == true)
 		{
 			player->battle = false;
@@ -5720,7 +5730,6 @@ void CObjRoad4::Action()
 				((UserData*)Save::GetData())->Hperfect++;
 			}
 		}
-			s_r = false;
 	}
 
 }

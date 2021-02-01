@@ -40,10 +40,13 @@ void CSceneStage4::InitScene()
 	Audio::LoadAudio(4, L"リセット.wav", ::EFFECT);
 	Audio::LoadAudio(5, L"マウス.wav", ::EFFECT);
 	Audio::LoadAudio(6, L"にげる.wav", ::EFFECT);
+	Audio::LoadAudio(7, L"こうげき.wav", ::EFFECT);
+	Audio::LoadAudio(8, L"かいふく.wav", ::EFFECT);
+	Audio::LoadAudio(9, L"カウント.wav", ::EFFECT);
+	Audio::LoadAudio(10, L"スタート.wav", ::EFFECT);
 
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
-	Audio::Start(0);
+	v = Audio::VolumeMaster((0.3 - v));
 
 	//外部データの読み込み（ステージ情報）
 	unique_ptr<wchar_t> p; //ステージ情報ポインター

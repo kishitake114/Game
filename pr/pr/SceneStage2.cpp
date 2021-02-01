@@ -40,10 +40,13 @@ void CSceneStage2::InitScene()
 	Audio::LoadAudio(4, L"リセット.wav", ::EFFECT);
 	Audio::LoadAudio(5, L"マウス.wav", ::EFFECT);
 	Audio::LoadAudio(6, L"にげる.wav", ::EFFECT);
+	Audio::LoadAudio(7, L"こうげき.wav", ::EFFECT);
+	Audio::LoadAudio(8, L"かいふく.wav", ::EFFECT);
+	Audio::LoadAudio(9, L"カウント.wav", ::EFFECT);
+	Audio::LoadAudio(10, L"スタート.wav", ::EFFECT);
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster((0.7 - v));
-	Audio::Start(0);
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 

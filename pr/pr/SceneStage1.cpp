@@ -55,7 +55,6 @@ void CSceneStage1::InitScene()
 
 	float v = Audio::VolumeMaster(0);
 	v = Audio::VolumeMaster((1.0 - v));
-	Audio::Start(0);
 	
 	//Fontì¬
 	Font::SetStrTex(L"0123456789•ª•b");

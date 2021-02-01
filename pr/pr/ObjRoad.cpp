@@ -115,13 +115,16 @@ void CObjRoad::Action()
 
 	if (set == false)
 	{
+		if (s_time % 60 == 0 && s_time >= 120)
+			Audio::Start(9);
+		if (s_time == 60)
+			Audio::Start(10);
+
 		s_time--;
+
 		if (s_time % 60 == 0)
 		{
 			second--;
-			if(s_time>60)
-			Audio::Start(9);
-
 		}
 		if (second == 0)
 		{
@@ -130,8 +133,7 @@ void CObjRoad::Action()
 			time->m_flag_time = true;
 			RP->sc=false;
 
-			Audio::Start(10);
-
+			Audio::Start(0);
 		}	
 
 	}
@@ -1451,9 +1453,9 @@ void CObjRoad::Action()
 	if (player->battle == true)
 	{
 		Audio::Stop(0);
+		s_r = false;
 		if (mou_l == true)
 		{
-		
 
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
@@ -1463,7 +1465,6 @@ void CObjRoad::Action()
 				((UserData*)Save::GetData())->Hperfect++;
 			}
 
-			s_r = false;
 		}
 	}
 
