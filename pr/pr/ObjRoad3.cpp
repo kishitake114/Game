@@ -3297,7 +3297,7 @@ void CObjRoad3::Draw()
 		}
 		else
 		{
-			Font::StrDraw(L"GO!", 642, 350, 100, r);
+			Font::StrDraw(L"GO!", 620, 350, 100, r);
 		}
 	}
 

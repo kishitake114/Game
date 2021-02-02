@@ -101,9 +101,8 @@ void CObjTitle::Action()
 		//}
 
 
-		if (mou_x > 161 && mou_x < 629 && mou_y > 391 && mou_y < 423)
+		if (mou_x > 161.0f && mou_x < 629.0f && mou_y > 391.0f && mou_y < 423.0f)
 		{
-
 			if (mou_l == true)
 			{
 				Audio::Stop(0);
@@ -133,8 +132,6 @@ void CObjTitle::Action()
 			{
 				slide += 8.0f;
 			}
-
-			
 		}
 
 		//if (mou_x > 161 && mou_x < 629 && mou_y > 441 && mou_y < 473)
