@@ -55,7 +55,7 @@ void CSceneStage4::InitScene()
 	p = Save::ExternalDataOpen(L"k.csv", &size);//外部データ読み込み
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
-	
+	Draw::LoadImage(L"stage4,background.png", 3, TEX_SIZE_512);
 
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 20);
@@ -88,8 +88,6 @@ void CSceneStage4::InitScene()
 
 	CObjStage4Lifeitem* CObjL = new CObjStage4Lifeitem();
 	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
-
-	Draw::LoadImage(L"stage4,background.png", 3, TEX_SIZE_512);
 
 	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
 

@@ -28,8 +28,6 @@ void CObjClear::Init()
 	sigo = 0;
 
 	ed = false;
-
-	((UserData*)Save::GetData())->Hperfect = 4;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
