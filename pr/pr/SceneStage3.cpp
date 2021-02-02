@@ -19,6 +19,7 @@
 #include "ObjStage3item3.h"
 #include "ObjStage3LifeiTem.h"
 #include "ObjRP.h"
+#include "Background03.h"
 
 //コンストラクタ
 CSceneStage3::CSceneStage3()
@@ -54,7 +55,9 @@ void CSceneStage3::InitScene()
 	p = Save::ExternalDataOpen(L"k.csv", &size);//外部データ読み込み
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
-
+	Draw::LoadImage(L"image2.png", 1, TEX_SIZE_512);
+	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
+	Draw::LoadImage(L"stage3,background.png", 3, TEX_SIZE_512);
 
 	CObjPlayer* CObj = new CObjPlayer();
 	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
@@ -65,8 +68,8 @@ void CSceneStage3::InitScene()
 	CObjNoRoad3* CObjN = new CObjNoRoad3();
 	Objs::InsertObj(CObjN, OBJ_NO_ROAD3, 1);
 
-
-	Draw::LoadImage(L"image2.png", 1, TEX_SIZE_512);
+	CObjBackGround03* CObg = new 	CObjBackGround03();
+	Objs::InsertObj(CObg, OBJ_BACKGROUND03, 1);
 
 	CObjEnemy3* CObjE3 = new CObjEnemy3();
 	Objs::InsertObj(CObjE3, OBJ_ENEMY3, 2);
@@ -85,8 +88,6 @@ void CSceneStage3::InitScene()
 
 	CObjStage3Lifeitem* CObjL = new CObjStage3Lifeitem();
 	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
-
-	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
 
 	CObjRP* CObjS = new CObjRP();
 	Objs::InsertObj(CObjS, OBJ_SWITCH, 10);

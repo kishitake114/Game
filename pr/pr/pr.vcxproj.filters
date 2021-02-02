@@ -178,9 +178,6 @@
     <ClCompile Include="ObjRP.cpp">
       <Filter>プログラム\ステージ</Filter>
     </ClCompile>
-    <ClCompile Include="Background03.cpp">
-      <Filter>プログラム\ステージ\Stage3\シーン</Filter>
-    </ClCompile>
     <ClCompile Include="ObjRoad4.cpp">
       <Filter>プログラム\ステージ\Stage4</Filter>
     </ClCompile>
@@ -210,6 +207,10 @@
     </ClCompile>
     <ClCompile Include="Background04.cpp">
       <Filter>プログラム\ステージ\Stage4</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage3LifeiTem.cpp" />
+    <ClCompile Include="Background03.cpp">
+      <Filter>プログラム\ステージ\Stage3\シーン</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -387,9 +388,6 @@
     <ClInclude Include="ObjRP.h">
       <Filter>プログラム\ステージ</Filter>
     </ClInclude>
-    <ClInclude Include="Background03.h">
-      <Filter>プログラム\ステージ\Stage3\シーン</Filter>
-    </ClInclude>
     <ClInclude Include="ObjRoad4.h">
       <Filter>プログラム\ステージ\Stage4</Filter>
     </ClInclude>
@@ -422,6 +420,10 @@
     </ClInclude>
     <ClInclude Include="Background04.h">
       <Filter>プログラム\ステージ\Stage4</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage3LifeiTem.h" />
+    <ClInclude Include="Background03.h">
+      <Filter>プログラム\ステージ\Stage3\シーン</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

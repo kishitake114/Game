@@ -20,8 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background01.cpp" />
-    <ClCompile Include="Background04.cpp" />
     <ClCompile Include="Background03.cpp" />
+    <ClCompile Include="Background04.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
