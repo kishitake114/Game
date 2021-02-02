@@ -47,7 +47,7 @@ void CSceneStage2::InitScene()
 	Audio::LoadAudio(10, L"スタート.wav", ::EFFECT);
 
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((0.7 - v));
+	v = Audio::VolumeMaster((0.3 - v));
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"stage0,1background.png", 1, TEX_SIZE_512);

@@ -13,5 +13,6 @@ class CObjBackGround01 :public CObj
 		void Action();
 		void Draw();
 	private:
+		int stage;
 
 };

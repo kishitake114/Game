@@ -101,7 +101,7 @@ void CObjNoRoad2::Action()
 
 void CObjNoRoad2::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 1.1f,1.1f,1.1f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
