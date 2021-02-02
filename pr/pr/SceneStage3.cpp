@@ -57,40 +57,40 @@ void CSceneStage3::InitScene()
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"image2.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"etc.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"stage3,background.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"stage3background.png", 3, TEX_SIZE_512);
 
 	CObjPlayer* CObj = new CObjPlayer();
-	Objs::InsertObj(CObj, OBJ_PLAYER, 1);
+	Objs::InsertObj(CObj, OBJ_PLAYER, 20);
 
 	CObjRoad3* CObj3 = new CObjRoad3();
-	Objs::InsertObj(CObj3, OBJ_ROAD3, 1);
+	Objs::InsertObj(CObj3, OBJ_ROAD3, 15);
 
 	CObjNoRoad3* CObjN = new CObjNoRoad3();
-	Objs::InsertObj(CObjN, OBJ_NO_ROAD3, 1);
+	Objs::InsertObj(CObjN, OBJ_NO_ROAD3, 15);
 
 	CObjBackGround03* CObg = new 	CObjBackGround03();
 	Objs::InsertObj(CObg, OBJ_BACKGROUND03, 1);
 
 	CObjEnemy3* CObjE3 = new CObjEnemy3();
-	Objs::InsertObj(CObjE3, OBJ_ENEMY3, 2);
+	Objs::InsertObj(CObjE3, OBJ_ENEMY3, 20);
 
 	CObjTime* CObjT = new CObjTime();
-	Objs::InsertObj(CObjT, OBJ_TIME, 3);
+	Objs::InsertObj(CObjT, OBJ_TIME, 20);
 
 	CObjStage3item1* CObjI1 = new CObjStage3item1();
-	Objs::InsertObj(CObjI1, OBJ_ITEM, 1);
+	Objs::InsertObj(CObjI1, OBJ_ITEM, 19);
 
 	CObjStage3item2* CObjI2 = new CObjStage3item2();
-	Objs::InsertObj(CObjI2, OBJ_ITEM, 1);
+	Objs::InsertObj(CObjI2, OBJ_ITEM, 19);
 
 	CObjStage3item3* CObjI3 = new CObjStage3item3();
-	Objs::InsertObj(CObjI3, OBJ_ITEM, 1);
+	Objs::InsertObj(CObjI3, OBJ_ITEM, 19);
 
 	CObjStage3Lifeitem* CObjL = new CObjStage3Lifeitem();
-	Objs::InsertObj(CObjL, OBJ_ITEM, 3);
+	Objs::InsertObj(CObjL, OBJ_ITEM, 19);
 
 	CObjRP* CObjS = new CObjRP();
-	Objs::InsertObj(CObjS, OBJ_SWITCH, 10);
+	Objs::InsertObj(CObjS, OBJ_SWITCH, 20);
 }
 
 //ÉQÅ[ÉÄÉÅÉCÉìé¿çsíÜ

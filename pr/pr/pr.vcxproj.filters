@@ -208,9 +208,11 @@
     <ClCompile Include="Background04.cpp">
       <Filter>プログラム\ステージ\Stage4</Filter>
     </ClCompile>
-    <ClCompile Include="ObjStage3LifeiTem.cpp" />
     <ClCompile Include="Background03.cpp">
       <Filter>プログラム\ステージ\Stage3\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStage3LifeiTem.cpp">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -421,9 +423,11 @@
     <ClInclude Include="Background04.h">
       <Filter>プログラム\ステージ\Stage4</Filter>
     </ClInclude>
-    <ClInclude Include="ObjStage3LifeiTem.h" />
     <ClInclude Include="Background03.h">
       <Filter>プログラム\ステージ\Stage3\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStage3LifeiTem.h">
+      <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

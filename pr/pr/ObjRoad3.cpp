@@ -3278,7 +3278,7 @@ void CObjRoad3::Draw()
 	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
 	float g[4] = { 0.0f,1.0f,0.0f,1.0f };
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
-	float gl[4] = { 0.9f,0.9f,0.9f,1.0f };
+	float gl[4] = { 1.1f,1.1f,1.1f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
 

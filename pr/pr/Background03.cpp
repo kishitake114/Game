@@ -16,7 +16,7 @@ void CObjBackGround03::Action()
 
 void CObjBackGround03::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 0.6f,0.6f,0.6f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
