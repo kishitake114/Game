@@ -1,5 +1,6 @@
 #include "Background01.h"
 #include "ObjRoad.h"
+#include "ObjRoad2.h"
 #include "GameHead.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
