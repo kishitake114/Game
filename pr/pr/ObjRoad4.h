@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：背景
-class CObjStage4 :public CObj
+class CObjRoad4 :public CObj
 {
 public:
-	CObjStage4() {};
-	~CObjStage4() {};
+	CObjRoad4() {};
+	~CObjRoad4() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
@@ -34,6 +34,8 @@ private:
 	float pv_y;
 
 	bool f_p;	  //クリック操作制御
+
+	bool s_count;	//サウンド用カウント
 
 	int reset;
 	int s_time;

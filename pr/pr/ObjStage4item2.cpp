@@ -1,23 +1,21 @@
-#include "ObjStage3item3.h"
-#include "ObjRoad3.h"
+#include "ObjStage4item2.h"
+#include "ObjRoad4.h"
 #include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include"GameL/Audio.h"
 
+#define PIECE 26
+#define SIZE 22.0f
 
-#define PIECE 20
-#define SIZE 25.0f
-
-void CObjStage3item3::Init()
+void CObjStage4item2::Init()
 {
-
 }
 
-void CObjStage3item3::Action()
+void CObjStage4item2::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	CObjRoad3* road = (CObjRoad3*)Objs::GetObj(OBJ_ROAD3);
+	CObjRoad4* road = (CObjRoad4*)Objs::GetObj(OBJ_ROAD4);
 	float px = player->GetX();
 	float py = player->GetY();
 
@@ -29,12 +27,12 @@ void CObjStage3item3::Action()
 		}
 	}
 
-	//アイテム（３）
+	//アイテム（２）
 	for (int i = 0; i < PIECE; i++)
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] == 5)
+			if (map[i][j] == 4)
 			{
 				float x = j * SIZE;
 				float y = i * SIZE;
@@ -62,12 +60,12 @@ void CObjStage3item3::Action()
 
 					if (r > 45 && r < 315)
 					{
-						if (map[i][j] == 5)
+						if (map[i][j] == 4)
 						{
 							road->map[i][j] = 2;
 						}
 
-						player->atk += 3;
+						player->atk += 2;
 						Audio::Start(7);
 					}
 
@@ -75,11 +73,9 @@ void CObjStage3item3::Action()
 			}
 		}
 	}
-
-
 }
 
-void CObjStage3item3::Draw()
+void CObjStage4item2::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -88,15 +84,15 @@ void CObjStage3item3::Draw()
 
 	//表示：アイテム
 	src.m_top = 130.0f;
-	src.m_left = 102.0f;
-	src.m_right = 151.0f;
+	src.m_left = 52.0f;
+	src.m_right = 101.0f;
 	src.m_bottom = 180.0f;
 
 	for (int i = 0; i < PIECE; i++)
 	{
 		for (int j = 0; j < PIECE; j++)
 		{
-			if (map[i][j] == 5)
+			if (map[i][j] == 4)
 			{
 				dst.m_top = i * SIZE;
 				dst.m_left = j * SIZE;
@@ -108,5 +104,5 @@ void CObjStage3item3::Draw()
 			}
 		}
 	}
-}
 
+}

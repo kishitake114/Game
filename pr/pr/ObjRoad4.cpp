@@ -1,5 +1,5 @@
 //使用するヘッダーファイル
-#include "ObjStage4.h"
+#include "ObjRoad4.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
@@ -8,6 +8,7 @@
 #include "GameL/HitBoxManager.h"
 #include "GameL/SceneObjManager.h"
 #include "GameL/UserData.h"
+#include "GameL/Audio.h"
 
 #define PIECE 26
 #define SIZE 22.0f
@@ -16,7 +17,7 @@
 using namespace GameL;
 
 //イニシャライズ
-void CObjStage4::Init()
+void CObjRoad4::Init()
 {
 	CObjPlayer* obj = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	((UserData*)Save::GetData())->stage = 4;
@@ -26,6 +27,7 @@ void CObjStage4::Init()
 
 	reset = 0;
 
+	s_count = false;
 
 	mou_x = 0.0f;
 	mou_y = 0.0f;
@@ -51,7 +53,7 @@ void CObjStage4::Init()
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	    {0,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,0},
-		{2,2,3,2,1,6,2,2,5,2,2,4,1,2,6,2,2,5,2,1,2,1,2,6,1,2},
+		{2,2,3,2,1,2,2,2,5,2,2,4,1,2,6,2,2,5,2,1,2,1,2,2,1,2},
 		{0,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,0},
 	    {0,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,0},
 		{2,2,2,1,2,3,2,2,4,1,1,2,1,1,2,2,1,3,2,2,5,2,2,2,1,2},
@@ -72,7 +74,7 @@ void CObjStage4::Init()
 		{2,2,2,2,2,2,2,1,2,2,2,4,2,1,2,2,1,2,2,2,2,2,2,4,2,2},
 		{0,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,2,1,1,1,1,1,2,1,0},
 	    {0,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,1,2,1,0},
-		{2,1,3,2,2,6,2,2,3,2,1,2,1,2,2,2,2,3,1,2,4,2,1,6,2,2},
+		{2,1,3,2,2,2,2,2,3,2,1,2,1,2,2,2,2,3,1,2,4,2,1,6,2,2},
 		{0,1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,2,1,0},
 	    {0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 
@@ -97,9 +99,10 @@ void CObjStage4::Init()
 	};
 }
 //アクション
-void CObjStage4::Action()
+void CObjRoad4::Action()
 {
-
+	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	CObjRP* RP = (CObjRP*)Objs::GetObj(OBJ_SWITCH);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjEnemy4* Enemy4 = (CObjEnemy4*)Objs::GetObj(OBJ_ENEMY4);
 	float px = player->GetX();
@@ -107,7 +110,13 @@ void CObjStage4::Action()
 
 	if (set == false)
 	{
+		if (s_time % 60 == 0 && s_time >= 120)
+			Audio::Start(9);
+		if (s_time == 60)
+			Audio::Start(10);
+
 		s_time--;
+
 		if (s_time % 60 == 0)
 		{
 			second--;
@@ -116,255 +125,12 @@ void CObjStage4::Action()
 		{
 			s_r = true;
 			set = true;
+			time->m_flag_time = true;
+			RP->sc = false;
+
+			Audio::Start(0);
 		}
 
-	}
-
-	//通行不可
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] <= 1)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					//上
-					if (r > 45 && r < 135)
-					{
-						player->SetVY(y - SIZE);
-					}
-
-					//左
-					else if (r > 135 && r < 225)
-					{
-						player->SetVX(x - SIZE);
-					}
-
-					//下
-					else if (r > 225 && r < 315)
-					{
-						player->SetVY(y + SIZE);
-					}
-
-					else
-					{
-						player->SetVX(x + SIZE);
-					}
-
-				}
-
-			}
-
-
-		}
-
-	}
-	//アイテム（１）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 3)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 3)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk++;
-					}
-
-				}
-			}
-		}
-	}
-	//アイテム（２）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 4)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 4)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk += 2;
-					}
-
-				}
-			}
-		}
-	}
-	//アイテム（３）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 5)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 5)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk += 3;
-					}
-
-				}
-			}
-		}
-	}
-	//回復アイテム
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 6)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 6)
-						{
-							map[i][j] = 2;
-						}
-
-						if (player->HP < 5)
-						{
-							player->HP++;
-						}
-		
-					}
-
-				}
-			}
-		}
 	}
 
 	mou_x = (float)Input::GetPosX();
@@ -396,6 +162,7 @@ void CObjStage4::Action()
 			s_r = false;
 			player->s_p = true;
 			Enemy4->atk = false;
+			Audio::Start(5);
 		}
 	
 		//1段目
@@ -3838,6 +3605,8 @@ void CObjStage4::Action()
 			}
 		}
 
+		//6段目
+
 		//6段目の1個目(左から)
 		if (mou_x > 22.0f && mou_x < 86.0f && mou_y>346.0f && mou_y < 410.0f)
 		{
@@ -4577,6 +4346,8 @@ void CObjStage4::Action()
 			}
 		}
 
+		//7段目
+		
 		//7段目の1個目(左から)
 		if (mou_x > 22.0f && mou_x < 86.0f && mou_y>412.0f && mou_y < 478.0f)
 		{
@@ -5316,6 +5087,7 @@ void CObjStage4::Action()
 			}
 		}
 
+		//8段目
 
 		//8段目の1個目(左から)
 		if (mou_x > 20.0f && mou_x < 88.0f && mou_y>474.0f && mou_y < 540.0f)
@@ -5892,13 +5664,26 @@ void CObjStage4::Action()
 				}
 			}
 		}
+
+		if (mou_l == true)
+		{
+			if (s_count == true)
+			{
+				Audio::Start(2);
+				s_count = false;
+			}
 		}
-		CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+		else
+		{
+			s_count = true;
+		}
+
+	}
 
 	//リセットボタンのプログラム
 	if (s_r == false&&set==true)
 		{
-			if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+			if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
 			{
 				if (mou_l == true)
 				{
@@ -5925,12 +5710,16 @@ void CObjStage4::Action()
 
 					player->atk = 0;
 
+					Audio::Start(4);
+
 				}
 			}
 		}
 
 	if (player->battle == true)
 	{
+		Audio::Stop(0);
+		s_r = false;
 		if (mou_l == true)
 		{
 			player->battle = false;
@@ -5941,18 +5730,13 @@ void CObjStage4::Action()
 				((UserData*)Save::GetData())->Hperfect++;
 			}
 		}
-
-
-		
-
-		s_r = false;
 	}
 
 }
 
 
 //ドロー
-void CObjStage4::Draw()
+void CObjRoad4::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	float r[4] = { 1.0f,0.0f,0.0f,1.0f };
@@ -5983,27 +5767,7 @@ void CObjStage4::Draw()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
-	if (s_r == true)
-	{
-		Font::StrDraw(L"Road", 600, 30, 40, r);
-	}
-
-	if (player->battle == false)
-	{
-
-		if (s_r == true)
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, gl);
-		}
-
-		else
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, b);
-		}
-	}
-	else
+	if(player->battle==true)
 	{
 		if (player->HP == 5 && reset == 0)
 		{
@@ -6026,10 +5790,9 @@ void CObjStage4::Draw()
 	}
 	//表示：通行可
 
-
 	src.m_top = 90.0f;
-	src.m_left = 45.0f;
-	src.m_right = 85.0f;
+	src.m_left = 331.0f;
+	src.m_right = 377.0f;
 	src.m_bottom = 125.0f;
 
 	for (int i = 0; i < 26; i++)
@@ -6050,119 +5813,64 @@ void CObjStage4::Draw()
 		}
 	}
 
-	//表示：通行不可
 
-	src.m_top = 90.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
-	src.m_bottom = 125.0f;
+	//土台
+	src.m_top = 45.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 157.0f;
 
-	for (int i = 0; i < PIECE; i++)
+	dst.m_top = 500.0f;
+	dst.m_left = 600.0f;
+	dst.m_right = 800.0f;
+	dst.m_bottom = 600.0f;
+
+	Draw::Draw(2, &src, &dst, c, 0.0f);
+
+	//リセットボタン
+	src.m_top = 172.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 291.0f;
+
+	if (s_r == false && set == true)
 	{
-		for (int j = 0; j < PIECE; j++)
+		//押された時にしずむ
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
 		{
-			if (map[i][j] == 1)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+			dst.m_top = 475.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
 
-				Draw::Draw(0, &src, &dst, c, 0.0f);
+			Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
 
-			}
+		//それ以外
+		else
+		{
+			dst.m_top = 450.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
+
+			Draw::Draw(2, &src, &dst, c, 0.0f);
 		}
 	}
 
-	//表示：アイテム
-	src.m_top = 130.0f;
-	src.m_left = 1.0f;
-	src.m_right = 51.0f;
-	src.m_bottom = 180.0f;
-
-	for (int i = 0; i < PIECE; i++)
+	//ピース操作時のボタン
+	else
 	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 3)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+		src.m_top = 300.0f;
+		src.m_left = 8.0f;
+		src.m_right = 201.0f;
+		src.m_bottom = 417.0f;
 
-				Draw::Draw(0, &src, &dst, c, 0.0f);
+		dst.m_top = 450.0f;
+		dst.m_left = 622.0f;
+		dst.m_right = 765.0f;
+		dst.m_bottom = 555.0f;
 
-			}
-		}
-	}
-
-	src.m_top = 130.0f;
-	src.m_left = 152.0f;
-	src.m_right = 203.0f;
-	src.m_bottom = 180.0f;
-
-	//表示：回復アイテム
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 6)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
-
-	//表示：アイテム
-	src.m_top = 130.0f;
-	src.m_left = 52.0f;
-	src.m_right = 101.0f;
-	src.m_bottom = 180.0f;
-
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 4)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
-	}
-
-	//表示：アイテム
-	src.m_top = 130.0f;
-	src.m_left = 102.0f;
-	src.m_right = 151.0f;
-	src.m_bottom = 180.0f;
-
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 5)
-			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
-
-				Draw::Draw(0, &src, &dst, c, 0.0f);
-
-			}
-		}
+		Draw::Draw(2, &src, &dst, c, 0.0f);
 	}
 }

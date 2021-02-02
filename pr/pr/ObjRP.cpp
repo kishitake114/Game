@@ -1,5 +1,8 @@
 #include "ObjRP.h"
 #include "ObjRoad.h"
+#include "ObjRoad2.h"
+#include "ObjRoad3.h"
+#include "ObjRoad4.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "ObjPlayer.h"

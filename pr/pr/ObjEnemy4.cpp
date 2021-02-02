@@ -1,5 +1,5 @@
 #include "ObjEnemy4.h"
-#include "ObjStage4.h"
+#include "ObjRoad4.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -51,7 +51,7 @@ void CObjEnemy4::Action()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
-	CObjStage4* Road4 = (CObjStage4*)Objs::GetObj(OBJ_ROAD4);
+	CObjRoad4* Road4 = (CObjRoad4*)Objs::GetObj(OBJ_ROAD4);
 
 	if (e_s == true)
 	{
@@ -482,6 +482,7 @@ void CObjEnemy4::Action()
 			{
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
+				Audio::Start(2);
 
 				player->battle = true;
 			}
@@ -491,10 +492,10 @@ void CObjEnemy4::Action()
 				{
 					player->HP--;
 					atk = true;
+					Audio::Start(3);
 				}
 			}
 
-			Audio::Start(2);
 
 			for (int i = 0; i < 26; i++)
 			{
@@ -529,10 +530,10 @@ void CObjEnemy4::Draw()
 	wchar_t str[256];
 
 	swprintf_s(str, L"Enemy HP");
-	Font::StrDraw(str, 642, 250, 20, c);
+	Font::StrDraw(str, 642, 290, 20, c);
 
 	swprintf_s(str, L"%2d", HP);
-	Font::StrDraw(str, 730, 255, 30, c);
+	Font::StrDraw(str, 730, 295, 30, c);
 
 	src.m_top = 10.0f;
 	src.m_left = 10.0f + cs_xe;
@@ -551,10 +552,10 @@ void CObjEnemy4::Draw()
 	src.m_right = 190.0f;
 	src.m_bottom = 35.0f;
 
-	dst.m_top = 250.0f;
+	dst.m_top = 290.0f;
 	dst.m_left = 600.0f;
 	dst.m_right = 640.0f;
-	dst.m_bottom = 290.0f;
+	dst.m_bottom = 330.0f;
 
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 

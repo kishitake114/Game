@@ -33,6 +33,8 @@ void CObjRoad::Init()
 	pxc = 0.0f;
 	pyc = 0.0f;
 
+	s_count = false;
+
 	pv_x = 0.0f;
 	pv_y = 0.0f;
 
@@ -113,7 +115,13 @@ void CObjRoad::Action()
 
 	if (set == false)
 	{
+		if (s_time % 60 == 0 && s_time >= 120)
+			Audio::Start(9);
+		if (s_time == 60)
+			Audio::Start(10);
+
 		s_time--;
+
 		if (s_time % 60 == 0)
 		{
 			second--;
@@ -124,6 +132,8 @@ void CObjRoad::Action()
 			set = true;
 			time->m_flag_time = true;
 			RP->sc=false;
+
+			Audio::Start(0);
 		}	
 
 	}
@@ -164,7 +174,10 @@ void CObjRoad::Action()
 			s_r = false;
 			player->s_p = true;
 			Enemy->atk = false;
+			Audio::Start(5);
 		}
+
+		//1—ñ–Ú
 
 		//1—ñ–Ú1ƒ}ƒX–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>40.0f && mou_y < 155.0f)
@@ -434,6 +447,8 @@ void CObjRoad::Action()
 				}
 			}
 		}
+
+		//2—ñ–Ú
 
 		//2—ñ–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>156.0f && mou_y < 273.0f)
@@ -788,6 +803,8 @@ void CObjRoad::Action()
 				}
 			}
 		}
+
+		//3—ñ–Ú
 
 		//3—ñ–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>274.0f && mou_y < 394.0f)
@@ -1146,6 +1163,8 @@ void CObjRoad::Action()
 		}
 
 		//4—ñ–Ú
+
+		//4—ñ–Ú
 		if (mou_x > 40.0f && mou_x < 155.0f && mou_y>394.0f && mou_y < 520.0f)
 		{
 			if (mou_l == true)
@@ -1415,14 +1434,28 @@ void CObjRoad::Action()
 			}
 		}
 
+		if (mou_l == true)
+		{
+			if (s_count == true)
+			{
+				Audio::Start(2);
+				s_count = false;
+			}
+		}
+		else
+		{
+			s_count = true;
+		}
+
+
 	}
 
 	if (player->battle == true)
 	{
 		Audio::Stop(0);
+		s_r = false;
 		if (mou_l == true)
 		{
-		
 
 			player->battle = false;
 			Scene::SetScene(new CSceneStage2);
@@ -1432,7 +1465,6 @@ void CObjRoad::Action()
 				((UserData*)Save::GetData())->Hperfect++;
 			}
 
-			s_r = false;
 		}
 	}
 
@@ -1465,6 +1497,8 @@ void CObjRoad::Action()
 
 				reset++;
 
+				Audio::Start(4);
+
 			}
 		}
 	}
@@ -1480,7 +1514,7 @@ void CObjRoad::Draw()
 	float b [4]  = { 0.0f,0.0f,1.0f,1.0f };
 	float gl[4]  = { 0.3f,0.3f,0.3f,1.0f };
 	float y [4]  = { 1.0f,1.0f,0.0f,1.0f };
-	float p [4]  = { 1.0f,0.5f,0.5f,1.0f };
+	float br [4]  = { 0.6f,0.3f,0.0f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
@@ -1529,7 +1563,7 @@ void CObjRoad::Draw()
 
 
 	src.m_top = 90.0f;
-	src.m_left = 45.0f;
+	src.m_left = 51.0f;
 	src.m_right = 85.0f;
 	src.m_bottom = 125.0f;
 	

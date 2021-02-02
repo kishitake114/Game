@@ -1,4 +1,5 @@
 #include "ObjEnemy2.h"
+#include "ObjRoad2.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -337,6 +338,7 @@ void CObjEnemy2::Action()
 				Hits::DeleteHitBox(this);
 
 				player->battle = true;
+				Audio::Start(2);
 			}
 			else if (HP > 0)
 			{
@@ -344,10 +346,10 @@ void CObjEnemy2::Action()
 				{
 					player->HP--;
 					atk = true;
+					Audio::Start(3);
 				}
 			}
 
-			Audio::Start(2);
 
 			for (int i = 0; i < 17; i++)
 			{
@@ -382,10 +384,10 @@ void CObjEnemy2::Draw()
 	wchar_t str[256];
 
 	swprintf_s(str, L"Enemy HP");
-	Font::StrDraw(str, 642, 250, 20, c);
+	Font::StrDraw(str, 642, 290, 20, c);
 
 	swprintf_s(str, L"%2d", HP);
-	Font::StrDraw(str, 730, 255, 30, c);
+	Font::StrDraw(str, 730, 295, 30, c);
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f + cs_xe;
@@ -397,7 +399,7 @@ void CObjEnemy2::Draw()
 	dst.m_right = 90.0f + atr_x;
 	dst.m_bottom = 30.0f + atr_y;
 
-	Draw::Draw(1, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 
 
 	src.m_top = 0.0f;
@@ -405,11 +407,11 @@ void CObjEnemy2::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 50.0f;
 
-	dst.m_top = 250.0f;
+	dst.m_top = 290.0f;
 	dst.m_left = 600.0f;
 	dst.m_right = 640.0f;
-	dst.m_bottom = 290.0f;
+	dst.m_bottom = 330.0f;
 
-	Draw::Draw(1, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 
 }

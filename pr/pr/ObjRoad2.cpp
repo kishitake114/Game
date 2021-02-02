@@ -44,6 +44,8 @@ void CObjRoad2::Init()
 	second = 4;
 	set = false;
 
+	s_count = false;
+
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 	
 	player->num = 2;
@@ -97,6 +99,7 @@ void CObjRoad2::Init()
 void CObjRoad2::Action()
 {
 	CObjTime* time = (CObjTime*)Objs::GetObj(OBJ_TIME);
+	CObjRP* RP = (CObjRP*)Objs::GetObj(OBJ_SWITCH);
 
 	CObjEnemy2* Enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
@@ -107,7 +110,13 @@ void CObjRoad2::Action()
 
 	if (set == false)
 	{
+		if (s_time % 60 == 0 && s_time >= 120)
+			Audio::Start(9);
+		if (s_time == 60)
+			Audio::Start(10);
+
 		s_time--;
+
 		if (s_time % 60 == 0)
 		{
 			second--;
@@ -117,149 +126,12 @@ void CObjRoad2::Action()
 			s_r = true;
 			set = true;
 			time->m_flag_time = true;
+			RP->sc = false;
+
+			Audio::Start(0);
 		}
 
 	}
-
-	//アイテム（２）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 4)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 4)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk += 2;
-					}
-
-				}
-			}
-		}
-	}
-	//アイテム（３）
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 5)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 5)
-						{
-							map[i][j] = 2;
-						}
-
-						player->atk += 3;
-					}
-
-				}
-			}
-		}
-	}
-	//回復アイテム
-	for (int i = 0; i < PIECE; i++)
-	{
-		for (int j = 0; j < PIECE; j++)
-		{
-			if (map[i][j] == 6)
-			{
-				float x = j * SIZE;
-				float y = i * SIZE;
-
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
-				{
-					//ベクトル作成
-					float vx = px - x;
-					float vy = py - y;
-
-					float len = sqrt(vx * vx + vy * vy);
-
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-					{
-						r = abs(r);
-					}
-
-					else
-					{
-						r = 360.0f - abs(r);
-					}
-
-					if (r > 45 && r < 315)
-					{
-						if (map[i][j] == 6)
-						{
-							map[i][j] = 2;
-						}
-
-						if (player->HP < 5)
-						{
-							player->HP++;
-						}
-					}
-
-				}
-			}
-		}
-	}
-
 
 	mou_x = (float)Input::GetPosX();
 	mou_y = (float)Input::GetPosY();
@@ -293,8 +165,11 @@ void CObjRoad2::Action()
 			s_r = false;
 			player->s_p = true;
 			Enemy2->atk = false;
+			Audio::Start(5);
 		}
 		
+		//1段目
+
 		//1段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 118.0f && mou_y>28.0f && mou_y < 118.0f)
 		{
@@ -638,6 +513,8 @@ void CObjRoad2::Action()
 
 			}
 		}
+
+		//2段目
 
 		//2段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 120.0f && mou_y>115.0f && mou_y < 210.0f)
@@ -1093,6 +970,8 @@ void CObjRoad2::Action()
 
 
 		}
+
+		//3段目
 
 		//3段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 119.0f && mou_y>205.0f && mou_y < 296.0f)
@@ -1550,6 +1429,8 @@ void CObjRoad2::Action()
 
 		}
 
+		//4段目
+
 		//4段目の1個目(左から)
 		if (mou_x > 29.0f && mou_x < 120.0f && mou_y>293.0f && mou_y < 384.0f)
 		{
@@ -2001,6 +1882,8 @@ void CObjRoad2::Action()
 			}
 		}
 
+		//5段目
+
 		//5段目の1個目(左から)
 		if (mou_x > 28.0f && mou_x < 120.0f && mou_y>382.0f && mou_y < 471.0f)
 		{
@@ -2332,12 +2215,26 @@ void CObjRoad2::Action()
 				}
 			}
 		}
+
+		if (mou_l == true)
+		{
+			if (s_count == true)
+			{
+				Audio::Start(2);
+				s_count = false;
+			}
+		}
+		else
+		{
+			s_count = true;
+		}
+
 	}
 
 	//リセットボタンのプログラム
 	if (s_r == false&&set==true)
 	{
-		if (mou_x > 645.0f && mou_x < 764.0f && mou_y>497.0f && mou_y < 533.0f)
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
 		{
 			if (mou_l == true)
 			{
@@ -2362,6 +2259,7 @@ void CObjRoad2::Action()
 				player->p_y = player->memp_y;
 
 				player->atk = 0;
+				Audio::Start(4);
 
 			}
 		}
@@ -2370,6 +2268,8 @@ void CObjRoad2::Action()
 	if (player->battle == true)
 	{
 		Audio::Stop(0);
+
+		s_r = false;
 
 		if (mou_l == true)
 		{
@@ -2384,8 +2284,6 @@ void CObjRoad2::Action()
 		}
 
 
-
-		s_r = false;
 	}
 }
 //ドロー
@@ -2398,6 +2296,7 @@ void CObjRoad2::Draw()
 	float gl[4] = { 0.3f,0.3f,0.3f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 	float p[4] = { 1.0f,0.5f,0.5f,1.0f };
+	float br[4] = { 0.7f,0.3f,0.0f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
@@ -2420,27 +2319,7 @@ void CObjRoad2::Draw()
 
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
 
-	if (s_r == true)
-	{
-		Font::StrDraw(L"Road", 600, 30, 40, r);
-	}
-
-	if (player->battle == false)
-	{
-		if (s_r == true||set==true)
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, gl);
-		}
-
-		else
-		{
-			swprintf_s(str, L"RESET");
-			Font::StrDraw(str, 650, 500, 50, b);
-		}
-
-	}
-	else
+	if (player->battle == true)
 	{
 		if (player->HP == 5 && reset == 0)
 		{
@@ -2465,8 +2344,8 @@ void CObjRoad2::Draw()
 
 
 	src.m_top = 90.0f;
-	src.m_left = 45.0f;
-	src.m_right = 85.0f;
+	src.m_left = 142.0f;
+	src.m_right = 190.0f;
 	src.m_bottom = 125.0f;
 
 	for (int i = 0; i < PIECE; i++)
@@ -2487,5 +2366,64 @@ void CObjRoad2::Draw()
 		}
 	}
 
-	
+	//土台
+	src.m_top = 45.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 157.0f;
+
+	dst.m_top = 500.0f;
+	dst.m_left = 600.0f;
+	dst.m_right = 800.0f;
+	dst.m_bottom = 600.0f;
+
+	Draw::Draw(2, &src, &dst, c, 0.0f);
+
+	//リセットボタン
+	src.m_top = 172.0f;
+	src.m_left = 8.0f;
+	src.m_right = 201.0f;
+	src.m_bottom = 291.0f;
+
+	if (s_r == false && set == true)
+	{
+		//押された時にしずむ
+		if (mou_x > 622.0f && mou_x < 765.0f && mou_y>450.0f && mou_y < 555.0f)
+		{
+			dst.m_top = 475.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
+
+			Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+
+		//それ以外
+		else
+		{
+			dst.m_top = 450.0f;
+			dst.m_left = 622.0f;
+			dst.m_right = 765.0f;
+			dst.m_bottom = 555.0f;
+
+			Draw::Draw(2, &src, &dst, c, 0.0f);
+		}
+	}
+
+	//ピース操作時のボタン
+	else
+	{
+		src.m_top = 300.0f;
+		src.m_left = 8.0f;
+		src.m_right = 201.0f;
+		src.m_bottom = 417.0f;
+
+		dst.m_top = 450.0f;
+		dst.m_left = 622.0f;
+		dst.m_right = 765.0f;
+		dst.m_bottom = 555.0f;
+
+		Draw::Draw(2, &src, &dst, c, 0.0f);
+	}
+
 }

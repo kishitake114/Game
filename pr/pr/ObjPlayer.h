@@ -60,6 +60,8 @@ class CObjPlayer :public CObj
 		bool sw;
 		bool sei;
 
+		int w_time; //•à‚­ŽžŠÔ
+
 		char count;
 
 };

@@ -39,6 +39,8 @@ void CSceneTitle::InitScene()
 	
 
 	Audio::LoadAudio(0, L"ƒ^ƒCƒgƒ‹‰æ–Ê.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"‚±‚¤‚°‚«.wav", ::EFFECT);
+	Audio::LoadAudio(2, L"‚©‚¢‚Ó‚­.wav", ::EFFECT);
 
 	float  Voiume = Audio::VolumeMaster(-0.8f);
 

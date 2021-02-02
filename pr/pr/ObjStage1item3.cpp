@@ -3,6 +3,7 @@
 #include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
+#include"GameL/Audio.h"
 
 #define PIECE 14
 #define SIZE 40.0f
@@ -65,6 +66,8 @@ void CObjStage1item3::Action()
 						}
 
 						player->atk += 3;
+
+						Audio::Start(7);
 					}
 
 				}

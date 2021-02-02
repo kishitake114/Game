@@ -1,21 +1,20 @@
-#include "Background01.h"
-#include "ObjRoad.h"
-#include "ObjRoad2.h"
+#include "Background04.h"
+#include "ObjRoad4.h"
 #include "GameHead.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 
-void CObjBackGround01::Init()
+void CObjBackGround04::Init()
 {
 
 }
 
-void CObjBackGround01::Action()
+void CObjBackGround04::Action()
 {
 
 }
 
-void CObjBackGround01::Draw()
+void CObjBackGround04::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -32,5 +31,5 @@ void CObjBackGround01::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 
-	Draw::Draw(1, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 }

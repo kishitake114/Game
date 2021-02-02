@@ -41,6 +41,8 @@ private:
 	int s_time;
 	int second;
 
+	bool s_count;	//サウンド用カウント
+
 	bool set;
 };
 

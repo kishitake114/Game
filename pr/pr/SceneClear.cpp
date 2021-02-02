@@ -37,10 +37,9 @@ void CSceneClear::InitScene()
 	Draw::LoadImage(L"image.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"image2.png", 2, TEX_SIZE_512);
 	Draw::LoadImage(L"image3.png", 3, TEX_SIZE_512);
-
+	
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(-0.8f);
-
+	v = Audio::VolumeMaster((1.0 - v));
 	Audio::Start(0);
 
 

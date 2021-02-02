@@ -1,23 +1,22 @@
-#include "ObjStage3item3.h"
-#include "ObjRoad3.h"
+#include "ObjStage4item3.h"
+#include "ObjRoad4.h"
 #include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 #include"GameL/Audio.h"
 
+#define PIECE 26
+#define SIZE 22.0f
 
-#define PIECE 20
-#define SIZE 25.0f
-
-void CObjStage3item3::Init()
+void CObjStage4item3::Init()
 {
 
 }
 
-void CObjStage3item3::Action()
+void CObjStage4item3::Action()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
-	CObjRoad3* road = (CObjRoad3*)Objs::GetObj(OBJ_ROAD3);
+	CObjRoad4* road = (CObjRoad4*)Objs::GetObj(OBJ_ROAD4);
 	float px = player->GetX();
 	float py = player->GetY();
 
@@ -75,11 +74,9 @@ void CObjStage3item3::Action()
 			}
 		}
 	}
-
-
 }
 
-void CObjStage3item3::Draw()
+void CObjStage4item3::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -109,4 +106,3 @@ void CObjStage3item3::Draw()
 		}
 	}
 }
-

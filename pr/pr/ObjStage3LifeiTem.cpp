@@ -3,6 +3,8 @@
 #include "GameHead.h"
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
+#include"GameL/Audio.h"
+
 #define PIECE 20
 #define SIZE 25.0f
 
@@ -67,6 +69,7 @@ void CObjStage3Lifeitem::Action()
 						if (player->HP < 5)
 						{
 							player->HP++;
+							Audio::Start(8);
 						}
 					}
 

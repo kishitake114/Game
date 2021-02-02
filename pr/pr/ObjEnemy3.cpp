@@ -376,7 +376,7 @@ void CObjEnemy3::Action()
 			{
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
-
+				Audio::Start(2);
 				player->battle = true;
 			}
 			else if (HP > 0)
@@ -385,10 +385,13 @@ void CObjEnemy3::Action()
 				{
 					player->HP--;
 					atk = true;
+					Audio::Start(3);
 				}
+
+			
 			}
 
-			Audio::Start(2);
+			
 
 			for (int i = 0; i < 20; i++)
 			{
@@ -423,10 +426,10 @@ void CObjEnemy3::Draw()
 	wchar_t str[256];
 
 	swprintf_s(str, L"Enemy HP");
-	Font::StrDraw(str, 642, 250, 20, c);
+	Font::StrDraw(str, 642, 290, 20, c);
 
 	swprintf_s(str, L"%2d", HP);
-	Font::StrDraw(str, 730, 255, 30, c);
+	Font::StrDraw(str, 730, 295, 30, c);
 
 	src.m_top = 64.0f;
 	src.m_left =10.0f + cs_xe;
@@ -445,10 +448,10 @@ void CObjEnemy3::Draw()
 	src.m_right = 40.0f;
 	src.m_bottom = 84.0f;
 
-	dst.m_top = 250.0f;
+	dst.m_top = 290.0f;
 	dst.m_left = 600.0f;
 	dst.m_right = 640.0f;
-	dst.m_bottom = 290.0f;
+	dst.m_bottom = 330.0f;
 
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
