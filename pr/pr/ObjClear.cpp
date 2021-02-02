@@ -82,6 +82,8 @@ void CObjClear::Action()
 //ドロー
 void CObjClear::Draw()
 {
+	RECT_F src;
+	RECT_F dst;
 
 	//描画カラー情報 R=RED B=Biue A=alpha(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
@@ -90,6 +92,7 @@ void CObjClear::Draw()
 	float b[4] = { 0.0f,0.0f,1.0f,1.0f };
 	float y[4] = { 1.0f,1.0f,0.0f,1.0f };
 
+	wchar_t str[256];
 
 	if (ed == false)
 	{
@@ -206,11 +209,36 @@ void CObjClear::Draw()
 		}
 		if (m_time >= 1170)
 		{
-			Font::StrDraw(L"END", 325, 235, 50, c);
+			if (((UserData*)Save::GetData())->Hperfect == 4)
+			{
+				
+
+
+			}
+			
+			else
+			{
+				Font::StrDraw(L"END", 350, 235, 50, c);
+			}
 		}
 
 	}
 	
+	Font::StrDraw(L"PERFECT!!", 275, 185, 50, y);
+
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 45.0f;
+	src.m_bottom = 45.0f;
+
+	dst.m_top = 230.0f;
+	dst.m_left = 350.0f;
+	dst.m_right = 400.0f;
+	dst.m_bottom = 280.0f;
+
+	Draw::Draw(1, &src, &dst, c, 0.0f);
+
+	Font::StrDraw(L"YOU ARE SUPER PLAYER!!", 100, 285, 50, y);
 
 	if (skip == true)
 	{
@@ -218,17 +246,8 @@ void CObjClear::Draw()
 		Font::StrDraw(L"右クリックでタイトルへ戻る ", 530, 0, 18, c);
 	}
 
-	wchar_t str[256];
-
-	swprintf_s(str, L"%d", m_time);
-	Font::StrDraw(str, 0, 0, 30, c);
-
-	swprintf_s(str, L"%d", sigo);
-	Font::StrDraw(str, 0, 33, 30, c);
-
 	//表示：タイトル画面
-	RECT_F src;
-	RECT_F dst;
+
 
 	src.m_top = 128.0f;
 	src.m_left = 0.0f;
