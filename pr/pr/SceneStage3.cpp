@@ -46,7 +46,7 @@ void CSceneStage3::InitScene()
 	Audio::LoadAudio(10, L"スタート.wav", ::EFFECT);
 
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((0.3 - v));
+	v = Audio::VolumeMaster((0.5 - v));
 
 	//外部データの読み込み（ステージ情報）
 	unique_ptr<wchar_t> p; //ステージ情報ポインター

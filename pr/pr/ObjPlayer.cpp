@@ -442,9 +442,6 @@ void CObjPlayer::Draw()
 	//表示：プレイヤー
 	wchar_t str[256];
 
-	swprintf_s(str, L"%d", w_time);
-	Font::StrDraw(str, 0, 0, 30, c);
-
 	if (battle == false)
 	{
 
@@ -461,10 +458,6 @@ void CObjPlayer::Draw()
 		Font::StrDraw(str, 730, 245, 30, c);
 
 	}
-
-
-	swprintf_s(str, L"%d",((UserData*)Save::GetData())->Hperfect);
-	Font::StrDraw(str, 0, 550, 30, c);
 
 	//表示：プレイヤー
 	RECT_F src;
