@@ -18,8 +18,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjGameOver::Init()
 {
-	((UserData*)Save::GetData())->stage = 2;
-
 	hint = 0;
 	srand(time(NULL));
 	hint = rand() % 8;
@@ -86,7 +84,7 @@ void CObjGameOver::Action()
 		{
 			if (mou_l == true)
 			{
-				((UserData*)Save::GetData())->Hperfect = 0;
+				((UserData*)Save::GetData())->Hperfect = -1;
 				Scene::SetScene(new CSceneStage1());
 			}
 		}

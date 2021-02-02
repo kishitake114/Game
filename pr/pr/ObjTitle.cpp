@@ -14,6 +14,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjTitle::Init()
 {
+
 	mou_x = 0.0f;
 	mou_y = 0.0f;
 	mou_r = false;

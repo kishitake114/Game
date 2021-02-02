@@ -34,7 +34,7 @@ void CSceneGameOver::InitScene()
 	Audio::LoadAudio(0, L"GameOver.wav", BACK_MUSIC);
 
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster((0.7 - v));
 	Audio::Start(0);
 
 	CObjGameOver* CObjGO = new CObjGameOver();

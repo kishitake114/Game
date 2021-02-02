@@ -492,7 +492,7 @@ void CObjEnemy4::Action()
 				{
 					player->HP--;
 					atk = true;
-					Audio::Start(3);
+					Audio::Start(6);
 				}
 			}
 
