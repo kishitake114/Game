@@ -183,27 +183,27 @@ void CObjClear::Draw()
 
 			Font::StrDraw(L"Šâ‰i@–Ò", 200, 200, 25, c);
 
-			Font::StrDraw(L"Šâ–{@—I¶", 500, 200, 25, c);
+			Font::StrDraw(L"Šâ–{@—I¶", 450, 200, 25, c);
 
 			Font::StrDraw(L"ã“c@–ÎŽ÷", 200, 240, 25, c);
 
-			Font::StrDraw(L"‰±’J@Œõé", 500, 240, 25, c);
+			Font::StrDraw(L"‰±’J@Œõé", 450, 240, 25, c);
 
 			Font::StrDraw(L"™‰º@—Fˆê", 200, 280, 25, c);
 
-			Font::StrDraw(L"“c”¨@‘ñ‘å", 500, 280, 25, c);
+			Font::StrDraw(L"“c”¨@‘ñ‘å", 450, 280, 25, c);
 
 			Font::StrDraw(L"•x‰i@ˆ»“l", 200, 320, 25, c);
 
-			Font::StrDraw(L"’‡@ª@éD‘¿", 500, 320, 25, c);
+			Font::StrDraw(L"’‡@ª@éD‘¿", 450, 320, 25, c);
 
 			Font::StrDraw(L"‰iŒ´@éDl", 200, 360, 25, c);
 
-			Font::StrDraw(L"“¡“c@—²•½", 500, 360, 25, c);
+			Font::StrDraw(L"“¡“c@—²•½", 450, 360, 25, c);
 
 			Font::StrDraw(L"–{ŽR@—C—º", 200, 400, 25, c);
 
-			Font::StrDraw(L"ŽRŒû@^—D", 500, 400, 25, c);
+			Font::StrDraw(L"ŽRŒû@^—D", 450, 400, 25, c);
 
 			Font::StrDraw(L"ŽR“c@—Ël", 200, 440, 25, c);
 		}
@@ -211,9 +211,21 @@ void CObjClear::Draw()
 		{
 			if (((UserData*)Save::GetData())->Hperfect == 4)
 			{
-				
+				Font::StrDraw(L"PERFECT!!", 275, 185, 50, y);
 
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 45.0f;
+				src.m_bottom = 45.0f;
 
+				dst.m_top = 230.0f;
+				dst.m_left = 350.0f;
+				dst.m_right = 400.0f;
+				dst.m_bottom = 280.0f;
+
+				Draw::Draw(1, &src, &dst, c, 0.0f);
+
+				Font::StrDraw(L"YOU ARE SUPER PLAYER!!", 125, 285, 50, y);
 			}
 			
 			else
@@ -224,21 +236,7 @@ void CObjClear::Draw()
 
 	}
 	
-	Font::StrDraw(L"PERFECT!!", 275, 185, 50, y);
-
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 45.0f;
-	src.m_bottom = 45.0f;
-
-	dst.m_top = 230.0f;
-	dst.m_left = 350.0f;
-	dst.m_right = 400.0f;
-	dst.m_bottom = 280.0f;
-
-	Draw::Draw(1, &src, &dst, c, 0.0f);
-
-	Font::StrDraw(L"YOU ARE SUPER PLAYER!!", 100, 285, 50, y);
+	
 
 	if (skip == true)
 	{
