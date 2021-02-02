@@ -208,6 +208,9 @@
     <ClCompile Include="ObjStage4LifeiTem.cpp">
       <Filter>プログラム\ステージ\Stage4\アイテムデータ</Filter>
     </ClCompile>
+    <ClCompile Include="Background04.cpp">
+      <Filter>プログラム\ステージ\Stage4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -416,6 +419,9 @@
     </ClInclude>
     <ClInclude Include="ObjNoRoad0.h">
       <Filter>プログラム\ステージ\stage01\Stage 1 and Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Background04.h">
+      <Filter>プログラム\ステージ\Stage4</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
