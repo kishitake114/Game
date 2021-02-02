@@ -1,4 +1,5 @@
 #include "ObjEnemy2.h"
+#include "ObjRoad2.h"
 #include "GameL/DrawTexture.h"
 #include "GameL/DrawFont.h"
 #include "GameHead.h" 
@@ -398,7 +399,7 @@ void CObjEnemy2::Draw()
 	dst.m_right = 90.0f + atr_x;
 	dst.m_bottom = 30.0f + atr_y;
 
-	Draw::Draw(1, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 
 
 	src.m_top = 0.0f;
@@ -411,6 +412,6 @@ void CObjEnemy2::Draw()
 	dst.m_right = 640.0f;
 	dst.m_bottom = 330.0f;
 
-	Draw::Draw(1, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 
 }
