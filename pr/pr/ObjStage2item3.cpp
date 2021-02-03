@@ -6,8 +6,8 @@
 #include "GameL/DrawTexture.h"
 #include"GameL/Audio.h"
 
-#define PIECE 17
-#define SIZE 30.0f
+#define ITME23 17
+#define ITEMSIZE23 30.0f
 
 void CObjStage2item3::Init()
 {
@@ -20,24 +20,24 @@ void CObjStage2item3::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITME23; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITME23; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITME23; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITME23; j++)
 		{
 			if (map[i][j] == 5)
 			{
-				float x = j * SIZE;
-				float y = i * SIZE;
+				float x = j * ITEMSIZE23;
+				float y = i * ITEMSIZE23;
 
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				if ((px + ITEMSIZE23 > x) && (px < x + ITEMSIZE23) && (py + ITEMSIZE23 > y) && (py < y + ITEMSIZE23))
 				{
 					//ƒxƒNƒgƒ‹ì¬
 					float vx = px - x;
@@ -88,16 +88,16 @@ void CObjStage2item3::Draw()
 	src.m_right = 151.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITME23; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITME23; j++)
 		{
 			if (map[i][j] == 5)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * ITEMSIZE23;
+				dst.m_left = j * ITEMSIZE23;
+				dst.m_right = dst.m_left + ITEMSIZE23;
+				dst.m_bottom = dst.m_top + ITEMSIZE23;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 

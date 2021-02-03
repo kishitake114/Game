@@ -18,12 +18,12 @@ void CObjBackGround01::Action()
 
 void CObjBackGround01::Draw()
 {
-	float one[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float one[4] = { 0.8f,0.8f,0.8f,1.0f };
 	float two[4] = { 0.2f,0.3f,0.1f,1.0f };
 
 	RECT_F src;
 	RECT_F dst;
-	if (stage == 1)
+	if (stage >= 1)
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;

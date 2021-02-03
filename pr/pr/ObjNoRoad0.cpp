@@ -4,8 +4,8 @@
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 
-#define NUM 8
-#define SIZE 40.0f
+#define NOROAD0 8
+#define NOROADSIZE0 40.0f
 
 void CObjNoRoad0::Init()
 {
@@ -20,25 +20,25 @@ void CObjNoRoad0::Action()
 
 	CObjStage5* road = (CObjStage5*)Objs::GetObj(OBJ_ROAD5);
 
-	for (int i = 0; i < NUM; i++)
+	for (int i = 0; i < NOROAD0; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < NOROAD0; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
 	//mapにアクセス
-	for (int i = 0; i < NUM; i++)
+	for (int i = 0; i < NOROAD0; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < NOROAD0; j++)
 		{
 			if (map[i][j] < 2)
 			{
-				float x = j * SIZE;
-				float y = i * SIZE;
+				float x = j * NOROADSIZE0;
+				float y = i * NOROADSIZE0;
 
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				if ((px + NOROADSIZE0 > x) && (px < x + NOROADSIZE0) && (py + NOROADSIZE0 > y) && (py < y + NOROADSIZE0))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -62,24 +62,24 @@ void CObjNoRoad0::Action()
 					//上
 					if (r > 45 && r < 135)
 					{
-						player->SetVY(y - SIZE);
+						player->SetVY(y - NOROADSIZE0);
 					}
 
 					//左
 					else if (r > 135 && r < 225)
 					{
-						player->SetVX(x - SIZE);
+						player->SetVX(x - NOROADSIZE0);
 					}
 
 					//下
 					else if (r > 225 && r < 315)
 					{
-						player->SetVY(y + SIZE);
+						player->SetVY(y + NOROADSIZE0);
 					}
 
 					else
 					{
-						player->SetVX(x + SIZE);
+						player->SetVX(x + NOROADSIZE0);
 					}
 
 				}
@@ -101,16 +101,16 @@ void CObjNoRoad0::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < NUM; i++)
+	for (int i = 0; i < NOROAD0; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < NOROAD0; j++)
 		{
 			if (map[i][j] == 1)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * NOROADSIZE0;
+				dst.m_left = j * NOROADSIZE0;
+				dst.m_right = dst.m_left + NOROADSIZE0;
+				dst.m_bottom = dst.m_top + NOROADSIZE0;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 

@@ -6,8 +6,8 @@
 #include "GameL/DrawTexture.h"
 #include"GameL/Audio.h"
 
-#define PIECE 17
-#define SIZE 30.0f
+#define ITEM21 17
+#define ITEMSIZE21 30.0f
 
 void CObjStage2item1::Init()
 {
@@ -20,25 +20,25 @@ void CObjStage2item1::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITEM21; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITEM21; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
 	//アイテム（１）
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITEM21; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITEM21; j++)
 		{
 			if (map[i][j] == 3)
 			{
-				float x = j * SIZE;
-				float y = i * SIZE;
+				float x = j * ITEMSIZE21;
+				float y = i * ITEMSIZE21;
 
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				if ((px + ITEMSIZE21 > x) && (px < x + ITEMSIZE21) && (py + ITEMSIZE21 > y) && (py < y + ITEMSIZE21))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -89,16 +89,16 @@ void CObjStage2item1::Draw()
 	src.m_right = 51.0f;
 	src.m_bottom = 180.0f;
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITEM21; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITEM21; j++)
 		{
 			if (map[i][j] == 3)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * ITEMSIZE21;
+				dst.m_left = j * ITEMSIZE21;
+				dst.m_right = dst.m_left + ITEMSIZE21;
+				dst.m_bottom = dst.m_top + ITEMSIZE21;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 

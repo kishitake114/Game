@@ -10,8 +10,8 @@
 #include "GameL/UserData.h"
 #include"GameL/Audio.h"
 
-#define PIECE 20
-#define SIZE 25.0f
+#define ROAD3 20
+#define ROADSIZE3 25.0f
 
 //使用するネームスペース
 using namespace GameL;
@@ -34,7 +34,7 @@ void CObjRoad3::Init()
 
 	s_count = false;
 
-	int mapdata[PIECE][PIECE] =
+	int mapdata[ROAD3][ROAD3] =
 	{
 		{0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 		{0,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,1,2,1,0},
@@ -59,11 +59,11 @@ void CObjRoad3::Init()
 
 	};
 
-	memcpy(map, mapdata, sizeof(int) * (PIECE * PIECE));
+	memcpy(map, mapdata, sizeof(int) * (ROAD3 * ROAD3));
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ROAD3; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ROAD3; j++)
 		{
 			memmap[i][j] = map[i][j];
 		}
@@ -3223,9 +3223,9 @@ void CObjRoad3::Action()
 		{
 			if (mou_l == true)
 			{
-				for (int i = 0; i < PIECE; i++)
+				for (int i = 0; i < ROAD3; i++)
 				{
-					for (int j = 0; j < PIECE; j++)
+					for (int j = 0; j < ROAD3; j++)
 					{
 						map[i][j] = memmap[i][j];
 					}
@@ -3332,17 +3332,17 @@ void CObjRoad3::Draw()
 	src.m_right = 279.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ROAD3; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ROAD3; j++)
 		{
 
 			if (map[i][j] == 2)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * ROADSIZE3;
+				dst.m_left = j * ROADSIZE3;
+				dst.m_right = dst.m_left + ROADSIZE3;
+				dst.m_bottom = dst.m_top + ROADSIZE3;
 
 				Draw::Draw(0, &src, &dst, gl, 0.0f);
 			}

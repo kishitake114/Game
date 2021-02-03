@@ -45,7 +45,12 @@ class CObjPlayer :public CObj
 		bool  mou_r;  //マウスボタン：右
 		bool  mou_l;  //マウスボタン：左
 
-	
+		//実験用
+		int adp_x;
+		int adp_y;
+		bool updo;
+		bool side;
+		//--------
 
 		float p_vx;
 		float p_vy;

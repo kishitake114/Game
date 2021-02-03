@@ -4,8 +4,8 @@
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 
-#define PIECE 26
-#define SIZE 22.0f
+#define NOROAD4 26
+#define NOROADSIZE4 22.0f
 
 void CObjNoRoad4::Init()
 {
@@ -19,25 +19,25 @@ void CObjNoRoad4::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD4; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD4; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
 	//mapにアクセス
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD4; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD4; j++)
 		{
 			if (map[i][j] < 2)
 			{
-				float x = j * SIZE;
-				float y = i * SIZE;
+				float x = j * NOROADSIZE4;
+				float y = i * NOROADSIZE4;
 
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				if ((px + NOROADSIZE4 > x) && (px < x + NOROADSIZE4) && (py + NOROADSIZE4 > y) && (py < y + NOROADSIZE4))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -61,24 +61,24 @@ void CObjNoRoad4::Action()
 					//上
 					if (r > 45 && r < 135)
 					{
-						player->SetVY(y - SIZE);
+						player->SetVY(y - NOROADSIZE4);
 					}
 
 					//左
 					else if (r > 135 && r < 225)
 					{
-						player->SetVX(x - SIZE);
+						player->SetVX(x - NOROADSIZE4);
 					}
 
 					//下
 					else if (r > 225 && r < 315)
 					{
-						player->SetVY(y + SIZE);
+						player->SetVY(y + NOROADSIZE4);
 					}
 
 					else
 					{
-						player->SetVX(x + SIZE);
+						player->SetVX(x + NOROADSIZE4);
 					}
 
 				}
@@ -101,16 +101,16 @@ void CObjNoRoad4::Draw()
 	src.m_right = 329.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD4; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD4; j++)
 		{
 			if (map[i][j] == 1)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * NOROADSIZE4;
+				dst.m_left = j * NOROADSIZE4;
+				dst.m_right = dst.m_left + NOROADSIZE4;
+				dst.m_bottom = dst.m_top + NOROADSIZE4;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 

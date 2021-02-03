@@ -4,6 +4,8 @@
 //使用するネームスペース
 using namespace GameL;
 
+#define HROAD4 26
+
 //オブジェクト：背景
 class CObjRoad4 :public CObj
 {
@@ -16,8 +18,8 @@ public:
 
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
 	bool sei;
-	int map[26][26];
-	int memmap[26][26];
+	int map[HROAD4][HROAD4];
+	int memmap[HROAD4][HROAD4];
 
 private:
 	int mem[3][3];//操作ピースの保存

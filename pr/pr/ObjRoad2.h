@@ -3,6 +3,7 @@
 #include "GameL/SceneObjManager.h"
 //使用するネームスペース
 using namespace GameL;
+#define HROAD2 17
 
 //オブジェクト：背景
 class CObjRoad2 :public CObj
@@ -17,8 +18,8 @@ public:
 	bool s_r;	//ロードのプログラム中止->プレイヤーへ
 	bool sei;
 
-	int map[17][17];
-	int memmap[17][17];
+	int map[HROAD2][HROAD2];
+	int memmap[HROAD2][HROAD2];
 
 private:
 	int mem[3][3];//操作ピースの保存

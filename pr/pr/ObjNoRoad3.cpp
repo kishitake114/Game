@@ -4,8 +4,8 @@
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 
-#define PIECE 20
-#define SIZE 25.0f
+#define NOROAD3 20
+#define NOROADSIZE3 25.0f
 
 void CObjNoRoad3::Init()
 {
@@ -19,25 +19,25 @@ void CObjNoRoad3::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD3; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD3; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
 	//通行不可
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD3; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD3; j++)
 		{
 			if (map[i][j] <= 1)
 			{
-				float x = j * SIZE;
-				float y = i * SIZE;
+				float x = j * NOROADSIZE3;
+				float y = i * NOROADSIZE3;
 
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				if ((px + NOROADSIZE3 > x) && (px < x + NOROADSIZE3) && (py + NOROADSIZE3 > y) && (py < y + NOROADSIZE3))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -61,24 +61,24 @@ void CObjNoRoad3::Action()
 					//上
 					if (r > 45 && r < 135)
 					{
-						player->SetVY(y - SIZE);
+						player->SetVY(y - NOROADSIZE3);
 					}
 
 					//左
 					else if (r > 135 && r < 225)
 					{
-						player->SetVX(x - SIZE);
+						player->SetVX(x - NOROADSIZE3);
 					}
 
 					//下
 					else if (r > 225 && r < 315)
 					{
-						player->SetVY(y + SIZE);
+						player->SetVY(y + NOROADSIZE3);
 					}
 
 					else
 					{
-						player->SetVX(x + SIZE);
+						player->SetVX(x + NOROADSIZE3);
 					}
 
 				}
@@ -105,16 +105,16 @@ void CObjNoRoad3::Draw()
 	src.m_right = 224.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD3; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD3; j++)
 		{
 			if (map[i][j] == 1)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * NOROADSIZE3;
+				dst.m_left = j * NOROADSIZE3;
+				dst.m_right = dst.m_left + NOROADSIZE3;
+				dst.m_bottom = dst.m_top + NOROADSIZE3;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 

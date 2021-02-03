@@ -11,8 +11,8 @@
 #include "GameL/Audio.h"
 #include "SceneStage2.h"
 
-#define PIECE 17
-#define SIZE 30.0f
+#define NOROAD2 17
+#define NOROADSIZE2 30.0f
 
 void CObjNoRoad2::Init()
 {
@@ -23,9 +23,9 @@ void CObjNoRoad2::Action()
 {
 	CObjRoad2* road = (CObjRoad2*)Objs::GetObj(OBJ_ROAD2);
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD2; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD2; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
@@ -36,16 +36,16 @@ void CObjNoRoad2::Action()
 	float py = player->GetY();
 
 	//通行不可
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD2; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD2; j++)
 		{
 			if (map[i][j] <= 1)
 			{
-				float x = j * SIZE;
-				float y = i * SIZE;
+				float x = j * NOROADSIZE2;
+				float y = i * NOROADSIZE2;
 
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				if ((px + NOROADSIZE2 > x) && (px < x + NOROADSIZE2) && (py + NOROADSIZE2 > y) && (py < y + NOROADSIZE2))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -69,24 +69,24 @@ void CObjNoRoad2::Action()
 					//上
 					if (r > 45 && r < 135)
 					{
-						player->SetVY(y - SIZE);
+						player->SetVY(y - NOROADSIZE2);
 					}
 
 					//左
 					else if (r > 135 && r < 225)
 					{
-						player->SetVX(x - SIZE);
+						player->SetVX(x - NOROADSIZE2);
 					}
 
 					//下
 					else if (r > 225 && r < 315)
 					{
-						player->SetVY(y + SIZE);
+						player->SetVY(y + NOROADSIZE2);
 					}
 
 					else
 					{
-						player->SetVX(x + SIZE);
+						player->SetVX(x + NOROADSIZE2);
 					}
 
 				}
@@ -113,16 +113,16 @@ void CObjNoRoad2::Draw()
 	src.m_right = 142.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < NOROAD2; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < NOROAD2; j++)
 		{
 			if (map[i][j] == 1)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * NOROADSIZE2;
+				dst.m_left = j * NOROADSIZE2;
+				dst.m_right = dst.m_left + NOROADSIZE2;
+				dst.m_bottom = dst.m_top + NOROADSIZE2;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 

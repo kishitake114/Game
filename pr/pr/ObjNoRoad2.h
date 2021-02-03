@@ -3,7 +3,7 @@
 #include "GameL/SceneObjManager.h"
 //使用するネームスペース
 using namespace GameL;
-#define NO 17
+#define HNOROAD2 17
 
 class CObjNoRoad2 :public CObj
 {
@@ -14,5 +14,5 @@ public:
 	void Action();
 	void Draw();
 private:
-	int map[NO][NO];
+	int map[HNOROAD2][HNOROAD2];
 };

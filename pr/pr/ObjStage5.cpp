@@ -9,16 +9,16 @@
 #include "GameL/SceneObjManager.h"
 #include "ObjRP.h"
 #include "GameL/Audio.h"
+#include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
-
-
 
 //イニシャライズ
 void CObjStage5::Init()
 {
 	CObjPlayer* player = (CObjPlayer*)Objs::GetObj(OBJ_PLAYER);
+	((UserData*)Save::GetData())->stage = 0;
 	CObjRP* RP = (CObjRP*)Objs::GetObj(OBJ_SWITCH);
 	player->num = 0;
 	player->p_x = 0.0f;

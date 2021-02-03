@@ -24,9 +24,6 @@ using namespace GameL;
 #include "ObjStage1LifeiTem.h"
 #include "ObjRP.h"
 
-
-
-
 //コンストラクタ
 CSceneStage1::CSceneStage1()
 {

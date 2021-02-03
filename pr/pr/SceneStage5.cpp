@@ -36,8 +36,7 @@ void CSceneStage5::InitScene()
 //p = Save::ExternalDataOpen(L"k.csv", &size);//外部データ読み込み
 
 	Draw::LoadImage(L"image.png", 0, TEX_SIZE_512);
-	Draw::LoadImage(L"stage0,1背景.png", 1, TEX_SIZE_512);
-
+	Draw::LoadImage(L"stage0,1background.png", 1, TEX_SIZE_512);
 
 	Audio::LoadAudio(1, L"足音.wav", ::EFFECT);
 	Audio::LoadAudio(2, L"ロード.wav", ::EFFECT);

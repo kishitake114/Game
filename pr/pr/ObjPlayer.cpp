@@ -11,12 +11,16 @@
 
 using namespace GameL;
 
+
 //イニシャライズ
 void CObjPlayer::Init()
 {
 	atk = 0;
 
 	battle = false;
+
+	updo = false;	//上　true 下　false
+	side = false;	//左　true 右　false
 
 	memp_x = p_x;
 	memp_y = p_y;
@@ -51,6 +55,9 @@ void CObjPlayer::Init()
 //アクション
 void CObjPlayer::Action()
 {
+	adp_x = (int)p_x;
+	adp_y = (int)p_y;
+
 	CObjRoad* road = (CObjRoad*)Objs::GetObj(OBJ_ROAD1);
 	CObjRoad2* Road2 = (CObjRoad2*)Objs::GetObj(OBJ_ROAD2);
 	CObjRoad3* road3 = (CObjRoad3*)Objs::GetObj(OBJ_ROAD3);
@@ -84,41 +91,88 @@ void CObjPlayer::Action()
 			if (Input::GetVKey('W') == true || Input::GetVKey(VK_UP) == true)
 			{
 					w_time++;
-					p_y -= 5.0f;
+
 					cs_x = 95.0f;
+					if (num <= 1)
+					{
+						p_y -= 4.0f;
+					}
 
+					updo = true;
 			}
-
 
 			else if (Input::GetVKey('A') == true || Input::GetVKey(VK_LEFT) == true)
 			{
 					w_time++;
-					p_x -=5.0f;
-					cs_x = 140.0f;
 
+					cs_x = 140.0f;
+					if (num <= 1)
+					{
+						p_x -= 4.0f;
+					}
+
+					side = true;
 			}
 
-			
 			else if (Input::GetVKey('D') == true || Input::GetVKey(VK_RIGHT) == true)
 			{
 					w_time++;
-					p_x += 5.0f;
+				
 					cs_x = 50.0f;
 
-	
+						p_x += 4.0f;
+						side = false;
+					
 			}
 
 			else if (Input::GetVKey('S') == true || Input::GetVKey(VK_DOWN) == true)
 			{
 					w_time++;
-					p_y += 5.0f;
+				
 					cs_x = 0.0;
+					if (num <= 1)
+					{
+						p_y += 4.0f;
+					}
+
+					updo = false;
 			}
 			else
 			{
 				w_time = 1;
-			}
+				if (num <= 1)
+				{
 
+					if (adp_x % 10 == 6)		p_x += 4.0;
+					else if (adp_x % 10 == 2)	p_x += 8.0;
+				
+					if (adp_x % 10 == 4)		p_x -= 4.0;
+					else if (adp_x % 10 == 8)	p_x -= 8.0;
+
+					if (adp_y % 10 == 6)		p_y += 4.0;
+			
+					else if (adp_y % 10 == 2)	p_y += 8.0;
+				
+					if (adp_y % 10 == 4)		p_y -= 4.0;
+					else if (adp_y % 10 == 8)	p_y -= 8.0;
+
+			/*		if (adp_x % 40 == 0)		;
+					else
+					{
+						if (side == true)
+						{
+							p_x-=20;
+						}
+						else
+						{
+							p_x += 20;
+						}
+					}*/
+				}
+
+
+			//	if(adp_y%10==6)
+			}
 
 			
 			//チュートリアルステージの移動制御
@@ -180,6 +234,7 @@ void CObjPlayer::Action()
 					p_x = 520.0f;
 				}
 				//------------------------------------------------------------------------------
+
 			}
 
 			if (num == 2)
@@ -441,6 +496,28 @@ void CObjPlayer::Draw()
 
 	//表示：プレイヤー
 	wchar_t str[256];
+
+	swprintf_s(str, L"p_x=%f", p_x);
+	Font::StrDraw(str, 0, 0, 15, c);
+
+	swprintf_s(str, L"p_y=%f", p_y);
+	Font::StrDraw(str, 0, 20, 15, c);
+
+	swprintf_s(str, L"p_x=%d", adp_x);
+	Font::StrDraw(str, 0, 40, 15, c);
+
+	swprintf_s(str, L"p_y=%d", adp_y);
+	Font::StrDraw(str, 0, 60, 15, c);
+
+	if(updo==true)
+		Font::StrDraw(L"上", 600, 300, 25, c);
+	else
+		Font::StrDraw(L"下", 600, 300, 25, c);
+
+	if (side == true)
+		Font::StrDraw(L"左", 600, 330, 25, c);
+	else
+		Font::StrDraw(L"右", 600, 330, 25, c);
 
 	if (battle == false)
 	{

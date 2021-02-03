@@ -5,8 +5,8 @@
 #include "GameL/DrawTexture.h"
 #include"GameL/Audio.h"
 
-#define PIECE 26
-#define SIZE 22.0f
+#define ITEML4 26
+#define ITEMSIZEL4 22.0f
 
 void CObjStage4Lifeitem::Init()
 {
@@ -19,25 +19,25 @@ void CObjStage4Lifeitem::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITEML4; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITEML4; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
 	//回復アイテム
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITEML4; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITEML4; j++)
 		{
 			if (map[i][j] == 6)
 			{
-				float x = j * SIZE;
-				float y = i * SIZE;
+				float x = j * ITEMSIZEL4;
+				float y = i * ITEMSIZEL4;
 
-				if ((px + SIZE > x) && (px < x + SIZE) && (py + SIZE > y) && (py < y + SIZE))
+				if ((px + ITEMSIZEL4 > x) && (px < x + ITEMSIZEL4) && (py + ITEMSIZEL4 > y) && (py < y + ITEMSIZEL4))
 				{
 					//ベクトル作成
 					float vx = px - x;
@@ -92,16 +92,16 @@ void CObjStage4Lifeitem::Draw()
 	src.m_bottom = 180.0f;
 
 	//表示：回復アイテム
-	for (int i = 0; i < PIECE; i++)
+	for (int i = 0; i < ITEML4; i++)
 	{
-		for (int j = 0; j < PIECE; j++)
+		for (int j = 0; j < ITEML4; j++)
 		{
 			if (map[i][j] == 6)
 			{
-				dst.m_top = i * SIZE;
-				dst.m_left = j * SIZE;
-				dst.m_right = dst.m_left + SIZE;
-				dst.m_bottom = dst.m_top + SIZE;
+				dst.m_top = i * ITEMSIZEL4;
+				dst.m_left = j * ITEMSIZEL4;
+				dst.m_right = dst.m_left + ITEMSIZEL4;
+				dst.m_bottom = dst.m_top + ITEMSIZEL4;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 

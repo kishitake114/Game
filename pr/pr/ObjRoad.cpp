@@ -10,8 +10,8 @@
 #include "GameL/UserData.h"
 #include "GameL/Audio.h"
 
-#define PIECE1 14
-#define SIZE1 40.0f
+#define ROAD1 14
+#define ROADSIZE1 40.0f
 
 //イニシャライズ
 void CObjRoad::Init()
@@ -57,7 +57,7 @@ void CObjRoad::Init()
 
 	obj->s_p = false;
 
-		int mapdata[PIECE1][PIECE1] =
+		int mapdata[ROAD1][ROAD1] =
 	{
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	{0,1,2,1,1,2,1,1,1,1,1,1,1,0},
@@ -75,11 +75,11 @@ void CObjRoad::Init()
 	{0,0,2,0,0,2,0,0,2,0,0,2,0,0},
 	};
 
-	memcpy(map, mapdata, sizeof(int) * (PIECE1 * PIECE1));
+	memcpy(map, mapdata, sizeof(int) * (ROAD1 * ROAD1));
 
-	for (int i = 0; i < PIECE1; i++)
+	for (int i = 0; i < ROAD1; i++)
 	{
-		for (int j = 0; j < PIECE1; j++)
+		for (int j = 0; j < ROAD1; j++)
 		{
 			memmap[i][j] = map[i][j];
 		}
@@ -1450,6 +1450,7 @@ void CObjRoad::Action()
 
 	}
 
+	//敵を倒す→リザルト画面
 	if (player->battle == true)
 	{
 		Audio::Stop(0);
@@ -1475,9 +1476,9 @@ void CObjRoad::Action()
 		{
 			if (mou_l == true)
 			{
-				for (int i = 0; i < PIECE1; i++)
+				for (int i = 0; i < ROAD1; i++)
 				{
-					for (int j = 0; j < PIECE1; j++)
+					for (int j = 0; j < ROAD1; j++)
 					{
 						map[i][j] = memmap[i][j];
 					}
@@ -1567,17 +1568,17 @@ void CObjRoad::Draw()
 	src.m_right = 85.0f;
 	src.m_bottom = 125.0f;
 	
-	for (int i = 0; i < PIECE1; i++)
+	for (int i = 0; i < ROAD1; i++)
 	{
-		for (int j = 0; j < PIECE1; j++)
+		for (int j = 0; j < ROAD1; j++)
 		{
 
 			if (map[i][j] == 2)
 			{
-				dst.m_top = i * SIZE1;
-				dst.m_left = j * SIZE1;
-				dst.m_right = dst.m_left + SIZE1;
-				dst.m_bottom = dst.m_top + SIZE1;
+				dst.m_top = i * ROADSIZE1;
+				dst.m_left = j * ROADSIZE1;
+				dst.m_right = dst.m_left + ROADSIZE1;
+				dst.m_bottom = dst.m_top + ROADSIZE1;
 
 				Draw::Draw(0, &src, &dst, c, 0.0f);
 			}

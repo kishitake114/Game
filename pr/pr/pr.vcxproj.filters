@@ -369,9 +369,6 @@
     <ClInclude Include="ObjEnemy3.h">
       <Filter>プログラム\ステージ\Stage3\敵データ</Filter>
     </ClInclude>
-    <ClInclude Include="ObjNoRoad0.h">
-      <Filter>プログラム\ステージ\stage01\Stage 1 and Main</Filter>
-    </ClInclude>
     <ClInclude Include="Background04.h">
       <Filter>プログラム\ステージ\Stage4</Filter>
     </ClInclude>
@@ -380,6 +377,9 @@
     </ClInclude>
     <ClInclude Include="ObjStage3LifeiTem.h">
       <Filter>プログラム\ステージ\Stage3\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjNoRoad0.h">
+      <Filter>プログラム\ステージ\stage01\Stage5</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
