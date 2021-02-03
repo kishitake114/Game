@@ -32,22 +32,11 @@ enum OBJ_NAME
 	OBJ_ENEMY3,
 	OBJ_ENEMY4,
 
-	OBJ_HARD_ENEMY,
-	OBJ_HARD_ENEMY2,
-	OBJ_HARD_ENEMY3,
-	OBJ_HARD_ENEMY4,
-
 	OBJ_STAR,
 
 	OBJ_BACKGROUND01,
 	OBJ_BACKGROUND03,
 	OBJ_BACKGROUND04,
-
-	OBJ_HARD_STAGE1,
-	OBJ_HARD_STAGE2,
-	OBJ_HARD_STAGE3,
-	OBJ_HARD_STAGE4,
-	OBJ_HARD_STAGE5,
 
 	OBJ_NO_ROAD0,
 	OBJ_NO_ROAD1,
@@ -82,7 +71,6 @@ struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
 	int Hperfect;
-	int EXperfect;
 	int stage;
 	
 };
@@ -129,7 +117,6 @@ struct UserData
 #include "ObjGameOver.h"
 #include "ObjClear.h"
 #include "ObjRule.h"
-#include "ObjRule2.h"
 #include "ObjStage3LifeiTem.h"
 #include "ObjStage3item1.h"
 #include "ObjStage3item2.h"
@@ -144,10 +131,6 @@ struct UserData
 #include "ObjStage5.h"
 
 #include "ObjTime.h"
-#include "ObjHardEnemy.h"
-#include "ObjHardEnemy2.h"
-#include "hardstage1.h"
-#include "hardstage2.h"
 
 #include "Objstar.h"
 
@@ -159,17 +142,14 @@ struct UserData
 #include "SceneGameOver.h"
 #include "SceneClear.h"
 #include "SceneRule.h"
-#include "SceneRule2.h"
 #include "SceneStage2.h"
 #include "SceneStage3.h"
 #include "SceneStage4.h"
 #include "SceneStage5.h"
-#include "scenehardstage1.h"
-#include "sceneHardstage2.h"
 
 //-----------------------------------------------
 //シーンスタートクラス---------------------------
 
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START   CSceneStage3
+#define SET_GAME_START   CSceneTitle
 //-----------------------------------------------

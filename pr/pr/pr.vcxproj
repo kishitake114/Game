@@ -35,16 +35,12 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
-    <ClCompile Include="hardstage1.cpp" />
-    <ClCompile Include="hardstage2.cpp" />
     <ClCompile Include="ObjClear.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjEnemy2.cpp" />
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
-    <ClCompile Include="ObjHardEnemy.cpp" />
-    <ClCompile Include="ObjHardEnemy2.cpp" />
     <ClCompile Include="ObjNoRoad1.cpp" />
     <ClCompile Include="ObjNoRoad2.cpp" />
     <ClCompile Include="ObjNoRoad3.cpp" />
@@ -53,7 +49,6 @@
     <ClCompile Include="ObjRoad.cpp" />
     <ClCompile Include="ObjRP.cpp" />
     <ClCompile Include="ObjRule.cpp" />
-    <ClCompile Include="ObjRule2.cpp" />
     <ClCompile Include="ObjRoad2.cpp" />
     <ClCompile Include="ObjStage1item1.cpp" />
     <ClCompile Include="ObjStage1item2.cpp" />
@@ -80,11 +75,8 @@
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneClear.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
-    <ClCompile Include="scenehardstage1.cpp" />
-    <ClCompile Include="sceneHardstage2.cpp" />
     <ClCompile Include="SceneStage1.cpp" />
     <ClCompile Include="SceneRule.cpp" />
-    <ClCompile Include="SceneRule2.cpp" />
     <ClCompile Include="SceneStage2.cpp" />
     <ClCompile Include="SceneStage3.cpp" />
     <ClCompile Include="SceneStage4.cpp" />
@@ -107,8 +99,6 @@
     <ClInclude Include="GameL\SetWindow.h" />
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
-    <ClInclude Include="hardstage1.h" />
-    <ClInclude Include="hardstage2.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjClear.h" />
     <ClInclude Include="ObjEnemy.h" />
@@ -116,8 +106,6 @@
     <ClInclude Include="ObjEnemy3.h" />
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjGameOver.h" />
-    <ClInclude Include="ObjHardEnemy.h" />
-    <ClInclude Include="ObjHardEnemy2.h" />
     <ClInclude Include="ObjNoRoad2.h" />
     <ClInclude Include="ObjNoRoad1.h" />
     <ClInclude Include="ObjNoRoad3.h" />
@@ -126,7 +114,6 @@
     <ClInclude Include="ObjRoad.h" />
     <ClInclude Include="ObjRP.h" />
     <ClInclude Include="ObjRule.h" />
-    <ClInclude Include="ObjRule2.h" />
     <ClInclude Include="ObjRoad2.h" />
     <ClInclude Include="ObjStage1item1.h" />
     <ClInclude Include="ObjStage1item2.h" />
@@ -153,11 +140,8 @@
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneGameOver.h" />
-    <ClInclude Include="scenehardstage1.h" />
-    <ClInclude Include="sceneHardstage2.h" />
     <ClInclude Include="SceneStage1.h" />
     <ClInclude Include="SceneRule.h" />
-    <ClInclude Include="SceneRule2.h" />
     <ClInclude Include="SceneStage2.h" />
     <ClInclude Include="SceneStage3.h" />
     <ClInclude Include="SceneStage4.h" />
@@ -278,7 +262,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>

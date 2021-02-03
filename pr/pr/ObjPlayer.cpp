@@ -274,7 +274,7 @@ void CObjPlayer::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(p_x, p_y);
 
-	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr|| hit->CheckObjNameHit(OBJ_HARD_ENEMY) != nullptr)
+	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
 
 		memp_x = p_x;
@@ -309,7 +309,7 @@ void CObjPlayer::Action()
 		}
 	}
 
-	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr|| hit->CheckObjNameHit(OBJ_HARD_ENEMY2) != nullptr)
+	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
 
 		memp_x = p_x;

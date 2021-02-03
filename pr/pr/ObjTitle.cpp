@@ -38,7 +38,6 @@ void CObjTitle::Init()
 	if (init_point == false)
 	{
 		((UserData*)Save::GetData())->Hperfect = 0;
-		((UserData*)Save::GetData())->EXperfect = 0;
 		init_point = true;
 	}
 

@@ -4,7 +4,7 @@
 #include "ObjPlayer.h"
 #include "GameL/DrawTexture.h"
 
-#define NUM 14
+#define NUM1 14
 #define SIZE 40.0f
 
 void CObjNoRoad1::Init()
@@ -19,18 +19,18 @@ void CObjNoRoad1::Action()
 	float px = player->GetX();
 	float py = player->GetY();
 
-	for (int i = 0; i < NUM; i++)
+	for (int i = 0; i < NUM1; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < NUM1; j++)
 		{
 			map[i][j] = road->map[i][j];
 		}
 	}
 
 	//mapにアクセス
-	for (int i = 0; i < NUM; i++)
+	for (int i = 0; i < NUM1; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < NUM1; j++)
 		{
 			if (map[i][j] < 2)
 			{
@@ -100,9 +100,9 @@ void CObjNoRoad1::Draw()
 	src.m_right = 45.0f;
 	src.m_bottom = 125.0f;
 
-	for (int i = 0; i < NUM; i++)
+	for (int i = 0; i < NUM1; i++)
 	{
-		for (int j = 0; j < NUM; j++)
+		for (int j = 0; j < NUM1; j++)
 		{
 			if (map[i][j] == 1)
 			{
