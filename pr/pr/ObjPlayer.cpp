@@ -119,6 +119,11 @@ void CObjPlayer::Action()
 						p_y -= 3.0f;
 					}
 
+					else if (num == 3)
+					{
+						p_y -= 2.5f;
+					}
+
 					updo = true;
 
 
@@ -143,6 +148,11 @@ void CObjPlayer::Action()
 					else if (num == 2)
 					{
 						p_x -= 3.0f;
+					}
+
+					else if (num == 3)
+					{
+						p_x -= 2.5f;
 					}
 
 					side = true;
@@ -212,6 +222,11 @@ void CObjPlayer::Action()
 						p_y += 3.0f;
 					}
 
+					else if (num == 3)
+					{
+						p_y += 2.5f;
+					}
+
 					updo = false;
 			}
 			else
@@ -230,7 +245,7 @@ void CObjPlayer::Action()
 					if (adp_y % 10 == 2)		p_y += 8.0;
 
 					if (adp_y % 10 == 4)		p_y -= 4.0;
-					if (adp_y % 10 == 8)	p_y -= 8.0;
+					if (adp_y % 10 == 8)		p_y -= 8.0;
 				}
 
 				if (num == 2)
@@ -255,6 +270,42 @@ void CObjPlayer::Action()
 					if (adp_y % 10 == 1)		p_y += 9.0;
 					if (adp_y % 10 == 4)		p_y += 6.0;
 					if (adp_y % 10 == 7)		p_y += 3.0;
+				}
+
+				if (num == 3)
+				{
+					if (adp_x % 20 == 0)
+					{
+						if (adp_x % 10 == 2)		p_x -= 2.5;
+						if (adp_x % 10 == 5)		p_x -= 5.0;
+						if (adp_x % 10 == 7)		p_x -= 7.5;
+						if (adp_x % 10 == 0)		p_x -= 10.0;
+					}
+
+					else
+					{
+					/*	if (adp_x % 10 == 2)		p_x += 2.5;
+						if (adp_x % 10 == 5)		p_x += 5.0;
+						if (adp_x % 10 == 7)		p_x += 7.5;
+						if (adp_x % 10 == 0)		p_x += 10.0;*/
+					}
+
+				
+
+					/*if (adp_x % 10 == 8)		p_x += 12.0;
+					if (adp_x % 10 == 1)		p_x += 9.0;
+					if (adp_x % 10 == 4)		p_x += 6.0;
+					if (adp_x % 10 == 7)		p_x += 3.0;
+
+					if (adp_y % 10 == 3)		p_y -= 3.0;
+					if (adp_y % 10 == 6)		p_y -= 6.0;
+					if (adp_y % 10 == 9)		p_y -= 9.0;
+					if (adp_y % 10 == 2)		p_y -= 12.0;
+
+					if (adp_y % 10 == 8)		p_y += 12.0;
+					if (adp_y % 10 == 1)		p_y += 9.0;
+					if (adp_y % 10 == 4)		p_y += 6.0;
+					if (adp_y % 10 == 7)		p_y += 3.0;*/
 				}
 
 
