@@ -274,7 +274,7 @@ void CObjPlayer::Action()
 
 				if (num == 3)
 				{
-					if (adp_x % 20 == 0)
+					if (adp_x % 10 != 0)
 					{
 						if (adp_x % 10 == 2)		p_x -= 2.5;
 						if (adp_x % 10 == 5)		p_x -= 5.0;
@@ -284,10 +284,10 @@ void CObjPlayer::Action()
 
 					else
 					{
-					/*	if (adp_x % 10 == 2)		p_x += 2.5;
+						if (adp_x % 10 == 2)		p_x += 2.5;
 						if (adp_x % 10 == 5)		p_x += 5.0;
 						if (adp_x % 10 == 7)		p_x += 7.5;
-						if (adp_x % 10 == 0)		p_x += 10.0;*/
+						if (adp_x % 10 == 0)		p_x += 10.0;
 					}
 
 				
@@ -648,16 +648,6 @@ void CObjPlayer::Draw()
 
 	swprintf_s(str, L"p_y=%d", adp_y);
 	Font::StrDraw(str, 0, 60, 15, c);
-
-	if(updo==true)
-		Font::StrDraw(L"上", 600, 300, 25, c);
-	else
-		Font::StrDraw(L"下", 600, 300, 25, c);
-
-	if (side == true)
-		Font::StrDraw(L"左", 600, 330, 25, c);
-	else
-		Font::StrDraw(L"右", 600, 330, 25, c);
 
 	if (battle == false)
 	{
