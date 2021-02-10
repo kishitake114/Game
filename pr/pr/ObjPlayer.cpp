@@ -637,17 +637,17 @@ void CObjPlayer::Draw()
 	//表示：プレイヤー
 	wchar_t str[256];
 
-	swprintf_s(str, L"p_x=%f", p_x);
-	Font::StrDraw(str, 0, 0, 15, c);
+	//swprintf_s(str, L"p_x=%f", p_x);
+	//Font::StrDraw(str, 0, 0, 15, c);
 
-	swprintf_s(str, L"p_y=%f", p_y);
-	Font::StrDraw(str, 0, 20, 15, c);
+	//swprintf_s(str, L"p_y=%f", p_y);
+	//Font::StrDraw(str, 0, 20, 15, c);
 
-	swprintf_s(str, L"p_x=%d", adp_x);
-	Font::StrDraw(str, 0, 40, 15, c);
+	//swprintf_s(str, L"p_x=%d", adp_x);
+	//Font::StrDraw(str, 0, 40, 15, c);
 
-	swprintf_s(str, L"p_y=%d", adp_y);
-	Font::StrDraw(str, 0, 60, 15, c);
+	//swprintf_s(str, L"p_y=%d", adp_y);
+	//Font::StrDraw(str, 0, 60, 15, c);
 
 	if (battle == false)
 	{
