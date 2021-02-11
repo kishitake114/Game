@@ -124,6 +124,11 @@ void CObjPlayer::Action()
 						p_y -= 2.5f;
 					}
 
+					else if (num == 4)
+					{
+						p_y -= 2.2f;
+					}
+
 					updo = true;
 
 
@@ -155,6 +160,12 @@ void CObjPlayer::Action()
 						p_x -= 2.5f;
 					}
 
+
+					else if (num == 4)
+					{
+						p_x -= 2.2f;
+					}
+
 					side = true;
 			}
 
@@ -184,6 +195,11 @@ void CObjPlayer::Action()
 					{
 						p_x += 2.5f;
 					}
+					else if (num == 4)
+					{
+						p_x += 2.2f;
+					}
+
 
 				
 
@@ -225,6 +241,11 @@ void CObjPlayer::Action()
 					else if (num == 3)
 					{
 						p_y += 2.5f;
+					}
+
+					else if (num == 4)
+					{
+						p_y += 2.2f;
 					}
 
 					updo = false;
@@ -272,46 +293,21 @@ void CObjPlayer::Action()
 					if (adp_y % 10 == 7)		p_y += 3.0;
 				}
 
-				if (num == 3)
-				{
-					if (adp_x % 10 != 0)
-					{
-						if (adp_x % 10 == 2)		p_x -= 2.5;
-						if (adp_x % 10 == 5)		p_x -= 5.0;
-						if (adp_x % 10 == 7)		p_x -= 7.5;
-						if (adp_x % 10 == 0)		p_x -= 10.0;
-					}
-
-					else
-					{
-						if (adp_x % 10 == 2)		p_x += 2.5;
-						if (adp_x % 10 == 5)		p_x += 5.0;
-						if (adp_x % 10 == 7)		p_x += 7.5;
-						if (adp_x % 10 == 0)		p_x += 10.0;
-					}
-
-				
-
-					/*if (adp_x % 10 == 8)		p_x += 12.0;
-					if (adp_x % 10 == 1)		p_x += 9.0;
-					if (adp_x % 10 == 4)		p_x += 6.0;
-					if (adp_x % 10 == 7)		p_x += 3.0;
-
-					if (adp_y % 10 == 3)		p_y -= 3.0;
-					if (adp_y % 10 == 6)		p_y -= 6.0;
-					if (adp_y % 10 == 9)		p_y -= 9.0;
-					if (adp_y % 10 == 2)		p_y -= 12.0;
-
-					if (adp_y % 10 == 8)		p_y += 12.0;
-					if (adp_y % 10 == 1)		p_y += 9.0;
-					if (adp_y % 10 == 4)		p_y += 6.0;
-					if (adp_y % 10 == 7)		p_y += 3.0;*/
-				}
+				//if (num == 3)
+				//{
+				//	if (adp_x>10)
+				//	{
+				//		if (adp_x % 10 == 2)	p_x -= 2.5f;
+				//		if (adp_x % 10 == 5)	p_x -= 5.0f;
+				//		if (adp_x % 10== 7)		p_x -= 7.5f;
 
 
 
 
-			//	if(adp_y%10==6)
+				//	}
+
+
+
 			}
 
 			
@@ -636,18 +632,6 @@ void CObjPlayer::Draw()
 
 	//表示：プレイヤー
 	wchar_t str[256];
-
-	//swprintf_s(str, L"p_x=%f", p_x);
-	//Font::StrDraw(str, 0, 0, 15, c);
-
-	//swprintf_s(str, L"p_y=%f", p_y);
-	//Font::StrDraw(str, 0, 20, 15, c);
-
-	//swprintf_s(str, L"p_x=%d", adp_x);
-	//Font::StrDraw(str, 0, 40, 15, c);
-
-	//swprintf_s(str, L"p_y=%d", adp_y);
-	//Font::StrDraw(str, 0, 60, 15, c);
 
 	if (battle == false)
 	{

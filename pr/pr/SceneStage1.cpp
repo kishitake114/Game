@@ -51,7 +51,7 @@ void CSceneStage1::InitScene()
 	Audio::LoadAudio(10, L"スタート.wav", ::EFFECT);
 
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster((0.5 - v));
 	
 	//Font作成
 	Font::SetStrTex(L"0123456789分秒");
